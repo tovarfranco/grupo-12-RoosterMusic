@@ -15,6 +15,10 @@ Alan
 
 Nazareno
 
+## Jira Board
+
+https://rooster-music.atlassian.net/jira/software/projects/RM/boards/1/backlog
+
 # Rooster Music Library
 
 This library contains all the common code used by the Rooster Music team.
