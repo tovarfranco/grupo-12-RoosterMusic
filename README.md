@@ -9,14 +9,11 @@ Our objetive is to provide our clients with the best way of
 
 ## The team
 
-I am Franco, currently studying Electronic Engineering and working for Hexacta Software Company with Morgan Stanley as a Data Engineer. 
+Franco
 
+Alan
 
-I am Alan
-
-
-I am Nazareno
-
+Nazareno
 
 # Rooster Music Library
 
