@@ -29,8 +29,9 @@ You should branch from **dev**, and your branch name should follow this rule **<
 
 1. Clone the Repository
    ```bash
-   git clone <url>
+   git clone https://github.com/tovarfranco/grupo-12-RoosterMusic.git
    ```
+   > Note: You can obtain the url from Code.
 2. Check the branch you are positioned:
    ```bash
    git status
@@ -41,7 +42,6 @@ You should branch from **dev**, and your branch name should follow this rule **<
    git checkout dev
    ```
    > Note: You will be placed in branch Dev, where you'll start from.
-
 4. For a new feature/bug/fix/refactor, you'll create a branch:
    ```bash
    git checkout -b <type>/<branch_name>
