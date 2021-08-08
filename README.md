@@ -1,5 +1,7 @@
 # Rooster Music 
 
+![] (images/Logo.JPG)
+
 ## About us
 
 We are a digital company set in United States focused on improving the experience when looking for new music equipments. 
