@@ -64,3 +64,13 @@ You should branch from **dev**, and your branch name should follow this rule **<
 
 9. After you finish your feature you must submit a merge request pointing to **dev** branch:
    > Note: You will specify the reviewers that will approve this merge.
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+
+[<img align="left" alt="medium" src="https://img.shields.io/badge/medium-%2312100E.svg?&style=for-the-badge&logo=medium&logoColor=white" />][blog]
+blog is website definition in read file, just a place holder for all the urls that I have used.
+[blog]: https://eresh-zealous.medium.com/
