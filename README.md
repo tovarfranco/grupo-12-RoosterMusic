@@ -21,12 +21,32 @@ You should branch from **dev**, and your branch name should follow this rule **<
 
 
 
-1. Create a gitlab [personal token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) with the `read_api` scope.
-2. Execute:
+1. Clone the Repository
+2. Go to dev:
    ```bash
-   git checkout -b feat/branch
+   git checkout dev
    ```
-   > Note: Replace <personal_access_token_name> and <personal_access_token> for your actual information
+   > Note: You will placed in branch dev, where you will start from.
 
+2. For a new feature create a branch:
+   ```bash
+   git checkout -b <type>/<branch_name>
+   ```
+   > Note: Replace <type> and <branch_name> for your actual information
 
+3. Work on your changes:
+4. Add your changes:
+   ```bash
+   git add -all
+   ```
+5. Commit your changes:
+   ```bash
+   git commit -m <message>
+   ```
+   > Note: Replace <message> for your actual information
+6. Push your changes:
+   ```bash
+   git push
+   ```
+   
 After you finish your feature you must submit a merge request pointing to **dev** branch
