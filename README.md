@@ -1,6 +1,6 @@
 # Rooster Music 
 
-<img src="images/Logo.JPG" width="400">
+<img src="images/Logo.JPG" width="400" text-align ="center">
 
 ## About us
 
