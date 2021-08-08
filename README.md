@@ -5,6 +5,19 @@
 We are a digital company set in United States focused on improving the experience when looking for new music equipments. 
 Our objetive is to provide our clients with the best way of 
 
+## The team
+
+I am Franco, currently studying Electronic Engineering and working for Hexacta Software Company with Morgan Stanley as a Data ENgineer. 
+
+[<img align="left" alt="medium" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />][linkedin]
+[LinkedIn]: https://www.linkedin.com/in/tovar-franco
+
+I am Alan
+
+
+I am Nazareno
+
+
 # Rooster Music Library
 
 This library contains all the common code used by the Rooster Music team.
@@ -68,9 +81,3 @@ You should branch from **dev**, and your branch name should follow this rule **<
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
-
-[<img align="left" alt="medium" src="https://img.shields.io/badge/medium-%2312100E.svg?&style=for-the-badge&logo=medium&logoColor=white" />][blog]
-blog is website definition in read file, just a place holder for all the urls that I have used.
-[blog]: https://eresh-zealous.medium.com/
