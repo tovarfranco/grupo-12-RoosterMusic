@@ -1,6 +1,6 @@
 # Rooster Music 
 
-![](images/Logo.JPG)
+![](images/Logo.JPG 100x20)
 
 ## About us
 
