@@ -42,28 +42,26 @@ You should branch from **dev**, and your branch name should follow this rule **<
    ```
    > Note: You will be placed in branch Dev, where you'll start from.
 
-2. For a new feature/bug/fix/refactor, you'll create a branch:
+4. For a new feature/bug/fix/refactor, you'll create a branch:
    ```bash
    git checkout -b <type>/<branch_name>
    ```
    > Note: Replace <type> and <branch_name> for your actual information. i.e: feat/frontend
-3. Work on your changes.
-4. Add your changes:
+5. Work on your changes.
+6. Add your changes:
    ```bash
    git add --all
    ```
-5. Commit your changes:
+7. Commit your changes:
    ```bash
    git commit -m <type:message>
    ```
    > Note: Replace <type:message> to describe your changes. i.e: feat: New readme added.
-6. Push your changes:
+8. Push your changes:
    ```bash
    git push
    ```
    > Note: You will may be required to set upstream. i.e: git push --set-upstream origin feat/fronted
 
-7. After you finish your feature you must submit a merge request pointing to **dev** branch:
+9. After you finish your feature you must submit a merge request pointing to **dev** branch:
    > Note: You will specify the reviewers that will approve this merge.
-
-
