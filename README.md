@@ -1,5 +1,7 @@
 # Rooster Music 
 
+<img src="images/Logo.JPG" width="100">
+
 ![](images/Logo.JPG 100x20)
 
 ## About us
