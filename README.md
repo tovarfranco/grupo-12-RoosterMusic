@@ -28,6 +28,9 @@ Your commits should follow [Conventional Commits](https://www.conventionalcommit
 You should branch from **dev**, and your branch name should follow this rule **< type >/< task_description >** i.e. **feat/frontend**
 
 1. Clone the Repository
+   ```bash
+   git clone <url>
+   ```
 2. Check the branch you are positioned:
    ```bash
    git status
@@ -37,7 +40,7 @@ You should branch from **dev**, and your branch name should follow this rule **<
    ```bash
    git checkout dev
    ```
-   > Note: You will placed in branch dev, where you'll start from.
+   > Note: You will be placed in branch Dev, where you'll start from.
 
 2. For a new feature/bug/fix/refactor, you'll create a branch:
    ```bash
@@ -58,6 +61,9 @@ You should branch from **dev**, and your branch name should follow this rule **<
    ```bash
    git push
    ```
-   > Note: Replace <type:message> to describe your changes. i.e: feat: New readme added.
+   > Note: You will may be required to set upstream. i.e: git push --set-upstream origin feat/fronted
 
-After you finish your feature you must submit a merge request pointing to **dev** branch
+7. After you finish your feature you must submit a merge request pointing to **dev** branch:
+   > Note: You will specify the reviewers that will approve this merge.
+
+
