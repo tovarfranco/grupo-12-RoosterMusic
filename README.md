@@ -1,2 +1,1 @@
-# Grupo12
-DigitalHouse - Fullstack
+## To be develop
