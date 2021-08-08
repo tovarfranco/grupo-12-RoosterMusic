@@ -7,10 +7,8 @@ Our objetive is to provide our clients with the best way of
 
 ## The team
 
-I am Franco, currently studying Electronic Engineering and working for Hexacta Software Company with Morgan Stanley as a Data ENgineer. 
+I am Franco, currently studying Electronic Engineering and working for Hexacta Software Company with Morgan Stanley as a Data Engineer. 
 
-[<img align="left" alt="medium" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />][linkedin]
-[LinkedIn]: https://www.linkedin.com/in/tovar-franco
 
 I am Alan
 
