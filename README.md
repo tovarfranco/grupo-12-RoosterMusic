@@ -1,6 +1,6 @@
 # Rooster Music 
 
-**About us**
+## About us
 
 We are a digital company set in United States focused on improving the experience when looking for new music equipments. 
 Our objetive is to provide our clients with the best way of 
