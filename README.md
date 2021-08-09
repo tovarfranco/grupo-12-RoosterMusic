@@ -14,6 +14,9 @@ We hope you enjoy this experience.
 
 ## The team
 
+
+<p> Hola que tal </p>
+
 My name is Alan Tovar and I am 28 years old. I live in Quilmes, Buenos Aires, Argentina.  I have more than 4 years in IT industry and nowdays I work as a back-end developer in Hexacta software factory. I study Electronic Engineer. I have played the drums for about 10 years and also passionate for the bass. 
 
 <img src="images/Alan.jpeg" width="100">
