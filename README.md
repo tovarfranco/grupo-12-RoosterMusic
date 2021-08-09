@@ -16,17 +16,16 @@ We hope you enjoy this experience.
 
 
 <p> <img src="images/Alan.jpeg" width="100" align = "left"> </p>
- <p>My name is Alan Tovar and I am 28 years old. I live in Quilmes, Buenos Aires, Argentina.  I have more than 4 years in IT industry and nowdays I work as a back-end developer in Hexacta software factory. I study Electronic Engineer. I have played the drums for about 10 years and also passionate for the bass.</p> 
+<p>My name is Alan Tovar and I am 28 years old. I live in Quilmes, Buenos Aires, Argentina.  I have more than 4 years in IT industry and nowdays I work as a back-end developer in Hexacta software factory. I study Electronic Engineer. I have played the drums for about 10 years and also passionate for the bass.</p> 
 <br>
 
 <p> <img src="images/Franco.jpeg" width="100" align = "left"> </p>
- <p>I am Franco Tovar and I am 25 years old. I am from Entre Rios, Argentina but nowdays I live in Quilmes, Buenos Aires, Argentina. I work as a Data Engineer in Hexacta Software Factory and study Electronic Engineer. I love playing the guitar, the piano and also singing. </p> 
+<p>I am Franco Tovar and I am 25 years old. I am from Entre Rios, Argentina but nowdays I live in Quilmes, Buenos Aires, Argentina. I work as a Data Engineer in Hexacta Software Factory and study Electronic Engineer. I love playing the guitar, the piano and also singing. </p> 
 <br>
 
+<p> <img src="images/Nazareno.jpeg" width="100" align = "left"> </p>
+<p>I am Cristan Nazareno Agüero and I am 18 years old. I am studying Full Stack Development. I love programming, playing football and video games. I live in Mar del Plata, Buenos Aires, Argentina. </p> 
 
-I am Cristan Nazareno Agüero and I am 18 years old. I am studying Full Stack Development. I love programming, playing football and video games. I live in Mar del Plata, Buenos Aires, Argentina. 
-
-<img src="images/Nazareno.jpeg" width="100">
 
 ## References
 
