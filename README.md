@@ -1,6 +1,6 @@
 # Rooster Music 
 
-<p> <img src="images/Logo.jpeg" width="100" align = "center"> </p>
+<p> <img src="images/Logo.JPG" width="100" align = "center"> </p>
 
 <img src="images/Logo.JPG" width="400" align = "middle">
 
