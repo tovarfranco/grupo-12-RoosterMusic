@@ -1,6 +1,6 @@
 # Rooster Music 
 
-<img src="images/Logo.JPG" width="400">
+<img src="images/Logo.JPG" width="100">
 
 ## About us
 
@@ -14,16 +14,16 @@ Our objetive is to provide our clients with the best way of
 
 My name is Alan Tovar and I am 28 years old. I live in Quilmes, Buenos Aires, Argentina.  I have more than 4 years in IT industry and nowdays I work as a back-end developer in Hexacta software factory. I study Electronic Engineer. I have played the drums for about 10 years and also passionate for the bass. 
 
-<img src="images/Alan.jpeg" width="400">
+<img src="images/Alan.jpeg" width="100">
 
 
 I am Franco Tovar and I am 25 years old. I am from Entre Rios, Argentina but nowdays I live in Quilmes, Buenos Aires, Argentina. I work as a Data Engineer in Hexacta Software Factory and study Electronic Engineer. I love playing the guitar, the piano and also singing. 
 
-<img src="images/Franco.jpeg" width="400">
+<img src="images/Franco.jpeg" width="100">
 
 I am Cristan Nazareno Agüero and I am 18 years old. I am studying Full Stack Development. I love programming, playing football and video games. I live in Mar del Plata, Buenos Aires, Argentina. 
 
-<img src="images/Nazareno.jpeg" width="400">
+<img src="images/Nazareno.jpeg" width="100">
 
 ## References
 
