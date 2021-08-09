@@ -18,7 +18,6 @@ My name is Alan Tovar and I am 28 years old. I live in Quilmes, Buenos Aires, Ar
 
 <img src="images/Alan.jpeg" width="100">
 
-
 I am Franco Tovar and I am 25 years old. I am from Entre Rios, Argentina but nowdays I live in Quilmes, Buenos Aires, Argentina. I work as a Data Engineer in Hexacta Software Factory and study Electronic Engineer. I love playing the guitar, the piano and also singing. 
 
 <img src="images/Franco.jpeg" width="100">
@@ -35,7 +34,7 @@ I am Cristan Nazareno Agüero and I am 18 years old. I am studying Full Stack De
 - https://www.blackmusic.com.ar/
 - https://www.mercadolibre.com.ar/
 
-We choose Greay Music and Baires Rocks because of their formats and styles. We consider they are not good enough and we will improve them.
+We choose Gray Music and Baires Rocks because of their formats and styles. We consider they are not good enough and we will improve them.
 We select Black Music and Mercado Libre because of their paid methods and user experience when looking for differents products. We believe we can adapt our page to be similiar to them.
 
 ## Jira Board
