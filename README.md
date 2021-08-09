@@ -4,10 +4,12 @@
 
 ## About us
 
-We are a digital company from Argentina set in US focused on improving the experience when looking for new music equipments. 
-Our objetive is to provide our clients with the best way of 
-
-
+We are a digital company from Argentina hosted in US and focused on changing the experience when looking for new music equipments. 
+Our objetive is to provide our clients with the best musical products and the most comfortable and trusted paid methods of the industry
+You are able to surf inside our free application and find the equipment you were looking for. We have amount of variety in terms of quality and price. 
+Every week, we have lot of promotions and recommended articles.
+Once you are in, you will never look back.
+We hope you enjoy this experience. 
 
 
 ## The team
@@ -33,6 +35,8 @@ I am Cristan Nazareno Agüero and I am 18 years old. I am studying Full Stack De
 - https://www.blackmusic.com.ar/
 - https://www.mercadolibre.com.ar/
 
+We choose Greay Music and Baires Rocks because of their formats and styles. We consider they are not good enough and we will improve them.
+We select Black Music and Mercado Libre because of their paid methods and user experience when looking for differents products. We believe we can adapt our page to be similiar to them.
 
 ## Jira Board
 
@@ -101,19 +105,3 @@ You should branch from **dev**, and your branch name should follow this rule **<
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
-
-
-
-
-
-
-
-Nuestro sitio web brinda productos musicales,teniendo varios metodos de pago y sabiendo que pueden confiar en nosotros.Las personas pueden adquerir el producto que le guste, hay varias opciones de cada instrumento, variedad de precios,marcas y calidad en el producto, cualquier persona puede accerder al sitio gratuitamente y ver los istrumentos que tenemos. Siempre hay ofertas y articulos destacables para la audiencia que le gusta la musica.
-
-
-
-
-
-Elegimos Grey Music,Baires Rock y Baires Music por su estilo y estetica, nos gusto mucho como estan compuestas las pag. Y elegimos Black Music y Mercado Libre por su estilo de compra, es muy accesible, facil a la hora de comprar el producto y muy descriptiva la compra.
