@@ -25,6 +25,7 @@ We hope you enjoy this experience.
 
 <p> <img src="images/Nazareno.jpeg" width="100" align = "left"> </p>
 <p>I am Cristan Nazareno Agüero and I am 18 years old. I am studying Full Stack Development. I love programming, playing football and video games. I live in Mar del Plata, Buenos Aires, Argentina. </p> 
+<br>
 
 
 ## References
