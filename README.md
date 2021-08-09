@@ -5,9 +5,9 @@
 ## About us
 
 We are a digital company from Argentina hosted in US and focused on changing the experience when looking for new music equipments. 
-Our objetive is to provide our clients with the best musical products and the most comfortable and trusted paid methods of the industry
-You are able to surf inside our free application and find the equipment you were looking for. We have amount of variety in terms of quality and price. 
-Every week, we have lot of promotions and recommended articles.
+<br>Our objetive is to provide our clients with the best musical products and the most comfortable and trusted paid methods of the industry
+<br>You are able to surf inside our free application and find the equipment you were looking for. We have amount of variety in terms of quality and price. 
+<br>Every week, we have lot of promotions and recommended articles.
 Once you are in, you will never look back.
 We hope you enjoy this experience. 
 
