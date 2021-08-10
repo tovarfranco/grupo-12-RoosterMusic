@@ -1,0 +1,17 @@
+Fonts:
+
+- Road Rage: logo
+- Roboto: descriptions
+- Lato: headers
+- Open Sans: descriptions
+
+Colors palette:
+
+- Blue: buttons (#3966F5)
+- Whiteblue: backgorund (#F3F7FF)
+- Whiteblue: action buttons (#49A7DD)
+- Green: buttons (#00DC84)
+- Red: buttons (#DC000F)
+ - Black: header, footer, descriptions (#000000)
+- White: descriptions (#FFFFFF)
+-  Grey: spliters, descriptions (#D4D2D2)
