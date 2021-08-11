@@ -1,4 +1,4 @@
-# Warning
+# Rooster Music
 
 Working on branch DEV.
 We are using different branches in order to work with different features.
