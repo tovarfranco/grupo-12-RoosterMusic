@@ -4,18 +4,17 @@
 
 ## About us
 
-We are a digital company from Argentina hosted in US and focused on changing the experience when looking for new music equipments. 
-<br>Our objetive is to provide our clients with the best musical products and the most comfortable and trusted paid methods of the industry
+We are a digital company from Argentina hosted in US and focused on changing the experience when looking for new music equipments to buy.
+<br>Our objetive is to provide our clients with the best musical products and the most comfortable and trusted paid methods of the industry.
 <br>You are able to surf inside our free application and find the equipment you were looking for. We have amount of variety in terms of quality and price. 
-<br>Every week, we have lot of promotions and recommended articles.
+<br>Every week, we have lot of promotions and recommended articles for you.
 Once you are in, you will never look back.
-We hope you enjoy this experience. 
-
+We hope you enjoy this experience.
 
 ## The team
 
 <p> <img src="images/Alan.jpeg" width="100" align = "left"> </p>
-<p>My name is Alan Tovar and I am 28 years old. I live in Quilmes, Buenos Aires, Argentina.  I have more than 4 years in IT industry and nowdays I work as a back-end developer in Hexacta software factory. I study Electronic Engineer. I have played the drums for about 10 years and also passionate for the bass.</p> 
+<p>My name is Alan Tovar and I am 28 years old. I live in Quilmes, Buenos Aires, Argentina. I have more than 4 years in IT industry and nowdays I work as a back-end developer in Hexacta Software Factory. I study Electronic Engineer. I have played the drums for about 10 years and also passionate for the bass.</p> 
 <br>
 
 <p> <img src="images/Franco.jpeg" width="100" align = "left"> </p>
@@ -26,7 +25,6 @@ We hope you enjoy this experience.
 <p>I am Cristan Nazareno Agüero and I am 18 years old. I am studying Full Stack Development. I love programming, playing football and video games. I live in Mar del Plata, Buenos Aires, Argentina. </p> 
 <br>
 
-
 ## References
 
 - https://www.greymusic.com.ar/
@@ -35,8 +33,8 @@ We hope you enjoy this experience.
 - https://www.blackmusic.com.ar/
 - https://www.mercadolibre.com.ar/
 
-We choose Gray Music and Baires Rocks because of their formats and styles. We consider they are not good enough and we will improve them.
-We select Black Music and Mercado Libre because of their paid methods and user experience when looking for differents products. We believe we can adapt our page to be similiar to them.
+We choose Gray Music and Baires Rocks webpages because of their implementation of formats and styles. These two pages have a high reputation in the industry of Music, so we found interesting to take a look at them.
+We select Black Music and Mercado Libre due to their paid methods and user experience when looking for differents products. We believe we can adapt our page and offer a similar experience.
 
 ## Jira Board
 
