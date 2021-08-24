@@ -20,15 +20,17 @@
         <header>
 
             <div class="header-fila-1">
-                <div class="logo"><img src="/images/Logo.JPG" alt="Logo Rooster Music"></div>
+                <div class="logo"><img src="images/Logo.JPG" alt="Logo Rooster Music"></div>
                 <div class="buscar">
-                    <input class="buscar-input" type="search" name="buscar" placeholder="Buscar"><button><i class="fas fa-search buscar-icono"></i></button>
+                    <input class="buscar-input" type="search" name="buscar" placeholder="Buscar"><button class="buscar-boton"><i class="fas fa-search buscar-icono"></i></button>
                 </div>
                 <div class="sesion">
                     <button class="boton-iniciar-sesion" type="button">Iniciar sesión</button>
                     <button class="boton-registrarse" type="button">Registrarse</button>
                 </div>
             </div>
+
+            <a class="boton-hamburguesa"><i class="fas fa-bars"></i></a>
 
             <nav class="header-fila-2">
                 <ul>
@@ -43,7 +45,7 @@
 
         </header>
 
-        <div class="banner-promocion"><img src="public\images\banner.jpg" alt="Banner promoción"></div>
+        <div class="banner-promocion"><img src="images/banner.jpg" alt="Banner promoción"></div>
 
         <main>
 
@@ -187,15 +189,71 @@
             <section class="marcas">
                 <h2>CONFIAN EN NOSOTROS</h2>
                 <hr>
-                <div><img class="banner-marcas" src="images/banner_brands.jpg" alt="Marcas"></div>
+                <div class="banner-marcas"><img src="images/banner_brands.jpg" alt="Marcas"></div>
             </section>
 
-
-
-
-
+            <section class="compra-segura">
+                <h2>COMPRA SEGURA</h2>
+                <hr>
+                <div class="container-info">
+                    <article class="info">
+                        <i class="fas fa-credit-card info-icono"></i>
+                        <h2 class="texto-titulo-info">Pagá como quieras</h2>
+                        <p class="texto-descripcion-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, odio?</p>
+                    </article>
+                    <article class="info">
+                        <i class="fas fa-credit-card info-icono"></i>
+                        <h2 class="texto-titulo-info">Envíos gratis</h2>
+                        <p class="texto-descripcion-info">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero, fuga omnis?</p>
+                    </article>
+                    <article class="info">
+                        <i class="fas fa-credit-card info-icono"></i>
+                        <h2 class="texto-titulo-info">Compra protegida</h2>
+                        <p class="texto-descripcion-info">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, eum nobis?</p>
+                    </article>
+                </div>
+            </section>
 
         </main>
+
+        <footer>
+
+            <div class="container-footer">
+                <div class="footer-informacion">
+                    <h2>INFORMACION</h2>
+                    <ul>
+                        <li><a href="">Inicio</a></li>
+                        <li><a href="">Sobre nosotros</a></li>
+                        <li><a href="">Contacto</a></li>
+                        <li><a href="">Datos bancarios</a></li>
+                        <li><a href="">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-redes">
+                    <h2>REDES</h2>
+                    <ul>
+                        <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                        <li><a href=""><i class="fab fa-instagram-square"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-ubicacion">
+                    <h2>UBICACION</h2>
+                    <div class="footer-mapa"><img src="images/map.jpg" alt="Ubicacion"></div>
+                </div>
+                <div class="newsletter">
+                    <h2>NEWSLETTER</h2>
+                    <ul>
+                        <li>Ofertas en tu mail</li>
+                        <li><input class="newsletter-input" type="search" name="mail" placeholder="Tu mail"></li>
+                        <li> <button class="boton-subscribirme" type="button">Subscribirme</button></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <h4>© 2021 Grupo 12 - Todos los derechos reservados</h4>
+
+        </footer>
         
     </body>
 </html>
