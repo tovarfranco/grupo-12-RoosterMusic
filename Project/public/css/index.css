@@ -285,3 +285,99 @@ footer hr {
         width: 22%;
     }
 }
+
+/* Main ================================================================================================================================*/
+
+main {
+    width: 90%;     /*Para algun espaciado y centrarlo en el body*/
+    margin: auto;
+}
+
+/* Section: QUE ESTAS BUSCANDO----------------------------------------------------------------------*/
+
+.texto-que-estas-buscando {
+    text-align: center;
+}
+
+.boton-categoria {
+    text-align: center; /*Alineo el botón dentro del div*/
+}
+
+.boton-categoria button {
+    width: 200px;               /*Fijo tamaño para que todos sean igules*/
+    background-color: white;
+    color: black;
+    border: solid 1px black;
+    border-radius: 7px;
+    padding: 8px;
+    font-size: 1.25rem;
+    margin: 5px 0;
+}
+
+@media (min-width: 768px){
+    .container-boton-categorias {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .boton-categoria {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px){
+    .que-estas-buscando {
+        max-width: 1400px;
+        margin: auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .boton-categoria {
+        width: 22%;
+    }
+}
+
+/* Section: MAS VISITADOS----------------------------------------------------------------------*/
+
+.articulo {
+    background-color: white;
+    color: black;
+    padding: 4%;
+    margin: 5% 0;
+}
+
+.texto-titulo-articulo {
+    text-align: center;
+
+}    
+.texto-descripcion-articulo {
+    text-align: center;
+    font-weight: lighter;
+}
+
+@media (min-width: 768px){
+    .container-articulos {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .articulo {
+        width: 40%;
+        margin: 2%;
+        padding: 2%;
+    }
+}
+
+@media (min-width: 1200px){
+    .mas-visitados, .ofertas-destacadas {
+        max-width: 1400px;
+        margin: auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .articulo {
+        width: 28%;
+    }
+}
