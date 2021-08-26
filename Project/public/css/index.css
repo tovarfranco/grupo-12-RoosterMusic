@@ -411,3 +411,18 @@ main {
         padding: 1%;
     }
 }
+
+/* Section: MARCAS----------------------------------------------------------------------*/
+
+.texto-marcas {
+    text-align: center;
+}
+
+@media (min-width: 1200px){
+    .marcas {
+        max-width: 1400px;
+        margin: auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+}
+
+/* Section: COMPRA SEGURA----------------------------------------------------------------*/
