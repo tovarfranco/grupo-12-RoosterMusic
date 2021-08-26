@@ -84,16 +84,24 @@ header {
     border-radius: 15px;
     padding: 8px;
     margin: 0 5px;
+    width: 115px;   /*Para que tengan el mismo tamaño*/
 }
 
 .boton-iniciar-sesion {
     background-color: #3966F5;
     color: white;
+    transition: all 0.4s;
 }
 
 .boton-registrarse {
     background-color: #04be74;
     color: white;
+    transition: all 0.4s;
+}
+
+.boton-iniciar-sesion:hover, .boton-registrarse:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
 }
 
 .boton-hamburguesa {
@@ -252,6 +260,12 @@ footer {
     border: none;
     border-radius: 15px;
     padding: 8px;
+    transition: all 0.4s;
+}
+
+.boton-subscribirme:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
 }
 
 footer hr {
@@ -289,7 +303,7 @@ footer hr {
 /* Main ================================================================================================================================*/
 
 main {
-    width: 90%;     /*Para algun espaciado y centrarlo en el body*/
+    width: 80%;     /*Para algun espaciado y centrarlo en el body*/
     margin: auto;
 }
 
@@ -312,6 +326,12 @@ main {
     padding: 8px;
     font-size: 1.25rem;
     margin: 5px 0;
+    transition: all 0.4s;
+}
+
+.boton-categoria button:hover {
+    background-color: black;
+    color: white;
 }
 
 @media (min-width: 768px){
@@ -344,8 +364,16 @@ main {
     background-color: white;
     color: black;
     padding: 4%;
-    margin: 5% 0;
+    margin: 5% auto;
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    transition: all .2s;      /*Animación */
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las mdias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
 }
+
+.articulo:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+  }
 
 .texto-titulo-articulo {
     text-align: center;
@@ -379,5 +407,7 @@ main {
 
     .articulo {
         width: 28%;
+        margin: 1.5%;
+        padding: 1%;
     }
 }
