@@ -13,3 +13,8 @@ app.listen(puerto, () => console.log('Servidor corriendo en el puerto 8080'));  
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/index.html'))
 })
+
+//Detalle del producto:
+app.get('/detalle-producto', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/productDetail.html'))
+})
