@@ -10,8 +10,7 @@
 /*Opción background 1*/
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #F3F7FF; 
-    
+    background-color: #F3F7FF;
 }
 
 /*Opción background 2*/
@@ -84,26 +83,26 @@ header {
     border-bottom: solid 1px grey;
 }
 
-.sesion {
+.sesion {              /*Container de los botones*/
     text-align: center;
     margin: 15px auto;
 }
 
-.sesion button {
+.sesion button {       /*Características comunes de los bototnes*/
     border: none;
     border-radius: 15px;
     padding: 8px;
     margin: 0 5px;
-    width: 115px;   /*Para que tengan el mismo tamaño*/
+    width: 115px;       /*Para que tengan el mismo tamaño*/
 }
 
-.boton-iniciar-sesion {
+.boton-iniciar-sesion { /*Característica particular del botón*/
     background-color: #3966F5;
     color: white;
     transition: all 0.4s;
 }
 
-.boton-registrarse {
+.boton-registrarse {   /*Característica particular del botón*/
     background-color: #04be74;
     color: white;
     transition: all 0.4s;
@@ -336,7 +335,7 @@ main {
 }
 
 main section {
-    margin: 5% 0;   /*De base uso esto luego en las medias queries los voy cambiando*/
+    margin: 5% 0;   /*De base uso esto, luego en las medias queries los voy cambiando*/
 }
 
 /* Section: QUE ESTAS BUSCANDO----------------------------------------------------------------------*/
@@ -350,7 +349,7 @@ main section {
 }
 
 .boton-categoria button {
-    width: 200px;               /*Fijo tamaño para que todos sean igules*/
+    width: 200px;               /*Fijo tamaño para que todos sean iguales*/
     background-color: white;
     color: black;
     border: solid 1px black;
@@ -395,17 +394,17 @@ main section {
 .articulo {
     background-color: white;
     color: black;
-    padding: 4%;
-    margin: 5% auto;
+    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
     box-shadow : 0px 0px 10px rgb(100,100,100);
-    transition: all .2s;      /*Animación */
-    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las mdias queries habrías que usar max-width: none para desabilitarlo*/
+    transition: all .2s;      /*Animación*/
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
 }
 
 .articulo:hover {
     transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
-  }
+}
 
 .texto-titulo-articulo {
     text-align: center;
