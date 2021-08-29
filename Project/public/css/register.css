@@ -363,7 +363,7 @@ main section {
     margin: 5% 0;
 }
 
-.control {                 /*Sons los inputs*/
+.control {                 /*Son los inputs*/
     background-color: #ebebeb;
     border: none;
     border-radius: 5px;
@@ -380,7 +380,7 @@ main section {
     margin-right: 8px;     /*Para separar el checkbox*/
 }
 
-.formulario button {       /*Características comunes de los bototnes*/
+.boton-registrarse-formulario, .boton-iniciar-sesion-formulario {       /*Características comunes de los bototnes*/
     border: none;
     border-radius: 15px;
     padding: 8px;

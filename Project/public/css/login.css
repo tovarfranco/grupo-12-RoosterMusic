@@ -341,7 +341,7 @@ main section {
 
 /* Section: REGISTRO----------------------------------------------------------------------*/
 
-.texto-registro {
+.texto-iniciar-sesion {
     text-align: center;
 }
 
@@ -354,16 +354,38 @@ main section {
     padding-top: 1%;          /*Quito el padding superior*, queda mal*/
     margin: 5% auto;          /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
     box-shadow : 0px 0px 10px rgb(100,100,100);
-    max-width: 500px;       /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    max-width: 500px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
     text-align: center        /*Centro sus elementos*/
+}
+
+.boton-google, .boton-facebook {
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    width: 100%;          /*Para que tengan el mismo tamaño*/
+    margin: 3% 0;
+}
+
+.boton-google i, .boton-facebook i{
+    margin-right: 3%;
+}
+
+.boton-google {
+    background-color: rgb(240, 0, 0);
+    color: white;
+}
+
+.boton-facebook {
+    background-color: #3966F5;
+    color: white;
 }
 
 .elemento{
     margin: 5% 0;
 }
 
-.control {                 /*Sons los inputs*/
+.control {                 /*Son los inputs*/
     background-color: #ebebeb;
     border: none;
     border-radius: 5px;
@@ -371,16 +393,16 @@ main section {
     padding: 10px 10px;
 }
 
-.terminos-condiciones {
+.mantener {
     text-align: left;      /*Así el checkbox queda a la izquierda*/
     margin: 5% 0;
 }
 
-.terminos-condiciones input {
+.mantener input {
     margin-right: 8px;     /*Para separar el checkbox*/
 }
 
-.formulario button {       /*Características comunes de los bototnes*/
+.boton-registrarse-formulario, .boton-iniciar-sesion-formulario {       /*Características comunes de los bototnes*/
     border: none;
     border-radius: 15px;
     padding: 8px;
@@ -407,28 +429,33 @@ main section {
 @media (min-width: 900px){
 
     .formulario {
-        max-width: none;
+        max-width: 700px;
     }
 
-    .inputs-1, .inputs-2, .inputs-3 {
+    .inputs-1, .inputs-2 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
     }
 
-    .elemento{
+    .inputs-1 div{          /*Los botones*/
         margin: 2% 0;       /*Le saco un poco de margen a los inputs*/
-        width: 32%;         /*PAra que todos sean iguales*/
+        width: 49%;         /*Para que todos sean iguales*/
     }
 
-    .terminos-condiciones {
-        margin: 2% 0;      /*Le saco un poco de margen a los términos*/
+    .elemento{
+        margin: 2% 0;       /*Le saco un poco de margen a los inputs*/
+        width: 49%;         /*Para que todos sean iguales*/
+    }
+
+    .mantener {
+        margin: 2% 0;      /*Le saco un poco de margen al mantener sesión iniciada*/
     }
 }
 
 @media (min-width: 1200px){
-    .registro {
+    .iniciar-sesion {
         max-width: 1200px;
         margin: 4% auto;
     }
