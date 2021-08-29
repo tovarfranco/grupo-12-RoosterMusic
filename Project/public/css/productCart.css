@@ -317,13 +317,13 @@ main {
 
 @media (min-width: 768px){
     main {
-        margin-top: 200px;
+        margin-top: 210px;
     }
 }
 
 @media (min-width: 1200px){
     main {
-        margin-top: 240px;
+        margin-top: 250px;
     }
 }
 

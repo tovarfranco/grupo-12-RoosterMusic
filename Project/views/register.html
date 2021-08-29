@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Titulo pestania-->
+        <title>Rooster Music</title>
+        <!--Tipografía importada por Google:-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <!--Hoja de estilos importada: ICONOS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+        <!--Reset de CSS-->
+        <link rel="stylesheet" href="/css/normalize.css">
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/register.css">
+    </head>
+    <body>
+
+        <header>
+
+            <div class="header-fila-1">
+                <div class="logo"><img src="images/Logo.JPG" alt="Logo Rooster Music"></div>
+                <div class="buscar">
+                    <input class="buscar-input" type="search" name="buscar" placeholder="Buscar"><button class="buscar-boton"><i class="fas fa-search buscar-icono"></i></button>
+                </div>
+                <div class="sesion">
+                    <button class="boton-iniciar-sesion" type="button">Iniciar sesión</button>
+                    <button class="boton-registrarse" type="button">Registrarse</button>
+                </div>
+            </div>
+
+            <a class="boton-hamburguesa"><i class="fas fa-bars"></i></a>
+
+            <nav class="header-fila-2">
+                <ul>
+                    <li><a href="">Inicio</a></li>
+                    <li><a href="">Categorías</a></li>
+                    <li><a href="">Nosotros</a></li>
+                    <li><a href="">Contacto</a></li>
+                    <li><a href="">Formas de Pago</a></li>
+                    <li><a href="">Ofertas</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <main>
+
+            <section class="registro">
+                
+                <h2 class="texto-registro">REGISTRO</h2>
+                <hr>
+                <form action="/register" method="POST" class="formulario">
+                    <h3 class="texto-formulario">Cree su cuenta</h3>
+                    <div class="container-inputs">
+                        <div class="inputs-1">
+                            <div class="elemento">
+                                <input type="text" name="nombre" class="control" placeholder="Nombre">
+                            </div>
+                            <div class="elemento">
+                                <input type="text" name="apellido" class="control" placeholder="Apellido">
+                            </div>
+                            <div class="elemento">
+                                <input type="number" name="dni" class="control" placeholder="DNI">
+                            </div>
+                        </div>
+                        <div class="inputs-2">
+                            <div class="elemento">
+                                <select name="pais" class="control" required>
+                                    <option value="" disabled selected hidden>Seleccione su país</option>
+                                    <option value="ARG">Argentina</option>
+                                    <option value="BRA">Brasil</option>
+                                    <option value="COL">Colombia</option>
+                                </select>
+                            </div>
+                            <div class="elemento">
+                                <input type="text" name="domicilio" class="control" placeholder="Domicilio">
+                            </div>
+                            <div class="elemento">
+                                <input type="date" name="nacimiento" class="control" placeholder="Fecha nacimiento">
+                            </div>
+                        </div>
+                        <div class="inputs-3">
+                            <div class="elemento">
+                                <input type="email" name="email" class="control" placeholder="E-mail">
+                            </div>
+                            <div class="elemento">
+                                <input type="password" name="password" class="control" placeholder="Contraseña">
+                            </div>
+                            <div class="elemento">
+                                <input type="password" name="confirmar" class="control" placeholder="Confirmar contraseña">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="terminos-condiciones">
+                        <label><input type="checkbox" name="terminos">Acepto los términos y condiciones</label>
+                    </div>
+                    <div><button class="boton-registrarse-formulario" type="button">Registrarse</button></div>
+                    <h3 class="texto-tenes-cuenta">¿Ya tenes cuenta?</h3>
+                    <div><button class="boton-iniciar-sesion-formulario" type="button">Iniciar sesión</button></div>
+                </form>
+
+            </section>
+
+        </main>
+
+        <footer>
+
+            <div class="container-footer">
+                <div class="footer-informacion">
+                    <h4>INFORMACION</h4>
+                    <ul>
+                        <li><a href="">Inicio</a></li>
+                        <li><a href="">Sobre nosotros</a></li>
+                        <li><a href="">Contacto</a></li>
+                        <li><a href="">Datos bancarios</a></li>
+                        <li><a href="">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-redes">
+                    <h4>REDES</h4>
+                    <ul>
+                        <li><i class="fab fa-facebook-square"></i><a href="">Facebook</a></li>
+                        <li><i class="fab fa-instagram-square"></i><a href="">Instagram</a></li>
+                        <li><i class="fab fa-twitter-square"></i><a class="texto-twitter" href="">Twitter</a></li>  <!--No se centra bien el texto en el footer, usamos esta clase-->
+                    </ul>
+                </div>
+                <div class="footer-ubicacion">
+                    <h4>UBICACION</h4>
+                    <div class="footer-mapa"><img src="images/map.jpg" alt="Ubicacion"></div>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>NEWSLETTER</h4>
+                    <ul>
+                        <li>Ofertas en tu mail</li>
+                        <li><input class="newsletter-input" type="text" name="mail" placeholder="Tu mail"></li>
+                        <li><button class="boton-subscribirme" type="button">Subscribirme</button></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">© 2021 Grupo 12 - Todos los derechos reservados</p>
+
+        </footer>
+        
+    </body>
+</html>
