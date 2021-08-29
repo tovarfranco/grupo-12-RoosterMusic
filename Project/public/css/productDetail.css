@@ -38,7 +38,7 @@ header {
     color: white;
     padding: 20px;   /*Para que los elementos internos no esten pegados al borde*/
     width: 100%;     /*Con fixed pierde su tamaño*/
-    /*position: fixed; /*Recordar que sale del flujo normal del HTML y queda flotando pero la siguiente caja ocupa su lugar, así que hay que arreglarlo. Vamos a modificar el margin-top de .banner-promocion*/
+    position: fixed; /*Recordar que sale del flujo normal del HTML y queda flotando pero la siguiente caja ocupa su lugar, así que hay que arreglarlo. Vamos a modificar el margin-top de main*/
     top: 0;          /*fixed usa el viewport para su posición, debemos indicarle que quede arriba*/
     z-index: 10;     /*Es necesario, sino otros elementos posicionados pasarán por arriba de este*/
 }
@@ -309,29 +309,30 @@ footer hr {
     }
 }
 
-/* CHANGEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE Banner ==============================================================================================================================*/
+/* Margin Main ==============================================================================================================================*/
 
-/* .banner-promocion {
-    margin-top: 312.34px;  /*Lo corremos por el header fixed, así como en sus media queries
-} */
+main {
+    margin-top: 340px;  /*Lo corremos por el header fixed, así como en sus media queries*/
+}
 
-/* @media (min-width: 768px){
-    .banner-promocion {
-        margin-top: 182.94px;
+@media (min-width: 768px){
+    main {
+        margin-top: 200px;
     }
 }
 
 @media (min-width: 1200px){
-    .banner-promocion {
-        margin-top: 214.58px;
+    main {
+        margin-top: 240px;
     }
-} */
+}
 
 /* Main ================================================================================================================================*/
 
 main {
-    width: 80%;     /*Para algun espaciado y centrarlo en el body*/
-    margin: auto;
+    width: 80%;           /*Para algun espaciado y centrarlo en el body*/
+    margin-left: auto;    /*No quiero pisar el margin por el header fixed*/
+    margin-right: auto;
 }
 
 main section {
@@ -386,16 +387,16 @@ main section {
 
 .tarjeta a {
     text-decoration: none;  /*Elimino su color y estilo*/
-    color: black;
+    color: #3966F5;
     font-size: 1rem;
 }
 
-.tarjeta-botones {            /*Container de los botones*/
+.tarjeta-botones {           /*Container de los botones*/
     text-align: center;
     margin-top: 5%;
 }
 
-.tarjeta-botones button {     /*Características comunes de los bototnes*/
+.tarjeta-botones button {    /*Características comunes de los botones*/
     border: none;
     border-radius: 15px;
     padding: 8px;
@@ -403,13 +404,13 @@ main section {
     width: 90%;              /*Para que tengan el mismo tamaño*/
 }
 
-.boton-comprar {              /*Característica particular del botón*/
+.boton-comprar {             /*Característica particular del botón*/
     background-color: #3966F5;
     color: white;
     transition: all 0.4s;
 }
 
-.boton-agregar-carrito {   /*Característica particular del botón*/
+.boton-agregar-carrito {     /*Característica particular del botón*/
     background-color: #04be74;
     color: white;
     transition: all 0.4s;

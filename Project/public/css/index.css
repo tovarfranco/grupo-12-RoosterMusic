@@ -331,7 +331,7 @@ footer hr {
 
 main {
     width: 80%;     /*Para algun espaciado y centrarlo en el body*/
-    margin: auto;
+    margin: auto;   /*Como tengo el banner arriba acá puedo poner el margin auto, en las otras páginas no estará el banner y esto debe ser margin-left-right auto, y el margin-top lo defino arriba*/
 }
 
 main section {
