@@ -15,12 +15,12 @@ Follow this steps:
 2. Move to the this folder (Project).
 3. Open the command prompt (cmd, bash or VSC).
 3. Install the dependencies running this command:
-    npm install
+    ```npm install```
 4. To start the aplicacion run:
-    npm start
+    ```npm start```
 5. Go to the port mentioned in the command prompt: 8080.
 
-## Build with 🛠️
+## Built with 🛠️
 
 * [Express](https://www.npmjs.com/package/express) -  NodeJS Framework
 
