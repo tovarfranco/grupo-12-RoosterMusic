@@ -18,7 +18,12 @@ Follow this steps:
     ```npm install```
 4. To start the aplicacion run:
     ```npm start```
-5. Go to the port mentioned in the command prompt: 8080.
+5. Go to the webrowser and put these links (uses port 8080):
+    - http://localhost:8080/    **index**
+    - http://localhost:8080/productDetail **product details**
+    - http://localhost:8080/productCart **product cart**
+    - http://localhost:8080/register **register**
+    - http://localhost:8080/login **login**
 
 ## Built with 🛠️
 
