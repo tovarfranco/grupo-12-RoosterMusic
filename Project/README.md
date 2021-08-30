@@ -25,6 +25,6 @@ Follow this steps:
 * [Express](https://www.npmjs.com/package/express) -  NodeJS Framework
 
 
-## Autor ✒️
+## Author ✒️
 
 * **Rooster Music** - *Creator* - [rooster-music-git](https://github.com/tovarfranco/grupo-12-RoosterMusic)
