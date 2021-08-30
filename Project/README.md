@@ -1,27 +1,30 @@
 # Grupo 12
 ## DigitalHouse - Fullstack
 
-This readme describes usage of this proyect and all the requirements to run it.
+This readme describes usage of this project and all the requirements to run it.
 
-# Plantilla Servidor Express
+#  Express Server
 
-Aca encontraremos una plantilla basica con todo lo que necesitas para desplegar un servidor con Node Js.
+Here you will find the steps to run this NodeJS project.
 
-### Instalación 🔧
+### Installation 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+Follow this steps:
 
-_Primero debes instalar las dependecias del proyecto, esto lo lograras con esta instruccion_
+1. Download or clone this project in you local disk.
+2. Move to the this folder (Project).
+3. Open the command prompt (cmd, bash or VSC).
+3. Install the dependencies running this command:
+    npm install
+4. To start the aplicacion run:
+    npm start
+5. Go to the port mentioned in the command prompt: 8080.
 
-npm install
-_Para iniciar el servidor por favor usar_
+## Build with 🛠️
 
-npm start
-## Construido con 🛠️
-
-* [Express] - El framework de NodeJs
+* [Express](https://www.npmjs.com/package/express) -  NodeJS Framework
 
 
 ## Autor ✒️
 
-* **Alan Victor Tovar** - *Creador* - [atovar-git](https://github.com/atovar-git)
+* **Rooster Music** - *Creator* - [rooster-music-git](https://github.com/tovarfranco/grupo-12-RoosterMusic)
