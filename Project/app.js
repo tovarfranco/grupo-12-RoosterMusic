@@ -13,3 +13,23 @@ app.listen(puerto, () => console.log('Servidor corriendo en el puerto 8080'));  
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/index.html'))
 })
+
+//Detalle del producto:
+app.get('/productDetail', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/productDetail.html'))
+})
+
+//Carrito de compras:
+app.get('/productCart', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/productCart.html'))
+})
+
+//Registro:
+app.get('/register', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/register.html'))
+})
+
+//Login:
+app.get('/login', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/login.html'))
+})

@@ -1,0 +1,552 @@
+/* Generales  ==========================================================================================================================*/
+
+* {
+    box-sizing: border-box;    /*Necesario, indica que se respetará el tamaño que definimos, hasta el borde menos el margin*/
+    /*border: solid 1px black; /*Lo activo/desactivo para ver los bordes de los elementos*/
+    /*padding: 5px;              /*Lo activo/desactivo para ver los bordes de los elementos*/
+    /*margin: 5px;               /*Lo activo/desactivo para ver los bordes de los elementos*/
+}
+
+/*Opción background 1*/
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F3F7FF;
+}
+
+/*Opción background 2*/
+/* body {
+    font-family: 'Roboto', sans-serif;
+    background: url("../images/background.jpg") no-repeat center fixed;
+    background-size: cover;
+    color: white;
+} */
+
+h2 {font-size: 1.50rem;}
+
+h3 {font-size: 1.25rem;}
+
+h4 {font-size: 1rem}
+
+p {font-size: 1rem;}
+
+img {width: 100%;}  /*Para que ocupen el 100% de su contenedor*/
+
+/* Header ==============================================================================================================================*/
+
+header {
+    background-color: black;
+    color: white;
+    padding: 20px;   /*Para que los elementos internos no esten pegados al borde*/
+    width: 100%;     /*Con fixed pierde su tamaño*/
+    position: fixed; /*Recordar que sale del flujo normal del HTML y queda flotando pero la siguiente caja ocupa su lugar, así que hay que arreglarlo. Vamos a modificar el margin-top de main*/
+    top: 0;          /*fixed usa el viewport para su posición, debemos indicarle que quede arriba*/
+    z-index: 10;     /*Es necesario, sino otros elementos posicionados pasarán por arriba de este*/
+}
+
+.logo {
+    width: 200px;    /*Está ok para mobile*/
+    margin: 0 auto;
+}
+
+.logo:hover {
+    animation: temblar 0.5s;
+    animation-iteration-count: infinite;
+}
+      
+@keyframes temblar {
+    0% {transform: translate(1px, 1px) rotate(0deg);}
+    10% {transform: translate(-1px, -2px) rotate(-1deg);}
+    20% {transform: translate(-3px, 0px) rotate(1deg);}
+    30% {transform: translate(3px, 2px) rotate(0deg);}
+    40% {transform: translate(1px, -1px) rotate(1deg);}
+    50% {transform: translate(-1px, 2px) rotate(-1deg);}
+    60% {transform: translate(-3px, 1px) rotate(0deg);}
+    70% {transform: translate(3px, 1px) rotate(-1deg);}
+    80% {transform: translate(-1px, -1px) rotate(1deg);}
+    90% {transform: translate(1px, 2px) rotate(0deg);}
+    100% {transform: translate(1px, -2px) rotate(-1deg);}
+}
+
+.buscar {
+    text-align: center;
+    margin: 10px auto
+}
+
+.buscar-input, .buscar-boton {
+    border: none;
+    padding: 6px;
+    background-color: black;
+    color: white;
+}
+
+.buscar-input {
+    border-bottom: solid 1px grey;
+}
+
+.sesion {
+    text-align: center;
+    margin: 15px auto;
+}
+
+.sesion button {
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 0 5px;
+    width: 115px;   /*Para que tengan el mismo tamaño*/
+}
+
+.boton-iniciar-sesion {
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+}
+
+.boton-registrarse {
+    background-color: #04be74;
+    color: white;
+    transition: all 0.4s;
+}
+
+.boton-iniciar-sesion:hover, .boton-registrarse:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+.boton-hamburguesa {
+    background-color: black;
+    border: solid 1px white;
+    color: white;
+    display: block;     /*Hará que el fondo del botón (azul) ocupe todo el ancho, así que le ponemos un width. SUPER importante poner block porque me permite configurarle estas opciones.*/
+    max-width: 50px;    /*Para que el fondo del botón no sea gigante.*/
+    padding: 15px 0;
+    border-radius: 8px;
+    text-align: center; /*Centra el ícono*/
+    font-size: 18px;    /*Tamaño del icono*/
+    margin: auto;       /*Recordar que para usar esta propiedad debe tener un width, así que lo podemos usar.*/
+}
+
+.header-fila-2 {
+    display: none;      /*Lo ocultamos para mobile*/
+}
+
+.header-fila-2 ul {
+    list-style: none;   /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.header-fila-2 a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: white;
+    display: inline-block;  /*<a> es un elemento de linea solamente. Para poder ponerle relleno arriba y abajo o cambiarle el tamaño debe ser de bloque => inline-block*/
+    padding: 5px 0;
+    font-size: 1rem;
+}
+
+@media (min-width: 768px){
+    .header-fila-1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .boton-hamburguesa {
+        display: none;      /*Ocultamos el botón para tablets*/
+    }
+
+    .header-fila-2 {
+        display: block;     /*Lo mostramos para tablets*/
+    }
+
+    .header-fila-2 ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-fila-2 li {
+        margin: 0 2%;       /*Separación de elementos*/
+    }
+}
+
+@media (min-width: 1200px){
+    .logo {
+        width: 250px;       /*Lo agrandamos un poquito*/
+    }
+
+    .header-fila-1, .header-fila-2 {
+        max-width: 1400px;
+        margin: auto;       /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .header-fila-2 a {
+        font-size: 1.25rem;
+    }
+}
+
+/* Footer ==============================================================================================================================*/
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center; /*Este centra todo*/
+}
+
+.footer-informacion ul {
+    list-style: none;   /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.footer-informacion a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: white;
+    display: inline-block;  /*<a> es un elemento de linea solamente. Para poder ponerle relleno arriba y abajo o cambiarle el tamaño debe ser de bloque => inline-block*/
+    padding: 5px 0;
+    font-size: 1rem;
+}
+
+.footer-redes ul {
+    list-style: none;   /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.footer-redes li {
+    display: flex;      /*Para centrar el ícono y su texto*/
+    align-items: center;
+    justify-content: center;  
+}
+
+.footer-redes i {
+    font-size: 2rem;
+    padding: 5px 0
+}
+
+.footer-redes a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: white;
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+.texto-twitter {
+    margin-right: 22px; /*Un pequeño truco para este texto ya que no se quiere centrar*/
+}
+
+.footer-mapa {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.footer-newsletter ul {
+    list-style: none;   /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.footer-newsletter li {
+    margin: 5px 0;      /*Poco de separación entre los elementos*/
+}
+
+.newsletter-input {     /*Igual que el header*/
+    border: none;
+    padding: 6px;
+    background-color: black;
+    color: white;
+    margin: 5px 0;
+}
+
+.newsletter-input {      /*Igual que el header*/
+    border-bottom: solid 1px grey;
+}
+
+.boton-subscribirme {    /*Igual que el header*/
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    transition: all 0.4s;
+}
+
+.boton-subscribirme:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+footer hr {
+    margin: 15px 0
+}
+
+.copyright {
+    text-align: center; /*Lo colocamos por si lo queremos cambiar pero el footer centra todo*/
+}
+
+@media (min-width: 768px){
+    .container-footer {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    .footer-informacion, .footer-redes, .footer-ubicacion, .footer-newsletter {
+        width: 35%;
+    }
+}
+
+@media (min-width: 1200px){
+    .container-footer {
+        max-width: 1400px;
+        margin: auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .footer-informacion, .footer-redes, .footer-ubicacion, .footer-newsletter {
+        width: 22%;
+    }
+}
+
+/* Margin Main ==============================================================================================================================*/
+
+main {
+    margin-top: 340px;  /*Lo corremos por el header fixed, así como en sus media queries*/
+}
+
+@media (min-width: 768px){
+    main {
+        margin-top: 210px;
+    }
+}
+
+@media (min-width: 1200px){
+    main {
+        margin-top: 250px;
+    }
+}
+
+/* Main ================================================================================================================================*/
+
+main {
+    width: 80%;           /*Para algun espaciado y centrarlo en el body*/
+    margin-left: auto;    /*No quiero pisar el margin por el header fixed*/
+    margin-right: auto;
+}
+
+main section {
+    margin: 5% 0;   /*De base uso esto, luego en las medias queries los voy cambiando*/
+}
+
+/* Section: DETALLE DEL PRODUCTO----------------------------------------------------------------------*/
+/* GENERALES--------------------------------------*/
+
+.foto-principal {
+    margin: 5% auto;
+    transition: all .2s;    /*Animación */
+    max-width: 400px;       /*Le doy un tamaño máximo para mobile. En resoluciones mas grandes hay que usar max-width: none para desabilitarlo*/
+                            /*Ver que no tiene padding la imagen, me ayudará a que esté a la misma altura en otras resolucioenes*/
+}
+
+.foto-principal img {
+    border-radius: 2%;
+    box-shadow : 0px 0px 10px rgb(100,100,100)
+}
+
+.tarjeta, .descripcion, .ficha {
+    background-color: white;
+    color: black;
+    padding: 7%;              /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    padding-top: 1%;          /*Quito el padding superior*, queda mal*/
+    margin: 5% auto;          /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    transition: all .2s;      /*Animación*/
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+}
+
+.foto-principal:hover, .tarjeta:hover, .descripcion:hover, .ficha:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+}
+
+/* TARJETA-----------------------------------------*/
+.tarjeta-stock{
+    text-align: right;
+}
+
+.tarjeta ul {
+    list-style: none;       /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.tarjeta li {
+    margin: 5px 0;          /*Poco de separación entre los elementos*/
+}
+
+.tarjeta a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: #3966F5;
+    font-size: 1rem;
+}
+
+.tarjeta-botones {           /*Container de los botones*/
+    text-align: center;
+    margin-top: 5%;
+}
+
+.tarjeta-botones button {    /*Características comunes de los botones*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 2% 5px;
+    width: 90%;              /*Para que tengan el mismo tamaño*/
+}
+
+.boton-comprar {             /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+}
+
+.boton-agregar-carrito {     /*Característica particular del botón*/
+    background-color: #04be74;
+    color: white;
+    transition: all 0.4s;
+}
+
+.boton-comprar:hover, .boton-agregar-carrito:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+/* DESCRIPCION--------------------------------------*/
+
+/* FICHA--------------------------------------------*/
+
+.ficha ul {
+    list-style: none;       /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.ficha li {
+    margin: 5px 0;          /*Poco de separación entre los elementos*/
+}
+
+.ficha li h4, .ficha li p  {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* MEDIA QUERIES - Section: DETALLE DEL PRODUCTO----*/
+
+@media (min-width: 768px){
+    .container-detalles {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .foto-principal {           /*Está aparte porque no quiero padding, sino me queda a diferente altura*/
+        max-width: none;
+        width: 60%;
+        margin: 2%;
+    }
+
+    .descripcion {
+        max-width: none;
+        width: 60%;
+        margin: 2%;
+        padding: 3%;
+        padding-top: 1%;    /*Quito el padding superior*, queda mal*/
+    }
+
+    .tarjeta, .ficha {
+        max-width: none;
+        width: 30%;
+        margin: 2%;
+        padding: 3%;
+        padding-top: 1%;    /*Quito el padding superior*, queda mal*/
+    }
+}
+
+@media (min-width: 1200px){
+    .detalle-producto {
+        max-width: 1400px;
+        margin: 4% auto;     /*Para alinear este elemento ya que tienen un nuevo width*/
+    }
+
+    .foto-principal {        /*Está aparte porque no quiero padding, sino me queda a diferente altura*/
+        margin: 1.5%;
+    }
+
+    .descripcion {
+        margin: 1.5%;
+        padding: 2%;
+        padding-top: 1%;    /*Quito el padding superior*, queda mal*/
+    }
+
+    .tarjeta, .ficha {
+        margin: 1.5%;
+        padding: 2%;
+        padding-top: 1%;    /*Quito el padding superior*, queda mal*/
+    }
+
+}
+
+/* Section: PRODUCTOS SIMILARES----------------------------------------------------------------------*/
+
+.articulo {
+    background-color: white;
+    color: black;
+    padding: 4%;
+    margin: 5% auto;
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    transition: all .2s;      /*Animación */
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las mdias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+}
+
+.articulo:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+}
+
+.texto-titulo-articulo {
+    text-align: center;
+
+}    
+.texto-descripcion-articulo {
+    text-align: center;
+    font-weight: lighter;
+}
+
+@media (min-width: 768px){
+    .container-articulos {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .articulo {
+        width: 40%;
+        margin: 2%;
+        padding: 2%;
+    }
+}
+
+@media (min-width: 1200px){
+    .productos-similares {
+        max-width: 1400px;
+        margin: 4% auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .articulo {
+        width: 20%;
+        margin: 1.5%;
+        padding: 1%;
+    }
+}
