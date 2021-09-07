@@ -20,21 +20,23 @@
         <header>
 
             <div class="header-fila-1">
-                <div class="logo"><img src="images/Logo.JPG" alt="Logo Rooster Music"></div>
+                <div class="logo" onclick="window.location='/'"><img src="images/Logo.JPG" alt="Logo Rooster Music"></div>
                 <div class="buscar">
                     <input class="buscar-input" type="search" name="buscar" placeholder="Buscar"><button class="buscar-boton"><i class="fas fa-search buscar-icono"></i></button>
                 </div>
                 <div class="sesion">
-                    <button class="boton-iniciar-sesion" type="button">Iniciar sesión</button>
-                    <button class="boton-registrarse" type="button">Registrarse</button>
+                    <button class="boton-iniciar-sesion" type="button" onclick="window.location='/login'">Iniciar sesión</button>
+                    <button class="boton-registrarse" type="button" onclick="window.location='/register'">Registrarse</button>
                 </div>
             </div>
 
-            <a class="boton-hamburguesa"><i class="fas fa-bars"></i></a>
+            <input type="checkbox" id="checkbox-boton-hamburguesa">   <!--Importante usar ID. Su label usa el for solamente con ID-->
+            <label for="checkbox-boton-hamburguesa" class="boton-hamburguesa open"><i class="fas fa-bars"></i></label>
+            <label for="checkbox-boton-hamburguesa" class="boton-hamburguesa close"><i class="fas fa-times"></i></label>
 
             <nav class="header-fila-2">
                 <ul>
-                    <li><a href="">Inicio</a></li>
+                    <li><a href="/">Inicio</a></li>
                     <li><a href="">Categorías</a></li>
                     <li><a href="">Nosotros</a></li>
                     <li><a href="">Contacto</a></li>
@@ -96,9 +98,9 @@
                     <div class="terminos-condiciones">
                         <label><input type="checkbox" name="terminos">Acepto los términos y condiciones</label>
                     </div>
-                    <div><button class="boton-registrarse-formulario" type="button">Registrarse</button></div>
+                    <div><button class="boton-registrarse-formulario" type="button" onclick="window.location='/register'">Registrarse</button></div>
                     <h3 class="texto-tenes-cuenta">¿Ya tenes cuenta?</h3>
-                    <div><button class="boton-iniciar-sesion-formulario" type="button">Iniciar sesión</button></div>
+                    <div><button class="boton-iniciar-sesion-formulario" type="button" onclick="window.location='/login'">Iniciar sesión</button></div>
                 </form>
 
             </section>
