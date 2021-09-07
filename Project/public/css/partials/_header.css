@@ -1,0 +1,185 @@
+header {
+    background-color: black;
+    color: white;
+    padding: 20px;   /*Para que los elementos internos no esten pegados al borde*/
+    width: 100%;     /*Con fixed pierde su tamaño*/
+    position: fixed; /*Recordar que sale del flujo normal del HTML y queda flotando pero la siguiente caja ocupa su lugar, así que hay que arreglarlo. Vamos a modificar el margin-top de .banner-promocion*/
+    top: 0;          /*fixed usa el viewport para su posición, debemos indicarle que quede arriba*/
+    z-index: 10;     /*Es necesario, sino otros elementos posicionados pasarán por arriba de este*/
+}
+
+/* Logo + animación ---------------------------------------------------*/
+
+.logo {
+    width: 200px;    /*Está ok para mobile*/
+    margin: 0 auto;
+}
+
+.logo:hover {
+    animation: temblar 0.5s;
+    animation-iteration-count: infinite;
+}
+      
+@keyframes temblar {
+    0% {transform: translate(1px, 1px) rotate(0deg);}
+    10% {transform: translate(-1px, -2px) rotate(-1deg);}
+    20% {transform: translate(-3px, 0px) rotate(1deg);}
+    30% {transform: translate(3px, 2px) rotate(0deg);}
+    40% {transform: translate(1px, -1px) rotate(1deg);}
+    50% {transform: translate(-1px, 2px) rotate(-1deg);}
+    60% {transform: translate(-3px, 1px) rotate(0deg);}
+    70% {transform: translate(3px, 1px) rotate(-1deg);}
+    80% {transform: translate(-1px, -1px) rotate(1deg);}
+    90% {transform: translate(1px, 2px) rotate(0deg);}
+    100% {transform: translate(1px, -2px) rotate(-1deg);}
+}
+
+/* Header fila 1 ------------------------------------------------------*/
+
+.buscar {
+    text-align: center;
+    margin: 10px auto
+}
+
+.buscar-input, .buscar-boton {
+    border: none;
+    padding: 6px;
+    background-color: black;
+    color: white;
+}
+
+.buscar-input {
+    border-bottom: solid 1px grey;
+}
+
+.sesion {              /*Container de los botones*/
+    text-align: center;
+    margin: 15px auto;
+}
+
+.sesion button {       /*Características comunes de los bototnes*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 0 5px;
+    width: 115px;       /*Para que tengan el mismo tamaño*/
+}
+
+.boton-iniciar-sesion { /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-registrarse {   /*Característica particular del botón*/
+    background-color: #04be74;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-iniciar-sesion:hover, .boton-registrarse:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+/* Boton hamburguesa + comportamiento con header-fila-2----------------------------------*/
+
+#checkbox-boton-hamburguesa {   /*Es un truco para que el botón de mobile funcione al presionarlo, es un checkbox*/
+    display: none;
+}
+
+.boton-hamburguesa {
+    background-color: black;
+    border: solid 1px white;
+    color: white;
+    display: block;     /*Hará que el fondo del botón (azul) ocupe todo el ancho, así que le ponemos un width. SUPER importante poner block porque me permite configurarle estas opciones.*/
+    max-width: 50px;    /*Para que el fondo del botón no sea gigante.*/
+    padding: 15px 0;
+    border-radius: 8px;
+    text-align: center; /*Centra el ícono*/
+    font-size: 18px;    /*Tamaño del icono*/
+    margin: auto;       /*Recordar que para usar esta propiedad debe tener un width, así que lo podemos usar.*/
+}
+
+.close {
+    display: none;      /*Para que no se muestre el botón de cerrado.*/
+}
+
+#checkbox-boton-hamburguesa:checked ~ .open {         /*Cuando apretamos la hamburguesa, desaparece el boton de hamburguesa. Ver que tiene otra clase open*/
+    display: none;
+}
+
+#checkbox-boton-hamburguesa:checked ~ .close,
+#checkbox-boton-hamburguesa:checked ~ .header-fila-2 { /*Cuando apretamos la hamburguesa, aparece la cruz y el nav-bar. Ver que tiene la clase close*/
+    display: block;
+}
+
+#checkbox-boton-hamburguesa:checked ~ .header-fila-2 {
+    text-align: center;
+    margin-top: 20px;   /*Un poco de margin superior cuando se active sino queda pegado al botón*/
+}
+
+.header-fila-2 {
+    display: none;      /*Lo ocultamos para mobile*/
+}
+
+.header-fila-2 ul {
+    list-style: none;   /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.header-fila-2 a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: white;
+    display: inline-block;  /*<a> es un elemento de linea solamente. Para poder ponerle relleno arriba y abajo o cambiarle el tamaño debe ser de bloque => inline-block*/
+    padding: 5px 0;
+    font-size: 1rem;
+}
+
+@media (min-width: 768px){
+    .header-fila-1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .boton-hamburguesa,                            /*Ocultamos el botón open para tablets*/
+    #checkbox-boton-hamburguesa:checked ~ .close { /*Ocultamos el botón close para tablets POR SI QUEDA ABIERTO*/
+        display: none;      
+    }
+
+    #checkbox-boton-hamburguesa:checked ~ .header-fila-2 { /*Le sacamos el margin al header-fila-2 POR SI QUEDA ABIERTO, va a pasar a ser en bloque (abajo) pero con el margin del checked sino*/
+        margin-top: 0;
+    }
+
+    .header-fila-2 {
+        display: block;     /*Lo mostramos para tablets*/
+    }
+
+    .header-fila-2 ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-fila-2 li {
+        margin: 0 2%;       /*Separación de elementos*/
+    }
+}
+
+@media (min-width: 1200px){
+    .logo {
+        width: 250px;       /*Lo agrandamos un poquito*/
+    }
+
+    .header-fila-1, .header-fila-2 {
+        max-width: 1400px;
+        margin: auto;       /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .header-fila-2 a {
+        font-size: 1.25rem;
+    }
+}

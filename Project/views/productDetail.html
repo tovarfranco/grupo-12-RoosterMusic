@@ -20,21 +20,23 @@
         <header>
 
             <div class="header-fila-1">
-                <div class="logo"><img src="images/Logo.JPG" alt="Logo Rooster Music"></div>
+                <div class="logo" onclick="window.location='/'"><img src="images/Logo.JPG" alt="Logo Rooster Music"></div>
                 <div class="buscar">
                     <input class="buscar-input" type="search" name="buscar" placeholder="Buscar"><button class="buscar-boton"><i class="fas fa-search buscar-icono"></i></button>
                 </div>
                 <div class="sesion">
-                    <button class="boton-iniciar-sesion" type="button">Iniciar sesión</button>
-                    <button class="boton-registrarse" type="button">Registrarse</button>
+                    <button class="boton-iniciar-sesion" type="button" onclick="window.location='/login'">Iniciar sesión</button>
+                    <button class="boton-registrarse" type="button" onclick="window.location='/register'">Registrarse</button>
                 </div>
             </div>
 
-            <a class="boton-hamburguesa"><i class="fas fa-bars"></i></a>
+            <input type="checkbox" id="checkbox-boton-hamburguesa">   <!--Importante usar ID. Su label usa el for solamente con ID-->
+            <label for="checkbox-boton-hamburguesa" class="boton-hamburguesa open"><i class="fas fa-bars"></i></label>
+            <label for="checkbox-boton-hamburguesa" class="boton-hamburguesa close"><i class="fas fa-times"></i></label>
 
             <nav class="header-fila-2">
                 <ul>
-                    <li><a href="">Inicio</a></li>
+                    <li><a href="/">Inicio</a></li>
                     <li><a href="">Categorías</a></li>
                     <li><a href="">Nosotros</a></li>
                     <li><a href="">Contacto</a></li>
@@ -64,7 +66,7 @@
                         </ul>
                         <div class="tarjeta-botones">
                             <div><button class="boton-comprar" type="button">Comprar</button></div>
-                            <div><button class="boton-agregar-carrito" type="button">Agregar al carrito</button></div>
+                            <div><button class="boton-agregar-carrito" type="button" onclick="window.location='/productCart'">Agregar al carrito</button></div>
                         </div>
                     </article>
                     <article class="descripcion">
@@ -93,8 +95,8 @@
                 <h2 class="texto-productos-similares">Productos similares</h2>
                 <hr>
                 <div class="container-articulos">
-                    <article class="articulo">
-                        <div class="articulo-imagen"><img src="images/guitar7.jpg" alt="guitarra"></div>
+                    <article class="articulo" onclick="window.location='/productDetail'">
+                        <div class="articulo-imagen"><img src="images/guitar1.jpg" alt="guitarra"></div>
                         <hr>
                         <div class="articulo-descripcion">
                             <h3 class="texto-titulo-articulo">Titulo artículo</h3>
@@ -102,8 +104,8 @@
                             <h3 class="texto-precio-articulo">Precio $</h3>
                         </div>
                     </article>
-                    <article class="articulo">
-                        <div class="articulo-imagen"><img src="images/guitar7.jpg" alt="guitarra"></div>
+                    <article class="articulo" onclick="window.location='/productDetail'">
+                        <div class="articulo-imagen"><img src="images/guitar1.jpg" alt="guitarra"></div>
                         <hr>
                         <div class="articulo-descripcion">
                             <h3 class="texto-titulo-articulo">Titulo artículo</h3>
@@ -111,8 +113,8 @@
                             <h3 class="texto-precio-articulo">Precio $</h3>
                         </div>
                     </article>
-                    <article class="articulo">
-                        <div class="articulo-imagen"><img src="images/guitar7.jpg" alt="guitarra"></div>
+                    <article class="articulo" onclick="window.location='/productDetail'">
+                        <div class="articulo-imagen"><img src="images/guitar1.jpg" alt="guitarra"></div>
                         <hr>
                         <div class="articulo-descripcion">
                             <h3 class="texto-titulo-articulo">Titulo artículo</h3>
@@ -120,8 +122,8 @@
                             <h3 class="texto-precio-articulo">Precio $</h3>
                         </div>
                     </article>
-                    <article class="articulo">
-                        <div class="articulo-imagen"><img src="images/guitar7.jpg" alt="guitarra"></div>
+                    <article class="articulo" onclick="window.location='/productDetail'">
+                        <div class="articulo-imagen"><img src="images/guitar1.jpg" alt="guitarra"></div>
                         <hr>
                         <div class="articulo-descripcion">
                             <h3 class="texto-titulo-articulo">Titulo artículo</h3>
