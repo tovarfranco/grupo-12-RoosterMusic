@@ -11,7 +11,8 @@
         "material": "Madera",
         "origin": "China",
         "year": "2000",
-        "category": "Audio"
+        "category": "Audio",
+        "availability": "En STOCK"
     },
     {
         "id": 2,
@@ -25,7 +26,8 @@
         "material": "Madera",
         "origin": "China",
         "year": "2000",
-        "category": "Bajo"
+        "category": "Bajo",
+        "availability": "En STOCK"
       },
       {
         "id": 3,
@@ -39,7 +41,8 @@
         "material": "Madera",
         "origin": "Taiwan",
         "year": "2000",
-        "category": "Bajo"
+        "category": "Bajo",
+        "availability": "En STOCK"
       },
       {
         "id": 4,
@@ -53,7 +56,8 @@
         "material": "Madera",
         "origin": "Japon",
         "year": "2000",
-        "category": "Bateria"
+        "category": "Bateria",
+        "availability": "En STOCK"
       },
       {
         "id": 5,
@@ -67,7 +71,8 @@
         "material": "Metal",
         "origin": "China",
         "year": "2000",
-        "category": "Bateria"
+        "category": "Bateria",
+        "availability": "En STOCK"
       },
       {
         "id": 6,
@@ -81,7 +86,8 @@
         "material": "Madera",
         "origin": "USA",
         "year": "2000",
-        "category": "Guitarra"
+        "category": "Guitarra",
+        "availability": "En STOCK"
       },
       {
         "id": 7,
@@ -95,7 +101,8 @@
         "material": "Madera",
         "origin": "España",
         "year": "2000",
-        "category": "Guitarra"
+        "category": "Guitarra",
+        "availability": "En STOCK"
       },
       {
         "id": 8,
@@ -109,7 +116,8 @@
         "material": "Madera",
         "origin": "Taiwan",
         "year": "2000",
-        "category": "Guitarra"
+        "category": "Guitarra",
+        "availability": "En STOCK"
       },
       {
         "id": 9,
@@ -117,13 +125,14 @@
         "description":"Teclado Portátil Casio CT-S100 61 Teclas USB MIDI. Con el CT-S100, puede disfrutar de la música en cualquier momento y lugar. Su tamaño compacto de 930 mm x 256 mm x 73 mm es un 30% más pequeño en volumen que los modelos CT-K1500 y CT-K1550, y su batería alcalina cuenta con aproximadamente 16 horas de duración*. Llevarlo es muy sencillo, gracias a un mango en la parte superior del teclado y un peso de solo 3,3 kg. El diseño incorpora bordes y esquinas redondeados, lo cual permite transportarlo con seguridad.El uso de altavoces ovalados de 13 cm x 6 cm con imanes reforzados ofrece un sonido sorprendentemente genial para un instrumento tan compacto. Una función adicional que optimiza el ecualizador en conjunto con el volumen proporciona un sonido equilibrado desde los tonos graves hasta los tonos altos, incluso a un volumen bajo. El CT-S100 incluye un conector USB micro B que le permite disfrutar fácilmente de la música, junto con su dispositivo inteligente o computadora. (Se requiere un cable disponible en el comercio. Registre sus ajustes favoritos para recordar fácilmente tonos y ritmos como los que aprendió en la clase de música mientras practica en casa. Un teclado muy fácil de tocar con una apariencia semejante a la de un piano.",
         "price": "U$S 897",
         "image": "/images/keyboard1.jpg",
-        "brand": "",
+        "brand": "Casio",
         "model": "9000",
         "color": "Negro",
         "material": "Madera",
         "origin": "China",
         "year": "2000",
-        "category": "Teclado"
+        "category": "Teclado",
+        "availability": "En STOCK"
       },
       {
         "id": 10,
@@ -137,7 +146,8 @@
         "material": "Plastico",
         "origin": "Japon",
         "year": "2000",
-        "category": "Teclado"
+        "category": "Teclado",
+        "availability": "En STOCK"
       },
       {
         "id": 11,
@@ -151,7 +161,8 @@
         "material": "Plastico",
         "origin": "España",
         "year": "2000",
-        "category": "Audio"
+        "category": "Audio",
+        "availability": "En STOCK"
       },
       {
         "id": 12,
@@ -165,7 +176,8 @@
         "material": "Madera",
         "origin": "Japon",
         "year": "2000",
-        "category": "Viento"
+        "category": "Viento",
+        "availability": "En STOCK"
       }
   ]
   
