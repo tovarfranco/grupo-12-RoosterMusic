@@ -9,6 +9,9 @@ const indexController = {
     },
     register: (req,res) => {
         res.render('register');
+    },
+    crud: (req,res) => {
+        res.render('crud');
     }
 }
 
