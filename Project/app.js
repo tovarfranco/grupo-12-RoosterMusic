@@ -47,4 +47,8 @@ app.use('/productCart', productCartRoute);
 
 
 
+app.use((req,res) => {                                  
+        res.status(404).render('error');                              // Para mostrar página 404.
+})
+
 module.exports = app;                                                 // IMPORTANTE porque lo necesita bin/www.
