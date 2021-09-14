@@ -82,6 +82,7 @@ align-items: baseline;
     transition: all .2s;      /*Animación*/
     max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
+    cursor: pointer;
 }
 
 .articulo:hover {

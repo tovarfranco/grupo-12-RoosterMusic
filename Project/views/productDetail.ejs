@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/productDetail.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+            
+            <section class="detalle-producto">
+                <h2 class="texto-detalle-producto">Detalle del producto</h2>
+                <hr>
+                <div class="container-detalles">
+                    <div class="foto-principal"><img src=<%= product.image %> alt="Foto del producto"></div>
+                    <article class="tarjeta">
+                        <h4 class="tarjeta-marca"><%= product.brand %></h4>
+                        <h3 class="tarjeta-titulo"><%= product.name %></h3>
+                        <h4 class="tarjeta-stock"><%= product.availability %></h4>
+                        <h2 class="tarjeta-precio"><%= product.price %></h2>
+                        <ul class="tarjeta-links">
+                            <li><a href="">Ver medios de pago</a></li>
+                            <li><a href="">Envíos</a></li>
+                            <li><a href="">Devoluciones</a></li>
+                        </ul>
+                        <div class="tarjeta-botones">
+                            <div><button class="boton-comprar" type="button">Comprar</button></div>
+                            <div><button class="boton-agregar-carrito" type="button" onclick="window.location='/productCart'">Agregar al carrito</button></div>
+                        </div>
+                    </article>
+                    <article class="descripcion">
+                        <h4>Descripción</h4>
+                        <hr>
+                        <h3 class="descripcion-titulo"><%= product.name %></h3>
+                        <p class="descripcion-descripcion"><%= product.description %></p>
+                    </article>
+                    <article class="ficha">
+                        <h4>Ficha técnica</h4>
+                        <hr>
+                        <ul>
+                            <li><h4>Marca:</h4><p><%= product.name %></p></li>
+                            <li><h4>Modelo:</h4><p><%= product.model %></p></li>
+                            <li><h4>Color:</h4><p><%= product.color %></p></li>
+                            <li><h4>Material: </h4><p><%= product.material %></p></li>
+                            <li><h4>Origen:</h4><p><%= product.origin %></p></li>
+                            <li><h4>Año:</h4><p><%= product.year %></p></li>
+                            <li><h4>Categoría:</h4><p><%= product.category %></p></li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="productos-similares">
+                <h2 class="texto-productos-similares">Productos similares</h2>
+                <hr>
+                <div class="container-articulos">
+                <% for(let i=4; i<8; i++) { %>
+                    <!--productCard-->
+                    <%- include('./partials/_productCard', {i, productList}) %>
+                    <!--/productCard-->
+                <% } %>
+                </div>
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+
+    </body>
+</html>

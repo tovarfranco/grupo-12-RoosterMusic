@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/login.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+
+            <section class="iniciar-sesion">
+                
+                <h2 class="texto-iniciar-sesion">INICIAR SESION</h2>
+                <hr>
+                <form action="/iniciarSesion" method="POST" class="formulario">
+                    <h3 class="texto-formulario">Ingreso rápido</h3>
+                    <div class="inputs-1">
+                        <div><button class="boton-google" type="button"><i class="fab fa-google"></i>Ingresá con Google</button></div>
+                        <div><button class="boton-facebook" type="button"><i class="fab fa-facebook-f"></i>Ingresá con Facebook</button></div>
+                    </div>
+                    <h3 class="texto-formulario">Ingreso manual</h3>
+                    <div class="inputs-2">
+                        <div class="elemento">
+                            <input type="email" name="email" class="control" placeholder="E-mail">
+                        </div>
+                        <div class="elemento">
+                            <input type="password" name="password" class="control" placeholder="Contraseña">
+                        </div>
+                    </div>
+                    <div class="mantener">
+                        <label><input type="checkbox" name="mantener">Mantener sesión iniciada</label>
+                    </div>
+                    <div><button class="boton-iniciar-sesion-formulario" type="button" onclick="window.location='/login'">Iniciar sesión</button></div>
+                    <h3 class="texto-tenes-cuenta">¿No tenes cuenta?</h3>
+                    <div><button class="boton-registrarse-formulario" type="button" onclick="window.location='/register'">Registrarse</button></div>
+                </form>
+
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+        
+    </body>
+</html>
