@@ -1,9 +1,9 @@
-<article class="articulo" onclick="window.location='/productDetail/<%= productList[i].id %>'">
-    <div class="articulo-imagen"><img src=<%= productList[i].image %> alt=<%= productList[i].name %>></div>
+<article class="articulo" onclick="window.location='/products/detail/<%= productList[i].id %>'">
+    <div class="articulo-imagen"><img src="/images/products/<%= productList[i].image %>" alt=<%= productList[i].name %>></div>
     <hr>
     <div class="articulo-descripcion">
         <h3 class="texto-titulo-articulo"><%= productList[i].brand %></h3>
         <h4 class="texto-descripcion-articulo"><%= productList[i].name %></h4>
-        <h3 class="texto-precio-articulo"><%= productList[i].price %></h3>
+        <h3 class="texto-precio-articulo">U$S <%= productList[i].price %></h3>
     </div>
 </article>

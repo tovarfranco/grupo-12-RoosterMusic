@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/products.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+
+            <section class="todos-productos">
+                <h2>Todos los productos</h2>
+                <hr>
+                <div class="container-articulos">
+                <% for(let i=0; i<productList.length; i++) { %>
+                    <!--productCard-->
+                    <%- include('./partials/_productCard', {i, productList}) %>
+                    <!--/productCard-->
+                <% } %>
+                </div>
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+
+    </body>
+</html>

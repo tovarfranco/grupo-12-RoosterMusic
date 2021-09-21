@@ -37,7 +37,7 @@ main {
 }
 
 main section {
-    margin: 5% 0;   /*De base uso esto, luego en las medias queries los voy cambiando*/
+    margin: 5% 0;         /*De base uso esto, luego en las medias queries los voy cambiando*/
 }
 
 /* Section: DETALLE DEL PRODUCTO----------------------------------------------------------------------*/
@@ -119,7 +119,21 @@ main section {
     cursor: pointer;
 }
 
-.boton-comprar:hover, .boton-agregar-carrito:hover {
+.boton-modificar {             /*Característica particular del botón*/
+    background-color: #FABD46;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-eliminar {             /*Característica particular del botón*/
+    background-color: #F05143;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-comprar:hover, .boton-agregar-carrito:hover, .boton-modificar:hover, .boton-eliminar:hover {
     background-color: black;
     box-shadow:0px 0px 0px 2px white inset;
 }
