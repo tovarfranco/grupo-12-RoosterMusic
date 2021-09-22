@@ -5,6 +5,7 @@ const indexController = require('../controllers/indexController');      // ACA r
 router.get('/', indexController.index);                                 // ACA se pone la ruta que sacamos de app.js. Este será el encargado de enviar la petición al controlador correspondiente para que genere la respuesta. Debemos usar el objeto router + método HTTP + callback (quien genera la respuesta). Usamos también SUBRUTAS del la funcionalidad.
 router.get('/login', indexController.login);
 router.get('/register', indexController.register);
+router.get('/search', indexController.search);
 router.get('/crud', indexController.crud);
 
 module.exports = router;                                                // Siempre exportarlo porque lo necesitaremos usar en el ENTRY POINT para que sepa a qué archivo enviar sus rutas.

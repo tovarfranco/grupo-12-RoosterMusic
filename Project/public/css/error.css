@@ -5,10 +5,10 @@
 /* Mensaje =============================================================================================================================*/
 
 .container {
-    width: 80%;
+    width: 80%;                 /*Para que no se pegue al borde en resoluciones pequeñas*/
     margin: auto;
-    height: 100vh;              /*Importante así ocua toda la pantalla*/
-    text-align: center;         /*Para qe todos los elementos internos esten centrados*/
+    height: 100vh;              /*Importante así ocupa toda la pantalla*/
+    text-align: center;         /*Para que todos los elementos internos esten centrados*/
     display: flex;
     justify-content: center;
     align-items: center;

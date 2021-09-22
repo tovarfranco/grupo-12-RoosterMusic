@@ -193,5 +193,20 @@
         "year": "2021",
         "category": "GUITARRA",
         "availability": "En STOCK"
+    },
+    {
+        "id": 14,
+        "name": "Guitarra Electrica",
+        "description": "Guitarra ultimo modelo",
+        "price": "200",
+        "image": "img-1632275054742-guitar5.jpg",
+        "brand": "Fender",
+        "model": "2021",
+        "color": "Blanco",
+        "material": "Madera",
+        "origin": "China",
+        "year": "2021",
+        "category": "GUITARRA",
+        "availability": "EN_STOCK"
     }
 ]
