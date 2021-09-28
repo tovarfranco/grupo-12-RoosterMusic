@@ -1,7 +1,7 @@
 ## Daily/planning/weekely:
 
 ### Things done:
-
+- Learn Wireframes concepts
 - The Jira board was made with the different tasks, divided into front-end and back-end.
 - Each member was assigned a story.
 - Development of the functionalities.

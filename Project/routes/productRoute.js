@@ -39,5 +39,5 @@ router.put('/edit/:id', upload.single('img'), productController.update);       /
 /*** Elimino un producto *******/
 router.delete('/delete/:id', productController.delete);
 
-// =========== Exporto Router ========================
+// =========== Exporto Router =========================
 module.exports = router;                                                       // Siempre exportarlo porque lo necesitaremos usar en el ENTRY POINT para que sepa a qué archivo enviar sus rutas.

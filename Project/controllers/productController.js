@@ -6,7 +6,7 @@ const path = require('path');                                                   
 const productListPath = path.join(__dirname, "../database/productList.json");    // Ruta del archivo BBDD.
 let productList = JSON.parse(fs.readFileSync(productListPath, 'utf-8'));         // Importamos la BBDD que se pasará a las vistas. Lista de objetos.
 
-// =========== Controlador ===========================
+// =========== Controlador ============================
 const productController = {
 
     /*** Todos los productos ***/

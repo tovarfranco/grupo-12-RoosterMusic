@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Reproductor de Vinilos Winco",
         "description": "Escuchá música como siempre soñaste, la calidad de sonido del Wincofon es realmente inigualable. Además vestí tu casa de gala con el tocadiscos Winco.",
-        "price": "65.50",
+        "price": "100.5",
         "image": "audio1.jpg",
         "brand": "Winco",
         "model": "1000",
@@ -12,7 +12,7 @@
         "origin": "China",
         "year": "2000",
         "category": "AUDIO",
-        "availability": "En STOCK"
+        "availability": "EN_STOCK"
     },
     {
         "id": 2,
@@ -199,7 +199,7 @@
         "name": "Guitarra Electrica",
         "description": "Guitarra ultimo modelo",
         "price": "200",
-        "image": "img-1632275054742-guitar5.jpg",
+        "image": "img-1632352428731-guitar5.jpg",
         "brand": "Fender",
         "model": "2021",
         "color": "Blanco",
