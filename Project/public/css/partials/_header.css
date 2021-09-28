@@ -52,6 +52,10 @@ header {
     border-bottom: solid 1px grey;
 }
 
+.buscar-boton {
+    cursor: pointer;
+}
+
 .sesion {              /*Container de los botones*/
     text-align: center;
     margin: 15px auto;

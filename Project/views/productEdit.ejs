@@ -19,26 +19,26 @@
                 
                 <h2 class="texto-crud">EDICION DE PRODUCTOS</h2>
                 <hr>
-                <form action="/crud" method="POST" class="formulario">
+                <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes-->
                     <h3 class="texto-formulario">Edite su producto</h3>
                     <div class="container-inputs">
                         <div class="inputs-1">
                             <div class="elemento">
-                                <input type="text" name="nombre" class="control" placeholder="Nombre">
+                                <input type="text" name="nombre" class="control" placeholder="Nombre" value="<%= product.name %>">
                             </div>
                             <div class="elemento">
-                                <input type="text" name="descripcion" class="control" placeholder="Descripción">
+                                <input type="text" name="descripcion" class="control" placeholder="Descripción" value="<%= product.description %>">
                             </div>
                             <div class="elemento">
-                                <input type="number" name="precio" class="control" placeholder="Precio">
+                                <input type="number" name="precio" class="control" placeholder="Precio" value="<%= product.price %>">
                             </div>
                         </div>
                         <div class="inputs-2">
                             <div class="elemento">
-                                <input type="text" name="marca" class="control" placeholder="Marca">
+                                <input type="text" name="marca" class="control" placeholder="Marca" value="<%= product.brand %>">
                             </div>
                             <div class="elemento">
-                                <input type="text" name="modelo" class="control" placeholder="Modelo">
+                                <input type="text" name="modelo" class="control" placeholder="Modelo" value="<%= product.model %>">
                             </div>
                             <div class="elemento">
                                 <select name="categoria" class="control" required>
@@ -56,18 +56,18 @@
                         </div>
                         <div class="inputs-3">
                             <div class="elemento">
-                                <input type="text" name="color" class="control" placeholder="Color">
+                                <input type="text" name="color" class="control" placeholder="Color" value="<%= product.color %>">
                             </div>
                             <div class="elemento">
-                                <input type="text" name="material" class="control" placeholder="Material">
+                                <input type="text" name="material" class="control" placeholder="Material" value="<%= product.material %>">
                             </div>
                             <div class="elemento">
-                                <input type="text" name="origen" class="control" placeholder="Origen">
+                                <input type="text" name="origen" class="control" placeholder="Origen" value="<%= product.origin %>">
                             </div>
                         </div>
                         <div class="inputs-4">
                             <div class="elemento">
-                                <input type="text" name="anio" class="control" placeholder="Año">
+                                <input type="text" name="anio" class="control" placeholder="Año" value="<%= product.year %>">
                             </div>
                             <div class="elemento">
                                 <select name="disponibilidad" class="control" required>
@@ -77,12 +77,10 @@
                                 </select>
                             </div>
                             <div class="elemento">
-                                <input type="file" name="imagen" class="control" accept=".jpg, .png">
+                                <input type="file" name="img" class="control" accept=".jpg, .png">
                             </div>
                         </div>
-                    <div><button class="boton-crear" type="button" onclick="window.location=''">Crear</button></div>
-                    <div><button class="boton-modificar" type="button" onclick="window.location=''">Modificar</button></div>
-                    <div><button class="boton-borrar" type="reset" onclick="window.location=''">Borrar</button></div>
+                    <div><button class="boton-modificar" type="submit">Modificar</button></div>
                 </form>
 
             </section>

@@ -18,14 +18,10 @@ Follow this steps:
     ```npm install```
 4. To start the aplication run:
     ```npm start```
-5. Go to the webrowser and put these links (uses port 8080):
-    - http://localhost:8080/    **index**
-    - http://localhost:8080/productDetail **product details**
-    - http://localhost:8080/productCart **product cart**
-    - http://localhost:8080/register **register**
-    - http://localhost:8080/login **login**
+5. Go to the webrowser and enjoy (uses port 3000):
+    - http://localhost:3000/    **index**
 
-*once we finish the development, should be a unique page with all the features, instead of separate links*
+*All pages are connected. Scroll through our site to see the different pages.*
 
 ## Built with 🛠️
 

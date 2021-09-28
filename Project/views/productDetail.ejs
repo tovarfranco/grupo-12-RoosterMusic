@@ -19,12 +19,12 @@
                 <h2 class="texto-detalle-producto">Detalle del producto</h2>
                 <hr>
                 <div class="container-detalles">
-                    <div class="foto-principal"><img src=<%= product.image %> alt="Foto del producto"></div>
+                    <div class="foto-principal"><img src="/images/products/<%= product.image %>" alt="Foto del producto"></div>
                     <article class="tarjeta">
                         <h4 class="tarjeta-marca"><%= product.brand %></h4>
                         <h3 class="tarjeta-titulo"><%= product.name %></h3>
                         <h4 class="tarjeta-stock"><%= product.availability %></h4>
-                        <h2 class="tarjeta-precio"><%= product.price %></h2>
+                        <h2 class="tarjeta-precio">U$S <%= product.price %></h2>
                         <ul class="tarjeta-links">
                             <li><a href="">Ver medios de pago</a></li>
                             <li><a href="">Envíos</a></li>
@@ -33,6 +33,10 @@
                         <div class="tarjeta-botones">
                             <div><button class="boton-comprar" type="button">Comprar</button></div>
                             <div><button class="boton-agregar-carrito" type="button" onclick="window.location='/productCart'">Agregar al carrito</button></div>
+                            <div><button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id %>'">Modificar</button></div>
+                            <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+                                <div><button class="boton-eliminar" type="submit">Eliminar</button></div>
+                            </form>
                         </div>
                     </article>
                     <article class="descripcion">

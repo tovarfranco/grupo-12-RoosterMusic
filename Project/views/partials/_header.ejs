@@ -2,9 +2,9 @@
 
     <div class="header-fila-1">
         <div class="logo" onclick="window.location='/'"><img src="/images/Logo.JPG" alt="Logo Rooster Music"></div>
-        <div class="buscar">
-            <input class="buscar-input" type="search" name="buscar" placeholder="Buscar"><button class="buscar-boton"><i class="fas fa-search buscar-icono"></i></button>
-        </div>
+        <form action="/search" method="GET" class="buscar">
+            <input class="buscar-input" type="search" name="keyword" placeholder="Buscar"><button type="submit" class="buscar-boton"><i class="fas fa-search buscar-icono"></i></button>
+        </form>
         <div class="sesion">
             <button class="boton-iniciar-sesion" type="button" onclick="window.location='/login'">Iniciar sesión</button>
             <button class="boton-registrarse" type="button" onclick="window.location='/register'">Registrarse</button>
@@ -18,10 +18,11 @@
     <nav class="header-fila-2">
         <ul>
             <li><a href="/">Inicio</a></li>
-            <li><a href="">Categorías</a></li>
+            <li><a href="/products">Productos</a></li>
+            <li><a href="/products/create">Vender</a></li>
             <li><a href="">Nosotros</a></li>
             <li><a href="">Contacto</a></li>
-            <li><a href="">Formas de Pago</a></li>
+            <li><a href="">Pago</a></li>
             <li><a href="">Ofertas</a></li>
         </ul>
     </nav>

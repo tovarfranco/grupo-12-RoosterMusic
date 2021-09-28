@@ -1,8 +1,7 @@
 ## Daily/planning/weekely:
 
 ### Things done:
-- Learn HTML and CSS concepts.
-- Also color theory and fonts.
+- Learn MVC, and EJS concepts.
 - The Jira board was made with the different tasks, divided into front-end and back-end, again.
 - Each member was assigned a story.
 - Development of the functionalities.
