@@ -20,23 +20,17 @@ const indexController = {
 
     search: (req, res) => {
 		let busqueda = req.query.keyword.toLowerCase();
-		let resultadoBusqueda = productList.filter(product => product.name.toLowerCase().includes(busqueda))
+		let resultadoBusqueda = productList.filter(product => product.name.toLowerCase().includes(busqueda));
 		res.render('results', {resultadoBusqueda: resultadoBusqueda, 
 							   busqueda: busqueda});
 	},
 
-    // search: (req, res) => {
-	// 	let busqueda = req.query.keyword.toLowerCase();        // De esta forma leo lo que viene en la URL (query string) y lo paso a minúsculas.
-	// 	let resultadoBusqueda = productList.filter(product => {
-    //         let lowerName = product.name.toLowerCase();
-    //         return lowerName.includes(busqueda);
-    //     })
-
-
-	// 	res.render('results', {resultadoBusqueda: resultadoBusqueda, 
-	// 						   busqueda: busqueda});
-	// },
-
+    category: (req, res) => {
+		let categoria = req.params.category
+		let resultadoBusqueda = productList.filter(product => product.category == categoria);
+		res.render('results', {resultadoBusqueda: resultadoBusqueda, 
+							   busqueda: categoria});
+	},
 
     crud: (req,res) => {
         res.render('crud');

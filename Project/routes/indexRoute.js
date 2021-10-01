@@ -12,6 +12,9 @@ router.get('/', indexController.index);                                        /
 /*** Barra de búsqueda *******/
 router.get('/search', indexController.search);
 
+/*** Categorías *******/
+router.get('/category/:category', indexController.category);
+
 /*** Login y registración *******/
 router.get('/login', indexController.login);
 router.get('/register', indexController.register);
