@@ -11,8 +11,11 @@ app.use(express.static(path.resolve(__dirname, './public')));         // Indicam
 app.use(express.urlencoded({ extended: false }));                     // Para poder trabajar con la información de formularios.
 app.use(express.json());                                              // Para poder trabajar con la información de formularios.
 
-const methodOverride =  require('method-override');                   // Para poder usar los métodos PUT y DELETE
+const methodOverride =  require('method-override');                   // Para poder usar los métodos PUT y DELETE.
 app.use(methodOverride('_method'));                                   // Para poder pisar el method="POST" en el formulario por PUT y DELETE.
+
+const userLog = require('./middlewares/userLog')                      // Middleware propio creado.
+app.use(userLog);                                                     // Implemento mi middleware de APLICACION. Recordar que primero se procesa los middlewares de aplicación y luegos los de ruta, son jerárquicos.
 
 // =========== Configuración Template Engine ===========
 app.set("view engine", "ejs");                                        // Indica que se usará ejs como view engine.
