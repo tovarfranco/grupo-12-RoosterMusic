@@ -60,7 +60,7 @@ main section {
     text-align: center        /*Centro sus elementos*/
 }
 
-.elemento{
+.elemento {
     margin: 5% 0;
 }
 
@@ -117,7 +117,7 @@ main section {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .elemento{

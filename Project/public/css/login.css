@@ -141,7 +141,7 @@ main section {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .inputs-1 div{          /*Los botones*/
