@@ -88,6 +88,13 @@ main section {
     margin: 5% 0;
 }
 
+label {
+    display: block;
+    margin-bottom: 1%;
+    text-align: left;
+    color: grey;
+}
+
 .control {                 /*Son los inputs*/
     background-color: #ebebeb;
     border: none;
