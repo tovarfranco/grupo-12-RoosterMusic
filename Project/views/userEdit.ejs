@@ -19,10 +19,10 @@
                 
                 <h2 class="texto-registro">INFORMACION DE SU CUENTA</h2>
                 <hr>
-                <form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes-->
+                <form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes. SI O SI usar Multer sino no viaja la info-->
                     <h3 class="texto-formulario">Modifique su información</h3>
                     <div class="imagen-formulario" >
-                        <img src="/images/users/<%= user.image %>" alt=<%= user.first_name %>>
+                        <img onclick="window.location='/users/detail/<%= user.id %>'" src="/images/users/<%= user.image %>" alt=<%= user.first_name %>>
                     </div>
                     <div class="container-inputs">
                         <div class="inputs-1">
@@ -36,7 +36,7 @@
                             </div>
                             <div class="elemento">
                                 <label>Documento</label>
-                                <input type="number" name="dni" class="control" placeholder="11111111" value="<%= user.dni %>">
+                                <input type="number" name="dni" class="control" placeholder="11111111" value="<%= user.dni %>" readonly>
                             </div>
                         </div>
                         <div class="inputs-2">
@@ -64,7 +64,7 @@
                             </div>
                             <div class="elemento">
                                 <label>E-mail</label>
-                                <input type="email" name="email" class="control" placeholder="ejemplo@dominio.com" value="<%= user.email %>">
+                                <input type="email" name="email" class="control" placeholder="ejemplo@dominio.com" value="<%= user.email %>" readonly>
                             </div>
                             <div class="elemento">
                                 <label>Contraseña</label>

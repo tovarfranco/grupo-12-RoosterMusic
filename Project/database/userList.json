@@ -58,5 +58,29 @@
         "email": "arturojaureche@hotmail.com",
         "password": "djfjkerotuf$%&djkfe@",
         "image": "img-1633238192717-avatar3.jpg"
+    },
+    {
+        "id": 6,
+        "first_name": "John",
+        "last_name": "Upac",
+        "dni": "321654",
+        "country": "Brasil",
+        "address": "Pavon 1234",
+        "birth": "2021-10-13",
+        "email": "johnupact123@hotmail.com",
+        "password": "Utndhwk34/djksbe223",
+        "image": "img-sin-imagen-disponible.jpg"
+    },
+    {
+        "id": 7,
+        "first_name": "Bruce",
+        "last_name": "Wayne",
+        "dni": "555555555",
+        "country": "Argentina",
+        "address": "Pavon 1234",
+        "birth": "2021-10-06",
+        "email": "brucewayne@hotmail.com",
+        "password": "789$h",
+        "image": "img-1633286615829-avatar4.jpg"
     }
 ]

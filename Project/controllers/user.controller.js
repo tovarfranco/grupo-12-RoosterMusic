@@ -1,6 +1,7 @@
 // =========== Require's ==============================
 const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
+const {validationResult} = require('express-validator');                         // Tambien se requiere acá. Solo nos interesa el elemento validationResult de espress-validator (destructuring).
 
 // =========== Lectura BBDD ===========================
 const userListPath = path.join(__dirname, "../database/userList.json");    // Ruta del archivo BBDD.
@@ -26,6 +27,13 @@ const userController = {
 	},
 
 	store: (req, res) => {
+
+        const resultValidation = validationResult(req);                 // Guardamos los resultados de las validaciones. Es un ARRAY de objetos que tiene los errores que se produjeron (input name, mensaje, etc).
+
+		if (resultValidation.errors.length > 0) {                       // Si hubo errores, devuelvo la vista con los errores + la data ya ingresada del formulario.
+			return res.render('register', {errors: resultValidation.mapped(), oldData: req.body});   // .mapped() convierte a ese array en un OBJETO literal con claves el input name y valor el contenido de todo ese error. Paso la data del body nuevamente así lo la pierdo.
+		}
+
 		let imagenName;                                                 // Para guardar la imagen. Si existe uso su nombre sino uso el default.
 		if (req.file) {
 			imagenName = req.file.filename;
@@ -49,7 +57,7 @@ const userController = {
 		userList.push(nuevo);
 		fs.writeFileSync(userListPath, JSON.stringify(userList, null, 4));  // De esta forma lo guarda "formateado".
 
-		res.redirect('/');
+		res.redirect('/users/detail/' + nuevo.id);
 	},
 
     /*** Modifico un usuario ***/
@@ -68,7 +76,7 @@ const userController = {
 		}
 
 		userList.forEach(user => {
-			if (user.id == req.params.id){
+			if (user.id == req.params.id) {
                 user.first_name = req.body.nombre,
                 user.last_name = req.body.apellido,
                 user.dni = req.body.dni,

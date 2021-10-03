@@ -19,7 +19,7 @@
                 
                 <h2 class="texto-crud">EDICION DE PRODUCTOS</h2>
                 <hr>
-                <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes-->
+                <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes. SI O SI usar Multer sino no viaja la info-->
                     <h3 class="texto-formulario">Edite su producto</h3>
                     <div class="imagen-formulario" >
                         <img onclick="window.location='/products/detail/<%= product.id %>'" src="/images/products/<%= product.image %>" alt=<%= product.name %>>
