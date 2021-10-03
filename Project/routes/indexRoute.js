@@ -15,9 +15,5 @@ router.get('/search', indexController.search);
 /*** Categorías *******/
 router.get('/category/:category', indexController.category);
 
-/*** Login y registración *******/
-router.get('/login', indexController.login);
-router.get('/register', indexController.register);
-
 // =========== Exporto Router =========================
 module.exports = router;                                                       // Siempre exportarlo porque lo necesitaremos usar en el ENTRY POINT para que sepa a qué archivo enviar sus rutas.

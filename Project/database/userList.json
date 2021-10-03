@@ -4,32 +4,59 @@
         "first_name": "Alan",
         "last_name": "Tovar",
         "dni": "37000000",
-        "country": "ARG",
+        "country": "Argentina",
         "address": "Marcelo 1168",
-        "birth": "19930101",
+        "birth": "",
         "email": "alan@hotmail.com",
-        "password": "123"
+        "password": "123",
+        "image": "img-1633238925735-avatar4.jpg"
     },
     {
         "id": 2,
         "first_name": "Franco",
         "last_name": "Tovar",
         "dni": "40000000",
-        "country": "ARG",
+        "country": "Argentina",
         "address": "MArcelo 1168",
-        "birth": "19930120",
+        "birth": "",
         "email": "franco@hotmail.com",
-        "password": "123"
+        "password": "123",
+        "image": "img-1633238942074-avatar1.jpg"
     },
     {
         "id": 3,
         "first_name": "Nazareno",
         "last_name": "Aguero",
         "dni": "45000000",
-        "country": "ARG",
+        "country": "Argentina",
         "address": "Moreno 1168",
-        "birth": "19990101",
+        "birth": "",
         "email": "nazareno@hotmail.com",
-        "password": "123"
+        "password": "123",
+        "image": "img-1633238965604-avatar2.jpg"
+    },
+    {
+        "id": 4,
+        "first_name": "John",
+        "last_name": "Doe",
+        "dni": "1111111",
+        "country": "Brasil",
+        "address": "Alberdi 111",
+        "birth": "2021-10-02",
+        "email": "ejemplo@hotmail.com",
+        "password": "123456789",
+        "image": "img-1633235291707-avatar1.jpg"
+    },
+    {
+        "id": 5,
+        "first_name": "Mary",
+        "last_name": "Kennedy",
+        "dni": "555",
+        "country": "Argentina",
+        "address": "Pavon 1234",
+        "birth": "2021-10-05",
+        "email": "arturojaureche@hotmail.com",
+        "password": "djfjkerotuf$%&djkfe@",
+        "image": "img-1633238192717-avatar3.jpg"
     }
 ]

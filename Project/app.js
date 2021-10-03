@@ -23,10 +23,12 @@ app.set('views', path.join(__dirname, '/views'));                     // Define 
 
 // =========== Ruteo ===================================
 const indexRoute = require('./routes/indexRoute.js');                 // ACA requerimos las rutas de la funcionalidad.
+const userRoute = require('./routes/user.route.js');
 const productRoute = require('./routes/productRoute.js'); 
 const productCartRoute = require('./routes/productCartRoute.js');
 
 app.use('/', indexRoute);                                             // ACA indicamos la BASE/RAIZ de esa funcionalidad + su archivo ruta (objeto).
+app.use('/users', userRoute);
 app.use('/products', productRoute);
 app.use('/productCart', productCartRoute);
 

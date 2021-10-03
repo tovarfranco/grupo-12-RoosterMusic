@@ -93,7 +93,7 @@ const productController = {
 	},
 
     /*** Elimino un producto ***/
-    delete : (req, res) => {
+    delete: (req, res) => {
 		productList = productList.filter(product => product.id != req.params.id);
 		fs.writeFileSync(productListPath, JSON.stringify(productList, null, 4));  // De esta forma lo guarda "formateado".
 

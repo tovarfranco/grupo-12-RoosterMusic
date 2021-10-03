@@ -208,5 +208,20 @@
         "year": "2021",
         "category": "GUITARRA",
         "availability": "EN STOCK"
+    },
+    {
+        "id": 15,
+        "name": "Afinador",
+        "description": "Afinador de bajo ultimo modelo",
+        "price": "80",
+        "image": "img-sin-imagen-disponible.jpg",
+        "brand": "Tunder",
+        "model": "2021",
+        "color": "Azul",
+        "material": "Plastico",
+        "origin": "China",
+        "year": "2021",
+        "category": "AUDIO",
+        "availability": "SIN STOCK"
     }
 ]

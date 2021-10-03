@@ -64,6 +64,13 @@ main section {
     margin: 5% 0;
 }
 
+.imagen-formulario img {
+    width: 120px; height: 120px;
+    object-fit: cover;      /*Sin esta propiedad queda estirada la imagen*/
+    border-radius: 50%;     /*Para que sea redonda*/
+    cursor: pointer;
+}
+
 label {
     display: block;
     margin-bottom: 1%;
@@ -88,11 +95,16 @@ label {
     margin-right: 8px;     /*Para separar el checkbox*/
 }
 
-.boton-registrarse-formulario, .boton-iniciar-sesion-formulario {       /*Características comunes de los bototnes*/
+.boton-registrarse-formulario, 
+.boton-iniciar-sesion-formulario, 
+.boton-cerrar-sesion-formulario, 
+.boton-modificar-formulario, 
+.boton-eliminar-formulario {       /*Características comunes de los botones*/
     border: none;
     border-radius: 15px;
     padding: 8px;
-    width: 115px;          /*Para que tengan el mismo tamaño*/
+    margin: 2% 0px;                /*Cambia en resoluciones mayores para que se vea bien*/
+    width: 200px;                  /*Para que tengan el mismo tamaño*/
 }
 
 .boton-registrarse-formulario {   /*Característica particular del botón*/
@@ -109,7 +121,32 @@ label {
     cursor: pointer;
 }
 
-.boton-registrarse-formulario:hover, .boton-iniciar-sesion-formulario:hover {
+.boton-cerrar-sesion-formulario { /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-modificar-formulario {   /*Característica particular del botón*/
+    background-color: #FABD46;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-eliminar-formulario {   /*Característica particular del botón*/
+    background-color: #F05143;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-registrarse-formulario:hover, 
+.boton-iniciar-sesion-formulario:hover,
+.boton-cerrar-sesion-formulario:hover,
+.boton-modificar-formulario:hover,
+.boton-eliminar-formulario:hover {
     background-color: black;
     box-shadow:0px 0px 0px 2px white inset;
 }
@@ -135,11 +172,27 @@ label {
     .terminos-condiciones {
         margin: 2% 0;      /*Le saco un poco de margen a los términos*/
     }
+
+    .boton-registrarse-formulario, 
+    .boton-iniciar-sesion-formulario, 
+    .boton-cerrar-sesion-formulario, 
+    .boton-modificar-formulario, 
+    .boton-eliminar-formulario {       /*Características comunes de los botones*/
+        margin: 1% 0px;                /*Cambia en resoluciones mayores para que se vea bien*/
+    }
 }
 
 @media (min-width: 1200px){
     .registro {
         max-width: 1200px;
         margin: 4% auto;
+    }
+
+    .boton-registrarse-formulario, 
+    .boton-iniciar-sesion-formulario, 
+    .boton-cerrar-sesion-formulario, 
+    .boton-modificar-formulario, 
+    .boton-eliminar-formulario {       /*Características comunes de los botones*/
+        margin: 0.5% 0px;              /*Para que se vea bien*/
     }
 }
