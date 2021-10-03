@@ -7,51 +7,11 @@ const {body} = require('express-validator');                                   /
 // =========== Controladores ==========================
 const userController = require('../controllers/user.controller.js');           // ACA requerimos el controlador que tiene los callbacks que generarán las respuestas.
 
-// =========== Multer configuracion ===================
-const multer = require("multer");                                              // Instalar MULTER. Importo a multer para poder subir archivos por formularios.
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, path.join(__dirname, '../public/images/users'));                // Acá se van a almacenar las imágenes. SI O SI USAR PATH.
-    },
-
-    filename: (req, file, cb) => {
-      cb(null, file.fieldname + "-" + Date.now() + "-" + file.originalname);   // Nombre que tendrá el archivo.
-    },
-});
-
-const upload = multer({storage: storage});                                     // Acá guardamos la variable de configuración de Multer. Usarlo en la ruta que deseemos.
+// =========== Multer =================================
+const upload = require('../middlewares/userMulter.middleware.js');             // Acá guardamos la variable de configuración de Multer. Usarlo en la ruta que deseemos.
 
 // =========== Express-validator =====================
-const createValidations = [                                                    // Este array tendrá los inputs name que deseamos validar. Estará asociado a un formulario/ruta. Colocarlo com omiddleware en la ruta deseada.
-	body('nombre').notEmpty().withMessage('Completar el nombre'),
-    body('apellido').notEmpty().withMessage('Completar el apellido'),
-    body('dni').notEmpty().withMessage('Completar el documento'),
-    body('pais').notEmpty().withMessage('Completar el pais'),
-    body('domicilio').notEmpty().withMessage('Completar el domicilio'),
-    body('nacimiento').notEmpty().withMessage('Completar la fecha'),
-    body('email')
-        .notEmpty().withMessage('Completar el email').bail()                   // bail() permite FRENAR las validaciones para que no se muestren todas al cliente al mismo tiempo, sino que muestra de a una.
-        .isEmail().withMessage('Formato de correo inválido'),
-    body('password').notEmpty().withMessage('Completar la contraseña')
-        .isLength({min: 6}).withMessage('Mínimo 6 caracteres'),
-
-    body('img').custom((value, {req}) => {                                     // Validación para imagenes. Se debe usar una custom.
-		let file = req.file;
-		let extPermitidas = ['.jpg', '.png'];
-		
-		if (!file) {                                                           // Si no viene una imagen genera error con el mensaje indicado.
-			throw new Error('Subir una imagen');
-		} else {
-			let extActual = path.extname(file.originalname);
-			if (!extPermitidas.includes(extActual)) {
-				throw new Error('Las extensiones permitidas son ' +  extPermitidas.join(', '));
-			}
-		}
-
-		return true;                                                            // SI O SI para indicar que no hubo errores.
-	})
-]
+const createUsersValidations = require('../middlewares/createUsersValidations.middleware.js');  // Este array tendrá los inputs name que deseamos validar. Estará asociado a un formulario/ruta. Colocarlo com omiddleware en la ruta deseada.
 
 // =========== Router =================================
 /*** Login *******/
@@ -62,7 +22,7 @@ router.get('/detail/:id', userController.detail);
 
 /*** Creo un usuario *******/
 router.get('/create', userController.create);
-router.post('/create', upload.single('img'), createValidations, userController.store);            // Acá va el name del input file para Multer. Acá se pone el array de validaciones de express-validator.
+router.post('/create', upload.single('img'), createUsersValidations, userController.store);     // Acá va el name del input file para Multer. Acá se pone el array de validaciones de express-validator.
 
 /*** Modifico un usuario ******/
 router.get('/edit/:id', userController.edit);

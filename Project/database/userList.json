@@ -82,5 +82,17 @@
         "email": "brucewayne@hotmail.com",
         "password": "789$h",
         "image": "img-1633286615829-avatar4.jpg"
+    },
+    {
+        "id": 8,
+        "first_name": "Bruce",
+        "last_name": "Wayne",
+        "dni": "9999999",
+        "country": "Colombia",
+        "address": "Pavon 5555555",
+        "birth": "2021-10-07",
+        "email": "eugenio_234@hotmail.com",
+        "password": "789654HJ(/",
+        "image": "img-1633299551589-avatar4.jpg"
     }
 ]

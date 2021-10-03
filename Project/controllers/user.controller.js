@@ -30,7 +30,7 @@ const userController = {
 
         const resultValidation = validationResult(req);                 // Guardamos los resultados de las validaciones. Es un ARRAY de objetos que tiene los errores que se produjeron (input name, mensaje, etc).
 
-		if (resultValidation.errors.length > 0) {                       // Si hubo errores, devuelvo la vista con los errores + la data ya ingresada del formulario.
+		if (!resultValidation.isEmpty()) {                              // Si hubo errores, devuelvo la vista con los errores + la data ya ingresada del formulario.
 			return res.render('register', {errors: resultValidation.mapped(), oldData: req.body});   // .mapped() convierte a ese array en un OBJETO literal con claves el input name y valor el contenido de todo ese error. Paso la data del body nuevamente así lo la pierdo.
 		}
 
