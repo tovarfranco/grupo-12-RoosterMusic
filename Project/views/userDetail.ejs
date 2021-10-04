@@ -20,19 +20,19 @@
                 <h2 class="texto-registro">INFORMACION DE SU CUENTA</h2>
                 <hr>
                 <div class="formulario">
-                    <h3 class="texto-formulario">Hola <%= user.first_name %>!</h3>
+                    <h3 class="texto-formulario">Hola <%= user.nombre %>!</h3>
                     <div class="imagen-formulario" >
-                        <img src="/images/users/<%= user.image %>" alt=<%= user.first_name %>>
+                        <img src="/images/users/<%= user.img %>" alt=<%= user.nombre %>>
                     </div>
                     <div class="container-inputs">
                         <div class="inputs-1">
                             <div class="elemento">
                                 <label>Nombre</label>
-                                <input type="text" name="nombre" class="control" placeholder="John" value="<%= user.first_name %>" readonly>
+                                <input type="text" name="nombre" class="control" placeholder="John" value="<%= user.nombre %>" readonly>
                             </div>
                             <div class="elemento">
                                 <label>Apellido</label>
-                                <input type="text" name="apellido" class="control" placeholder="Doe" value="<%= user.last_name %>" readonly>
+                                <input type="text" name="apellido" class="control" placeholder="Doe" value="<%= user.apellido %>" readonly>
                             </div>
                             <div class="elemento">
                                 <label>Documento</label>
@@ -42,15 +42,15 @@
                         <div class="inputs-2">
                             <div class="elemento">
                                 <label>País</label>
-                                <input type="text" name="pais" class="control" value="<%= user.country %>" readonly>
+                                <input type="text" name="pais" class="control" value="<%= user.pais %>" readonly>
                             </div>
                             <div class="elemento">
                                 <label>Domicilio</label>
-                                <input type="text" name="domicilio" class="control" placeholder="Alberdi 1111" value="<%= user.address %>" readonly>
+                                <input type="text" name="domicilio" class="control" placeholder="Alberdi 1111" value="<%= user.domicilio %>" readonly>
                             </div>
                             <div class="elemento">
                                 <label>Fecha de nacimiento</label>
-                                <input type="date" name="nacimiento" class="control" placeholder="Fecha nacimiento" value="<%= user.birth %>" readonly>
+                                <input type="date" name="nacimiento" class="control" placeholder="Fecha nacimiento" value="<%= user.nacimiento %>" readonly>
                             </div>
                         </div>
                         <div class="inputs-3">
