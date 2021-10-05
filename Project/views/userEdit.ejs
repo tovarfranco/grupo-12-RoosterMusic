@@ -22,7 +22,7 @@
                 <form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes. SI O SI usar Multer sino no viaja la info-->
                     <h3 class="texto-formulario">Modifique su información</h3>
                     <div class="imagen-formulario" >
-                        <img onclick="window.location='/users/detail/<%= user.id %>'" src="/images/users/<%= user.img %>" alt=<%= user.nombre %>>
+                        <img onclick="window.location='/users/profile'" src="/images/users/<%= user.img %>" alt=<%= user.nombre %>>
                     </div>
                     <div class="container-inputs">
                         <div class="inputs-1">

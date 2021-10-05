@@ -118,5 +118,29 @@
         "email": "arturojaureche@hotmail.com",
         "password": "$2a$10$W0qDMarJ.fKvBZFg27P3..wybn1P3d3crbd8pZ8zYwopUO9.zyT8O",
         "img": "img-1633323318755-avatar2.jpg"
+    },
+    {
+        "id": 11,
+        "nombre": "John",
+        "apellido": "Wayne",
+        "dni": "3333333",
+        "pais": "Argentina",
+        "domicilio": "Pavon 1234",
+        "nacimiento": "2021-10-13",
+        "email": "eugenio_23khhkj4@hotmail.com",
+        "password": "$2a$10$JBvMOjCNP9aIXOTfWQ0qauOfnbDGcKNwfYMwGRqhhEW0si/vv5f.e",
+        "img": "img-1633408384251-avatar1.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "StevenNN",
+        "apellido": "K",
+        "dni": "1",
+        "pais": "Argentina",
+        "domicilio": "Pavon 1234",
+        "nacimiento": "2021-09-29",
+        "email": "clarkken1@hotmail.com",
+        "password": "$2a$10$rDmlloaum074lBiLsf28M.oPvB3E9mMykgV7fP1KCGBRNnJGZJkP2",
+        "img": "img-1633410221793-avatar2.jpg"
     }
 ]

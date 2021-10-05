@@ -17,6 +17,13 @@ app.use(methodOverride('_method'));                                   // Para po
 const userLog = require('./middlewares/userLog')                      // Middleware propio creado.
 app.use(userLog);                                                     // Implemento mi middleware de APLICACION. Recordar que primero se procesa los middlewares de aplicación y luegos los de ruta, son jerárquicos.
 
+const session = require('express-session');                           // Para poder trabajar con sesiones.
+app.use(session({                                                     // Se inicializa de esta manera.
+	secret: "Rooster Music secret",
+	resave: false,
+	saveUninitialized: false,
+}));
+
 // =========== Configuración Template Engine ===========
 app.set("view engine", "ejs");                                        // Indica que se usará ejs como view engine.
 app.set('views', path.join(__dirname, '/views'));                     // Define la ubicación de la carpeta de las Vistas.

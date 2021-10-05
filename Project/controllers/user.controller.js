@@ -15,10 +15,34 @@ const userController = {
         res.render('login');
     },
 
+    /*** Procesamos el login ***/
+	loginProcess: (req, res) => {
+        /* Verifico si existe el usuario */
+        let userFound = User.findByField('email', req.body.email);                                 // Uso esta función que creé en el modelo para verificar ya existe.
+
+		if (!userFound) {
+			return res.render('login', {errors: {email: {msg: 'Usuario no registrado'}}});         // Creo una valicación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
+		}
+		
+        /* Verifico contraseña + sesión + cookie */
+        let validation = bcryptjs.compareSync(req.body.password, userFound.password);              // Valido contraseña.
+        if (validation) {                                                                          // Si es correcta quiero guardarlo en sesión, borrando su password por seguridad.
+            delete userFound.password;
+            req.session.userLogged = userFound;                                                    // Guardo al usuario en sesión.
+
+            // if (req.body.mantener) {                                                               // Ademas si tiene tildada la casilla "Mantener sesión abierta", lo guardo en una cookie.
+            //     res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60})                // Guardo el email en una cookie para recordar su sesión. Recordar las cookies se gurardan en el cliente por eso usamos un .res().
+            // }
+
+            return res.redirect('/users/profile');                                 // Si todo está ok le muestro sus datos. 
+        }
+
+        res.render('login', {errors: {password: {msg: 'La contraseña no es válida'}}, oldData: req.body});    // Si el password es incorrcto muestro su error.
+	},
+
     /*** Detalle de un usuario ***/
-    detail: (req, res) => {
-        let userFound = User.findByPk(req.params.id)                             // Llamo al modelo.
-        res.render('userDetail', {user: userFound});
+	profile: (req, res) => {
+		res.render('userProfile', {user: req.session.userLogged});         // Ver que le paso el usuario que inició sesión.
     },
 
     /*** Creo un usuario ***/
@@ -57,9 +81,9 @@ const userController = {
             img: imagenName
 		}
 
-        let userCreated = User.create(userToCreate);                             // Llamo al modelo.
+        User.create(userToCreate);                             // Llamo al modelo.
 
-		res.redirect('/users/detail/' + userCreated.id);
+		res.redirect('/users/login');
 	},
 
     /*** Modifico un usuario ***/
@@ -89,13 +113,25 @@ const userController = {
 
         User.update(userToUpdate);                                               // Llamo al modelo.
 
-		res.redirect('/users/detail/' + req.params.id);
+        /* Actualizo su sesión para continuar (sino queda en memoria)*/
+        delete userToUpdate.password;
+        req.session.userLogged = userToUpdate;
+
+		res.redirect('/users/profile');
 	},
 
     /*** Elimino un usuario ***/
     delete: (req, res) => {
 		User.delete(req.params.id);
 
+		// res.clearCookie('userEmail');
+		req.session.destroy();
+		res.redirect('/');
+	},
+
+    logout: (req, res) => {
+		// res.clearCookie('userEmail');
+		req.session.destroy();
 		res.redirect('/');
 	}
 }

@@ -60,11 +60,11 @@
                             </div>
                             <div class="elemento">
                                 <label>Contraseña</label>
-                                <input type="password" name="password" class="control" placeholder="Contraseña" value="<%= user.password %>" readonly>
+                                <input type="password" name="password" class="control" placeholder="******" value="<%= user.password %>" readonly>
                             </div>
                         </div>
                     </div>
-                    <div><button class="boton-cerrar-sesion-formulario" type="button">Cerrar sesión</button></div>
+                    <div><button class="boton-cerrar-sesion-formulario" type="button" onclick="window.location='/users/logout'">Cerrar sesión</button></div>
                     <div><button class="boton-modificar-formulario" type="button" onclick="window.location='/users/edit/<%= user.id %>'">Modificar</button></div>
                     <form action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
                         <div><button class="boton-eliminar-formulario" type="submit">Darse de baja</button></div>

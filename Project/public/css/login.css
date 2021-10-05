@@ -93,6 +93,7 @@ label {
     margin-bottom: 1%;
     text-align: left;
     color: grey;
+    font-weight: bold;
 }
 
 .control {                 /*Son los inputs*/
@@ -101,6 +102,21 @@ label {
     border-radius: 5px;
     width: 100%;           /*Para que el input abarque todo el ancho*/
     padding: 10px 10px;
+}
+
+.control-error {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: solid 1px red;
+    border-radius: 5px;
+    width: 100%;           /*Para que el input abarque todo el ancho*/
+    padding: 10px 10px;
+}
+
+span {
+    display: block;
+    margin-top: 1%;
+    text-align: left;
+    color: red;
 }
 
 .mantener {
