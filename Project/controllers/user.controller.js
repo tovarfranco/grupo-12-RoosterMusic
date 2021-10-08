@@ -30,11 +30,11 @@ const userController = {
             delete userFound.password;
             req.session.userLogged = userFound;                                                    // Guardo al usuario en sesión.
 
-            // if (req.body.mantener) {                                                               // Ademas si tiene tildada la casilla "Mantener sesión abierta", lo guardo en una cookie.
-            //     res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60})                // Guardo el email en una cookie para recordar su sesión. Recordar las cookies se gurardan en el cliente por eso usamos un .res().
-            // }
+            if (req.body.mantener) {                                                               // Ademas si tiene tildada la casilla "Mantener sesión abierta", lo guardo en una cookie.
+                res.cookie('userEmail', req.body.email, {maxAge: (1000 * 60) * 60 * 1})            // Guardo el email en una cookie para recordar su sesión. Recordar las cookies se guardan en el cliente por eso usamos un .res().
+            }
 
-            return res.redirect('/users/profile');                                 // Si todo está ok le muestro sus datos. 
+            return res.redirect('/users/profile');                                                 // Si todo está ok le muestro sus datos. 
         }
 
         res.render('login', {errors: {password: {msg: 'La contraseña no es válida'}}, oldData: req.body});    // Si el password es incorrcto muestro su error.
@@ -42,7 +42,7 @@ const userController = {
 
     /*** Detalle de un usuario ***/
 	profile: (req, res) => {
-		res.render('userProfile', {user: req.session.userLogged});         // Ver que le paso el usuario que inició sesión.
+		res.render('userProfile', {user: req.session.userLogged});               // Ver que le paso el usuario que inició sesión.
     },
 
     /*** Creo un usuario ***/
@@ -81,7 +81,7 @@ const userController = {
             img: imagenName
 		}
 
-        User.create(userToCreate);                             // Llamo al modelo.
+        User.create(userToCreate);                                               // Llamo al modelo.
 
 		res.redirect('/users/login');
 	},
@@ -124,13 +124,13 @@ const userController = {
     delete: (req, res) => {
 		User.delete(req.params.id);
 
-		// res.clearCookie('userEmail');
+		res.clearCookie('userEmail');                                            // Destruyo la cookie sino no me voy a poder desloguear.
 		req.session.destroy();
 		res.redirect('/');
 	},
 
     logout: (req, res) => {
-		// res.clearCookie('userEmail');
+		res.clearCookie('userEmail');                                            // Destruyo la cookie sino no me voy a poder desloguear.
 		req.session.destroy();
 		res.redirect('/');
 	}

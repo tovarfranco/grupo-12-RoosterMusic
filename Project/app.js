@@ -24,6 +24,12 @@ app.use(session({                                                     // Se inic
 	saveUninitialized: false,
 }));
 
+const cookies = require('cookie-parser');                             // Middleware importado (no propio).
+app.use(cookies());                                                   // Es a nivel aplicacion, nos permitirá trabajar con cookies, que serán objetos literales que se guardan en el cliente (información no sensible).
+
+const userLoggedMiddleware = require('./middlewares/userLoggued.middleware') // Middleware propio creado.
+app.use(userLoggedMiddleware);                                               // Importante que esté despues de session y cookies porque usa a estos en su funcionalidad.
+
 // =========== Configuración Template Engine ===========
 app.set("view engine", "ejs");                                        // Indica que se usará ejs como view engine.
 app.set('views', path.join(__dirname, '/views'));                     // Define la ubicación de la carpeta de las Vistas.

@@ -133,14 +133,26 @@
     },
     {
         "id": 12,
-        "nombre": "StevenNN",
-        "apellido": "K",
+        "nombre": "Steven",
+        "apellido": "KKK",
         "dni": "1",
         "pais": "Argentina",
-        "domicilio": "Pavon 1234",
+        "domicilio": "Pavon 123",
         "nacimiento": "2021-09-29",
         "email": "clarkken1@hotmail.com",
         "password": "$2a$10$rDmlloaum074lBiLsf28M.oPvB3E9mMykgV7fP1KCGBRNnJGZJkP2",
-        "img": "img-1633410221793-avatar2.jpg"
+        "img": "img-1633728762147-avatar2.jpg"
+    },
+    {
+        "id": 13,
+        "nombre": "Clark",
+        "apellido": "KEN2",
+        "dni": "333333333",
+        "pais": "Argentina",
+        "domicilio": "Alberdi 1",
+        "nacimiento": "2021-10-10",
+        "email": "clarkken2@hotmail.com",
+        "password": "$2a$10$hHLXfcAxZBV0VXmMazbUOOhqxu2rMKdZY43M/Fr4ln34Eb9dwPPXa",
+        "img": "img-1633734309647-avatar4.jpg"
     }
 ]
