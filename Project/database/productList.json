@@ -208,5 +208,20 @@
         "year": "2021",
         "category": "GUITARRA",
         "availability": "EN STOCK"
+    },
+    {
+        "id": 15,
+        "name": "Afinador Livivo",
+        "description": "Afinador de último modelo, permite afinar mientras se toca el instrumento. Ideal para conciertos en vivo.",
+        "price": "444",
+        "image": "img-1635304787644-tuner5.jpg",
+        "brand": "Livivo",
+        "model": "2021",
+        "color": "Negro",
+        "material": "Plastico",
+        "origin": "China",
+        "year": "2021",
+        "category": "AUDIO",
+        "availability": "EN STOCK"
     }
 ]

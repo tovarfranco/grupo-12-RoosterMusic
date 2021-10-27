@@ -1,7 +1,7 @@
 // =========== Require's ==============================
 const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
-const {validationResult} = require('express-validator');                         // Tambien se requiere acá. Solo nos interesa el elemento validationResult de espress-validator (destructuring).
+const {validationResult} = require('express-validator');                         // También se requiere acá. Solo nos interesa el elemento validationResult de espress-validator (destructuring).
 const bcryptjs = require('bcryptjs');                                            // Para encriptar las contraseñas.
 
 // =========== Modelo ============================
@@ -105,7 +105,7 @@ const userController = {
 		}
 
         /* Actualizo usuario */
-		let userToUpdate = {                                                     // Creo un objeto temporal que le pasaré el moddelo para que lo actualice.
+		let userToUpdate = {                                                     // Creo un objeto temporal que le pasaré el modelo para que lo actualice.
             id: userFound.id,
             ...req.body,
             img: imagenName

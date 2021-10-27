@@ -1,5 +1,5 @@
 // =========== Require's ==============================
-const fs = require('fs');
+const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
 
 // =========== Modelo =================================
@@ -10,7 +10,7 @@ const User = {
 
     /*** Lectura BBDD ***/
 	readData: function () {
-		return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));              // Importamos la BBDD a usar. Lista de objetos.
+		return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));              // Importamos la BBDD a usar. Lista de objetos es devueta a la función que llamó a esta función.
 	},
 
 	generateId: function () {
@@ -27,14 +27,14 @@ const User = {
 		return this.readData();
 	},
 
-    /*** Busqueda de usuario por PK ***/
+    /*** Búsqueda de usuario por PK ***/
 	findByPk: function (id) {
 		let userList = this.findAll();
 		let userFound = userList.find(user => user.id == id);
 		return userFound;
 	},
 
-    /*** Busqueda de usuario por campo ***/
+    /*** Búsqueda de usuario por campo ***/
 	findByField: function (field, value) {
 		let userList = this.findAll();
 		let userFound = userList.find(user => user[field] == value);
