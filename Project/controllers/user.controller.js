@@ -129,6 +129,7 @@ const userController = {
 		res.redirect('/');
 	},
 
+    /*** Cierre de sesión ***/
     logout: (req, res) => {
 		res.clearCookie('userEmail');                                            // Destruyo la cookie sino no me voy a poder desloguear.
 		req.session.destroy();

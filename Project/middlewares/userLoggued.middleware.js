@@ -2,10 +2,10 @@
 const User = require('../models/User.model');                                   // Importo el módulo porque lo usaré para la cookie.
 
 function userLoggedMiddleware(req, res, next) {
-	res.locals.isLogged = false;                                                // Creo esta variable global para que TODAS las vistas la vean y ademas se aplica a todas las rutasA por ser a nivel PLICACION.
+	res.locals.isLogged = false;                                                // Creo esta variable global para que TODAS las vistas la vean y ademas se aplica a todas las rutas por ser a nivel APLICACION.
 
-	let cookieEmail = req.cookies.userEmail;                                    // Si tildo mantener sesión, se crea una cookie. Quiero leerla y pasarla a session si existe, así no se tiene que volver a logueaar.
-	let userCookie = User.findByField('email', cookieEmail);                    // Llamo a la función en la bbdd para ver si tengo a ese usuario y lo leo.
+	let cookieEmail = req.cookies.userEmail;                                    // Si tildo mantener sesión, se crea una cookie. Quiero leerla y pasarla a session si existe, así no se tiene que volver a logueaar. Esto se realiza en cada req, es decir, en cada acceso a una vista, ya que siempre se realiza un request al servidor pidiendo esa vista.
+	let userCookie = User.findByField('email', cookieEmail);                    // Llamo a la función en la BBDD para ver si tengo a ese usuario y lo leo. En este caso la cookie que se guarda/dó es el email, por eso se busca por email.
 
 	if (userCookie) {                                                           // En caso de haberlo encontrado lo paso a session.
         delete userCookie.password;
@@ -14,7 +14,7 @@ function userLoggedMiddleware(req, res, next) {
 
 	if (req.session.userLogged) {                                               // Si está logueado ponemos la variable en true. 
 		res.locals.isLogged = true;
-		res.locals.userLogged = req.session.userLogged;                         // IMPORTANTE: nos preguntamos no podríamos usar directamente req.session? NO. porque no estamos renderizando nada. Para que las vistas puedan ver a nivel global esta variabe debo pasarle su valor a la variable .locals.
+		res.locals.userLogged = req.session.userLogged;                         // IMPORTANTE: nos preguntamos no podríamos usar directamente req.session? NO. porque no estamos renderizando nada. Para que las vistas puedan ver a nivel global esta variable debo pasarle su valor a la variable .locals.
 	}
 
 	next();

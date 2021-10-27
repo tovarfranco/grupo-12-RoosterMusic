@@ -3,7 +3,7 @@ const path = require("path");                                                  /
 const {body} = require('express-validator');                                   // Usamos destructuring para requerir solo el elemento body de express-validator.
 
 // =========== Express-validator configuración ========
-const createUsersValidations = [                                               // Este array tendrá los inputs name que deseamos validar. Estará asociado a un formulario/ruta. Colocarlo com omiddleware en la ruta deseada.
+const createUsersValidations = [                                               // Este array tendrá los inputs name que deseamos validar. Estará asociado a un formulario/ruta. Colocarlo como middleware en la RUTA deseada.
 	body('nombre').notEmpty().withMessage('Completar el nombre'),
     body('apellido').notEmpty().withMessage('Completar el apellido'),
     body('dni').notEmpty().withMessage('Completar el documento'),

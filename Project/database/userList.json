@@ -134,7 +134,7 @@
     {
         "id": 12,
         "nombre": "Steven",
-        "apellido": "KKK",
+        "apellido": "K",
         "dni": "1",
         "pais": "Argentina",
         "domicilio": "Pavon 123",
@@ -154,5 +154,17 @@
         "email": "clarkken2@hotmail.com",
         "password": "$2a$10$hHLXfcAxZBV0VXmMazbUOOhqxu2rMKdZY43M/Fr4ln34Eb9dwPPXa",
         "img": "img-1633734309647-avatar4.jpg"
+    },
+    {
+        "id": 14,
+        "nombre": "Clark",
+        "apellido": "Zoo",
+        "dni": "446546554",
+        "pais": "Brasil",
+        "domicilio": "Pavon 1234",
+        "nacimiento": "2021-09-30",
+        "email": "clarkken4@hotmail.com",
+        "password": "$2a$10$bTbtcLS/t5bHArtYlCENue3zhbrhQPfBs53Oho0wmaK9/KRqOwxye",
+        "img": "img-1634772551262-avatar3.jpg"
     }
 ]

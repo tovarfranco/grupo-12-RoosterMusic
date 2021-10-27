@@ -12,7 +12,7 @@ const upload = require('../middlewares/userMulter.middleware.js');             /
 
 // =========== Middlewares ============================
 const guestMiddleware = require('../middlewares/guest.middleware.js');         // Uso mi propio middleware.
-const authMiddleware = require('../middlewares/auth.middleware.js');         // Uso mi propio middleware.
+const authMiddleware = require('../middlewares/auth.middleware.js');           // Uso mi propio middleware.
 
 // =========== Express-validator ======================
 const createUsersValidations = require('../middlewares/createUsersValidations.middleware.js');  // Este array tendrá los inputs name que deseamos validar. Estará asociado a un formulario/ruta. Colocarlo com omiddleware en la ruta deseada.
