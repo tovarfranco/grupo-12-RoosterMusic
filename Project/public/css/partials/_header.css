@@ -41,7 +41,8 @@ header {
     margin: 10px auto
 }
 
-.buscar-input, .buscar-boton {
+.buscar-input, 
+.buscar-boton {
     border: none;
     padding: 6px;
     background-color: black;
@@ -57,11 +58,15 @@ header {
 }
 
 .sesion {              /*Container de los botones*/
-    text-align: center;
+    /*text-align: center; si no uso flexbox*/
     margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.sesion button {       /*Características comunes de los bototnes*/
+.sesion button {        /*Características comunes de los botones*/
     border: none;
     border-radius: 15px;
     padding: 8px;
@@ -69,21 +74,34 @@ header {
     width: 115px;       /*Para que tengan el mismo tamaño*/
 }
 
-.boton-iniciar-sesion { /*Característica particular del botón*/
+.sesion img {           
+    display: none;      /*Para no mostrar la imagen de usuario (si se logueó) en resoluciones bajas*/
+    width: 50px; 
+    height: 50px; 
+    object-fit: cover; 
+    border-radius: 50%;
+}
+
+.boton-iniciar-sesion,
+.boton-usuario {        /*Característica particular del botón*/
     background-color: #3966F5;
     color: white;
     transition: all 0.4s;
     cursor: pointer;
 }
 
-.boton-registrarse {   /*Característica particular del botón*/
+.boton-registrarse,
+.boton-carrito {        /*Característica particular del botón*/
     background-color: #04be74;
     color: white;
     transition: all 0.4s;
     cursor: pointer;
 }
 
-.boton-iniciar-sesion:hover, .boton-registrarse:hover {
+.boton-iniciar-sesion:hover, 
+.boton-registrarse:hover,
+.boton-usuario:hover,
+.boton-carrito:hover {
     background-color: black;
     box-shadow:0px 0px 0px 2px white inset;
 }
@@ -176,6 +194,11 @@ header {
 @media (min-width: 1200px){
     .logo {
         width: 250px;       /*Lo agrandamos un poquito*/
+    }
+
+    .sesion img {           
+        display: block;      /*Lo mostramos para resoluciones grandes si se logueó*/
+        margin-right: 10px;
     }
 
     .header-fila-1, .header-fila-2 {

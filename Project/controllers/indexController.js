@@ -11,36 +11,20 @@ const indexController = {
     index: (req,res) => {                                     // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
         res.render('index', {productList: productList});      // ESTE ES UN .EJS (modificar los .html a .ejs). Es NECESARIO setear el VIEW ENGINE en app.js para usar res.render(). // Le envía a ESTA view las variables dinámicas que necesita.
     },
-    login: (req,res) => {
-        res.render('login');
-    },
-    register: (req,res) => {
-        res.render('register');
-    },
 
     search: (req, res) => {
 		let busqueda = req.query.keyword.toLowerCase();
-		let resultadoBusqueda = productList.filter(product => product.name.toLowerCase().includes(busqueda))
+		let resultadoBusqueda = productList.filter(product => product.name.toLowerCase().includes(busqueda));
 		res.render('results', {resultadoBusqueda: resultadoBusqueda, 
 							   busqueda: busqueda});
 	},
 
-    // search: (req, res) => {
-	// 	let busqueda = req.query.keyword.toLowerCase();        // De esta forma leo lo que viene en la URL (query string) y lo paso a minúsculas.
-	// 	let resultadoBusqueda = productList.filter(product => {
-    //         let lowerName = product.name.toLowerCase();
-    //         return lowerName.includes(busqueda);
-    //     })
-
-
-	// 	res.render('results', {resultadoBusqueda: resultadoBusqueda, 
-	// 						   busqueda: busqueda});
-	// },
-
-
-    crud: (req,res) => {
-        res.render('crud');
-    }
+    category: (req, res) => {
+		let categoria = req.params.category
+		let resultadoBusqueda = productList.filter(product => product.category == categoria);
+		res.render('results', {resultadoBusqueda: resultadoBusqueda, 
+							   busqueda: categoria});
+	}
 }
 
 module.exports = indexController                             // Siempre exportarlo porque lo necesitaremos usar en el ROUTES para que sepa a qué controlador enviar la petición.

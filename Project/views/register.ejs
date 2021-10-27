@@ -19,52 +19,88 @@
                 
                 <h2 class="texto-registro">REGISTRO</h2>
                 <hr>
-                <form action="/register" method="POST" class="formulario">
+                <form action="/users/create" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes. SI O SI usar Multer sino no viaja la info-->
                     <h3 class="texto-formulario">Cree su cuenta</h3>
                     <div class="container-inputs">
                         <div class="inputs-1">
                             <div class="elemento">
-                                <input type="text" name="nombre" class="control" placeholder="Nombre">
+                                <label>Nombre</label>
+                                <input type="text" name="nombre" class="control <%= locals.errors && errors.nombre ? 'control-error' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
+                                <% if (locals.errors && errors.nombre) { %>                                 <!--Veo si el controlador me devolvió errors (general) y tambien si el input name tiene errores-->
+                                    <span><%= errors.nombre.msg %> *</span>
+                                <% } %>
                             </div>
                             <div class="elemento">
-                                <input type="text" name="apellido" class="control" placeholder="Apellido">
+                                <label>Apellido</label>
+                                <input type="text" name="apellido" class="control <%= locals.errors && errors.apellido ? 'control-error' : null %>" placeholder="Apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
+                                <% if (locals.errors && errors.apellido) { %>
+                                    <span><%= errors.apellido.msg %> *</span>
+                                <% } %>
                             </div>
                             <div class="elemento">
-                                <input type="number" name="dni" class="control" placeholder="DNI">
+                                <label>Documento</label>
+                                <input type="number" name="dni" class="control <%= locals.errors && errors.dni ? 'control-error' : null %>" placeholder="Sin puntos" value="<%= locals.oldData ? oldData.dni : null %>">
+                                <% if (locals.errors && errors.dni) { %>
+                                    <span><%= errors.dni.msg %> *</span>
+                                <% } %>
                             </div>
                         </div>
                         <div class="inputs-2">
                             <div class="elemento">
-                                <select name="pais" class="control" required>
+                                <label>País</label>
+                                <select name="pais" class="control <%= locals.errors && errors.pais ? 'control-error' : null %>">
                                     <option value="" disabled selected hidden>Seleccione su país</option>
-                                    <option value="ARG">Argentina</option>
-                                    <option value="BRA">Brasil</option>
-                                    <option value="COL">Colombia</option>
+                                    <option value="Argentina" <%= locals.oldData && (oldData.pais == 'Argentina') ? 'selected' : null %>>Argentina</option>
+                                    <option value="Brasil" <%= locals.oldData && (oldData.pais == 'Brasil') ? 'selected' : null %>>Brasil</option>
+                                    <option value="Colombia" <%= locals.oldData && (oldData.pais == 'Colombia') ? 'selected' : null %>>Colombia</option>
                                 </select>
+                                <% if (locals.errors && errors.pais) { %>
+                                    <span><%= errors.pais.msg %> *</span>
+                                <% } %>
                             </div>
                             <div class="elemento">
-                                <input type="text" name="domicilio" class="control" placeholder="Domicilio">
+                                <label>Domicilio</label>
+                                <input type="text" name="domicilio" class="control <%= locals.errors && errors.domicilio ? 'control-error' : null %>" placeholder="Calle y altura" value="<%= locals.oldData ? oldData.domicilio : null %>">
+                                <% if (locals.errors && errors.domicilio) { %>
+                                    <span><%= errors.domicilio.msg %> *</span>
+                                <% } %>
                             </div>
                             <div class="elemento">
-                                <input type="date" name="nacimiento" class="control" placeholder="Fecha nacimiento">
+                                <label>Fecha de nacimiento</label>
+                                <input type="date" name="nacimiento" class="control <%= locals.errors && errors.nacimiento ? 'control-error' : null %>" placeholder="Fecha nacimiento" value="<%= locals.oldData ? oldData.nacimiento : null %>">
+                                <% if (locals.errors && errors.nacimiento) { %>
+                                    <span><%= errors.nacimiento.msg %> *</span>
+                                <% } %>
                             </div>
                         </div>
                         <div class="inputs-3">
                             <div class="elemento">
-                                <input type="email" name="email" class="control" placeholder="E-mail">
+                                <label>Avatar</label>
+                                <input type="file" name="img" class="control">
+                                <% if (locals.errors && errors.img) { %>
+                                    <span><%= errors.img.msg %> *</span>
+                                <% } %>
                             </div>
                             <div class="elemento">
-                                <input type="password" name="password" class="control" placeholder="Contraseña">
+                                <label>E-mail</label>
+                                <input type="email" name="email" class="control <%= locals.errors && errors.email ? 'control-error' : null %>" placeholder="ejemplo@dominio.com" value="<%= locals.oldData ? oldData.email : null %>">
+                                <% if (locals.errors && errors.email) { %>
+                                    <span><%= errors.email.msg %> *</span>
+                                <% } %>
                             </div>
                             <div class="elemento">
-                                <input type="password" name="confirmar" class="control" placeholder="Confirmar contraseña">
+                                <label>Contraseña</label>
+                                <input type="password" name="password" class="control <%= locals.errors && errors.password ? 'control-error' : null %>" placeholder="Mínimo 6 caracteres">
+                                <% if (locals.errors && errors.password) { %>
+                                    <span><%= errors.password.msg %> *</span>
+                                <% } %>
                             </div>
                         </div>
                     </div>
                     <div class="terminos-condiciones">
                         <label><input type="checkbox" name="terminos">Acepto los términos y condiciones</label>
                     </div>
-                    <div><button class="boton-registrarse-formulario" type="button" onclick="window.location='/register'">Registrarse</button></div>
+                    <div><button class="boton-registrarse-formulario" type="submit">Registrarse</button></div>
                     <h3 class="texto-tenes-cuenta">¿Ya tenes cuenta?</h3>
                     <div><button class="boton-iniciar-sesion-formulario" type="button" onclick="window.location='/login'">Iniciar sesión</button></div>
                 </form>

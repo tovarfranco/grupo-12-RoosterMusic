@@ -60,8 +60,22 @@ main section {
     text-align: center        /*Centro sus elementos*/
 }
 
-.elemento{
+.elemento {
     margin: 5% 0;
+}
+
+.imagen-formulario img {
+    width: 120px; height: 120px;
+    object-fit: cover;      /*Sin esta propiedad queda estirada la imagen*/
+    border-radius: 50%;     /*Para que sea redonda*/
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    margin-bottom: 1%;
+    text-align: left;
+    color: grey;
 }
 
 .control {                 /*Son los inputs*/
@@ -116,7 +130,7 @@ main section {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .elemento{

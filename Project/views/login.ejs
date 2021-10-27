@@ -19,7 +19,7 @@
                 
                 <h2 class="texto-iniciar-sesion">INICIAR SESION</h2>
                 <hr>
-                <form action="/iniciarSesion" method="POST" class="formulario">
+                <form action="/users/login" method="POST" class="formulario">
                     <h3 class="texto-formulario">Ingreso rápido</h3>
                     <div class="inputs-1">
                         <div><button class="boton-google" type="button"><i class="fab fa-google"></i>Ingresá con Google</button></div>
@@ -28,16 +28,24 @@
                     <h3 class="texto-formulario">Ingreso manual</h3>
                     <div class="inputs-2">
                         <div class="elemento">
-                            <input type="email" name="email" class="control" placeholder="E-mail">
+                            <label>E-mail</label>
+                            <input type="email" name="email" class="control <%= locals.errors && errors.email ? 'control-error' : null %>" placeholder="E-mail" value="<%= locals.oldData ? oldData.email : null %>">
+                            <% if (locals.errors && errors.email) { %>
+                                <span><%= errors.email.msg %> *</span>
+                            <% } %>
                         </div>
                         <div class="elemento">
-                            <input type="password" name="password" class="control" placeholder="Contraseña">
+                            <label>Contraseña</label>
+                            <input type="password" name="password" class="control <%= locals.errors && errors.password ? 'control-error' : null %>" placeholder="Contraseña">
+                            <% if (locals.errors && errors.password) { %>
+                                <span><%= errors.password.msg %> *</span>
+                            <% } %>
                         </div>
                     </div>
                     <div class="mantener">
                         <label><input type="checkbox" name="mantener">Mantener sesión iniciada</label>
                     </div>
-                    <div><button class="boton-iniciar-sesion-formulario" type="button" onclick="window.location='/login'">Iniciar sesión</button></div>
+                    <div><button class="boton-iniciar-sesion-formulario" type="submit">Iniciar sesión</button></div>
                     <h3 class="texto-tenes-cuenta">¿No tenes cuenta?</h3>
                     <div><button class="boton-registrarse-formulario" type="button" onclick="window.location='/register'">Registrarse</button></div>
                 </form>

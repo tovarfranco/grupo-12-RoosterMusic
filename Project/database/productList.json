@@ -12,7 +12,7 @@
         "origin": "China",
         "year": "2000",
         "category": "AUDIO",
-        "availability": "EN_STOCK"
+        "availability": "EN STOCK"
     },
     {
         "id": 2,
@@ -27,7 +27,7 @@
         "origin": "China",
         "year": "3000",
         "category": "BAJO",
-        "availability": "EN_STOCK"
+        "availability": "EN STOCK"
     },
     {
         "id": 3,
@@ -42,7 +42,7 @@
         "origin": "Taiwan",
         "year": "2000",
         "category": "BAJO",
-        "availability": "En STOCK"
+        "availability": "EN STOCK"
     },
     {
         "id": 4,
@@ -57,7 +57,7 @@
         "origin": "Japon",
         "year": "2000",
         "category": "BATERIA",
-        "availability": "En STOCK"
+        "availability": "SIN STOCK"
     },
     {
         "id": 5,
@@ -72,7 +72,7 @@
         "origin": "China",
         "year": "2000",
         "category": "BATERIA",
-        "availability": "En STOCK"
+        "availability": "SIN STOCK"
     },
     {
         "id": 6,
@@ -87,7 +87,7 @@
         "origin": "USA",
         "year": "2000",
         "category": "GUITARRA",
-        "availability": "En STOCK"
+        "availability": "SIN STOCK"
     },
     {
         "id": 7,
@@ -102,7 +102,7 @@
         "origin": "España",
         "year": "2000",
         "category": "GUITARRA",
-        "availability": "En STOCK"
+        "availability": "EN STOCK"
     },
     {
         "id": 8,
@@ -117,7 +117,7 @@
         "origin": "Taiwan",
         "year": "2000",
         "category": "GUITARRA",
-        "availability": "En STOCK"
+        "availability": "EN STOCK"
     },
     {
         "id": 9,
@@ -132,7 +132,7 @@
         "origin": "China",
         "year": "2000",
         "category": "TECLADO",
-        "availability": "En STOCK"
+        "availability": "EN STOCK"
     },
     {
         "id": 10,
@@ -147,7 +147,7 @@
         "origin": "Japon",
         "year": "2000",
         "category": "TECLADO",
-        "availability": "En STOCK"
+        "availability": "EN STOCK"
     },
     {
         "id": 11,
@@ -162,7 +162,7 @@
         "origin": "España",
         "year": "2000",
         "category": "AUDIO",
-        "availability": "En STOCK"
+        "availability": "EN STOCK"
     },
     {
         "id": 12,
@@ -177,7 +177,7 @@
         "origin": "Japon",
         "year": "2000",
         "category": "VIENTO",
-        "availability": "En STOCK"
+        "availability": "EN STOCK"
     },
     {
         "id": 13,
@@ -192,7 +192,7 @@
         "origin": "China",
         "year": "2021",
         "category": "GUITARRA",
-        "availability": "En STOCK"
+        "availability": "SIN STOCK"
     },
     {
         "id": 14,
@@ -207,6 +207,6 @@
         "origin": "China",
         "year": "2021",
         "category": "GUITARRA",
-        "availability": "EN_STOCK"
+        "availability": "EN STOCK"
     }
 ]
