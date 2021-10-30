@@ -166,5 +166,17 @@
         "email": "clarkken4@hotmail.com",
         "password": "$2a$10$bTbtcLS/t5bHArtYlCENue3zhbrhQPfBs53Oho0wmaK9/KRqOwxye",
         "img": "img-1634772551262-avatar3.jpg"
+    },
+    {
+        "id": 15,
+        "nombre": "Clark",
+        "apellido": "Wayne",
+        "dni": "555555",
+        "pais": "Argentina",
+        "domicilio": "Pavon 1234",
+        "nacimiento": "2021-10-13",
+        "email": "clarkweyne@hotmail.com",
+        "password": "$2a$10$AweZgMqG3x4V8Im0kXNUOO0s3IIr5DMLTypKpeVq9qC2VUF1NmXai",
+        "img": "img-1635566824504-avatar1.jpg"
     }
 ]
