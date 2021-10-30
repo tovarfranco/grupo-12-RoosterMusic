@@ -1,0 +1,124 @@
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center; /*Este centra todo*/
+}
+
+.footer-informacion ul {
+    list-style: none;   /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.footer-informacion a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: white;
+    display: inline-block;  /*<a> es un elemento de linea solamente. Para poder ponerle relleno arriba y abajo o cambiarle el tamaño debe ser de bloque => inline-block*/
+    padding: 5px 0;
+    font-size: 1rem;
+}
+
+.footer-redes ul {
+    list-style: none;   /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.footer-redes li {
+    display: flex;      /*Para centrar el ícono y su texto*/
+    align-items: center;
+    justify-content: center;  
+}
+
+.footer-redes i {
+    font-size: 2rem;
+    padding: 5px 0
+}
+
+.footer-redes a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: white;
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
+.texto-twitter {
+    margin-right: 22px; /*Un pequeño truco para este texto ya que no se quiere centrar*/
+}
+
+.footer-mapa {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.footer-newsletter ul {
+    list-style: none;   /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.footer-newsletter li {
+    margin: 5px 0;      /*Poco de separación entre los elementos*/
+}
+
+.newsletter-input {     /*Igual que el header*/
+    border: none;
+    padding: 6px;
+    background-color: black;
+    color: white;
+    margin: 5px 0;
+}
+
+.newsletter-input {      /*Igual que el header*/
+    border-bottom: solid 1px grey;
+}
+
+.boton-subscribirme {    /*Igual que el header*/
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-subscribirme:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+footer hr {
+    margin: 15px 0
+}
+
+.copyright {
+    text-align: center; /*Lo colocamos por si lo queremos cambiar pero el footer centra todo*/
+}
+
+@media (min-width: 768px){
+    .container-footer {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    .footer-informacion, .footer-redes, .footer-ubicacion, .footer-newsletter {
+        width: 35%;
+    }
+}
+
+@media (min-width: 1200px){
+    .container-footer {
+        max-width: 1400px;
+        margin: auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .footer-informacion, .footer-redes, .footer-ubicacion, .footer-newsletter {
+        width: 22%;
+    }
+}

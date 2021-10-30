@@ -1,0 +1,6 @@
+// Este archivo es el que se ejecuta para correr el servidor (start).
+
+const app = require("../app");                                                 // Define que este es el ENTRY POINT.
+const port = process.env.PORT || 3000;                                         // Define el puerto que usará.
+
+app.listen(port, () => console.log('Servidor corriendo en el puerto 3000'));   // Levantamos el servidor que estará escuchando peticiones en el puerto 3000.
