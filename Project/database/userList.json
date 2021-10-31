@@ -178,5 +178,17 @@
         "email": "clarkweyne@hotmail.com",
         "password": "$2a$10$AweZgMqG3x4V8Im0kXNUOO0s3IIr5DMLTypKpeVq9qC2VUF1NmXai",
         "img": "img-1635566824504-avatar1.jpg"
+    },
+    {
+        "id": 16,
+        "nombre": "Lu",
+        "apellido": "P",
+        "dni": "555555555",
+        "pais": "Argentina",
+        "domicilio": "Pavon 1234",
+        "nacimiento": "2021-10-20",
+        "email": "lu@hotmail.com",
+        "password": "$2a$10$/3pjEsYpWxTK6qbbpYX/lO5zaJaT27veFYfhsY0OVVMYDhr3MYkPO",
+        "img": "img-1635627484673-avatar3.jpg"
     }
 ]
