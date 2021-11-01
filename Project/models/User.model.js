@@ -2,6 +2,8 @@
 const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
 
+const db = require('../database/models')
+
 // =========== Modelo =================================
 const User = {
 
@@ -41,16 +43,14 @@ const User = {
 		return userFound;
 	},
 
-	create: function (userToCreate) {
-        let newUser = {
-            id: this.generateId(),
-			...userToCreate
+	create: async function (userToCreate) {
+		try {
+			await db.User.create({ ...userToCreate })			 			// Se le debe pasar un objeto. Como ya userToCreate es un objeto, uso el spreadOperator.			
+			return;
+		} catch (error) {
+			console.log('Error crear usuario en la base de datos ' + error.message);
+			return;
 		}
-
-        let userList = this.findAll();
-		userList.push(newUser);
-		fs.writeFileSync(this.fileName, JSON.stringify(userList, null, 4));  // De esta forma lo guarda "formateado".
-		return newUser;
 	},
 
     update: function (userToUpdate) {
@@ -66,6 +66,10 @@ const User = {
 		userList = userList.filter(user => user.id != id);
 		fs.writeFileSync(this.fileName, JSON.stringify(userList, null, 4));  // De esta forma lo guarda "formateado".
 		return; // No hace falta devolver nada.
+	},
+
+	getAll: async function () {
+		return await db.User.findAll();
 	}
 }
 

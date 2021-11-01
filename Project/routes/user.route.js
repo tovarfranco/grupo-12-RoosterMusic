@@ -39,5 +39,8 @@ router.delete('/delete/:id', userController.delete);
 /*** Cerrar sesión ***/
 router.get('/logout', userController.logout);
 
+/*** Listado de todos los usuarios ****/
+router.get('/profile/all', userController.all);     // Principalmente para testing.
+
 // =========== Exporto Router =========================
 module.exports = router;                                                       // Siempre exportarlo porque lo necesitaremos usar en el ENTRY POINT para que sepa a qué archivo enviar sus rutas.

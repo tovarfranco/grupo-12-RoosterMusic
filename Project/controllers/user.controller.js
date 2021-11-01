@@ -50,7 +50,7 @@ const userController = {
 		res.render('register')
 	},
 
-	store: (req, res) => {
+	store: async (req, res) => {
         /* Verifico errores por express-validator */
         const resultValidation = validationResult(req);                          // Guardamos los resultados de las validaciones. Es un ARRAY de objetos que tiene los errores que se produjeron (input name, mensaje, etc).
         
@@ -75,15 +75,21 @@ const userController = {
 		}
 
         /* Inserto nuevo usuario */
-		let userToCreate = {                                                     // Creo un objeto temporal que le pasaré al modelo para que lo inserte.
-            ...req.body,
+        let userToCreate = {                                                     // Creo un objeto temporal que le pasaré al modelo para que lo inserte.
+            name: req.body.nombre,
+            surname: req.body.apellido,
+            document: req.body.dni,
+            country: req.body.pais,
+            address: req.body.domicilio,
+            birthdate: req.body.nacimiento,
+            email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 10),                  // Encriptamos la contraseña. Se pisa el valor del .body por esta nueva.
             img: imagenName
-		}
+        }
 
-        User.create(userToCreate);                                               // Llamo al modelo.
+        await User.create(userToCreate);                                        // Llamo al modelo. Acá se frena el código hasta que terminé el modelo (por estar dentro de una función async).
 
-		res.redirect('/users/login');
+		res.redirect('/users/login');                                           // Una vez terminado, ejecuta esta instrucción.
 	},
 
     /*** Modifico un usuario ***/
@@ -134,7 +140,16 @@ const userController = {
 		res.clearCookie('userEmail');                                            // Destruyo la cookie sino no me voy a poder desloguear.
 		req.session.destroy();
 		res.redirect('/');
-	}
+	},
+
+    all: async function (req, res) {
+        try {
+            const result = await User.getAll();
+            res.send(result);
+        } catch (error) {
+            res.status(500).json({ data: null, error: error, success: false });
+        }
+    }
 }
 
 // =========== Exporto Controlador ===========================
