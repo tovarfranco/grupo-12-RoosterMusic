@@ -16,11 +16,11 @@ const userController = {
     },
 
     /*** Procesamos el login ***/
-	loginProcess: (req, res) => {
+	loginProcess: async (req, res) => {
         /* Verifico si existe el usuario */
-        let userFound = User.findByField('email', req.body.email);                                 // Uso esta función que creé en el modelo para verificar ya existe.
+        let userFound = await User.findByField('email', req.body.email);                                 // Uso esta función que creé en el modelo para verificar si ya existe.
 
-		if (!userFound) {
+		if (userFound.length == 0) {
 			return res.render('login', {errors: {email: {msg: 'Usuario no registrado'}}});         // Creo una valicación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
 		}
 		
@@ -142,9 +142,9 @@ const userController = {
 		res.redirect('/');
 	},
 
-    all: async function (req, res) {
+    test: async function (req, res) {
         try {
-            const result = await User.getAll();
+            const result = await User.findByField('email', 'franco3@hotmail.com');
             res.send(result);
         } catch (error) {
             res.status(500).json({ data: null, error: error, success: false });
