@@ -104,11 +104,45 @@ label {
     padding: 10px 10px;
 }
 
+.psw {                     /*Solo para juntar el password con el ojo*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.control-psw {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    width: 85%;               /*Para que el input NO abarque todo el ancho- deja espacio para el ojo*/
+    padding: 10px 10px;
+    margin: 0px;
+}
+
+.ojo-icono {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 0px 5px 5px 0px; 
+    width: 15%;             /*Ancho del ojo compartido con el input*/
+    padding: 10px 10px;
+    margin: 0px;
+    cursor: pointer;
+}
+
 .control-error {                 /*Son los inputs*/
     background-color: #ebebeb;
     border: solid 1px red;
     border-radius: 5px;
     width: 100%;           /*Para que el input abarque todo el ancho*/
+    padding: 10px 10px;
+}
+
+.control-error-psw {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: solid 1px red;
+    border-radius: 5px 0px 0px 5px;
+    width: 85%;           /*Para que el input abarque todo el ancho*/
     padding: 10px 10px;
 }
 
