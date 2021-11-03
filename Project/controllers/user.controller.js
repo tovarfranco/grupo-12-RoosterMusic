@@ -18,10 +18,11 @@ const userController = {
     /*** Procesamos el login ***/
 	loginProcess: async (req, res) => {
         /* Verifico si existe el usuario */
-        let userFound = await User.findByField('email', req.body.email);                                 // Uso esta función que creé en el modelo para verificar si ya existe.
+        let userFound = await User.findByField('email', req.body.email);                           // Uso esta función que creé en el modelo para verificar si ya existe.
+        userFound = userFound[0];                                                                  // CASO PARTICULAR para que me traiga el usuario. Para consultas más complejas usar arrays.
 
-		if (userFound.length == 0) {
-			return res.render('login', {errors: {email: {msg: 'Usuario no registrado'}}});         // Creo una valicación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
+		if (!userFound) {
+			return res.render('login', {errors: {email: {msg: 'Usuario no registrado'}}});         // Creo una validación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
 		}
 		
         /* Verifico contraseña + sesión + cookie */
@@ -37,7 +38,7 @@ const userController = {
             return res.redirect('/users/profile');                                                 // Si todo está ok le muestro sus datos. 
         }
 
-        res.render('login', {errors: {password: {msg: 'La contraseña no es válida'}}, oldData: req.body});    // Si el password es incorrcto muestro su error.
+        res.render('login', {errors: {password: {msg: 'La contraseña no es válida'}}, oldData: req.body});    // Si el password es incorrecto muestro su error.
 	},
 
     /*** Detalle de un usuario ***/
@@ -60,6 +61,7 @@ const userController = {
 
         /* Verifico si ya existe el usuario (mismo email) */
         let userFound = User.findByField('email', req.body.email);               // Uso esta función que creé en el modelo para verificar ya existe.
+        userFound = userFound[0];                                                // CASO PARTICULAR para que me traiga el usuario. Para consultas más complejas usar arrays.
 
 		if (userFound) {
 			return res.render('register', {errors: {email: {msg: 'Este email ya está registrado'}}, oldData: req.body});    // Creo una valicación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
@@ -87,20 +89,22 @@ const userController = {
             img: imagenName
         }
 
-        await User.create(userToCreate);                                        // Llamo al modelo. Acá se frena el código hasta que terminé el modelo (por estar dentro de una función async).
+        await User.create(userToCreate);                                         // Llamo al modelo. Acá se frena el código hasta que terminé el modelo (por estar dentro de una función async).
 
-		res.redirect('/users/login');                                           // Una vez terminado, ejecuta esta instrucción.
+		res.redirect('/users/login');                                            // Una vez terminado, ejecuta esta instrucción.
 	},
 
     /*** Modifico un usuario ***/
-	edit: (req, res) => {
-		let userFound = User.findByPk(req.params.id)
-		res.render('userEdit', {user: userFound});
+	edit: async (req, res) => {
+		let userFound = await User.findByPk(req.params.id);
+        //userFound = userFound[0];                                              // PARECE SER que al usar findByPk devuelve un objeto directamente, no un array.
+        res.render('userEdit', {user: userFound});
 	},
 
-    update: (req, res) => {
+    update: async (req, res) => {
         /* Busco el usuario */
-        let userFound = User.findByPk(req.params.id)                             // Buscamos el usuario, me servirá para varias funciones.
+        let userFound = await User.findByPk(req.params.id)                       // Buscamos el usuario, me servirá para varias funciones.
+        //userFound = userFound[0];                                              // PARECE SER que al usar findByPk devuelve un objeto directamente, no un array.
 
         /* Imagen */
 		let imagenName;                                                          // Para guardar la imagen. Si existe uso su nombre sino uso la que ya tenía.
@@ -112,12 +116,19 @@ const userController = {
 
         /* Actualizo usuario */
 		let userToUpdate = {                                                     // Creo un objeto temporal que le pasaré el modelo para que lo actualice.
-            id: userFound.id,
-            ...req.body,
+            id_user: userFound.id_user,
+            name: req.body.nombre,
+            surname: req.body.apellido,
+            document: req.body.dni,
+            country: req.body.pais,
+            address: req.body.domicilio,
+            birthdate: req.body.nacimiento,
+            email: req.body.email,
+            password: req.body.password,
             img: imagenName
 		}
 
-        User.update(userToUpdate);                                               // Llamo al modelo.
+        await User.update(userToUpdate);                                               // Llamo al modelo.
 
         /* Actualizo su sesión para continuar (sino queda en memoria)*/
         delete userToUpdate.password;
@@ -127,8 +138,8 @@ const userController = {
 	},
 
     /*** Elimino un usuario ***/
-    delete: (req, res) => {
-		User.delete(req.params.id);
+    delete: async (req, res) => {
+		await User.delete(req.params.id);
 
 		res.clearCookie('userEmail');                                            // Destruyo la cookie sino no me voy a poder desloguear.
 		req.session.destroy();

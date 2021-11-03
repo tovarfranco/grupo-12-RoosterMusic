@@ -19,42 +19,42 @@
                 
                 <h2 class="texto-registro">INFORMACION DE SU CUENTA</h2>
                 <hr>
-                <form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes. SI O SI usar Multer sino no viaja la info-->
+                <form action="/users/edit/<%= user.id_user %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes. SI O SI usar Multer sino no viaja la info-->
                     <h3 class="texto-formulario">Modifique su información</h3>
                     <div class="imagen-formulario" >
-                        <img onclick="window.location='/users/profile'" src="/images/users/<%= user.img %>" alt=<%= user.nombre %>>
+                        <img onclick="window.location='/users/profile'" src="/images/users/<%= user.img %>" alt=<%= user.name %>>
                     </div>
                     <div class="container-inputs">
                         <div class="inputs-1">
                             <div class="elemento">
                                 <label>Nombre</label>
-                                <input type="text" name="nombre" class="control" placeholder="John" value="<%= user.nombre %>">
+                                <input type="text" name="nombre" class="control" placeholder="John" value="<%= user.name %>">
                             </div>
                             <div class="elemento">
                                 <label>Apellido</label>
-                                <input type="text" name="apellido" class="control" placeholder="Doe" value="<%= user.apellido %>">
+                                <input type="text" name="apellido" class="control" placeholder="Doe" value="<%= user.surname %>">
                             </div>
                             <div class="elemento">
                                 <label>Documento</label>
-                                <input type="number" name="dni" class="control" placeholder="11111111" value="<%= user.dni %>" readonly>
+                                <input type="number" name="dni" class="control" placeholder="11111111" value="<%= user.document %>" readonly>
                             </div>
                         </div>
                         <div class="inputs-2">
                             <div class="elemento">
                                 <label>País</label>
                                 <select name="pais" class="control">
-                                    <option value="Argentina" <%= user.pais == 'Argentina' ? 'selected' : ''; %>>Argentina</option>
-                                    <option value="Brasil" <%= user.pais == 'Brasil' ? 'selected' : ''; %>>Brasil</option>
-                                    <option value="Colombia" <%= user.pais == 'Colombia' ? 'selected' : ''; %>>Colombia</option>
+                                    <option value="Argentina" <%= user.country == 'Argentina' ? 'selected' : ''; %>>Argentina</option>
+                                    <option value="Brasil" <%= user.country == 'Brasil' ? 'selected' : ''; %>>Brasil</option>
+                                    <option value="Colombia" <%= user.country == 'Colombia' ? 'selected' : ''; %>>Colombia</option>
                                 </select>
                             </div>
                             <div class="elemento">
                                 <label>Domicilio</label>
-                                <input type="text" name="domicilio" class="control" placeholder="Alberdi 1111" value="<%= user.domicilio %>">
+                                <input type="text" name="domicilio" class="control" placeholder="Alberdi 1111" value="<%= user.address %>">
                             </div>
                             <div class="elemento">
                                 <label>Fecha de nacimiento</label>
-                                <input type="date" name="nacimiento" class="control" placeholder="Fecha nacimiento" value="<%= user.nacimiento %>">
+                                <input type="date" name="nacimiento" class="control" placeholder="Fecha nacimiento" value="<%= user.birthdate %>">
                             </div>
                         </div>
                         <div class="inputs-3">

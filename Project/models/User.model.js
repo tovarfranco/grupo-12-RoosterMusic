@@ -32,27 +32,36 @@ const User = {
 
 	create: async function (userToCreate) {
 		try {
-			await db.User.create({ ...userToCreate })			 			// Se le debe pasar un objeto. Como ya userToCreate es un objeto, uso el spreadOperator.			
+			await db.User.create({ ...userToCreate });			 			// Se le debe pasar un objeto. Como ya userToCreate es un objeto, uso el spreadOperator.			
 			return;
 		} catch (error) {
-			res.send('Error crear usuario en la base de datos ' + error.message);
+			res.send('Error al crear usuario en la base de datos ' + error.message);
 			return;
 		}
 	},
 
-    update: function (userToUpdate) {
-        // let userList = this.findAll();
-        // let index = userList.findIndex(user => user.id == userToUpdate.id);
-        // userList[index] = userToUpdate;
-        // fs.writeFileSync(this.fileName, JSON.stringify(userList, null, 4));  // De esta forma lo guarda "formateado".
-        // return; // No hace falta devolver nada.
+    update: async function (userToUpdate) {
+		try {
+			await db.User.update(
+				{
+					...userToUpdate
+				},
+				{
+					where: { id_user: userToUpdate.id_user }
+				}
+			);
+			return;
+		} catch (error) {
+			res.send('Error al actualizar usuario en la base de datos ' + error.message);
+			return;
+		}
     },
 
-	delete: function (id) {
-		// let userList = this.findAll();
-		// userList = userList.filter(user => user.id != id);
-		// fs.writeFileSync(this.fileName, JSON.stringify(userList, null, 4));  // De esta forma lo guarda "formateado".
-		// return; // No hace falta devolver nada.
+	delete: async function (id) {
+		await db.User.destroy({
+			where: { id_user: id }
+		});
+		return;
 	}
 }
 

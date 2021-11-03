@@ -20,8 +20,8 @@ const createUsersValidations = [                                               /
 		let file = req.file;
 		let extPermitidas = ['.jpg', '.png'];
 		
-		if (!file) {                                                           // Si no viene una imagen genera error con el mensaje indicado.
-			throw new Error('Subir una imagen');
+		if (!file) {                                                           // Si no viene una imagen genera error con el mensaje indicado. COMENTADO para que no sea obligatoria.
+			//throw new Error('Subir una imagen');
 		} else {
 			let extActual = path.extname(file.originalname);
 			if (!extPermitidas.includes(extActual)) {
