@@ -1,6 +1,11 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('products', {
+// Los modelos exportan una FUNCION. Dentro creamos una constante que tendrá los datos del modelo.
+// Los parámetros/módulos necesarios son pasados por index.js, por eso no hace falta que importemos módulos de sequelize en este archivo.
+
+module.exports = function (sequelize, DataTypes) {
+
+  let alias = "Product";                                         // 1° parámetro: alias para sequelize.
+
+  let columns = {                                                // 2° parámetro: columnas de la tabla.
     id_product: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -59,26 +64,32 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(45),
       allowNull: false
     }
-  }, {
+  };
+
+  let config = {                                                 // 3° parámetro: configuración especial.
     sequelize,
-    tableName: 'products',
+    tableName: 'products',                                       // Mi tabla en la BBDD.
     timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
         unique: true,
         using: "BTREE",
-        fields: [
-          { name: "id_product" },
-        ]
+        fields: [{ name: "id_product" },]
       },
       {
         name: "fk_products_categories_idx",
         using: "BTREE",
-        fields: [
-          { name: "id_category" },
-        ]
+        fields: [{ name: "id_category" },]
       },
     ]
-  });
+  };
+
+  let Product = sequelize.define(alias, columns, config);        // Defino el modelo.
+
+  Product.associate = function (models) {
+    Product.belongsTo(models.Category, { as: "category", foreignKey: "id_category" });
+  }
+
+  return Product;
 };

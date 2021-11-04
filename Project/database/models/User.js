@@ -1,7 +1,7 @@
 // Los modelos exportan una FUNCION. Dentro creamos una constante que tendrá los datos del modelo.
-// Los parámetros necesarios son pasados por index.js, por eso no hace falta que importemos módulos de sequelize en este archivo.
+// Los parámetros/módulos necesarios son pasados por index.js, por eso no hace falta que importemos módulos de sequelize en este archivo.
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
   let alias = "User";                                        // 1° parámetro: alias para sequelize.
 
@@ -60,18 +60,18 @@ module.exports = function(sequelize, DataTypes) {
         name: "PRIMARY",
         unique: true,
         using: "BTREE",
-        fields: [ { name: "id_user" }, ]
+        fields: [{ name: "id_user" },]
       },
       {
         name: "email_UNIQUE",
         unique: true,
         using: "BTREE",
-        fields: [ { name: "email" }, ]
+        fields: [{ name: "email" },]
       },
     ]
   };
 
-  const User = sequelize.define(alias, columns, config);      // Defino el modelo.
+  let User = sequelize.define(alias, columns, config);       // Defino el modelo.
 
   return User;
 };

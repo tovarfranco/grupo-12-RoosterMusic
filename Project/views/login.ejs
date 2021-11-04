@@ -38,7 +38,7 @@
                             <label>Contraseña</label>
                             <div class="psw">
                                 <input type="password" name="password" class="control-psw <%= locals.errors && errors.password ? 'control-error-psw' : null %>" placeholder="Contraseña" id="id_password">
-                                <i class="far fa-eye ojo-icono" id="togglePassword"></i>
+                                <i class="ojo-icono far fa-eye-slash" id="togglePassword"></i>
                             </div>
                             <% if (locals.errors && errors.password) { %>
                                 <span><%= errors.password.msg %> *</span>
@@ -62,6 +62,7 @@
         <!--/footer-->
         
     </body>
+
     <script>
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#id_password');
@@ -70,8 +71,14 @@
             // toggle the type attribute
             const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
             password.setAttribute('type', type);
-            // toggle the eye slash icon
-            this.classList.toggle('fa-eye-slash');
+            // Change the eye slash icon. Could have used only toogle instructionbut does not work in viceversa.
+            classToChange = this.classList.item(2);
+            this.classList.remove(classToChange);
+            if (classToChange == 'fa-eye-slash')  {
+                this.classList.add('fa-eye');
+            } else {
+                this.classList.add('fa-eye-slash');
+            }
         });
     </script>
 </html>
