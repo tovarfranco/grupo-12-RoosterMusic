@@ -4,7 +4,7 @@ const path = require('path');                                                   
 const {validationResult} = require('express-validator');                         // También se requiere acá. Solo nos interesa el elemento validationResult de espress-validator (destructuring).
 const bcryptjs = require('bcryptjs');                                            // Para encriptar las contraseñas.
 
-// =========== Modelo ============================
+// =========== Modelo =================================
 const User = require('../models/User.model.js');
 
 // =========== Controlador ============================
@@ -18,7 +18,7 @@ const userController = {
     /*** Procesamos el login ***/
 	loginProcess: async (req, res) => {
         /* Verifico si existe el usuario */
-        let userFound = await User.findByField('email', req.body.email);                           // Uso esta función que creé en el modelo para verificar si ya existe.
+        let userFound = await User.findByField('email', 'eq', req.body.email);                           // Uso esta función que creé en el modelo para verificar si ya existe.
         userFound = userFound[0];                                                                  // CASO PARTICULAR para que me traiga el usuario. Para consultas más complejas usar arrays.
 
 		if (!userFound) {
@@ -60,22 +60,14 @@ const userController = {
 		}
 
         /* Verifico si ya existe el usuario (mismo email) */
-        let userFound = User.findByField('email', req.body.email);               // Uso esta función que creé en el modelo para verificar ya existe.
-        userFound = userFound[0];                                                // CASO PARTICULAR para que me traiga el usuario. Para consultas más complejas usar arrays.
+        let userFound = User.findByField('email', 'eq', req.body.email);               // Uso esta función que creé en el modelo para verificar ya existe. findByField devuelve un array de objetos.
+        userFound = userFound[0];                                                // CASO PARTICULAR para que me traiga EL usuario. Para consultas más complejas usar arrays.
 
 		if (userFound) {
 			return res.render('register', {errors: {email: {msg: 'Este email ya está registrado'}}, oldData: req.body});    // Creo una valicación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
 		}
 
         /* Sin errores, continúo con la lógica */
-        /* Imagen */
-		let imagenName;                                                          // Para guardar la imagen. Si existe uso su nombre sino uso el default.
-		if (req.file) {
-			imagenName = req.file.filename;
-		} else {
-			imagenName = "img-sin-imagen-disponible.jpg"
-		}
-
         /* Inserto nuevo usuario */
         let userToCreate = {                                                     // Creo un objeto temporal que le pasaré al modelo para que lo inserte.
             name: req.body.nombre,
@@ -86,7 +78,7 @@ const userController = {
             birthdate: req.body.nacimiento,
             email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 10),                  // Encriptamos la contraseña. Se pisa el valor del .body por esta nueva.
-            img: imagenName
+            img: (req.file) ? req.file.filename : "img-sin-imagen-disponible.jpg"
         }
 
         await User.create(userToCreate);                                         // Llamo al modelo. Acá se frena el código hasta que terminé el modelo (por estar dentro de una función async).
@@ -103,16 +95,7 @@ const userController = {
 
     update: async (req, res) => {
         /* Busco el usuario */
-        let userFound = await User.findByPk(req.params.id)                       // Buscamos el usuario, me servirá para varias funciones.
-        //userFound = userFound[0];                                              // PARECE SER que al usar findByPk devuelve un objeto directamente, no un array.
-
-        /* Imagen */
-		let imagenName;                                                          // Para guardar la imagen. Si existe uso su nombre sino uso la que ya tenía.
-		if (req.file) {
-			imagenName = req.file.filename;
-		} else {
-			imagenName = userFound.img;
-		}
+        let userFound = await User.findByPk(req.params.id)                       // Buscamos el usuario, me servirá para varias funciones. findByPk devuelve un objeto directamente, no un array.
 
         /* Actualizo usuario */
 		let userToUpdate = {                                                     // Creo un objeto temporal que le pasaré el modelo para que lo actualice.
@@ -125,10 +108,10 @@ const userController = {
             birthdate: req.body.nacimiento,
             email: req.body.email,
             password: req.body.password,
-            img: imagenName
+            img: (req.file) ? req.file.filename : userFound.img
 		}
 
-        await User.update(userToUpdate);                                               // Llamo al modelo.
+        await User.update(userToUpdate);                                         // Llamo al modelo.
 
         /* Actualizo su sesión para continuar (sino queda en memoria)*/
         delete userToUpdate.password;
@@ -155,7 +138,7 @@ const userController = {
 
     test: async function (req, res) {
         try {
-            const result = await User.findByField('email', 'franco3@hotmail.com');
+            const result = await User.findByField('email', 'eq', 'franco3@hotmail.com');
             res.send(result);
         } catch (error) {
             res.status(500).json({ data: null, error: error, success: false });

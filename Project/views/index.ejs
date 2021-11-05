@@ -36,11 +36,11 @@
                 <h2>Mas visitados</h2>
                 <hr>
                 <div class="container-articulos">
-                <% for(let i=0; i<6; i++) { %>
+                <% productList1.forEach(product => { %>
                     <!--productCard-->
-                    <%- include('./partials/_productCard', {i, productList}) %>
+                    <%- include('./partials/_productCard', {product}) %>
                     <!--/productCard-->
-                <% } %>
+                <% }); %>
                 </div>
             </section>
 
@@ -48,11 +48,11 @@
                 <h2>Ofertas destacadas</h2>
                 <hr>
                 <div class="container-articulos">
-                <% for(let i=6; i<12; i++) { %>
+                <% productList2.forEach(product => { %>
                     <!--productCard-->
-                    <%- include('./partials/_productCard', {i, productList}) %>
+                    <%- include('./partials/_productCard', {product}) %>
                     <!--/productCard-->
-                <% } %>
+                <% }); %>
                 </div>
             </section>
 

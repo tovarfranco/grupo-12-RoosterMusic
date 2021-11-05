@@ -33,8 +33,8 @@
                         <div class="tarjeta-botones">
                             <div><button class="boton-comprar" type="button">Comprar</button></div>
                             <div><button class="boton-agregar-carrito" type="button" onclick="window.location='/productCart'">Agregar al carrito</button></div>
-                            <div><button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id %>'">Modificar</button></div>
-                            <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+                            <div><button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id_product %>'">Modificar</button></div>
+                            <form action="/products/delete/<%= product.id_product %>?_method=DELETE" method="POST">
                                 <div><button class="boton-eliminar" type="submit">Eliminar</button></div>
                             </form>
                         </div>
@@ -55,7 +55,7 @@
                             <li><h4>Material:</h4><p><%= product.material %></p></li>
                             <li><h4>Origen:</h4><p><%= product.origin %></p></li>
                             <li><h4>Año:</h4><p><%= product.year %></p></li>
-                            <li><h4>Categoría:</h4><p><%= product.category %></p></li>
+                            <li><h4>Categoría:</h4><p><%= product.id_category %></p></li>
                         </ul>
                     </article>
                 </div>
@@ -65,11 +65,11 @@
                 <h2 class="texto-productos-similares">Productos similares</h2>
                 <hr>
                 <div class="container-articulos">
-                <% for(let i=4; i<8; i++) { %>
+                <% productList.forEach(product => { %>
                     <!--productCard-->
-                    <%- include('./partials/_productCard', {i, productList}) %>
+                    <%- include('./partials/_productCard', {product}) %>
                     <!--/productCard-->
-                <% } %>
+                <% }); %>
                 </div>
             </section>
 

@@ -2,23 +2,23 @@
 const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
 
-// =========== Modelo ============================
+// =========== Modelo =================================
 const Product = require('../models/Product.model.js');
 
 // =========== Controlador ============================
 const productController = {
 
     /*** Todos los productos ***/
-    index: (req, res) => {
-        let productList = Product.findAll();
+    index: async (req, res) => {
+        let productList = await Product.findAll();
         res.render('products', {productList: productList});
     },
 
     /*** Detalle de un producto ***/
-    detail: (req, res) => {                                                             // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
-        let productFound = Product.findByPk(req.params.id);                             // Busca en la lista el producto que tiene el mismo id que el pasado por parámetro.
-        let productList = Product.findAll();                                            // Es para mostrar en la vista los otros productos también.
-        res.render('productDetail', {product: productFound, productList: productList}); // Le envía a ESTA view las variables dinámicas que necesita. ESTE ES UN .EJS (modificar los .html a .ejs). Es NECESARIO setear el VIEW ENGINE en app.js para usar res.render().
+    detail: async (req, res) => {                                                                                  // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
+        let productFound = await Product.findByPk(req.params.id);                                                  // Busca en la lista el producto que tiene el mismo id que el pasado por parámetro.
+        let productList = await Product.findByField('id_category', 'eq', productFound.id_category, 4, 'RANDOM');   // Es para mostrar en la vista los otros productos también. Por defecto limit: 4 y orden aleatorio para que no aparexcan siempre los mismos.
+        res.render('productDetail', {product: productFound, productList: productList});                            // Le envía a ESTA view las variables dinámicas que necesita. ESTE ES UN .EJS (modificar los .html a .ejs). Es NECESARIO setear el VIEW ENGINE en app.js para usar res.render().
     },
 
     /*** Creo un producto ***/
@@ -26,82 +26,76 @@ const productController = {
 		res.render('productCreate');
 	},
 
-	store: (req, res) => {
-        /* Imagen */
-		let imagenName;                                                 // Para guardar la imagen. Si existe uso su nombre sino uso el default.
-		if (req.file) {
-			imagenName = req.file.filename;
-		} else {
-			imagenName = "img-sin-imagen-disponible.jpg"
-		}
+	store: async (req, res) => {
 
         /* Inserto nuevo producto */
 		let productToCreate = {
             name: req.body.nombre,
             description: req.body.descripcion,
             price: req.body.precio,
-			image: imagenName,								            // Guardo el nombre de la imagen que llega de Multer. Tiene una lógica arriba.
+			image: (req.file) ? req.file.filename : "img-sin-imagen-disponible.jpg",    // Guardo el nombre de la imagen que llega de Multer. Sino default
             brand: req.body.marca,
             model: req.body.modelo,
             color: req.body.color,
             material: req.body.material,
             origin: req.body.origen,
             year: req.body.anio,
-            category: req.body.categoria,
+            id_category: req.body.categoria,
             availability: req.body.disponibilidad
 		}
 
-		let newProduct = Product.create(productToCreate);               // Llamo al modelo.
+		let newProduct = await Product.create(productToCreate);         // Llamo al modelo.
 
-		res.redirect('/products/detail/' + newProduct.id);
+		res.redirect('/products/detail/' + newProduct.id_product);
 	},
 
     /*** Modifico un producto ***/
-	edit: (req, res) => {
-		let productFound = Product.findByPk(req.params.id);
+	edit: async (req, res) => {
+		let productFound = await Product.findByPk(req.params.id);
 		res.render('productEdit', {product: productFound});
 	},
 
-    update: (req, res) => {
+    update: async (req, res) => {
         /* Busco el producto */
-        let productFound = Product.findByPk(req.params.id)             // Buscamos el producto, me servirá para varias funciones.
-
-        /* Imagen */
-		let imagenName;                                                 // Para guardar la imagen. Si existe uso su nombre sino uso la que ya tenía.
-		if (req.file) {
-			imagenName = req.file.filename;
-		} else {
-			imagenName = productFound.image;
-		}
+        let productFound = await Product.findByPk(req.params.id)              // Buscamos el producto, me servirá para varias funciones. findByPk devuelve un objeto directamente, no un array.
 
         /* Actualizo producto */
 		let productToUpdate = {
-            id: productFound.id,                                        // Uso el id del producto que encontré.
+            id_product: productFound.id_product,                               // Uso el id del producto que encontré.
             name: req.body.nombre,
             description: req.body.descripcion,
             price: req.body.precio,
-			image: imagenName,								            // Guardo el nombre de la imagen que llega de Multer. Tiene una lógica arriba.
+			image: (req.file) ? req.file.filename : productFound.image,        // Guardo el nombre de la imagen que llega de Multer. Tiene una lógica arriba.
             brand: req.body.marca,
             model: req.body.modelo,
             color: req.body.color,
             material: req.body.material,
             origin: req.body.origen,
             year: req.body.anio,
-            category: req.body.categoria,
+            id_category: req.body.categoria,
             availability: req.body.disponibilidad
 		}
 		
-		Product.update(productToUpdate);                                // Llamo al modelo.
+		await Product.update(productToUpdate);                          // Llamo al modelo.
 		
 		res.redirect('/products/detail/' + req.params.id);
 	},
 
     /*** Elimino un producto ***/
-    delete: (req, res) => {
-		Product.delete(req.params.id);
+    delete: async (req, res) => {
+		await Product.delete(req.params.id);
 
 		res.redirect('/products');
-	}
+	},
+
+    test: async function (req, res) {
+        try {
+            const result = await Product.test(1);
+            res.send(result);
+        } catch (error) {
+            res.status(500).json({ data: null, error: error, success: false });
+        }
+    }
 }
 
 // =========== Exporto Controlador ===========================

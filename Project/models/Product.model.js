@@ -2,71 +2,97 @@
 const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
 
+const db = require('../database/models');										 // Elemento de sequelize que tiene todos los modelos.
+const Op = db.Sequelize.Op;														 // Para poder usar operadores.
+const sequelize = require('sequelize')										     // Para algunos operadores especiales.
+
 // =========== Modelo =================================
 const Product = {
 
-    /*** Nombre de la BBDD ***/
-	fileName: path.join(__dirname, "../database/productList.json"),              // Ruta del archivo BBDD.
-
-    /*** Lectura BBDD ***/
-	readData: function () {
-		return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));              // Importamos la BBDD a usar. Lista de objetos es devueta a la función que llamó a esta función.
+	/*** Todos los productos ***/
+	findAll: async function () {
+		return await db.Product.findAll();
 	},
 
-	generateId: function () {
-		let productList = this.findAll();
-		let lastProduct = productList.pop();                                     // Solo altero la variable local productList, no se modifica el archivo JSON.
-		if (lastProduct) {
-			return lastProduct.id + 1;
+	/*** Búsqueda de producto por PK ***/
+	findByPk: async function (id) {
+		return await db.Product.findByPk(id);
+	},
+
+	/*** Búsqueda de producto por campo ***/
+	findByField: async function (field, operator, value, limitMax, order) {
+		let operatorCriteria;
+		switch (operator) {
+			case 'eq':
+				operatorCriteria = Op.eq;
+				break;
+			case 'ne':
+				operatorCriteria = Op.ne;
+				break;
+			case 'like':
+				operatorCriteria = Op.like;
+				break;
+			default:
+				operatorCriteria = Op.eq;
+				break;
+		};
+		let whereCondition = {};
+		whereCondition[field] = { [operatorCriteria]: value };
+
+		let orderCondition;
+		if (order == 'RANDOM') {
+			orderCondition = sequelize.literal('rand()');
+		};
+
+		return await db.Product.findAll({
+			where: {
+				...whereCondition
+			},
+			limit: limitMax,
+			order: orderCondition
+		});
+	},
+
+	create: async function (productToCreate) {
+		try {
+			return await db.Product.create({ ...productToCreate });			 		 // Se le debe pasar un objeto. Como ya productToCreate es un objeto, uso el spreadOperator.
+		} catch (error) {
+			res.send('Error al crear producto en la base de datos ' + error.message);
+			return;
 		}
-		return 1;   // Debo devolver el valor 1 que será el primer id si la lista está vacia.
 	},
 
-    /*** Todos los productos ***/
-	findAll: function () {
-		return this.readData();
-	},
-
-    /*** Búsqueda de producto por PK ***/
-	findByPk: function (id) {
-		let productList = this.findAll();
-		let productFound = productList.find(product => product.id == id);
-		return productFound;
-	},
-
-    /*** Búsqueda de producto por campo ***/
-	findByField: function (field, value) {
-		let productList = this.findAll();
-		let productFound = productList.find(product => product[field] == value);
-		return productFound;
-	},
-
-	create: function (productToCreate) {
-        let newProduct = {
-            id: this.generateId(),
-			...productToCreate
+	update: async function (productToUpdate) {
+		try {
+			await db.Product.update(
+				{
+					...productToUpdate
+				},
+				{
+					where: { id_product: productToUpdate.id_product }
+				}
+			);
+			return;
+		} catch (error) {
+			console.log('Error al actualizar producto en la base de datos ' + error.message);
+			return;
 		}
-
-        let productList = this.findAll();
-		productList.push(newProduct);
-		fs.writeFileSync(this.fileName, JSON.stringify(productList, null, 4));   // De esta forma lo guarda "formateado".
-		return newProduct;
 	},
 
-    update: function (productToUpdate) {
-        let productList = this.findAll();
-        let index = productList.findIndex(product => product.id == productToUpdate.id);
-        productList[index] = productToUpdate;
-        fs.writeFileSync(this.fileName, JSON.stringify(productList, null, 4));   // De esta forma lo guarda "formateado".
-        return; // No hace falta devolver nada.
-    },
+	delete: async function (id) {
+		await db.Product.destroy({
+			where: { id_product: id }
+		});
+		return;
+	},
 
-	delete: function (id) {
-		let productList = this.findAll();
-		productList = productList.filter(product => product.id != id);
-		fs.writeFileSync(this.fileName, JSON.stringify(productList, null, 4));   // De esta forma lo guarda "formateado".
-		return; // No hace falta devolver nada.
+	test: async function (id) {
+		return await db.Product.findByPk(id, {
+			include: [{ association: "category" },]
+		});
 	}
+
+
 }
 
 // =========== Exporto Modelo =========================

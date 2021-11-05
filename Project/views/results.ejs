@@ -16,15 +16,15 @@
         <main>
 
             <section class="todos-productos">
-                <h2>Resultado de la búsqueda: <%= busqueda %></h2>
+                <h2>Resultado de la búsqueda: <%= keyword %></h2>
                 <hr>
-            <% if (resultadoBusqueda.length != 0) { %>
+            <% if (productList.length != 0) { %>
                 <div class="container-articulos">
-                <% for(let i=0; i<resultadoBusqueda.length; i++) { %>
+                <% productList.forEach(product => { %>
                     <!--productCard-->
-                    <%- include('./partials/_productCard', {i, productList: resultadoBusqueda}) %>
+                    <%- include('./partials/_productCard', {product}) %>
                     <!--/productCard-->
-                <% } %>
+                <% }); %>
                 </div>
             <% } else { %>
                 <div class="container">             <!--Cartel de SIN RESULTADOS-->

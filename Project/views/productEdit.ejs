@@ -19,10 +19,10 @@
                 
                 <h2 class="texto-crud">EDICION DE PRODUCTOS</h2>
                 <hr>
-                <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes. SI O SI usar Multer sino no viaja la info-->
+                <form action="/products/edit/<%= product.id_product %>?_method=PUT" method="POST" class="formulario" enctype="multipart/form-data"> <!--enctype para subir imagenes. SI O SI usar Multer sino no viaja la info-->
                     <h3 class="texto-formulario">Edite su producto</h3>
                     <div class="imagen-formulario" >
-                        <img onclick="window.location='/products/detail/<%= product.id %>'" src="/images/products/<%= product.image %>" alt=<%= product.name %>>
+                        <img onclick="window.location='/products/detail/<%= product.id_product %>'" src="/images/products/<%= product.image %>" alt=<%= product.name %>>
                     </div>
                     <div class="container-inputs">
                         <div class="inputs-1">
@@ -51,14 +51,14 @@
                             <div class="elemento">
                                 <label>Categoría</label>
                                 <select name="categoria" class="control">
-                                    <option value="GUITARRA" <%= product.category == 'GUITARRA' ? 'selected' : ''; %>>Guitarra</option>
-                                    <option value="BAJO" <%= product.category == 'BAJO' ? 'selected' : ''; %>>Bajo</option>
-                                    <option value="BATERIA" <%= product.category == 'BATERIA' ? 'selected' : ''; %>>Batería</option>
-                                    <option value="UKELELE" <%= product.category == 'UKELELE' ? 'selected' : ''; %>>Ukelele</option>
-                                    <option value="VIENTO" <%= product.category == 'VIENTO' ? 'selected' : ''; %>>Viento</option>
-                                    <option value="AUDIO" <%= product.category == 'AUDIO' ? 'selected' : ''; %>>Audio</option>
-                                    <option value="GRABACION" <%= product.category == 'GRABACION' ? 'selected' : ''; %>>Grabación</option>
-                                    <option value="TECLADO" <%= product.category == 'TECLADO' ? 'selected' : ''; %>>Teclado</option>
+                                    <option value="1" <%= product.id_category == '1' ? 'selected' : ''; %>>Guitarra</option>
+                                    <option value="2" <%= product.id_category == '2' ? 'selected' : ''; %>>Bajo</option>
+                                    <option value="3" <%= product.id_category == '3' ? 'selected' : ''; %>>Batería</option>
+                                    <option value="4" <%= product.id_category == '4' ? 'selected' : ''; %>>Ukelele</option>
+                                    <option value="5" <%= product.id_category == '5' ? 'selected' : ''; %>>Viento</option>
+                                    <option value="6" <%= product.id_category == '6' ? 'selected' : ''; %>>Audio</option>
+                                    <option value="7" <%= product.id_category == '7' ? 'selected' : ''; %>>Grabación</option>
+                                    <option value="8" <%= product.id_category == '8' ? 'selected' : ''; %>>Teclado</option>
                                 </select>
                             </div>
                         </div>
@@ -84,8 +84,8 @@
                             <div class="elemento">
                                 <label>Disponibilidad</label>
                                 <select name="disponibilidad" class="control">
-                                    <option value="EN STOCK" <%= product.availability == 'EN STOCK' ? 'selected' : ''; %>>En STOCK</option>
-                                    <option value="SIN STOCK" <%= product.availability == 'SIN STOCK' ? 'selected' : ''; %>>Sin STOCK</option>
+                                    <option value="En Stock" <%= product.availability == 'En Stock' ? 'selected' : ''; %>>En Stock</option>
+                                    <option value="Sin Stock" <%= product.availability == 'Sin Stock' ? 'selected' : ''; %>>Sin Stock</option>
                                 </select>
                             </div>
                             <div class="elemento">

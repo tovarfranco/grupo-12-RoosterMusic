@@ -2,8 +2,9 @@
 const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
 
-const db = require('../database/models');										 // Ekemento de sequelize que tiene todos los modelos.
+const db = require('../database/models');										 // Elemento de sequelize que tiene todos los modelos.
 const Op = db.Sequelize.Op;														 // Para poder usar operadores.
+const sequelize = require('sequelize')										     // Para algunos operadores especiales.
 
 // =========== Modelo =================================
 const User = {
@@ -19,14 +20,36 @@ const User = {
 	},
 
     /*** Búsqueda de usuario por campo ***/
-	findByField: async function (field, value) {
-		let condition = {};
-		condition[field] = { [Op.eq]: value }
+	findByField: async function (field, operator, value, limitMax, order) {
+		let operatorCriteria;
+		switch (operator) {
+			case 'eq':
+				operatorCriteria = Op.eq;
+				break;
+			case 'ne':
+				operatorCriteria = Op.ne;
+				break;
+			case 'like':
+				operatorCriteria = Op.like;
+				break;
+			default:
+				operatorCriteria = Op.eq;
+				break;
+		};
+		let whereCondition = {};
+		whereCondition[field] = { [operatorCriteria]: value };
+
+		let orderCondition;
+		if (order == 'RANDOM') {
+			orderCondition = sequelize.literal('rand()');
+		};
 
 		return await db.User.findAll({
 			where: {
-				...condition
-			}
+				...whereCondition
+			},
+			limit: limitMax,
+			order: orderCondition
 		});
 	},
 

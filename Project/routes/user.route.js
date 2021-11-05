@@ -40,7 +40,7 @@ router.delete('/delete/:id', userController.delete);
 router.get('/logout', userController.logout);
 
 /*** Testing ****/
-router.get('/profile/all', userController.test);                               // Para testing.
+router.get('/test/all', userController.test);                                  // Para testing.
 
 // =========== Exporto Router =========================
 module.exports = router;                                                       // Siempre exportarlo porque lo necesitaremos usar en el ENTRY POINT para que sepa a qué archivo enviar sus rutas.
