@@ -52,7 +52,7 @@
                                 <label>Categoría</label>
                                 <select name="categoria" class="control">
                                 <% categoryList.forEach(category => { %>
-                                    <option value="<%= category.id_category %>" <%= product.id_category == category.id_category ? 'selected' : ''; %>><%= category.category %></option>
+                                    <option value="<%= category.id_category %>" <%= product.id_category == category.id_category ? 'selected' : ''; %>><%= category.name %></option>
                                 <% }); %>
                                 </select>
                             </div>
@@ -86,6 +86,16 @@
                             <div class="elemento">
                                 <label>Imagen</label>
                                 <input type="file" name="img" class="control" accept=".jpg, .png">
+                            </div>
+                        </div>
+                        <div class="inputs-5">
+                            <div class="elemento">
+                                <label>Campaña</label>
+                                <select name="campania" class="control" required>
+                                <% campaignList.forEach(campaign => { %>
+                                    <option value="<%= campaign.id_campaign %>" <%= product.id_campaign == campaign.id_campaign ? 'selected' : ''; %>><%= campaign.name %></option>
+                                <% }); %>
+                                </select>
                             </div>
                         </div>
                     <div><button class="boton-modificar" type="submit">Modificar</button></div>

@@ -22,7 +22,7 @@
                 <hr>
                 <div class="container-boton-categorias">
                 <% categoryList.forEach(category => { %>
-                    <div class="boton-categoria"><button onclick="window.location='/category/<%= category.id_category %>'"><%= category.category %></button></div>
+                    <div class="boton-categoria"><button onclick="window.location='/category/<%= category.id_category %>'"><%= category.name %></button></div>
                 <% }); %>
                 </div>
             </section>

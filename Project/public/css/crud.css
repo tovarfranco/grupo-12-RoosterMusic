@@ -126,7 +126,7 @@ label {
         max-width: none;
     }
 
-    .inputs-1, .inputs-2, .inputs-3, .inputs-4 {
+    .inputs-1, .inputs-2, .inputs-3, .inputs-4, .inputs-5 {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;

@@ -3,10 +3,10 @@
 
 module.exports = function (sequelize, DataTypes) {
 
-  let alias = 'Category';                                        // 1° parámetro: alias para sequelize.
+  let alias = "Status";                                       // 1° parámetro: alias para sequelize.
 
-  let columns = {                                                // 2° parámetro: columnas de la tabla.
-    id_category: {
+  let columns = {                                             // 2° parámetro: columnas de la tabla.
+    id_status: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -19,16 +19,16 @@ module.exports = function (sequelize, DataTypes) {
     }
   };
 
-  let config = {                                                 // 3° parámetro: configuración especial.
+  let config = {                                              // 3° parámetro: configuración especial.
     sequelize,
-    tableName: 'categories',                                     // Mi tabla en la BBDD.
+    tableName: 'status',                                      // Mi tabla en la BBDD.
     timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
         unique: true,
         using: "BTREE",
-        fields: [{ name: "id_category" },]
+        fields: [{ name: "id_status" },]
       },
       {
         name: "name_UNIQUE",
@@ -39,11 +39,11 @@ module.exports = function (sequelize, DataTypes) {
     ]
   };
 
-  let Category = sequelize.define(alias, columns, config);       // Defino el modelo.
+  let Status = sequelize.define(alias, columns, config);       // Defino el modelo.
 
-  Category.associate = function (models) {
-    Category.hasMany(models.Product, { as: "products", foreignKey: "id_category"});
-  };
+  Status.associate = function (models) {
+    Status.hasMany(models.Order, { as: "orders", foreignKey: "id_status"});
+  };  
 
-  return Category;
+  return Status;
 };

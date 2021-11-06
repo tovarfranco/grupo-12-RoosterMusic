@@ -5,6 +5,7 @@ const path = require('path');                                                   
 // =========== Modelo =================================
 const Product = require('../models/Product.model.js');
 const Category = require('../models/Category.model.js');
+const Campaign = require('../models/Campaign.model.js');
 
 // =========== Controlador ============================
 const productController = {
@@ -25,7 +26,9 @@ const productController = {
     /*** Creo un producto ***/
     create: async (req, res) => {
         let categoryList = await Category.findAll();                          // Para desplegable de categorías disponibles.
-		res.render('productCreate', {categoryList: categoryList});
+        let campaignList = await Campaign.findAll();                          // Para desplegable de campañas disponibles.
+		res.render('productCreate', {categoryList: categoryList,
+                                     campaignList: campaignList});
 	},
 
 	store: async (req, res) => {
@@ -43,7 +46,8 @@ const productController = {
             origin: req.body.origen,
             year: req.body.anio,
             id_category: req.body.categoria,
-            availability: req.body.disponibilidad
+            availability: req.body.disponibilidad,
+            id_campaign: req.body.campania
 		}
 
 		let newProduct = await Product.create(productToCreate);               // Llamo al modelo.
@@ -55,8 +59,10 @@ const productController = {
 	edit: async (req, res) => {
 		let productFound = await Product.findByPk(req.params.id);
         let categoryList = await Category.findAll();                          // Para desplegable de categorías disponibles.
+        let campaignList = await Campaign.findAll();                          // Para desplegable de campañas disponibles.
 		res.render('productEdit', {product: productFound,
-                                   categoryList: categoryList});
+                                   categoryList: categoryList,
+                                   campaignList: campaignList});
 	},
 
     update: async (req, res) => {
@@ -77,10 +83,11 @@ const productController = {
             origin: req.body.origen,
             year: req.body.anio,
             id_category: req.body.categoria,
-            availability: req.body.disponibilidad
+            availability: req.body.disponibilidad,
+            id_campaign: req.body.campania
 		}
 		
-		await Product.update(productToUpdate);                          // Llamo al modelo.
+		await Product.update(productToUpdate);                                // Llamo al modelo.
 		
 		res.redirect('/products/detail/' + req.params.id);
 	},

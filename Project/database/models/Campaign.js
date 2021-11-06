@@ -1,12 +1,12 @@
 // Los modelos exportan una FUNCION. Dentro creamos una constante que tendrá los datos del modelo.
 // Los parámetros/módulos necesarios son pasados por index.js, por eso no hace falta que importemos módulos de sequelize en este archivo.
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
 
-  let alias = 'Category';                                        // 1° parámetro: alias para sequelize.
+  let alias = 'Campaign';                                        // 1° parámetro: alias para sequelize.
 
   let columns = {                                                // 2° parámetro: columnas de la tabla.
-    id_category: {
+    id_campaign: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -21,14 +21,14 @@ module.exports = function (sequelize, DataTypes) {
 
   let config = {                                                 // 3° parámetro: configuración especial.
     sequelize,
-    tableName: 'categories',                                     // Mi tabla en la BBDD.
+    tableName: 'campaigns',                                      // Mi tabla en la BBDD.
     timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
         unique: true,
         using: "BTREE",
-        fields: [{ name: "id_category" },]
+        fields: [{ name: "id_campaign" },]
       },
       {
         name: "name_UNIQUE",
@@ -39,11 +39,11 @@ module.exports = function (sequelize, DataTypes) {
     ]
   };
 
-  let Category = sequelize.define(alias, columns, config);       // Defino el modelo.
+  let Campaign = sequelize.define(alias, columns, config);       // Defino el modelo.
 
-  Category.associate = function (models) {
-    Category.hasMany(models.Product, { as: "products", foreignKey: "id_category"});
+  Campaign.associate = function (models) {
+    Campaign.hasMany(models.Product, { as: "products", foreignKey: "id_campaign"});
   };
 
-  return Category;
+  return Campaign;
 };

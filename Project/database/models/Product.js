@@ -63,6 +63,14 @@ module.exports = function (sequelize, DataTypes) {
     availability: {
       type: DataTypes.STRING(45),
       allowNull: false
+    },
+    id_campaign: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'campaigns',
+        key: 'id_campaign'
+      }
     }
   };
 
@@ -82,14 +90,23 @@ module.exports = function (sequelize, DataTypes) {
         using: "BTREE",
         fields: [{ name: "id_category" },]
       },
+      {
+        name: "fk_products_campaigns_idx",
+        using: "BTREE",
+        fields: [{ name: "id_campaign" },]
+      },
     ]
   };
 
-  let Product = sequelize.define(alias, columns, config);        // Defino el modelo.
+
+  let Product = sequelize.define(alias, columns, config);       // Defino el modelo.
 
   Product.associate = function (models) {
     Product.belongsTo(models.Category, { as: "category", foreignKey: "id_category" });
-  }
+    Product.belongsToMany(models.User, { as: "users", through: "Order", foreignKey: "id_product", otherKey: "id_user" });
+    Product.belongsTo(models.Campaign, { as: "campaign", foreignKey: "id_campaign" });
+    Product.hasMany(models.Order, { as: "orders", foreignKey: "id_product" });
+  };
 
   return Product;
 };
