@@ -4,7 +4,7 @@ const path = require('path');                                                   
 
 // =========== Modelo =================================
 const Product = require('../models/Product.model.js');
-const Category = require('../models/Product.model.js');
+const Category = require('../models/Category.model.js');
 
 // =========== Controlador ===========================
 const indexController = {
@@ -13,9 +13,10 @@ const indexController = {
 	index: async (req, res) => {                                // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
 		let productList1 = await Product.findAll();
 		let productList2 = await Product.findAll();
+		let categoryList = await Category.findAll();
 		res.render('index', {productList1: productList1, 
-							 productList2: productList2});      // ESTE ES UN .EJS (modificar los .html a .ejs). Es NECESARIO setear el VIEW ENGINE en app.js para usar res.render(). Le envía a ESTA view las variables dinámicas que necesita.
-	
+							 productList2: productList2,
+							 categoryList: categoryList});      // ESTE ES UN .EJS (modificar los .html a .ejs). Es NECESARIO setear el VIEW ENGINE en app.js para usar res.render(). Le envía a ESTA view las variables dinámicas que necesita.
 	},
 
     search: async (req, res) => {
@@ -24,10 +25,11 @@ const indexController = {
 							   productList: productList,});
 	},
 
-    category: (req, res) => {
-		let resultadoBusqueda = productList.filter(product => product.category == req.params.category);
-		res.render('results', {resultadoBusqueda: resultadoBusqueda, 
-							   busqueda: categoria});
+    category: async (req, res) => {
+		let category = await Category.findByPk(req.params.id);
+		let productList = await Product.findByField('id_category', 'eq', req.params.id);
+		res.render('results', {keyword: category.category,
+							   productList: productList});
 	}
 }
 

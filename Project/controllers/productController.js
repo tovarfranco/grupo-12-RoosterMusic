@@ -4,6 +4,7 @@ const path = require('path');                                                   
 
 // =========== Modelo =================================
 const Product = require('../models/Product.model.js');
+const Category = require('../models/Category.model.js');
 
 // =========== Controlador ============================
 const productController = {
@@ -16,14 +17,15 @@ const productController = {
 
     /*** Detalle de un producto ***/
     detail: async (req, res) => {                                                                                  // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
-        let productFound = await Product.findByPk(req.params.id);                                                  // Busca en la lista el producto que tiene el mismo id que el pasado por parámetro.
+        let productFound = await Product.join(req.params.id);                                                      // Busca en la lista el producto que tiene el mismo id que el pasado por parámetro.
         let productList = await Product.findByField('id_category', 'eq', productFound.id_category, 4, 'RANDOM');   // Es para mostrar en la vista los otros productos también. Por defecto limit: 4 y orden aleatorio para que no aparexcan siempre los mismos.
         res.render('productDetail', {product: productFound, productList: productList});                            // Le envía a ESTA view las variables dinámicas que necesita. ESTE ES UN .EJS (modificar los .html a .ejs). Es NECESARIO setear el VIEW ENGINE en app.js para usar res.render().
     },
 
     /*** Creo un producto ***/
-    create: (req, res) => {
-		res.render('productCreate');
+    create: async (req, res) => {
+        let categoryList = await Category.findAll();                          // Para desplegable de categorías disponibles.
+		res.render('productCreate', {categoryList: categoryList});
 	},
 
 	store: async (req, res) => {
@@ -44,7 +46,7 @@ const productController = {
             availability: req.body.disponibilidad
 		}
 
-		let newProduct = await Product.create(productToCreate);         // Llamo al modelo.
+		let newProduct = await Product.create(productToCreate);               // Llamo al modelo.
 
 		res.redirect('/products/detail/' + newProduct.id_product);
 	},
@@ -52,7 +54,9 @@ const productController = {
     /*** Modifico un producto ***/
 	edit: async (req, res) => {
 		let productFound = await Product.findByPk(req.params.id);
-		res.render('productEdit', {product: productFound});
+        let categoryList = await Category.findAll();                          // Para desplegable de categorías disponibles.
+		res.render('productEdit', {product: productFound,
+                                   categoryList: categoryList});
 	},
 
     update: async (req, res) => {
@@ -61,11 +65,11 @@ const productController = {
 
         /* Actualizo producto */
 		let productToUpdate = {
-            id_product: productFound.id_product,                               // Uso el id del producto que encontré.
+            id_product: productFound.id_product,                              // Uso el id del producto que encontré.
             name: req.body.nombre,
             description: req.body.descripcion,
             price: req.body.precio,
-			image: (req.file) ? req.file.filename : productFound.image,        // Guardo el nombre de la imagen que llega de Multer. Tiene una lógica arriba.
+			image: (req.file) ? req.file.filename : productFound.image,       // Guardo el nombre de la imagen que llega de Multer. Tiene una lógica arriba.
             brand: req.body.marca,
             model: req.body.modelo,
             color: req.body.color,

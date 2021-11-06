@@ -9,6 +9,11 @@ const sequelize = require('sequelize')										     // Para algunos operadores 
 // =========== Modelo =================================
 const Category = {
 
+	/*** Todas las categorías ***/
+	findAll: async function () {
+		return await db.Category.findAll();
+	},
+
 	/*** Búsqueda de categoría por PK ***/
 	findByPk: async function (id) {
 		return await db.Category.findByPk(id);

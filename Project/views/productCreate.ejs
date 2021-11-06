@@ -49,14 +49,9 @@
                                 <label>Categoría</label>
                                 <select name="categoria" class="control" required>
                                     <option value="" disabled selected hidden>Seleccione la categoría</option>
-                                    <option value="1">Guitarra</option>
-                                    <option value="2">Bajo</option>
-                                    <option value="3">Batería</option>
-                                    <option value="4">Ukelele</option>
-                                    <option value="5">Viento</option>
-                                    <option value="6">Audio</option>
-                                    <option value="7">Grabación</option>
-                                    <option value="8">Teclado</option>
+                                <% categoryList.forEach(category => { %>
+                                    <option value="<%= category.id_category %>"><%= category.category %></option>
+                                <% }); %>
                                 </select>
                             </div>
                         </div>

@@ -51,14 +51,9 @@
                             <div class="elemento">
                                 <label>Categoría</label>
                                 <select name="categoria" class="control">
-                                    <option value="1" <%= product.id_category == '1' ? 'selected' : ''; %>>Guitarra</option>
-                                    <option value="2" <%= product.id_category == '2' ? 'selected' : ''; %>>Bajo</option>
-                                    <option value="3" <%= product.id_category == '3' ? 'selected' : ''; %>>Batería</option>
-                                    <option value="4" <%= product.id_category == '4' ? 'selected' : ''; %>>Ukelele</option>
-                                    <option value="5" <%= product.id_category == '5' ? 'selected' : ''; %>>Viento</option>
-                                    <option value="6" <%= product.id_category == '6' ? 'selected' : ''; %>>Audio</option>
-                                    <option value="7" <%= product.id_category == '7' ? 'selected' : ''; %>>Grabación</option>
-                                    <option value="8" <%= product.id_category == '8' ? 'selected' : ''; %>>Teclado</option>
+                                <% categoryList.forEach(category => { %>
+                                    <option value="<%= category.id_category %>" <%= product.id_category == category.id_category ? 'selected' : ''; %>><%= category.category %></option>
+                                <% }); %>
                                 </select>
                             </div>
                         </div>

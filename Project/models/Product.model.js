@@ -86,13 +86,11 @@ const Product = {
 		return;
 	},
 
-	test: async function (id) {
+	join: async function (id) {
 		return await db.Product.findByPk(id, {
 			include: [{ association: "category" },]
 		});
 	}
-
-
 }
 
 // =========== Exporto Modelo =========================
