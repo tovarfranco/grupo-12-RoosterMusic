@@ -22,16 +22,16 @@
                 </div>
                 <hr>
                 <div class="container-articulos" >
-                <% for(let i=0; i<4; i++) { %>
+                <% orderList.forEach(order => { %>
                     <!--productCartCard-->
-                    <%- include('./partials/_productCartCard', {i, productList}) %>
+                    <%- include('./partials/_productCartCard', {order}) %>
                     <!--/productCartCard-->
-                <% } %>
+                <% }); %>
                 </div>
 
                 <div class="envio">
                     <div class="detalle-envio">
-                        <h4 class="texto-domicilio">Enviar a Calle 12334, CABA</h4>
+                        <h4 class="texto-domicilio">Enviar a <%= locals.userLogged.address %></h4>
                         <h4 class="costo-envio">$300</h4>
                     </div>
                     <div class="detalle-total">

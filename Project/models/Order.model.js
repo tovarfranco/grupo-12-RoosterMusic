@@ -7,19 +7,19 @@ const Op = db.Sequelize.Op;														 // Para poder usar operadores.
 const sequelize = require('sequelize')										     // Para algunos operadores especiales.
 
 // =========== Modelo =================================
-const Product = {
+const Order = {
 
-	/*** Todos los productos ***/
+	/*** Todas las ordenes ***/
 	findAll: async function () {
-		return await db.Product.findAll();
+		return await db.Order.findAll();
 	},
 
-	/*** Búsqueda de producto por PK ***/
+	/*** Búsqueda de orden por PK ***/
 	findByPk: async function (id) {
-		return await db.Product.findByPk(id);
+		return await db.Order.findByPk(id);
 	},
 
-	/*** Búsqueda de producto por campo ***/
+	/*** Búsqueda de orden por campo ***/
 	findByField: async function (field, operator, value, limitMax, order) {
 		let operatorCriteria;
 		switch (operator) {
@@ -44,7 +44,7 @@ const Product = {
 			orderCondition = sequelize.literal('rand()');
 		};
 
-		return await db.Product.findAll({
+		return await db.Order.findAll({
 			where: {
 				...whereCondition
 			},
@@ -53,45 +53,47 @@ const Product = {
 		});
 	},
 
-	create: async function (productToCreate) {
+	create: async function (orderToCreate) {
 		try {
-			return await db.Product.create({ ...productToCreate });			 		 // Se le debe pasar un objeto. Como ya productToCreate es un objeto, uso el spreadOperator.
+			return await db.Order.create({ ...orderToCreate });			 		 // Se le debe pasar un objeto. Como ya orderToCreate es un objeto, uso el spreadOperator.
 		} catch (error) {
-			console.log('Error al crear producto en la base de datos ' + error.message);
+			console.log('Error al crear orden en la base de datos ' + error.message);
 			return;
 		}
 	},
 
-	update: async function (productToUpdate) {
+	update: async function (orderToUpdate) {
 		try {
-			await db.Product.update(
+			await db.Order.update(
 				{
-					...productToUpdate
+					...orderToUpdate
 				},
 				{
-					where: { id_product: productToUpdate.id_product }
+					where: { id_order: orderToUpdate.id_order }
 				}
 			);
 			return;
 		} catch (error) {
-			console.log('Error al actualizar producto en la base de datos ' + error.message);
+			console.log('Error al actualizar orden en la base de datos ' + error.message);
 			return;
 		}
 	},
 
 	delete: async function (id) {
-		await db.Product.destroy({
-			where: { id_product: id }
+		await db.Order.destroy({
+			where: { id_order: id }
 		});
 		return;
 	},
 
-	join: async function (id) {
-		return await db.Product.findByPk(id, {
-			include: [{ association: "category" },]
+	join: async function (id_user, id_status) {
+		return await db.Order.findAll({
+			where: { id_user: id_user, id_status: id_status },
+			include: [{ association: "product" },],
+			order: [['id_product', 'ASC'],]
 		});
 	}
 }
 
 // =========== Exporto Modelo =========================
-module.exports = Product;
+module.exports = Order;

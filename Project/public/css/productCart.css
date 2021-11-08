@@ -82,7 +82,6 @@ align-items: baseline;
     transition: all .2s;      /*Animación*/
     max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
-    cursor: pointer;
 }
 
 .articulo:hover {
@@ -109,6 +108,7 @@ align-items: baseline;
     width: 70px; height: 70px;
     object-fit: cover;      /*Sin esta propiedad queda estirada la imagen*/
     border-radius: 50%;     /*Para que sea redonda*/
+    cursor: pointer;
 }
 
 @media (min-width: 768px){

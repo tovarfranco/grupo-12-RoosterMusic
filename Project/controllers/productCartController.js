@@ -1,9 +1,51 @@
-const productList = require("../database/productList.json")         // Importamos la BBDD que se pasará a las vistas.
+// =========== Require's ==============================
+const fs = require('fs');                                              // Para la lectura y escritura de archivos.
+const path = require('path');                                          // Manejo de rutas.
 
-const productCartController = {
-    productCart: (req,res) => {                                     // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
-        res.render('productCart', {productList: productList});      // ESTE ES UN .EJS (modificar los .html a .ejs). Es NECESARIO setear el VIEW ENGINE en app.js para usar res.render(). // Le envía a ESTA view las variables dinámicas que necesita.
-    }
+// =========== Modelo =================================
+const Order = require('../models/Order.model.js');
+
+// =========== Controlador ============================
+const orderCartController = {
+
+    /*** Todas las ordenes ***/
+    index: async (req, res) => {
+        let orderList = await Order.join(req.session.userLogged.id_user, '1');
+        res.render('productCart', {orderList: orderList});
+    },
+
+    /*** Creo una orden ***/
+    store: async (req, res) => {
+
+        /* Inserto nueva orden */
+		let orderToCreate = {
+            id_user: req.session.userLogged.id_user,
+            id_product: req.body.id_product,
+            id_status: "1"                                             // Código del estado "En carrito".
+		}
+
+		let newOrder = await Order.create(orderToCreate);              // Llamo al modelo.
+        res.redirect('/products');
+	},
+
+    update: async (req, res) => {
+
+        /* Actualizo estado de la orden */
+		let orderToUpdate = {
+            id_order: req.params.id,                                   // Uso el id del parámetro.
+            id_status: "2"
+		}
+
+		await Order.update(orderToUpdate);                             // Llamo al modelo.
+
+		res.redirect('/productCart');
+	},
+
+    delete: async (req, res) => {
+		await Order.delete(req.params.id);
+
+		res.redirect('/productCart');
+	}
 }
 
-module.exports = productCartController                              // Siempre exportarlo porque lo necesitaremos usar en el ROUTES para que sepa a qué controlador enviar la petición.
+module.exports = orderCartController                                   // Siempre exportarlo porque lo necesitaremos usar en el ROUTES para que sepa a qué controlador enviar la petición.
