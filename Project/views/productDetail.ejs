@@ -37,7 +37,7 @@
                             </form>
                             <div><button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id_product %>'">Modificar</button></div>
                             <form action="/products/delete/<%= product.id_product %>?_method=DELETE" method="POST">
-                                <div><button class="boton-eliminar" type="submit">Eliminar</button></div>
+                                <button class="boton-eliminar" type="submit">Eliminar</button>
                             </form>
                         </div>
                     </article>

@@ -11,7 +11,18 @@ const orderCartController = {
     /*** Todas las ordenes ***/
     index: async (req, res) => {
         let orderList = await Order.join(req.session.userLogged.id_user, '1');
-        res.render('productCart', {orderList: orderList});
+        let total = 0;                                                 // Si no lo inicializo, al momento de hacer la suma devuelve NaN (porque es undefined).
+
+        if (orderList.length == 0) {
+
+
+        } else {
+            orderList.forEach(order => {
+                total += parseFloat(order.product.price);
+            })
+        }
+
+        res.render('productCart', {orderList: orderList, total: total});
     },
 
     /*** Creo una orden ***/
@@ -29,16 +40,29 @@ const orderCartController = {
 	},
 
     update: async (req, res) => {
+        let orderToUpdate = {};
 
-        /* Actualizo estado de la orden */
-		let orderToUpdate = {
-            id_order: req.params.id,                                   // Uso el id del parámetro.
-            id_status: "2"
-		}
+        /* Comprar ALL o individual */
+        if (req.params.id == 'ALL') {                                               // Si presionó el botón comprar, vendrá con este parámetro.
+            let orderList = await Order.join(req.session.userLogged.id_user, '1');  // Traigo todas las ordenes del usuario (podría usar findByField pero este ya funciona).
+            
+            for (order of orderList) {                                              // Le cambio el estado a "comprado" a cada orden.
+                orderToUpdate = {
+                    id_order: order.id_order,
+                    id_status: "2"
+                };
+                await Order.update(orderToUpdate);                                  // IMPORTANTE: await no funciona con forEach().
+            };
+        } else {                                                                    // Si entra acá es porque no presionó el botón comprar ALL.
+            /* Actualizo estado de única orden */
+            orderToUpdate = {
+                id_order: req.params.id,                                            // Uso el id del parámetro.
+                id_status: "2"
+            };
+            await Order.update(orderToUpdate);                                      // Llamo al modelo.
+        };
 
-		await Order.update(orderToUpdate);                             // Llamo al modelo.
-
-		res.redirect('/productCart');
+        res.redirect('/productCart');
 	},
 
     delete: async (req, res) => {

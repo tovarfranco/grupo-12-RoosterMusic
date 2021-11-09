@@ -6,9 +6,12 @@ const path = require("path");                                                  /
 // =========== Controladores ==========================
 const productCartController = require('../controllers/productCartController'); // ACA requerimos el controlador que tiene los callbacks que generarán las respuestas.
 
+// =========== Middlewares ============================
+const authMiddleware = require('../middlewares/auth.middleware.js');           // Uso mi propio middleware.
+
 // =========== Router =================================
 /*** Todas las ordenes *******/
-router.get('/', productCartController.index);                      // ACA se pone la ruta que sacamos de app.js. Este será el encargado de enviar la petición al controlador correspondiente para que genere la respuesta. Debemos usar el objeto router + método HTTP + callback (quien genera la respuesta). Usamos también SUBRUTAS del la funcionalidad.
+router.get('/', authMiddleware, productCartController.index);                  // ACA se pone la ruta que sacamos de app.js. Este será el encargado de enviar la petición al controlador correspondiente para que genere la respuesta. Debemos usar el objeto router + método HTTP + callback (quien genera la respuesta). Usamos también SUBRUTAS del la funcionalidad.
 
 // /*** Detalle de un producto ****/
 // router.get('/detail/:id', productController.detail);
@@ -23,7 +26,7 @@ router.put('/edit/:id', productCartController.update);
 router.delete('/delete/:id', productCartController.delete);
 
 // /*** Testing ****/
-// router.get('/test/all', productController.test);                               // Para testing.
+// router.get('/test/all', productController.test);                            // Para testing.
 
 // =========== Exporto Router =========================
 module.exports = router;                                                       // Siempre exportarlo porque lo necesitaremos usar en el ENTRY POINT para que sepa a qué archivo enviar sus rutas.
