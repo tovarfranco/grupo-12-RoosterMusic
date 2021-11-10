@@ -18,8 +18,8 @@ const userController = {
     /*** Procesamos el login ***/
 	loginProcess: async (req, res) => {
         /* Verifico si existe el usuario */
-        let userFound = await User.findByField('email', 'eq', req.body.email);                           // Uso esta función que creé en el modelo para verificar si ya existe.
-        userFound = userFound[0];                                                                  // CASO PARTICULAR para que me traiga el usuario. Para consultas más complejas usar arrays.
+        let userFound = await User.findByField('email', 'eq', req.body.email);                     // Uso esta función que creé en el modelo para verificar si ya existe. findByField devuelve un array de objetos.
+        userFound = userFound[0];                                                                  // Como findByField devuelve un array de objetos necesito solo el primero.
 
 		if (!userFound) {
 			return res.render('login', {errors: {email: {msg: 'Usuario no registrado'}}});         // Creo una validación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
@@ -60,8 +60,8 @@ const userController = {
 		}
 
         /* Verifico si ya existe el usuario (mismo email) */
-        let userFound = User.findByField('email', 'eq', req.body.email);               // Uso esta función que creé en el modelo para verificar ya existe. findByField devuelve un array de objetos.
-        userFound = userFound[0];                                                // CASO PARTICULAR para que me traiga EL usuario. Para consultas más complejas usar arrays.
+        let userFound = User.findByField('email', 'eq', req.body.email);         // Uso esta función que creé en el modelo para verificar ya existe. findByField devuelve un array de objetos.
+        userFound = userFound[0];                                                // Como findByField devuelve un array de objetos necesito solo el primero.
 
 		if (userFound) {
 			return res.render('register', {errors: {email: {msg: 'Este email ya está registrado'}}, oldData: req.body});    // Creo una valicación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
@@ -88,8 +88,7 @@ const userController = {
 
     /*** Modifico un usuario ***/
 	edit: async (req, res) => {
-		let userFound = await User.findByPk(req.params.id);
-        //userFound = userFound[0];                                              // PARECE SER que al usar findByPk devuelve un objeto directamente, no un array.
+		let userFound = await User.findByPk(req.params.id);                      // findByPk devuelve un objeto directamente, no un array.                               
         res.render('userEdit', {user: userFound});
 	},
 

@@ -14,9 +14,6 @@ app.use(express.json());                                              // Para po
 const methodOverride =  require('method-override');                   // Para poder usar los métodos PUT y DELETE.
 app.use(methodOverride('_method'));                                   // Para poder pisar el method="POST" en el formulario por PUT y DELETE.
 
-const userLog = require('./middlewares/userLog')                      // Middleware propio creado.
-app.use(userLog);                                                     // Implemento mi middleware de APLICACION. Recordar que primero se procesa los middlewares de aplicación y luegos los de ruta, son jerárquicos.
-
 const session = require('express-session');                           // Para poder trabajar con sesiones.
 app.use(session({                                                     // Se inicializa de esta manera.
 	secret: "Rooster Music secret",
@@ -29,6 +26,9 @@ app.use(cookies());                                                   // Es a ni
 
 const userLoggedMiddleware = require('./middlewares/userLoggued.middleware') // Middleware propio creado.
 app.use(userLoggedMiddleware);                                               // Importante que esté después de session y cookies porque usa a estos en su funcionalidad. Me permitirá identificar e lusuario logueado, ya sea por loguin o por cookies
+
+const userLog = require('./middlewares/userLog')                      // Middleware propio creado.
+app.use(userLog);                                                     // Implemento mi middleware de APLICACION. Recordar que primero se procesa los middlewares de aplicación y luegos los de ruta, son jerárquicos.
 
 // =========== Configuración Template Engine ===========
 app.set("view engine", "ejs");                                        // Indica que se usará ejs como view engine.

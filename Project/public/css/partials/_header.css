@@ -11,7 +11,7 @@ header {
 /* Logo + animación ---------------------------------------------------*/
 
 .logo {
-    width: 200px;    /*Está ok para mobile*/
+    width: 120px;    /*Está ok para mobile*/
     margin: 0 auto;
 }
 
@@ -114,11 +114,11 @@ header {
 
 .boton-hamburguesa {
     background-color: black;
-    border: solid 1px white;
+    border: solid 1px grey;
     color: white;
     display: block;     /*Hará que el fondo del botón (azul) ocupe todo el ancho, así que le ponemos un width. SUPER importante poner block porque me permite configurarle estas opciones.*/
-    max-width: 50px;    /*Para que el fondo del botón no sea gigante.*/
-    padding: 15px 0;
+    max-width: 40px;    /*Para que el fondo del botón no sea gigante.*/
+    padding: 9px 0;
     border-radius: 8px;
     text-align: center; /*Centra el ícono*/
     font-size: 18px;    /*Tamaño del icono*/
@@ -162,6 +162,10 @@ header {
 }
 
 @media (min-width: 768px){
+    .logo {
+        width: 200px;       /*Lo agrandamos un poquito*/
+    }
+
     .header-fila-1 {
         display: flex;
         justify-content: space-between;

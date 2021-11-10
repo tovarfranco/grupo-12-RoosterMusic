@@ -8,7 +8,7 @@ async function userLoggedMiddleware(req, res, next) {
 	let cookieEmail = req.cookies.userEmail;                                    // Si tildé mantener sesión, se crea una cookie. Quiero leerla y pasarla a session si existe, así no se tiene que volver a logueaar. Esto se realiza en cada req, es decir, en cada acceso a una vista, ya que siempre se realiza un request al servidor pidiendo esa vista.
 	
 	if (cookieEmail) {                                              			// Si existe la cookie lo busco para ver si es un usario.            
-		userCookie = await User.findByField('email', cookieEmail);                    // Llamo a la función en la BBDD para ver si tengo a ese usuario y lo leo. En este caso la cookie que se guarda es el email, por eso se busca por email.
+		userCookie = await User.findByField('email', 'eq', cookieEmail);        // Llamo a la función en la BBDD para ver si tengo a ese usuario y lo leo. En este caso la cookie que se guarda es el email, por eso se busca por email.
         userCookie = userCookie[0];												// CASO PARTICULAR para que me traiga el usuario. Para consultas más complejas usar arrays.
 		delete userCookie.password;												// Antes de pasarlo a session le borro la contraseña por seuridad.
 		req.session.userLogged = userCookie;									// En caso de haberlo encontrado lo paso a session.

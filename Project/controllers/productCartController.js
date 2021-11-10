@@ -13,14 +13,9 @@ const orderCartController = {
         let orderList = await Order.join(req.session.userLogged.id_user, '1');
         let total = 0;                                                 // Si no lo inicializo, al momento de hacer la suma devuelve NaN (porque es undefined).
 
-        if (orderList.length == 0) {
-
-
-        } else {
-            orderList.forEach(order => {
-                total += parseFloat(order.product.price);
-            })
-        }
+        orderList.forEach(order => {
+            total += parseFloat(order.product.price);
+        });
 
         res.render('productCart', {orderList: orderList, total: total});
     },

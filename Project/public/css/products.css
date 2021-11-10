@@ -12,11 +12,19 @@
 
 /* Margin Main ==============================================================================================================================*/
 
+header {
+    position: static;   /*Para resoluciones pequeñas lo dejo static. Para grandes fixed*/
+}
+
 main {
-    margin-top: 340px;  /*Lo corremos por el header fixed, así como en sus media queries*/
+    margin-top: 0px;    /*285px: ok. Lo corremos por el header fixed, así como en sus media queries*/
 }
 
 @media (min-width: 768px){
+    header {
+        position: fixed;
+    }
+
     main {
         margin-top: 210px;
     }
