@@ -31,11 +31,15 @@
                             <li><a href="">Devoluciones</a></li>
                         </ul>
                         <div class="tarjeta-botones">
-                            <div><button class="boton-comprar" type="button">Comprar</button></div>
                             <form action="/productCart/create" method="POST">
-                                <div><button class="boton-agregar-carrito" type="submit" name="id_product" value="<%= product.id_product %>">Agregar al carrito</button></div>
+                                <input type="hidden" name="id_status" value="2"/>
+                                <button class="boton-comprar" type="submit" name="id_product" value="<%= product.id_product %>">Comprar</button>
                             </form>
-                            <div><button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id_product %>'">Modificar</button></div>
+                            <form action="/productCart/create" method="POST">
+                                <input type="hidden" name="id_status" value="1"/>
+                                <button class="boton-agregar-carrito" type="submit" name="id_product" value="<%= product.id_product %>">Agregar al carrito</button>
+                            </form>
+                                <button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id_product %>'">Modificar</button>
                             <form action="/products/delete/<%= product.id_product %>?_method=DELETE" method="POST">
                                 <button class="boton-eliminar" type="submit">Eliminar</button>
                             </form>

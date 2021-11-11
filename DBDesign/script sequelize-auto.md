@@ -13,8 +13,12 @@ node_modules\.bin\sequelize-auto sequelize-auto -h localhost -d roosterMusic -u 
 3) See the documentation here if needed: https://github.com/sequelize/sequelize-auto
 There you have the command to run on Windows + parameters.
 
-4) Change the name of the alias if neccesary. => Convension: SINGULAR alias, and models.js.
+4) This will create some models in "automodels" folder. We have to pick these models, EDIT them and then place on the correct "models" folder.
 
-5) Export it
+5) EDIT: change the name of the alias if neccesary. => Convension: SINGULAR alias, and models.js.
 
-6) Check the dependencies: make sure to connect with the correct reference (look at the name, have to use the new ones if you changed them). => Convesion: references in PLURAL if A has many B. SINGULAR if B belongs to only one A.
+6) There is an extra file "init-model". There are the relationships. We have to pick the relations and paste it on the correct model. Then we can delete this file.
+
+7) Check the relationships: make sure to connect with the correct reference/table (look at the name/alias, have to use the new ones if you changed them). => Convesion: references in PLURAL if A has many B. SINGULAR if B belongs to only one A.
+
+8) Make sure to export them (model.exports).

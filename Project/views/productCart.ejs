@@ -40,6 +40,7 @@
                         <h3 class="costo-total">$ <%= (total + 300).toFixed(2) %> </h3>
                     </div>
                     <form action="/productCart/edit/ALL?_method=PUT" method="POST">
+                        <input type="hidden" name="id_status" value="2"/>
                         <button class="boton-comprar" type="submit">Comprar</button>
                     </form>
                 </div>

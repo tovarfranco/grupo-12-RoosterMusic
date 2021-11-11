@@ -1,5 +1,6 @@
 // =========== Creo variable global si tengo un usuario logueado ==========     // Nos servirá para poder, por ejemplo, mostrar la barra de navegación con enombre del usuario. Creamos este middleware a nivel aplicación así en todas las rutas se ejecuta este middleware (la barra de navegación está presente en todas las vistas/rutas).
 const User = require('../models/User.model');                                   // Importo el módulo porque lo usaré para la cookie.
+const Order = require('../models/Order.model');                                   // Importo el módulo porque lo usaré para la cookie.
 
 async function userLoggedMiddleware(req, res, next) {
 	res.locals.isLogged = false;                                                // Creo esta variable global para que TODAS las vistas la vean y además se aplica a todas las rutas por ser a nivel APLICACION.
@@ -17,6 +18,8 @@ async function userLoggedMiddleware(req, res, next) {
 	if (req.session.userLogged) {                                               // Si está logueado ponemos la variable en true. Los if no van anidados porque el logueao puede darse por cookie o por session-login.
 		res.locals.isLogged = true;
 		res.locals.userLogged = req.session.userLogged;                         // IMPORTANTE: nos preguntamos no podríamos usar directamente req.session? NO. porque no estamos renderizando nada. Para que las vistas puedan ver a nivel global esta variable debo pasarle su valor a la variable .locals.
+		let orderList  = await Order.join(req.session.userLogged.id_user, '1'); // Traigo todas las ordenes del usuario (podría usar findByField pero este ya funciona).
+		res.locals.count = orderList.length;									// Para mostrar las cantidades en el carrito.
 	}
 
 	next();

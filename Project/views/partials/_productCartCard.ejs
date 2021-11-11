@@ -15,6 +15,7 @@
                 <li><a href="/products">Seguir comprando</a></li>
                 <li>
                     <form id="form-update-<%= order.id_order %>" action="/productCart/edit/<%= order.id_order %>?_method=PUT" method="POST">
+                        <input type="hidden" name="id_status" value="2"/>
                         <a href="#" onclick="document.getElementById('form-update-<%= order.id_order %>').submit()">Comprar</a>
                     </form>
                 </li>

@@ -10,8 +10,8 @@ const orderCartController = {
 
     /*** Todas las ordenes ***/
     index: async (req, res) => {
-        let orderList = await Order.join(req.session.userLogged.id_user, '1');
-        let total = 0;                                                 // Si no lo inicializo, al momento de hacer la suma devuelve NaN (porque es undefined).
+        let orderList = await Order.join(req.session.userLogged.id_user, '1');  // Traigo todas las ordenes del usuario (podría usar findByField pero este ya funciona).
+        let total = 0;                                                          // Si no lo inicializo, al momento de hacer la suma devuelve NaN (porque es undefined).
 
         orderList.forEach(order => {
             total += parseFloat(order.product.price);
@@ -27,7 +27,7 @@ const orderCartController = {
 		let orderToCreate = {
             id_user: req.session.userLogged.id_user,
             id_product: req.body.id_product,
-            id_status: "1"                                             // Código del estado "En carrito".
+            id_status: req.body.id_status                              // Código del estado "En carrito". Definido en cada botón.
 		}
 
 		let newOrder = await Order.create(orderToCreate);              // Llamo al modelo.
@@ -44,7 +44,7 @@ const orderCartController = {
             for (order of orderList) {                                              // Le cambio el estado a "comprado" a cada orden.
                 orderToUpdate = {
                     id_order: order.id_order,
-                    id_status: "2"
+                    id_status: req.body.id_status
                 };
                 await Order.update(orderToUpdate);                                  // IMPORTANTE: await no funciona con forEach().
             };
@@ -52,7 +52,7 @@ const orderCartController = {
             /* Actualizo estado de única orden */
             orderToUpdate = {
                 id_order: req.params.id,                                            // Uso el id del parámetro.
-                id_status: "2"
+                id_status: req.body.id_status
             };
             await Order.update(orderToUpdate);                                      // Llamo al modelo.
         };
