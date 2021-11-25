@@ -28,7 +28,7 @@ const indexController = {
     category: async (req, res) => {
 		let category = await Category.findByPk(req.params.id);
 		let productList = await Product.findByField('id_category', 'eq', req.params.id);
-		res.render('results', {keyword: category.category,
+		res.render('results', {keyword: category.name,
 							   productList: productList});
 	}
 }
