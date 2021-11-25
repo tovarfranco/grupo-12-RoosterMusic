@@ -19,11 +19,11 @@
                 <h2>Todos los productos</h2>
                 <hr>
                 <div class="container-articulos">
-                <% for(let i=0; i<productList.length; i++) { %>
+                <% productList.forEach(product => { %>
                     <!--productCard-->
-                    <%- include('./partials/_productCard', {i, productList}) %>
+                    <%- include('./partials/_productCard', {product}) %>
                     <!--/productCard-->
-                <% } %>
+                <% }); %>
                 </div>
             </section>
 

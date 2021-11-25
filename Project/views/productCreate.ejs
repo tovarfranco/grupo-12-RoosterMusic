@@ -33,7 +33,7 @@
                             </div>
                             <div class="elemento">
                                 <label>Precio</label>
-                                <input type="number" name="precio" class="control" placeholder="Precio">
+                                <input type="number" name="precio" class="control" placeholder="0.00 (punto o coma)" step="0.01">
                             </div>
                         </div>
                         <div class="inputs-2">
@@ -49,14 +49,9 @@
                                 <label>Categoría</label>
                                 <select name="categoria" class="control" required>
                                     <option value="" disabled selected hidden>Seleccione la categoría</option>
-                                    <option value="GUITARRA">Guitarra</option>
-                                    <option value="BAJO">Bajo</option>
-                                    <option value="BATERIA">Batería</option>
-                                    <option value="UKELELE">Ukelele</option>
-                                    <option value="VIENTO">Viento</option>
-                                    <option value="AUDIO">Audio</option>
-                                    <option value="GRABACION">Grabación</option>
-                                    <option value="TECLADO">Teclado</option>
+                                <% categoryList.forEach(category => { %>
+                                    <option value="<%= category.id_category %>"><%= category.name %></option>
+                                <% }); %>
                                 </select>
                             </div>
                         </div>
@@ -77,19 +72,30 @@
                         <div class="inputs-4">
                             <div class="elemento">
                                 <label>Año</label>
-                                <input type="text" name="anio" class="control" placeholder="Año">
+                                <input type="number" name="anio" class="control" placeholder="Año">
                             </div>
                             <div class="elemento">
                                 <label>Disponibilidad</label>
                                 <select name="disponibilidad" class="control" required>
                                     <option value="" disabled selected hidden>Disponibilidad</option>
-                                    <option value="EN_STOCK">En STOCK</option>
-                                    <option value="SIN_STOCK">Sin STOCK</option>
+                                    <option value="En Stock">En STOCK</option>
+                                    <option value="Sin Stock">Sin STOCK</option>
                                 </select>
                             </div>
                             <div class="elemento">
                                 <label>Imagen</label>
                                 <input type="file" name="img" class="control" accept=".jpg, .png">
+                            </div>
+                        </div>
+                        <div class="inputs-5">
+                            <div class="elemento">
+                                <label>Campaña</label>
+                                <select name="campania" class="control" required>
+                                    <option value="" disabled selected hidden>Campaña</option>
+                                <% campaignList.forEach(campaign => { %>
+                                    <option value="<%= campaign.id_campaign %>"><%= campaign.name %></option>
+                                <% }); %>
+                                </select>
                             </div>
                         </div>
                     <div><button class="boton-crear" type="submit">Crear</button></div>

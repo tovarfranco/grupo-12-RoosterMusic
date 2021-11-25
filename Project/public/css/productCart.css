@@ -12,11 +12,19 @@
 
 /* Margin Main ==============================================================================================================================*/
 
+header {
+    position: static;   /*Para resoluciones pequeñas lo dejo static. Para grandes fixed*/
+}
+
 main {
-    margin-top: 340px;  /*Lo corremos por el header fixed, así como en sus media queries*/
+    margin-top: 0px;    /*285px: ok. Lo corremos por el header fixed, así como en sus media queries*/
 }
 
 @media (min-width: 768px){
+    header {
+        position: fixed;
+    }
+
     main {
         margin-top: 210px;
     }
@@ -82,7 +90,6 @@ align-items: baseline;
     transition: all .2s;      /*Animación*/
     max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
-    cursor: pointer;
 }
 
 .articulo:hover {
@@ -109,6 +116,7 @@ align-items: baseline;
     width: 70px; height: 70px;
     object-fit: cover;      /*Sin esta propiedad queda estirada la imagen*/
     border-radius: 50%;     /*Para que sea redonda*/
+    cursor: pointer;
 }
 
 @media (min-width: 768px){
@@ -208,4 +216,40 @@ align-items: baseline;
         max-width: 1400px;
         margin: 4% auto;
     }
+}
+
+/* Si no hay ordenes que mostrar -------------------------------------------------------------------*/
+
+.container {
+    margin: 3% auto;
+    text-align: center;         /*Para que todos los elementos internos esten centrados*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensaje {
+    display: inline-block;
+    padding: 5%;                /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+}
+
+.icono {
+    color: grey;
+    font-size: 6rem;
+}
+
+.boton-inicio {
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    width: 115px;     /*Para tamaño fijo*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-inicio:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
 }

@@ -36,7 +36,10 @@
                         </div>
                         <div class="elemento">
                             <label>Contraseña</label>
-                            <input type="password" name="password" class="control <%= locals.errors && errors.password ? 'control-error' : null %>" placeholder="Contraseña">
+                            <div class="psw">
+                                <input type="password" name="password" class="control-psw <%= locals.errors && errors.password ? 'control-error-psw' : null %>" placeholder="Contraseña" id="id_password">
+                                <i class="ojo-icono far fa-eye-slash" id="togglePassword"></i>
+                            </div>
                             <% if (locals.errors && errors.password) { %>
                                 <span><%= errors.password.msg %> *</span>
                             <% } %>
@@ -47,7 +50,7 @@
                     </div>
                     <div><button class="boton-iniciar-sesion-formulario" type="submit">Iniciar sesión</button></div>
                     <h3 class="texto-tenes-cuenta">¿No tenes cuenta?</h3>
-                    <div><button class="boton-registrarse-formulario" type="button" onclick="window.location='/register'">Registrarse</button></div>
+                    <div><button class="boton-registrarse-formulario" type="button" onclick="window.location='/users/create'">Registrarse</button></div>
                 </form>
 
             </section>
@@ -59,4 +62,23 @@
         <!--/footer-->
         
     </body>
+
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#id_password');
+
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // Change the eye slash icon. Could have used only toogle instructionbut does not work in viceversa.
+            classToChange = this.classList.item(2);
+            this.classList.remove(classToChange);
+            if (classToChange == 'fa-eye-slash')  {
+                this.classList.add('fa-eye');
+            } else {
+                this.classList.add('fa-eye-slash');
+            }
+        });
+    </script>
 </html>

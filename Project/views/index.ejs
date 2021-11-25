@@ -21,14 +21,9 @@
                 <h2 class="texto-que-estas-buscando">¿QUE ESTAS BUSCANDO?</h2>
                 <hr>
                 <div class="container-boton-categorias">
-                    <div class="boton-categoria"><button onclick="window.location='/category/GUITARRA'">Guitarras</button></div>
-                    <div class="boton-categoria"><button onclick="window.location='/category/BAJO'">Bajos</button></div>
-                    <div class="boton-categoria"><button onclick="window.location='/category/BATERIA'">Baterías</button></div>
-                    <div class="boton-categoria"><button onclick="window.location='/category/UKELELE'">Ukelele</button></div>
-                    <div class="boton-categoria"><button onclick="window.location='/category/VIENTO'">Viento</button></div>
-                    <div class="boton-categoria"><button onclick="window.location='/category/AUDIO'">Audio</button></div>
-                    <div class="boton-categoria"><button onclick="window.location='/category/GRABACION'">Grabación</button></div>
-                    <div class="boton-categoria"><button onclick="window.location='/category/TECLADO'">Teclados</button></div>
+                <% categoryList.forEach(category => { %>
+                    <div class="boton-categoria"><button onclick="window.location='/category/<%= category.id_category %>'"><%= category.name %></button></div>
+                <% }); %>
                 </div>
             </section>
 
@@ -36,11 +31,11 @@
                 <h2>Mas visitados</h2>
                 <hr>
                 <div class="container-articulos">
-                <% for(let i=0; i<6; i++) { %>
+                <% productList1.forEach(product => { %>
                     <!--productCard-->
-                    <%- include('./partials/_productCard', {i, productList}) %>
+                    <%- include('./partials/_productCard', {product}) %>
                     <!--/productCard-->
-                <% } %>
+                <% }); %>
                 </div>
             </section>
 
@@ -48,11 +43,11 @@
                 <h2>Ofertas destacadas</h2>
                 <hr>
                 <div class="container-articulos">
-                <% for(let i=6; i<12; i++) { %>
+                <% productList2.forEach(product => { %>
                     <!--productCard-->
-                    <%- include('./partials/_productCard', {i, productList}) %>
+                    <%- include('./partials/_productCard', {product}) %>
                     <!--/productCard-->
-                <% } %>
+                <% }); %>
                 </div>
             </section>
 

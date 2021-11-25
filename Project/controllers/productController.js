@@ -2,103 +2,111 @@
 const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
 
-// =========== Lectura BBDD ===========================
-const productListPath = path.join(__dirname, "../database/productList.json");    // Ruta del archivo BBDD.
-let productList = JSON.parse(fs.readFileSync(productListPath, 'utf-8'));         // Importamos la BBDD que se pasará a las vistas. Lista de objetos.
+// =========== Modelo =================================
+const Product = require('../models/Product.model.js');
+const Category = require('../models/Category.model.js');
+const Campaign = require('../models/Campaign.model.js');
 
 // =========== Controlador ============================
 const productController = {
 
     /*** Todos los productos ***/
-    index: (req,res) => {
+    index: async (req, res) => {
+        let productList = await Product.findAll();
         res.render('products', {productList: productList});
     },
 
     /*** Detalle de un producto ***/
-    detail: (req,res) => {                                                         // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
-        const product = productList.find(product => product.id == req.params.id);  // Busca en la lista el producto que tiene el mismo id que el pasado por parámetro.
-        res.render('productDetail', {product: product, productList: productList}); // Le envía a ESTA view las variables dinámicas que necesita. ESTE ES UN .EJS (modificar los .html a .ejs). Es NECESARIO setear el VIEW ENGINE en app.js para usar res.render().
+    detail: async (req, res) => {                                                                                  // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
+        let productFound = await Product.join(req.params.id);                                                      // Busca en la lista el producto que tiene el mismo id que el pasado por parámetro.
+        let productList = await Product.findByField('id_category', 'eq', productFound.id_category, 4, 'RANDOM');   // Es para mostrar en la vista los otros productos también. Por defecto limit: 4 y orden aleatorio para que no aparexcan siempre los mismos.
+        res.render('productDetail', {product: productFound, productList: productList});                            // Le envía a ESTA view las variables dinámicas que necesita. ESTE ES UN .EJS (modificar los .html a .ejs). Es NECESARIO setear el VIEW ENGINE en app.js para usar res.render().
     },
 
     /*** Creo un producto ***/
-    create: (req, res) => {
-		res.render('productCreate')
+    create: async (req, res) => {
+        let categoryList = await Category.findAll();                          // Para desplegable de categorías disponibles.
+        let campaignList = await Campaign.findAll();                          // Para desplegable de campañas disponibles.
+		res.render('productCreate', {categoryList: categoryList,
+                                     campaignList: campaignList});
 	},
 
-	store: (req, res) => {
-		let imagenName;                                                 // Para guardar la imagen. Si existe uso su nombre sino uso el default.
-		if (req.file) {
-			imagenName = req.file.filename;
-		} else {
-			imagenName = "img-sin-imagen-disponible.jpg"
-		}
+	store: async (req, res) => {
 
-		let nuevo = {
-			id: productList.slice(-1)[0].id + 1,                        // Lo hice de esta forma solo para agregar un id "autonumérico".
+        /* Inserto nuevo producto */
+		let productToCreate = {
             name: req.body.nombre,
             description: req.body.descripcion,
             price: req.body.precio,
-			image: imagenName,								            // Guardo el nombre de la imagen que llega de Multer. Tiene una lógica arriba.
+			image: (req.file) ? req.file.filename : "img-sin-imagen-disponible.jpg",    // Guardo el nombre de la imagen que llega de Multer. Sino default
             brand: req.body.marca,
             model: req.body.modelo,
             color: req.body.color,
             material: req.body.material,
             origin: req.body.origen,
             year: req.body.anio,
-            category: req.body.categoria,
-            availability: req.body.disponibilidad
+            id_category: req.body.categoria,
+            availability: req.body.disponibilidad,
+            id_campaign: req.body.campania
 		}
 
-		productList.push(nuevo);
-		fs.writeFileSync(productListPath, JSON.stringify(productList, null, 4));  // De esta forma lo guarda "formateado".
+		let newProduct = await Product.create(productToCreate);               // Llamo al modelo.
 
-		res.redirect('/products/detail/' + nuevo.id);
+		res.redirect('/products/detail/' + newProduct.id_product);
 	},
 
     /*** Modifico un producto ***/
-	edit: (req, res) => {
-		const product = productList.find(product => product.id == req.params.id);
-		res.render('productEdit', {product: product});
+	edit: async (req, res) => {
+		let productFound = await Product.findByPk(req.params.id);
+        let categoryList = await Category.findAll();                          // Para desplegable de categorías disponibles.
+        let campaignList = await Campaign.findAll();                          // Para desplegable de campañas disponibles.
+		res.render('productEdit', {product: productFound,
+                                   categoryList: categoryList,
+                                   campaignList: campaignList});
 	},
 
-    update: (req, res) => {
-		let imagenName;                                                 // Para guardar la imagen. Si existe uso su nombre sino uso la que ya tenía.
-		if (req.file) {
-			imagenName = req.file.filename;
-		} else {
-            const product = productList.find(product => product.id == req.params.id);
-			imagenName = product.image;
-		}
+    update: async (req, res) => {
+        /* Busco el producto */
+        let productFound = await Product.findByPk(req.params.id)              // Buscamos el producto, me servirá para varias funciones. findByPk devuelve un objeto directamente, no un array.
 
-		productList.forEach(product => {
-			if (product.id == req.params.id){
-                product.name = req.body.nombre,
-                product.description = req.body.descripcion,
-                product.price = req.body.precio,
-                product.image = imagenName,								// Guardo el nombre de la imagen que llega de Multer. Tiene una lógica arriba.
-                product.brand = req.body.marca,
-                product.model = req.body.modelo,
-                product.color = req.body.color,
-                product.material = req.body.material,
-                product.origin = req.body.origen,
-                product.year = req.body.anio,
-                product.category = req.body.categoria,
-                product.availability = req.body.disponibilidad
-			}
-		});
+        /* Actualizo producto */
+		let productToUpdate = {
+            id_product: productFound.id_product,                              // Uso el id del producto que encontré.
+            name: req.body.nombre,
+            description: req.body.descripcion,
+            price: req.body.precio,
+			image: (req.file) ? req.file.filename : productFound.image,       // Guardo el nombre de la imagen que llega de Multer. Tiene una lógica arriba.
+            brand: req.body.marca,
+            model: req.body.modelo,
+            color: req.body.color,
+            material: req.body.material,
+            origin: req.body.origen,
+            year: req.body.anio,
+            id_category: req.body.categoria,
+            availability: req.body.disponibilidad,
+            id_campaign: req.body.campania
+		}
 		
-		fs.writeFileSync(productListPath, JSON.stringify(productList, null, 4));  // De esta forma lo guarda "formateado".
+		await Product.update(productToUpdate);                                // Llamo al modelo.
 		
 		res.redirect('/products/detail/' + req.params.id);
 	},
 
     /*** Elimino un producto ***/
-    delete: (req, res) => {
-		productList = productList.filter(product => product.id != req.params.id);
-		fs.writeFileSync(productListPath, JSON.stringify(productList, null, 4));  // De esta forma lo guarda "formateado".
+    delete: async (req, res) => {
+		await Product.delete(req.params.id);
 
 		res.redirect('/products');
-	}
+	},
+
+    test: async function (req, res) {
+        try {
+            const result = await Product.test(1);
+            res.send(result);
+        } catch (error) {
+            res.status(500).json({ data: null, error: error, success: false });
+        }
+    }
 }
 
 // =========== Exporto Controlador ===========================

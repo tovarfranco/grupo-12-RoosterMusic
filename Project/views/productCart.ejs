@@ -21,26 +21,40 @@
                     <h2 class="texto-carrito-titulo">Carrito</h2><i class="fas fa-shopping-cart carrito-icono"></i>
                 </div>
                 <hr>
+            <% if (orderList.length != 0) { %>
                 <div class="container-articulos" >
-                <% for(let i=0; i<4; i++) { %>
+                <% orderList.forEach(order => { %>
                     <!--productCartCard-->
-                    <%- include('./partials/_productCartCard', {i, productList}) %>
+                    <%- include('./partials/_productCartCard', {order}) %>
                     <!--/productCartCard-->
-                <% } %>
+                <% }); %>
                 </div>
 
                 <div class="envio">
                     <div class="detalle-envio">
-                        <h4 class="texto-domicilio">Enviar a Calle 12334, CABA</h4>
-                        <h4 class="costo-envio">$300</h4>
+                        <h4 class="texto-domicilio">Enviar a <%= locals.userLogged.address %></h4>
+                        <h4 class="costo-envio">$ 300</h4>
                     </div>
                     <div class="detalle-total">
                         <h3 class="texto-total">Total con envío</h3>
-                        <h3 class="costo-total">$15.300</h3>
+                        <h3 class="costo-total">$ <%= (total + 300).toFixed(2) %> </h3>
                     </div>
-                    <div><button class="boton-comprar" type="button">Comprar</button></div>
+                    <form action="/productCart/edit/ALL?_method=PUT" method="POST">
+                        <input type="hidden" name="id_status" value="2"/>
+                        <button class="boton-comprar" type="submit">Comprar</button>
+                    </form>
                 </div>
-
+            <% } else { %>
+                <div class="container">             <!--Cartel de SIN RESULTADOS-->
+                    <div class="mensaje">
+                        <div><i class="fas fa-shopping-cart icono"></i></div>
+                        <h2>Su carrito está vacío</h2>
+                        <h3>No hay productos que mostrar</h3>
+                        <p>En el detalle del producto puede presionar "Agregar al carrito"</p>
+                        <button class="boton-inicio" type="button" onclick="window.location='/products'">Productos</button>
+                    </div>
+                </div>
+            <% }; %>
             </section>
 
         </main>

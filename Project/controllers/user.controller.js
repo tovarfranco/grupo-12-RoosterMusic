@@ -1,10 +1,10 @@
 // =========== Require's ==============================
 const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
-const {validationResult} = require('express-validator');                         // Tambien se requiere acá. Solo nos interesa el elemento validationResult de espress-validator (destructuring).
+const {validationResult} = require('express-validator');                         // También se requiere acá. Solo nos interesa el elemento validationResult de espress-validator (destructuring).
 const bcryptjs = require('bcryptjs');                                            // Para encriptar las contraseñas.
 
-// =========== Modelo ============================
+// =========== Modelo =================================
 const User = require('../models/User.model.js');
 
 // =========== Controlador ============================
@@ -16,12 +16,13 @@ const userController = {
     },
 
     /*** Procesamos el login ***/
-	loginProcess: (req, res) => {
+	loginProcess: async (req, res) => {
         /* Verifico si existe el usuario */
-        let userFound = User.findByField('email', req.body.email);                                 // Uso esta función que creé en el modelo para verificar ya existe.
+        let userFound = await User.findByField('email', 'eq', req.body.email);                     // Uso esta función que creé en el modelo para verificar si ya existe. findByField devuelve un array de objetos.
+        userFound = userFound[0];                                                                  // Como findByField devuelve un array de objetos necesito solo el primero.
 
 		if (!userFound) {
-			return res.render('login', {errors: {email: {msg: 'Usuario no registrado'}}});         // Creo una valicación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
+			return res.render('login', {errors: {email: {msg: 'Usuario no registrado'}}});         // Creo una validación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
 		}
 		
         /* Verifico contraseña + sesión + cookie */
@@ -37,7 +38,7 @@ const userController = {
             return res.redirect('/users/profile');                                                 // Si todo está ok le muestro sus datos. 
         }
 
-        res.render('login', {errors: {password: {msg: 'La contraseña no es válida'}}, oldData: req.body});    // Si el password es incorrcto muestro su error.
+        res.render('login', {errors: {password: {msg: 'La contraseña no es válida'}}, oldData: req.body});    // Si el password es incorrecto muestro su error.
 	},
 
     /*** Detalle de un usuario ***/
@@ -50,7 +51,7 @@ const userController = {
 		res.render('register')
 	},
 
-	store: (req, res) => {
+	store: async (req, res) => {
         /* Verifico errores por express-validator */
         const resultValidation = validationResult(req);                          // Guardamos los resultados de las validaciones. Es un ARRAY de objetos que tiene los errores que se produjeron (input name, mensaje, etc).
         
@@ -59,59 +60,57 @@ const userController = {
 		}
 
         /* Verifico si ya existe el usuario (mismo email) */
-        let userFound = User.findByField('email', req.body.email);               // Uso esta función que creé en el modelo para verificar ya existe.
+        let userFound = User.findByField('email', 'eq', req.body.email);         // Uso esta función que creé en el modelo para verificar ya existe. findByField devuelve un array de objetos.
+        userFound = userFound[0];                                                // Como findByField devuelve un array de objetos necesito solo el primero.
 
 		if (userFound) {
 			return res.render('register', {errors: {email: {msg: 'Este email ya está registrado'}}, oldData: req.body});    // Creo una valicación propia. Ver que creo el objeto errors por mi cuenta con su mensaje.
 		}
 
         /* Sin errores, continúo con la lógica */
-        /* Imagen */
-		let imagenName;                                                          // Para guardar la imagen. Si existe uso su nombre sino uso el default.
-		if (req.file) {
-			imagenName = req.file.filename;
-		} else {
-			imagenName = "img-sin-imagen-disponible.jpg"
-		}
-
         /* Inserto nuevo usuario */
-		let userToCreate = {                                                     // Creo un objeto temporal que le pasaré al modelo para que lo inserte.
-            ...req.body,
+        let userToCreate = {                                                     // Creo un objeto temporal que le pasaré al modelo para que lo inserte.
+            name: req.body.nombre,
+            surname: req.body.apellido,
+            document: req.body.dni,
+            country: req.body.pais,
+            address: req.body.domicilio,
+            birthdate: req.body.nacimiento,
+            email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 10),                  // Encriptamos la contraseña. Se pisa el valor del .body por esta nueva.
-            img: imagenName
-		}
+            img: (req.file) ? req.file.filename : "img-sin-imagen-disponible.jpg"
+        }
 
-        User.create(userToCreate);                                               // Llamo al modelo.
+        await User.create(userToCreate);                                         // Llamo al modelo. Acá se frena el código hasta que terminé el modelo (por estar dentro de una función async).
 
-		res.redirect('/users/login');
+		res.redirect('/users/login');                                            // Una vez terminado, ejecuta esta instrucción.
 	},
 
     /*** Modifico un usuario ***/
-	edit: (req, res) => {
-		let userFound = User.findByPk(req.params.id)
-		res.render('userEdit', {user: userFound});
+	edit: async (req, res) => {
+		let userFound = await User.findByPk(req.params.id);                      // findByPk devuelve un objeto directamente, no un array.                               
+        res.render('userEdit', {user: userFound});
 	},
 
-    update: (req, res) => {
+    update: async (req, res) => {
         /* Busco el usuario */
-        let userFound = User.findByPk(req.params.id)                             // Buscamos el usuario, me servirá para varias funciones.
-
-        /* Imagen */
-		let imagenName;                                                          // Para guardar la imagen. Si existe uso su nombre sino uso la que ya tenía.
-		if (req.file) {
-			imagenName = req.file.filename;
-		} else {
-			imagenName = userFound.img;
-		}
+        let userFound = await User.findByPk(req.params.id)                       // Buscamos el usuario, me servirá para varias funciones. findByPk devuelve un objeto directamente, no un array.
 
         /* Actualizo usuario */
-		let userToUpdate = {                                                     // Creo un objeto temporal que le pasaré el moddelo para que lo actualice.
-            id: userFound.id,
-            ...req.body,
-            img: imagenName
+		let userToUpdate = {                                                     // Creo un objeto temporal que le pasaré el modelo para que lo actualice.
+            id_user: userFound.id_user,
+            name: req.body.nombre,
+            surname: req.body.apellido,
+            document: req.body.dni,
+            country: req.body.pais,
+            address: req.body.domicilio,
+            birthdate: req.body.nacimiento,
+            email: req.body.email,
+            password: req.body.password,
+            img: (req.file) ? req.file.filename : userFound.img
 		}
 
-        User.update(userToUpdate);                                               // Llamo al modelo.
+        await User.update(userToUpdate);                                         // Llamo al modelo.
 
         /* Actualizo su sesión para continuar (sino queda en memoria)*/
         delete userToUpdate.password;
@@ -121,8 +120,8 @@ const userController = {
 	},
 
     /*** Elimino un usuario ***/
-    delete: (req, res) => {
-		User.delete(req.params.id);
+    delete: async (req, res) => {
+		await User.delete(req.params.id);
 
 		res.clearCookie('userEmail');                                            // Destruyo la cookie sino no me voy a poder desloguear.
 		req.session.destroy();
@@ -134,7 +133,16 @@ const userController = {
 		res.clearCookie('userEmail');                                            // Destruyo la cookie sino no me voy a poder desloguear.
 		req.session.destroy();
 		res.redirect('/');
-	}
+	},
+
+    test: async function (req, res) {
+        try {
+            const result = await User.findByField('email', 'eq', 'franco3@hotmail.com');
+            res.send(result);
+        } catch (error) {
+            res.status(500).json({ data: null, error: error, success: false });
+        }
+    }
 }
 
 // =========== Exporto Controlador ===========================

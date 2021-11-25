@@ -13,7 +13,7 @@ router.get('/', indexController.index);                                        /
 router.get('/search', indexController.search);
 
 /*** Categorías *******/
-router.get('/category/:category', indexController.category);
+router.get('/category/:id', indexController.category);
 
 // =========== Exporto Router =========================
 module.exports = router;                                                       // Siempre exportarlo porque lo necesitaremos usar en el ENTRY POINT para que sepa a qué archivo enviar sus rutas.

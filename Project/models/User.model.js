@@ -1,71 +1,90 @@
 // =========== Require's ==============================
-const fs = require('fs');
+const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
+
+const db = require('../database/models');										 // Elemento de sequelize que tiene todos los modelos.
+const Op = db.Sequelize.Op;														 // Para poder usar operadores.
+const sequelize = require('sequelize')										     // Para algunos operadores especiales.
 
 // =========== Modelo =================================
 const User = {
 
-    /*** Nombre de la BBDD ***/
-	fileName: path.join(__dirname, "../database/userList.json"),                 // Ruta del archivo BBDD.
-
-    /*** Lectura BBDD ***/
-	readData: function () {
-		return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));              // Importamos la BBDD a usar. Lista de objetos.
-	},
-
-	generateId: function () {
-		let userList = this.findAll();
-		let lastUser = userList.pop();                                           // Solo altero la variable local userList, no se modifica el archivo JSON.
-		if (lastUser) {
-			return lastUser.id + 1;
-		}
-		return 1;   // Debo devolver el valor 1 que será el primer id si la lista está vacia.
-	},
-
     /*** Todos los usuarios ***/
-	findAll: function () {
-		return this.readData();
+	findAll: async function () {
+		return await db.User.findAll();
 	},
 
-    /*** Busqueda de usuario por PK ***/
-	findByPk: function (id) {
-		let userList = this.findAll();
-		let userFound = userList.find(user => user.id == id);
-		return userFound;
+    /*** Búsqueda de usuario por PK ***/
+	findByPk: async function (id) {
+		return await db.User.findByPk(id);
 	},
 
-    /*** Busqueda de usuario por campo ***/
-	findByField: function (field, value) {
-		let userList = this.findAll();
-		let userFound = userList.find(user => user[field] == value);
-		return userFound;
+    /*** Búsqueda de usuario por campo ***/
+	findByField: async function (field, operator, value, limitMax, order) {
+		let operatorCriteria;
+		switch (operator) {
+			case 'eq':
+				operatorCriteria = Op.eq;
+				break;
+			case 'ne':
+				operatorCriteria = Op.ne;
+				break;
+			case 'like':
+				operatorCriteria = Op.like;
+				break;
+			default:
+				operatorCriteria = Op.eq;
+				break;
+		};
+		let whereCondition = {};
+		whereCondition[field] = { [operatorCriteria]: value };
+
+		let orderCondition;
+		if (order == 'RANDOM') {
+			orderCondition = sequelize.literal('rand()');
+		};
+
+		return await db.User.findAll({
+			where: {
+				...whereCondition
+			},
+			limit: limitMax,
+			order: orderCondition
+		});
 	},
 
-	create: function (userToCreate) {
-        let newUser = {
-            id: this.generateId(),
-			...userToCreate
+	create: async function (userToCreate) {
+		try {
+			await db.User.create({ ...userToCreate });			 			// Se le debe pasar un objeto. Como ya userToCreate es un objeto, uso el spreadOperator.			
+			return;
+		} catch (error) {
+			res.send('Error al crear usuario en la base de datos ' + error.message);
+			return;
 		}
-
-        let userList = this.findAll();
-		userList.push(newUser);
-		fs.writeFileSync(this.fileName, JSON.stringify(userList, null, 4));  // De esta forma lo guarda "formateado".
-		return newUser;
 	},
 
-    update: function (userToUpdate) {
-        let userList = this.findAll();
-        let index = userList.findIndex(user => user.id == userToUpdate.id);
-        userList[index] = userToUpdate;
-        fs.writeFileSync(this.fileName, JSON.stringify(userList, null, 4));  // De esta forma lo guarda "formateado".
-        return; // No hace falta devolver nada.
+    update: async function (userToUpdate) {
+		try {
+			await db.User.update(
+				{
+					...userToUpdate
+				},
+				{
+					where: { id_user: userToUpdate.id_user }
+				}
+			);
+			return;
+		} catch (error) {
+			res.send('Error al actualizar usuario en la base de datos ' + error.message);
+			return;
+		}
     },
 
-	delete: function (id) {
-		let userList = this.findAll();
-		userList = userList.filter(user => user.id != id);
-		fs.writeFileSync(this.fileName, JSON.stringify(userList, null, 4));  // De esta forma lo guarda "formateado".
-		return; // No hace falta devolver nada.
+	delete: async function (id) {
+		await db.User.destroy({
+			where: { id_user: id }
+		});
+		return;
 	}
 }
 

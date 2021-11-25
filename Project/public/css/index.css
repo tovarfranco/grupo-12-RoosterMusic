@@ -12,11 +12,19 @@
 
 /* Banner ==============================================================================================================================*/
 
-.banner-promocion {
-    margin-top: 312.34px;  /*Lo corremos por el header fixed, así como en sus media queries*/
+header {
+    position: static;   /*Para resoluciones pequeñas lo dejo static. Para grandes fixed*/
+}
+
+main {
+    margin-top: 0px;    /*256px: ok. Lo corremos por el header fixed, así como en sus media queries*/
 }
 
 @media (min-width: 768px){
+    header {
+        position: fixed;
+    }
+
     .banner-promocion {
         margin-top: 182.94px;
     }
