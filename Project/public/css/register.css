@@ -95,19 +95,53 @@ label {
     padding: 10px 10px;
 }
 
-.control-error {                 /*Son los inputs*/
-    background-color: #ebebeb;
+.control-error {           /*Son los inputs para error*/
+    background-color: #f5e9e9;
     border: solid 1px red;
     border-radius: 5px;
     width: 100%;           /*Para que el input abarque todo el ancho*/
     padding: 10px 10px;
 }
 
-span {
+.control-correct {         /*Son los inputs para ok*/
+    background-color: #e0f5e0;
+    border: solid 1px green;
+    border-radius: 5px;
+    width: 100%;           /*Para que el input abarque todo el ancho*/
+    padding: 10px 10px;
+}
+
+.control-warning {         /*Son los inputs para warning*/
+    background-color: #fff7d3;
+    border: solid 1px #ffd000;
+    border-radius: 5px;
+    width: 100%;           /*Para que el input abarque todo el ancho*/
+    padding: 10px 10px;
+}
+
+.input-no-error {          /*Mensaje de JS*/
+    display: none;
+}
+
+.input-error {             /*Mensaje de JS error + express-validator*/
     display: block;
     margin-top: 1%;
     text-align: left;
     color: red;
+}
+
+.input-correct {           /*Mensaje de JS ok*/
+    display: block;
+    margin-top: 1%;
+    text-align: left;
+    color: green;
+}
+
+.input-warning {           /*Mensaje de JS warning*/
+    display: block;
+    margin-top: 1%;
+    text-align: left;
+    color: orange;
 }
 
 .terminos-condiciones {

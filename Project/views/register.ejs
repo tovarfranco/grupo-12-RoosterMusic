@@ -6,6 +6,7 @@
         <!--/headPart-->
         <!--Mi hoja de estilos-->
         <link rel="stylesheet" href="/css/register.css">
+        <script src="/js/registerForm.js"></script>
     </head>
     <body>
 
@@ -25,52 +26,58 @@
                         <div class="inputs-1">
                             <div class="elemento">
                                 <label>Nombre</label>
-                                <input type="text" name="nombre" class="control <%= locals.errors && errors.nombre ? 'control-error' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
-                                <% if (locals.errors && errors.nombre) { %>                                 <!--Veo si el controlador me devolvió errors (general) y tambien si el input name tiene errores-->
-                                    <span><%= errors.nombre.msg %> *</span>
+                                <input type="text" name="nombre" id="nombre-control" class="control <%= locals.errors && errors.nombre ? 'control-error' : null %>" placeholder="Nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
+                                <% if (locals.errors && errors.nombre) { %>                                 <!--Veo si el controlador me devolvió errors (general) y tambien si el input name tiene errores. Tambien se puede usar: typeof errors != 'undefined' en lugar de locals.errors-->
+                                    <span class="input-error"><%= errors.nombre.msg %> *</span>
                                 <% } %>
+                                <span class="input-no-error" id="nombre-msg"></span>
                             </div>
                             <div class="elemento">
                                 <label>Apellido</label>
-                                <input type="text" name="apellido" class="control <%= locals.errors && errors.apellido ? 'control-error' : null %>" placeholder="Apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
+                                <input type="text" name="apellido" id="apellido-control" class="control <%= locals.errors && errors.apellido ? 'control-error' : null %>" placeholder="Apellido" value="<%= locals.oldData ? oldData.apellido : null %>">
                                 <% if (locals.errors && errors.apellido) { %>
-                                    <span><%= errors.apellido.msg %> *</span>
+                                    <span class="input-error"><%= errors.apellido.msg %> *</span>
                                 <% } %>
+                                <span class="input-no-error" id="apellido-msg"></span>
                             </div>
                             <div class="elemento">
                                 <label>Documento</label>
-                                <input type="number" name="dni" class="control <%= locals.errors && errors.dni ? 'control-error' : null %>" placeholder="Sin puntos" value="<%= locals.oldData ? oldData.dni : null %>">
+                                <input type="number" name="dni" id="dni-control" class="control <%= locals.errors && errors.dni ? 'control-error' : null %>" placeholder="Sin puntos" value="<%= locals.oldData ? oldData.dni : null %>">
                                 <% if (locals.errors && errors.dni) { %>
-                                    <span><%= errors.dni.msg %> *</span>
+                                    <span class="input-error"><%= errors.dni.msg %> *</span>
                                 <% } %>
+                                <span class="input-no-error" id="dni-msg"></span>
                             </div>
                         </div>
                         <div class="inputs-2">
                             <div class="elemento">
                                 <label>País</label>
-                                <select name="pais" class="control <%= locals.errors && errors.pais ? 'control-error' : null %>">
+                                <select name="pais" id="pais-control" class="control <%= locals.errors && errors.pais ? 'control-error' : null %>">
                                     <option value="" disabled selected hidden>Seleccione su país</option>
                                     <option value="Argentina" <%= locals.oldData && (oldData.pais == 'Argentina') ? 'selected' : null %>>Argentina</option>
                                     <option value="Brasil" <%= locals.oldData && (oldData.pais == 'Brasil') ? 'selected' : null %>>Brasil</option>
                                     <option value="Colombia" <%= locals.oldData && (oldData.pais == 'Colombia') ? 'selected' : null %>>Colombia</option>
                                 </select>
                                 <% if (locals.errors && errors.pais) { %>
-                                    <span><%= errors.pais.msg %> *</span>
+                                    <span class="input-error"><%= errors.pais.msg %> *</span>
                                 <% } %>
+                                <span class="input-no-error" id="pais-msg"></span>
                             </div>
                             <div class="elemento">
                                 <label>Domicilio</label>
-                                <input type="text" name="domicilio" class="control <%= locals.errors && errors.domicilio ? 'control-error' : null %>" placeholder="Calle y altura" value="<%= locals.oldData ? oldData.domicilio : null %>">
+                                <input type="text" name="domicilio"  id="domicilio-control" class="control <%= locals.errors && errors.domicilio ? 'control-error' : null %>" placeholder="Calle y altura" value="<%= locals.oldData ? oldData.domicilio : null %>">
                                 <% if (locals.errors && errors.domicilio) { %>
-                                    <span><%= errors.domicilio.msg %> *</span>
+                                    <span class="input-error"><%= errors.domicilio.msg %> *</span>
                                 <% } %>
+                                <span class="input-no-error" id="domicilio-msg"></span>
                             </div>
                             <div class="elemento">
                                 <label>Fecha de nacimiento</label>
-                                <input type="date" name="nacimiento" class="control <%= locals.errors && errors.nacimiento ? 'control-error' : null %>" placeholder="Fecha nacimiento" value="<%= locals.oldData ? oldData.nacimiento : null %>">
+                                <input type="date" name="nacimiento" id="nacimiento-control" class="control <%= locals.errors && errors.nacimiento ? 'control-error' : null %>" placeholder="Fecha nacimiento" value="<%= locals.oldData ? oldData.nacimiento : null %>">
                                 <% if (locals.errors && errors.nacimiento) { %>
-                                    <span><%= errors.nacimiento.msg %> *</span>
+                                    <span class="input-error"><%= errors.nacimiento.msg %> *</span>
                                 <% } %>
+                                <span class="input-no-error" id="nacimiento-msg"></span>
                             </div>
                         </div>
                         <div class="inputs-3">
@@ -78,28 +85,32 @@
                                 <label>Avatar</label>
                                 <input type="file" name="img" class="control">
                                 <% if (locals.errors && errors.img) { %>
-                                    <span><%= errors.img.msg %> *</span>
+                                    <span class="input-error"><%= errors.img.msg %> *</span>
                                 <% } %>
                             </div>
                             <div class="elemento">
                                 <label>E-mail</label>
-                                <input type="email" name="email" class="control <%= locals.errors && errors.email ? 'control-error' : null %>" placeholder="ejemplo@dominio.com" value="<%= locals.oldData ? oldData.email : null %>">
+                                <input type="email" name="email" id="email-control" class="control <%= locals.errors && errors.email ? 'control-error' : null %>" placeholder="ejemplo@dominio.com" value="<%= locals.oldData ? oldData.email : null %>">
                                 <% if (locals.errors && errors.email) { %>
-                                    <span><%= errors.email.msg %> *</span>
+                                    <span id="exp-email" class="input-error"><%= errors.email.msg %> *</span>       <!--Solo para este caso piso lo que viene de express-validator con la nueva validación de JS usando el id-->
                                 <% } %>
+                                <span class="input-no-error" id="email-msg"></span>
                             </div>
                             <div class="elemento">
                                 <label>Contraseña</label>
-                                <input type="password" name="password" class="control <%= locals.errors && errors.password ? 'control-error' : null %>" placeholder="Mínimo 6 caracteres">
+                                <input type="password" name="password" id="password-control" class="control <%= locals.errors && errors.password ? 'control-error' : null %>" placeholder="Mínimo 6 caracteres">
                                 <% if (locals.errors && errors.password) { %>
-                                    <span><%= errors.password.msg %> *</span>
+                                    <span class="input-error"><%= errors.password.msg %> *</span>
                                 <% } %>
+                                <span class="input-no-error" id="password-msg"></span>
                             </div>
                         </div>
                     </div>
                     <div class="terminos-condiciones">
-                        <label><input type="checkbox" name="terminos">Acepto los términos y condiciones</label>
+                        <label><input type="checkbox" name="terminos" id="terminos-control">Acepto los términos y condiciones</label>
+                        <span class="input-no-error" id="terminos-msg"></span>
                     </div>
+                    <span class="input-no-error" id="errores-msg"></span>
                     <div><button class="boton-registrarse-formulario" type="submit">Registrarse</button></div>
                     <h3 class="texto-tenes-cuenta">¿Ya tenes cuenta?</h3>
                     <div><button class="boton-iniciar-sesion-formulario" type="button" onclick="window.location='/users/login'">Iniciar sesión</button></div>

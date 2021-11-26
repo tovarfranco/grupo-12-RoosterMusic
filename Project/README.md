@@ -16,7 +16,7 @@ Follow this steps:
 3. Open the command prompt (cmd, bash or VSC).
 4. Install the dependencies running this command:
     ```npm install```
-5. Intall the DB script *roosterMsic.sql* to create the DB and its data. MySQL version: **8.0.20**
+5. Intall the DB script *roosterMusic.sql* to create the DB and its data. MySQL version: **8.0.20**
 6. To start the aplication run:
     ```npm start```
 7. Go to the webrowser and enjoy (uses port 3000):
