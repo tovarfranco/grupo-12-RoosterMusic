@@ -75,6 +75,30 @@ main section {
     font-weight: lighter;
 }
 
+#form-agregar-al-carrito-card {   /*Container de los botones*/
+    text-align: center;
+}
+
+#form-agregar-al-carrito-card button {    /*Características comunes de los botones - Solo el de agregar al carrito*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 2% 5px;
+    width: 50%;              /*Para que tengan el mismo tamaño*/
+}
+
+.boton-agregar-carrito-card {     /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-agregar-carrito-card:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
 @media (min-width: 768px){
     .container-articulos {
         display: flex;
@@ -88,6 +112,10 @@ main section {
         margin: 2%;
         padding: 2%;
     }
+
+    #form-agregar-al-carrito-card button {
+        width: 70%;
+    }
 }
 
 @media (min-width: 1200px){
@@ -96,10 +124,14 @@ main section {
         margin: 4% auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
     }
 
-    .articulo {
-        width: 28%;
-        margin: 1.5%;
-        padding: 1%;
+    #form-agregar-al-carrito-card button {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1200px){             /*Solo para que el botón de agregar al carrito se vea bien*/
+    #form-agregar-al-carrito-card button {
+        width: 50%;
     }
 }
 
