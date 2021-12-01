@@ -17,7 +17,7 @@ router.get('/', authMiddleware, productCartController.index);                  /
 // router.get('/detail/:id', productController.detail);
 
 /*** Creo una orden **********/
-router.post('/create', productCartController.store);
+router.post('/create', authMiddleware, productCartController.store);
 
 /*** Modifico una orden ******/
 router.put('/edit/:id', productCartController.update);

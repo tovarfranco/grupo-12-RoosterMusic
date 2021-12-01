@@ -27,7 +27,7 @@ window.addEventListener("load", function () {
         },
 
         domicilio: {
-            expresion: /\w+\s\w+/,                              // Alfanumérico + alfanumérico (ya que no sabemos laestructura de las calles y alturas).
+            expresion: /\w+\s\w+/,                              // Alfanumérico + alfanumérico (ya que no sabemos la estructura de las calles y alturas).
             msgValidacionOk: '✔ Domicilio válido',
             msgValidacionError: '✘ Complete la calle y altura'
         },
@@ -55,14 +55,14 @@ window.addEventListener("load", function () {
         }
     };
 
-    /* Creo mi objeto de campos para indicar si hay errores en alguno ----------------------------------------------------------------------------------------------.*/
+    /* Creo mi objeto de campos para indicar si hay errores en alguno ------------------------------------------------------------------------------------------------*/
     let campos = {};
 
-    /* Voy a mostrar cantida de errores luego del primer submit -----------------------------------------------------------------------------------------------------*/
+    /* Voy a mostrar cantidad de errores luego del primer submit -----------------------------------------------------------------------------------------------------*/
     let submits = 0;
 
-    /* Selecciono mis elementos que quiero validar ------------------------------------------------------------------------------------------------------------------*/
-    let formulario = document.querySelector(".formulario");         // Selecciono el formulario
+    /* Selecciono mis elementos que quiero validar -------------------------------------------------------------------------------------------------------------------*/
+    let formulario = document.querySelector(".formulario");         // Selecciono el formulario.
     let inputs = document.querySelectorAll(".formulario input");    // Selecciono TODOS los inputs.
     let selects = document.querySelector("#pais-control")           // Selecciono el select ya que se comporta de otra forma.
     let terminos = document.querySelector("#terminos-control")      // Selecciono el terminos ya que tendrá otra lógica.
@@ -182,17 +182,17 @@ window.addEventListener("load", function () {
     /* Disparo EVENTOS -----------------------------------------------------------------------------------------------------------------------------------------------*/
 
     /* Valido inputs ------------------- EVENTOS */
-    inputs.forEach((input) => {                                             // Si deseamos colocar algun comportamiento en agun input en particular podemos hacer: if (input.name == 'name_del_input')
-        input.addEventListener("blur", function () { validaInput(this) });  // Para cuando salga del input. Debo pasarle así un pa´rametro al callback.
+    inputs.forEach((input) => {                                             // Si deseamos colocar algun comportamiento en algun input en particular podemos hacer: if (input.name == 'name_del_input')
+        input.addEventListener("blur", function () { validaInput(this) });  // Para cuando salga del input. Debo pasarle así un parámetro al callback.
         input.addEventListener("input", function () { validaInput(this) }); // Para cada modificación del input, es mejor que los key...
     });
 
     /* Valido selects ------------------ EVENTOS */
     selects.addEventListener("blur", function () { validaInput(this) });
-    selects.addEventListener("input", function () { validaInput(this) });  // Para que se corrija ni bien seleccione el pais, sino debe hacer blur para ver el cambio correcto.
+    selects.addEventListener("input", function () { validaInput(this) });
 
-    /* Valido checkbox ----------------- EVENTOS*/
-    terminos.addEventListener("change", function () {                      // Si submiteo sin tildar, esto me permitirá tildarlo y sacarle el error.
+    /* Valido checkbox ----------------- EVENTOS */
+    terminos.addEventListener("change", function () {                       // Si submiteo sin tildar, esto me permitirá tildarlo y sacarle el error.
         if (terminos.checked) {
             document.getElementById("terminos-msg").classList.remove("input-error");
             document.getElementById("terminos-msg").innerText = '';
@@ -204,7 +204,7 @@ window.addEventListener("load", function () {
 
         submits += 1;
 
-        if (!terminos.checked) {                                           // Si no está tildado genero mensaje de error.
+        if (!terminos.checked) {                                             // Si no está tildado genero mensaje de error.
             document.getElementById("terminos-msg").classList.add("input-error");
             document.getElementById("terminos-msg").innerText = '✘ Aceptar términos y condiciones';
             e.preventDefault();
