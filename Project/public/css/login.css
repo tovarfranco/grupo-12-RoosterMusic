@@ -123,7 +123,7 @@ label {
     background-color: #ebebeb;
     border: none;
     border-radius: 5px 0px 0px 5px;
-    width: 85%;               /*Para que el input NO abarque todo el ancho- deja espacio para el ojo*/
+    width: 85%;                /*Para que el input NO abarque todo el ancho- deja espacio para el ojo*/
     padding: 10px 10px;
     margin: 0px;
 }
@@ -132,7 +132,7 @@ label {
     background-color: #ebebeb;
     border: none;
     border-radius: 0px 5px 5px 0px; 
-    width: 15%;             /*Ancho del ojo compartido con el input*/
+    width: 15%;              /*Ancho del ojo compartido con el input*/
     padding: 10px 10px;
     margin: 0px;
     cursor: pointer;
@@ -154,7 +154,7 @@ label {
     padding: 10px 10px;
 }
 
-span {
+.input-error {             /*Mensaje de error de express-validator*/
     display: block;
     margin-top: 1%;
     text-align: left;

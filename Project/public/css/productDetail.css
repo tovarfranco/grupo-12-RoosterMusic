@@ -233,6 +233,10 @@ main section {
     transition: all .2s;      /*Animación */
     max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las mdias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
+    cursor: default;
+}
+
+.articulo-imagen {
     cursor: pointer;
 }
 
@@ -258,7 +262,7 @@ main section {
     border-radius: 15px;
     padding: 8px;
     margin: 2% 5px;
-    width: 50%;                   /*Para que tengan el mismo tamaño*/
+    width: 65%;                   /*Para que tengan el mismo tamaño*/
 }
 
 .boton-agregar-carrito-card {     /*Característica particular del botón*/
@@ -313,4 +317,24 @@ main section {
     #form-agregar-al-carrito-card button {
         width: 70%;
     }
+}
+
+/* Dark Mode ---------------------------------------------------*/
+
+body.body-dark .tarjeta, body.body-dark .descripcion, body.body-dark .ficha {
+    background-color: rgba(248, 246, 246, 0.8);
+}
+
+body.body-dark .articulo{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
+    background-color: rgba(248, 246, 246, 0.6);
+    box-shadow: 0px 0px 10px rgb(56, 56, 56);
+    font-weight: bold;
+}
+
+body.body-dark .texto-descripcion-articulo {
+    font-weight: bold;
+}
+
+body.body-dark .info-icono {
+    color: rgba(248, 246, 246, 0.6);
 }

@@ -220,3 +220,52 @@ header {
         font-size: 1.25rem;
     }
 }
+
+/* Boton dark mode ----------------------------------*/
+
+.switch {                   /*Contenedor de los span (iconos)*/
+    background: #343D5B;
+    border-radius: 100px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: flex;          /*Para tener los span separado horizontal*/
+    align-items: center;    /*Para centrar todos los elementos del switch*/
+    outline: none;
+    margin: auto;           /*Para centrarlo en resolucionesbajas*/
+    padding: 4px;           /*Un poco de espacio entre los iconos y el borde*/
+}
+
+.switch::after {            /*La bolilla. Afeter porqu viene despues del button tag*/
+    content: "";
+    display: block;
+    width: 25px;            /*Tamaño de la bolilla*/
+    height: 25px;
+    position: absolute;
+    background: #F1F1F1;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.switch.active {
+    background: orange;
+    color: #000;
+}
+
+.switch.active::after {
+    right: 0;
+    left: unset;
+}
+
+.switch span {              /*Los iconos*/
+    width: 25px;
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    background: none;
+    color: #fff;
+    font-size: 12px;
+}
