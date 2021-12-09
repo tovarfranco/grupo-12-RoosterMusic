@@ -58,7 +58,7 @@ const User = {
 			await db.User.create({ ...userToCreate });			 			// Se le debe pasar un objeto. Como ya userToCreate es un objeto, uso el spreadOperator.			
 			return;
 		} catch (error) {
-			res.send('Error al crear usuario en la base de datos ' + error.message);
+			console.log('Error al crear usuario en la base de datos ' + error.message);
 			return;
 		}
 	},
@@ -75,7 +75,7 @@ const User = {
 			);
 			return;
 		} catch (error) {
-			res.send('Error al actualizar usuario en la base de datos ' + error.message);
+			console.log('Error al actualizar usuario en la base de datos ' + error.message);
 			return;
 		}
     },

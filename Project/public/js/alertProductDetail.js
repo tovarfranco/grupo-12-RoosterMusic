@@ -3,8 +3,8 @@
 $('#form-eliminar').submit(function (e) {
     e.preventDefault();
 
-    Swal.fire({                                         // Así funciona sweetAler, dentro el objeto define los estlos.
-        title: 'Desea eliminar?',
+    Swal.fire({                                         // Así funciona sweetAlert, dentro el objeto define los estlos.
+        title: 'Desea eliminar el producto?',
         text: "Esta acción no se puede revertir!",
         icon: 'warning',
         showCancelButton: true,
@@ -23,8 +23,7 @@ $('#form-comprar').submit(function (e) {
     e.preventDefault();
 
     Swal.fire({
-        title: 'Desea comprar?',
-        text: "Solo podrán usuarios logueados",
+        title: 'Desea comprar el producto?',
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

@@ -10,7 +10,7 @@ $(function () {                                                     // Esto es l
 
             let imgtodrag = $(this).closest('article').find('img'); // Imagen a colocar en el carrito.
 
-            let formToSubmit = $(this).closest('form');
+            let formToSubmit = $(this).closest('form');             // Formulario a submitear.
 
             if (imgtodrag) {                                        // De internet.
 

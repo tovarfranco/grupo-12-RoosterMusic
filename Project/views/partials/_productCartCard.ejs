@@ -9,14 +9,14 @@
             <ul>
                 <li>
                     <form id="form-delete-<%= order.id_order %>" action="/productCart/delete/<%= order.id_order %>?_method=DELETE" method="POST">
-                        <a href="#" onclick="document.getElementById('form-delete-<%= order.id_order %>').submit()">Eliminar</a>
+                        <a class="cart-eliminar" href="#">Eliminar</a>
                     </form>
                 </li>
                 <li><a href="/products">Seguir comprando</a></li>
                 <li>
                     <form id="form-update-<%= order.id_order %>" action="/productCart/edit/<%= order.id_order %>?_method=PUT" method="POST">
                         <input type="hidden" name="id_status" value="2"/>
-                        <a href="#" onclick="document.getElementById('form-update-<%= order.id_order %>').submit()">Comprar</a>
+                        <a class="cart-comprar" href="#">Comprar</a>
                     </form>
                 </li>
             </ul>
