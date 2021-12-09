@@ -56,11 +56,11 @@ const userController = {
         const resultValidation = validationResult(req);                          // Guardamos los resultados de las validaciones. Es un ARRAY de objetos que tiene los errores que se produjeron (input name, mensaje, etc).
         
 		if (!resultValidation.isEmpty()) {                                       // Si hubo errores, devuelvo la vista con los errores + la data ya ingresada del formulario.
-			return res.render('register', {errors: resultValidation.mapped(), oldData: req.body});   // .mapped() convierte a ese array en un OBJETO literal con claves el input name y valor el contenido de todo ese error. Paso la data del body nuevamente así lo la pierdo.
+			return res.render('register', {errors: resultValidation.mapped(), oldData: req.body});   // .mapped() (solo de express-validator) convierte a ese array en un OBJETO literal con claves: los input names y valores: el contenido de todo ese error. Paso la data del body nuevamente así no la pierdo.
 		}
 
         /* Verifico si ya existe el usuario (mismo email) */
-        let userFound = User.findByField('email', 'eq', req.body.email);         // Uso esta función que creé en el modelo para verificar ya existe. findByField devuelve un array de objetos.
+        let userFound = await User.findByField('email', 'eq', req.body.email);   // Uso esta función que creé en el modelo para verificar ya existe. findByField devuelve un array de objetos.
         userFound = userFound[0];                                                // Como findByField devuelve un array de objetos necesito solo el primero.
 
 		if (userFound) {

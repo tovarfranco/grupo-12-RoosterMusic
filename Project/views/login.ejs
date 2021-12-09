@@ -31,7 +31,7 @@
                             <label>E-mail</label>
                             <input type="email" name="email" class="control <%= locals.errors && errors.email ? 'control-error' : null %>" placeholder="E-mail" value="<%= locals.oldData ? oldData.email : null %>">
                             <% if (locals.errors && errors.email) { %>
-                                <span><%= errors.email.msg %> *</span>
+                                <span class="input-error"><%= errors.email.msg %> *</span>
                             <% } %>
                         </div>
                         <div class="elemento">
@@ -41,7 +41,7 @@
                                 <i class="ojo-icono far fa-eye-slash" id="togglePassword"></i>
                             </div>
                             <% if (locals.errors && errors.password) { %>
-                                <span><%= errors.password.msg %> *</span>
+                                <span class="input-error"><%= errors.password.msg %> *</span>
                             <% } %>
                         </div>
                     </div>

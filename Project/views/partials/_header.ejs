@@ -12,7 +12,7 @@
         <% } else { %>
             <img src="/images/users/<%= locals.userLogged.img %>" alt=<%= locals.userLogged.name %>>
             <button class="boton-usuario" type="button" onclick="window.location='/users/profile'">Hola <%= locals.userLogged.name %>!</button>
-            <button class="boton-carrito" type="button" onclick="window.location='/productCart'"><i class="fas fa-shopping-cart"></i><strong class="count"><%= locals.count %></strong></button>
+            <button class="boton-carrito" type="button" onclick="window.location='/productCart'"><i id="icono-carrito" class="fas fa-shopping-cart"></i><strong class="count"><%= locals.count %></strong></button>
         <% } %>
         </div>
     </div>
@@ -30,6 +30,12 @@
             <li><a href="">Contacto</a></li>
             <li><a href="">Pago</a></li>
             <li><a href="">Ofertas</a></li>
+            <li>
+                <button class="switch" id="switch">
+					<span><i class="fas fa-sun"></i></span>
+					<span><i class="fas fa-moon"></i></span>
+				</button>
+            </li>
         </ul>
     </nav>
 

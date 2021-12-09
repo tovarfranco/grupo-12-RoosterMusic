@@ -55,10 +55,14 @@ main section {
     color: black;
     padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
     margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
-    box-shadow : 0px 0px 10px rgb(100,100,100);
-    transition: all .2s;      /*Animación*/
+    box-shadow: 0px 0px 10px rgb(100,100,100);
+    transition: all .3s;      /*Animación*/
     max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
+    cursor: default;
+}
+
+.articulo-imagen {
     cursor: pointer;
 }
 
@@ -73,6 +77,31 @@ main section {
 .texto-descripcion-articulo {
     text-align: center;
     font-weight: lighter;
+    font-size: 1.1rem;
+}
+
+#form-agregar-al-carrito-card {   /*Container de los botones*/
+    text-align: center;
+}
+
+#form-agregar-al-carrito-card button {    /*Características comunes de los botones - Solo el de agregar al carrito*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 2% 5px;
+    width: 65%;              /*Para que tengan el mismo tamaño*/
+}
+
+.boton-agregar-carrito-card {     /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-agregar-carrito-card:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
 }
 
 @media (min-width: 768px){
@@ -88,6 +117,10 @@ main section {
         margin: 2%;
         padding: 2%;
     }
+
+    #form-agregar-al-carrito-card button {
+        width: 70%;
+    }
 }
 
 @media (min-width: 1200px){
@@ -100,6 +133,16 @@ main section {
         width: 28%;
         margin: 1.5%;
         padding: 1%;
+    }
+
+    #form-agregar-al-carrito-card button {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1500px){             /*Solo para que el botón de agregar al carrito se vea bien*/
+    #form-agregar-al-carrito-card button {
+        width: 50%;
     }
 }
 
@@ -137,4 +180,20 @@ main section {
 .boton-inicio:hover {
     background-color: black;
     box-shadow:0px 0px 0px 2px white inset;
+}
+
+/* Dark Mode ---------------------------------------------------*/
+
+body.body-dark .articulo{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
+    background-color: rgba(248, 246, 246, 0.8);
+    box-shadow: 0px 0px 10px rgb(56, 56, 56);
+    font-weight: bold;
+}
+
+body.body-dark .texto-descripcion-articulo {
+    font-weight: bold;
+}
+
+body.body-dark .icono {
+    color: rgba(248, 246, 246, 0.8);
 }

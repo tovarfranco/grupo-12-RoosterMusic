@@ -253,3 +253,15 @@ align-items: baseline;
     background-color: black;
     box-shadow:0px 0px 0px 2px white inset;
 }
+
+/* Dark Mode ---------------------------------------------------*/
+
+body.body-dark .articulo{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
+    background-color: rgba(248, 246, 246, 0.8);
+    box-shadow: 0px 0px 10px rgb(56, 56, 56);
+    font-weight: bold;
+}
+
+body.body-dark .icono {
+    color: rgba(248, 246, 246, 0.8);
+}

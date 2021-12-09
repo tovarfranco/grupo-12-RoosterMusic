@@ -11,8 +11,8 @@ const indexController = {
 
 	/*** Productos para las secciones ***/
 	index: async (req, res) => {                                // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
-		let productList1 = await Product.findByField('id_campaign', 'eq', '2');	// Busco los "Mas vistos".
-		let productList2 = await Product.findByField('id_campaign', 'eq', '3');	// Busco los "Oferta".
+		let productList1 = await Product.findByField('id_campaign', 'eq', '2', 6);	// Busco los "Mas vistos".
+		let productList2 = await Product.findByField('id_campaign', 'eq', '3', 6);	// Busco los "Oferta".
 		let categoryList = await Category.findAll();
 		res.render('index', {productList1: productList1, 
 							 productList2: productList2,

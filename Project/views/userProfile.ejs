@@ -64,9 +64,9 @@
                             </div>
                         </div>
                     </div>
-                    <div><button class="boton-cerrar-sesion-formulario" type="button" onclick="window.location='/users/logout'">Cerrar sesión</button></div>
+                    <div><button class="boton-cerrar-sesion-formulario" type="button">Cerrar sesión</button></div>
                     <div><button class="boton-modificar-formulario" type="button" onclick="window.location='/users/edit/<%= user.id_user %>'">Modificar</button></div>
-                    <form action="/users/delete/<%= user.id_user %>?_method=DELETE" method="POST">
+                    <form action="/users/delete/<%= user.id_user %>?_method=DELETE" method="POST" id="form-baja">
                         <div><button class="boton-eliminar-formulario" type="submit">Darse de baja</button></div>
                     </form>
                 </div>
@@ -78,6 +78,14 @@
         <!--footer-->
         <%- include('./partials/_footer') %>
         <!--/footer-->
-        
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/js/cartEffect.js"></script>
+        <script src="/js/cartEffectCard.js"></script>
+        <!-- SweetAlert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/alertUserProfile.js"></script>
     </body>
 </html>

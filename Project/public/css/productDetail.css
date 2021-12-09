@@ -233,6 +233,10 @@ main section {
     transition: all .2s;      /*Animación */
     max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las mdias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
+    cursor: default;
+}
+
+.articulo-imagen {
     cursor: pointer;
 }
 
@@ -249,6 +253,30 @@ main section {
     font-weight: lighter;
 }
 
+#form-agregar-al-carrito-card {   /*Container de los botones*/
+    text-align: center;
+}
+
+#form-agregar-al-carrito-card button {    /*Características comunes de los botones - Solo el de agregar al carrito*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 2% 5px;
+    width: 65%;                   /*Para que tengan el mismo tamaño*/
+}
+
+.boton-agregar-carrito-card {     /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-agregar-carrito-card:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
 @media (min-width: 768px){
     .container-articulos {
         display: flex;
@@ -261,6 +289,10 @@ main section {
         width: 40%;
         margin: 2%;
         padding: 2%;
+    }
+
+    #form-agregar-al-carrito-card button {
+        width: 70%;
     }
 }
 
@@ -275,4 +307,34 @@ main section {
         margin: 1.5%;
         padding: 1%;
     }
+
+    #form-agregar-al-carrito-card button {
+        width: 90%;
+    }
+}
+
+@media (min-width: 1500px){             /*Solo para que el botón de agregar al carrito se vea bien*/
+    #form-agregar-al-carrito-card button {
+        width: 70%;
+    }
+}
+
+/* Dark Mode ---------------------------------------------------*/
+
+body.body-dark .tarjeta, body.body-dark .descripcion, body.body-dark .ficha {
+    background-color: rgba(248, 246, 246, 0.8);
+}
+
+body.body-dark .articulo{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
+    background-color: rgba(248, 246, 246, 0.8);
+    box-shadow: 0px 0px 10px rgb(56, 56, 56);
+    font-weight: bold;
+}
+
+body.body-dark .texto-descripcion-articulo {
+    font-weight: bold;
+}
+
+body.body-dark .info-icono {
+    color: rgba(248, 246, 246, 0.8);
 }

@@ -8,16 +8,19 @@
 /*Opción background 1*/
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #F3F7FF;
+    background: url("/images/background-white3.jpg") no-repeat center fixed;
+    background-size: cover;
+    /* background-color: #F3F7FF; fondo inicial de desarrollo*/
+    transition: .0s ease all;        /*Para el dark mode*/
 }
 
 /*Opción background 2*/
-/* body {
+.body-dark {
     font-family: 'Roboto', sans-serif;
-    background: url("../images/background.jpg") no-repeat center fixed;
+    background: url("/images/background-dark3.jpg") repeat center fixed;
     background-size: cover;
     color: white;
-} */
+}
 
 h2 {font-size: 1.50rem;}
 

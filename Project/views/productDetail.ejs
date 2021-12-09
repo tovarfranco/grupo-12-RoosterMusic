@@ -31,16 +31,18 @@
                             <li><a href="">Devoluciones</a></li>
                         </ul>
                         <div class="tarjeta-botones">
-                            <form action="/productCart/create" method="POST">
+                            <form action="/productCart/create" method="POST" id="form-comprar">
                                 <input type="hidden" name="id_status" value="2"/>
-                                <button class="boton-comprar" type="submit" name="id_product" value="<%= product.id_product %>">Comprar</button>
+                                <input type="hidden" name="id_product" value="<%= product.id_product %>"/>
+                                <button class="boton-comprar" type="submit">Comprar</button>
                             </form>
-                            <form action="/productCart/create" method="POST">
+                            <form action="/productCart/create" method="POST" id="form-agregar-al-carrito">
                                 <input type="hidden" name="id_status" value="1"/>
-                                <button class="boton-agregar-carrito" type="submit" name="id_product" value="<%= product.id_product %>">Agregar al carrito</button>
+                                <input type="hidden" name="id_product" value="<%= product.id_product %>"/>          <!--IMPORTANTE: Este input estaba en el botón de abajo. Puedo pasar valores (name: value) del form al back mediante buttons tambien, pero debido a la animación de JS no los tomaba, porque bypassea los valores-->
+                                <button class="boton-agregar-carrito" type="submit">Agregar al carrito</button>
                             </form>
                                 <button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id_product %>'">Modificar</button>
-                            <form action="/products/delete/<%= product.id_product %>?_method=DELETE" method="POST">
+                            <form action="/products/delete/<%= product.id_product %>?_method=DELETE" method="POST" id="form-eliminar">
                                 <button class="boton-eliminar" type="submit">Eliminar</button>
                             </form>
                         </div>
@@ -85,5 +87,13 @@
         <%- include('./partials/_footer') %>
         <!--/footer-->
 
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/js/cartEffect.js"></script>
+        <script src="/js/cartEffectCard.js"></script>
+        <!-- SweetAlert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/alertProductDetail.js"></script>
     </body>
 </html>
