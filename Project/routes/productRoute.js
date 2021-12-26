@@ -21,6 +21,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage: storage});                                     // Acá guardamos la variable de configuración de Multer. Usarlo en la ruta que deseemos.
 
+// =========== Middlewares ============================
+const authMiddleware = require('../middlewares/auth.middleware.js');           // Uso mi propio middleware.
+
 // =========== Router =================================
 /*** Todos los productos *******/
 router.get('/', productController.index);                                      // ACA se pone la ruta que sacamos de app.js. Este será el encargado de enviar la petición al controlador correspondiente para que genere la respuesta. Debemos usar el objeto router + método HTTP + callback (quien genera la respuesta). Usamos también SUBRUTAS del la funcionalidad.
@@ -29,7 +32,7 @@ router.get('/', productController.index);                                      /
 router.get('/detail/:id', productController.detail);
 
 /*** Creo un producto **********/
-router.get('/create', productController.create);
+router.get('/create', authMiddleware, productController.create);
 router.post('/create', upload.single('img'), productController.store);         // Acá va el name del input file.
 
 /*** Modifico un producto ******/
