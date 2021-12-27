@@ -90,6 +90,22 @@ const Product = {
 		return await db.Product.findByPk(id, {
 			include: [{ association: "category" },]
 		});
+	},
+
+	joinAll: async function () {
+		return await db.Product.findAll({
+			include: [{ association: "category" }, { association: "campaign" }]
+		});
+	},
+
+	// Está medio rara pero funciona, toma los atributos que quiere.
+	countBy: async function () {
+		return await db.Product.findAll({
+		//attributes: ['id_product', 'category.id_category'],		// De esta forma toma solo estos campos.
+		group: ['category.id_category'],
+		attributes: ['category.id_category', [sequelize.fn('COUNT', 'id_product'), 'productCount']],
+		include: [{ association: "category" }]
+	  });
 	}
 }
 

@@ -40,10 +40,17 @@ const userRoute = require('./routes/user.route.js');
 const productRoute = require('./routes/productRoute.js'); 
 const productCartRoute = require('./routes/productCartRoute.js');
 
+const apiUserRoute = require('./routes/api/apiUserRoute.js');
+const apiProductRoute = require('./routes/api/apiProductRoute.js');
+
+
 app.use('/', indexRoute);                                             // ACA indicamos la BASE/RAIZ de esa funcionalidad + su archivo ruta (objeto).
 app.use('/users', userRoute);
 app.use('/products', productRoute);
 app.use('/productCart', productCartRoute);
+
+app.use('/api/users', apiUserRoute);
+app.use('/api/products', apiProductRoute);
 
 app.use((req,res) => {                                  
         res.status(404).render('error');                              // Para mostrar página 404.
