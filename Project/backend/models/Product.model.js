@@ -92,14 +92,20 @@ const Product = {
 		});
 	},
 
-	joinAll: async function () {
+	joinPkCategoryCampaign: async function (id) {
+		return await db.Product.findByPk(id, {
+			include: [{ association: "category" }, { association: "campaign" }]
+		});
+	},
+
+	joinAllCategoryCampaign: async function () {
 		return await db.Product.findAll({
 			include: [{ association: "category" }, { association: "campaign" }]
 		});
 	},
 
-	// Está medio rara pero funciona, toma los atributos que quiere.
-	countBy: async function () {
+	// Está medio raro pero funciona, toma los atributos que quiere.
+	countByProduct: async function () {
 		return await db.Product.findAll({
 		//attributes: ['id_product', 'category.id_category'],		// De esta forma toma solo estos campos.
 		group: ['category.id_category'],

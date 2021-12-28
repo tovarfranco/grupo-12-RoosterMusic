@@ -13,7 +13,7 @@ const apiProductController = {
     index: async (req, res) => {
 
         /* Información de productos */
-        let productList = await Product.joinAll();
+        let productList = await Product.joinAllCategoryCampaign();
 
         /* Modifico la información de Sequelize */
         productList.forEach(product => {
@@ -21,7 +21,7 @@ const apiProductController = {
         });
 
         /* Información sumarizada */
-        let countByCategory = await Product.countBy();
+        let countByCategory = await Product.countByProduct();
 
         let countResult = []
         countByCategory.forEach(result => { 
@@ -44,7 +44,7 @@ const apiProductController = {
 
     /*** Detalle de un producto ***/
     detail: async (req, res) => {                                                      // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
-        let productFound = await Product.findByPk(req.params.id);                      // findByPk devuelve un objeto directamente, no un array.       
+        let productFound = await Product.joinPkCategoryCampaign(req.params.id);                      // findByPk devuelve un objeto directamente, no un array.       
 
         /* Modifico la información de Sequelize */
         productFound.dataValues.url = `/api/products/${productFound.id_product}`;

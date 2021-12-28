@@ -1,0 +1,403 @@
+/* General ------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+* {
+    box-sizing: border-box;      /*Necesario, indica que se respetará el tamaño que definimos, hasta el borde menos el margin*/
+    /*border: solid 1px black;   /*Lo activo/desactivo para ver los bordes de los elementos*/
+    /*padding: 5px;              /*Lo activo/desactivo para ver los bordes de los elementos*/
+    /*margin: 5px;               /*Lo activo/desactivo para ver los bordes de los elementos*/
+}
+
+/*Opción background 1*/
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F3F7FF;
+}
+
+/*Opción background 2*/
+/* body {
+    font-family: 'Roboto', sans-serif;
+    background: url("../images/background.jpg") no-repeat center fixed;
+    background-size: cover;
+    color: white;
+} */
+
+h2 {font-size: 1.50rem;}
+
+h3 {font-size: 1.25rem;}
+
+h4 {font-size: 1rem}
+
+p {font-size: 1rem;}
+
+img {width: 100%;}  /*Para que ocupen el 100% de su contenedor*/
+
+
+/* Contenido general -------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.contenedor-tablero-general {
+    display: flex;
+}
+
+/* Sidebar ----------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.sidebar {
+    background-color: black;
+    color: white;
+    padding: 20px;   /*Para que los elementos internos no esten pegados al borde*/
+    /* display: none; */
+    
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+}
+
+.links {
+    margin: 15px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.links i {
+    width: 20%;
+    margin-right: 5px;
+}
+
+
+/* .sidebar-close {
+    display: none;
+}
+
+.sidebar-open {
+    display: block;
+} */
+
+.logo {
+    width: 100px;    /*Está ok para mobile*/
+    margin: 0 auto;
+}
+
+@media (min-width: 768px){
+    .logo {
+        width: 150px;       /*Lo agrandamos un poquito*/
+    }
+}
+
+@media (min-width: 1200px){
+    .logo {
+        width: 200px;       /*Lo agrandamos un poquito*/
+    }
+}
+
+/* Header -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+header {
+    background-color: #3966F5;
+    color: white;
+    padding: 5px;   /*Para que los elementos internos no esten pegados al borde*/
+    width: 100%;     /*Con fixed pierde su tamaño */
+    /*position: fixed; /*Recordar que sale del flujo normal del HTML y queda flotando pero la siguiente caja ocupa su lugar, así que hay que arreglarlo. Vamos a modificar el margin-top de .banner-promocion*/
+    /*top: 0;          /*fixed usa el viewport para su posición, debemos indicarle que quede arriba*/
+    /*z-index: 10;     /*Es necesario, sino otros elementos posicionados pasarán por arriba de este*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Boton hamburguesa + comportamiento con header-fila-2----------------------------------*/
+
+.boton-hamburguesa {
+    background-color: #3966F5;
+    border: solid 1px white;
+    color: white;
+    display: block;     /*Hará que el fondo del botón (azul) ocupe todo el ancho, así que le ponemos un width. SUPER importante poner block porque me permite configurarle estas opciones.*/
+    max-width: 40px;    /*Para que el fondo del botón no sea gigante. */
+    padding: 9px 9px;
+    border-radius: 8px;
+    text-align: center; /*Centra el ícono */
+    font-size: 15px;    /*Tamaño del icono*/
+    margin: auto 1%;
+}
+
+.dashboard-texto {
+    margin: auto 3%;
+    text-align: right;
+}
+
+/* Footer -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+footer {
+    background-color: #3966F5;
+    color: white;
+    padding: 2px;
+    text-align: center; /*Este centra todo*/
+}
+
+.copyright {
+    text-align: center; /*Lo colocamos por si lo queremos cambiar pero el footer centra todo*/
+    margin: 10px;
+}
+
+/* INDEX -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Main ----------------------------------------------------------------------*/
+
+main {
+    width: 100%;
+    margin: auto;  
+}
+
+.contenedor-secciones-tablero-general {
+    padding: 3% 7%;    /*Espaciado para el contenido interno-secciones*/
+}
+
+@media (min-width: 768px){
+    .contenedor-secciones-tablero-general {
+        padding: 2% 5%;    /*Espaciado para el contenido interno-secciones*/
+    }
+}
+
+@media (min-width: 1200px){
+    .contenedor-secciones-tablero-general {
+        padding: 1% 3%;    /*Espaciado para el contenido interno-secciones*/
+    }
+}
+
+main section {
+    margin: 2% 0;   /*De base uso esto, luego en las medias queries los voy cambiando*/
+}
+
+.texto-tablero-general {
+    text-align: center;
+}
+
+/* Section: METRICAS ----------------------------------------------------------------------*/
+
+.metrica {
+    background-color: white;
+    color: black;
+    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    box-shadow: 0px 0px 10px rgb(100,100,100);
+    transition: all .3s;      /*Animación*/
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+    cursor: default;
+}
+
+.metrica:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+}
+
+.texto-titulo-metrica {
+    text-align: center;
+
+}    
+.texto-descripcion-metrica {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.1rem;
+}
+
+.metrica-imagen i {
+    font-size: 2rem;
+}
+
+@media (min-width: 768px){
+    .container-metricas {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .metrica {
+        width: 40%;
+        margin: 2%;
+        padding: 2%;
+    }
+}
+
+@media (min-width: 1200px){
+    .metrica {
+        width: 20%;
+        margin: 1.5%;
+        padding: 1%;
+    }
+}
+
+/* Section: MODIFICACIONES ----------------------------------------------------------------------*/
+
+.modificacion {
+    background-color: white;
+    color: black;
+    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    box-shadow: 0px 0px 10px rgb(100,100,100);
+    transition: all .3s;      /*Animación*/
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+    cursor: default;
+}
+
+.modificacion:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+}
+
+.texto-titulo-modificacion {
+    text-align: center;
+
+}    
+.texto-descripcion-modificacion {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.1rem;
+}
+
+.modificacion-imagen i {
+    font-size: 2rem;
+}
+
+@media (min-width: 768px){
+    .container-modificaciones {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .modificacion {
+        width: 40%;
+        margin: 2%;
+        padding: 2%;
+    }
+}
+
+@media (min-width: 1200px){
+    .modificacion {
+        width: 20%;
+        margin: 1.5%;
+        padding: 1%;
+    }
+}
+
+/* Section: CATEGORIAS----------------------------------------------------------------------*/
+
+.boton-categoria {
+    text-align: center; /*Alineo el botón dentro del div*/
+}
+
+.boton-categoria button {
+    width: 200px;               /*Fijo tamaño para que todos sean iguales*/
+    background-color: #52535e;
+    color: white;
+    border: solid 1px black;
+    border-radius: 7px;
+    padding: 8px;
+    font-size: 1.25rem;
+    margin: 5px 0;
+    transition: all 0.4s;
+}
+
+@media (min-width: 768px){
+    .container-boton-categorias {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .boton-categoria {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px){
+    .boton-categoria {
+        width: 23%;
+    }
+}
+
+/* Section: PRODUCTS----------------------------------------------------------------------*/
+
+table {
+    font-family: arial, sans-serif;
+    font-size: 0.8rem;
+    border-collapse: collapse;        /*Saca la separación entre elementos (como celdas de excel separadas), así los junta*/
+    width: 90%;                       /*Separación con el borde*/
+    margin: auto;                     /*Así lo centro*/
+}
+
+@media (min-width: 1200px){
+    table {
+        font-size: 1rem;
+    }
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+@media (max-width: 1000px){         /*OJO max-width*/
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    tr:nth-child(even) {
+      background: #dddddd;
+    }
+    
+	td {
+	    /* Behave  like a "row" */
+	    /* border: none; */
+		border: 1px solid #dddddd;  /*Separador de renglones*/
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		/* top: 0; WHY???*/
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+
+	/*Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+	*/
+    td:nth-of-type(1):before { content: "ID"; }
+    td:nth-of-type(2):before { content: "Nombre"; }
+    td:nth-of-type(3):before { content: "Precio"; }
+    td:nth-of-type(4):before { content: "Imagen"; }
+    td:nth-of-type(5):before { content: "Marca"; }
+    td:nth-of-type(6):before { content: "Modelo"; }
+    td:nth-of-type(7):before { content: "Origen"; }
+    td:nth-of-type(8):before { content: "Categoria"; }
+    td:nth-of-type(9):before { content: "Campaña"; }
+    td:nth-of-type(10):before { content: "Disponibilidad"; }
+	}

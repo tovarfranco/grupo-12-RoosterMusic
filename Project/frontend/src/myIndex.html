@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Titulo pestania-->
+        <title>Rooster Music</title>
+        <!--Tipografía importada por Google:-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <!--Hoja de estilos importada: ICONOS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+        <!--Reset de CSS-->
+        <link rel="stylesheet" href="./normalize.css">
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="./myIndex.css">
+    </head>
+
+    <body>
+
+        <!-- Contenedor total -->
+        <div class="contenedor-tablero-general">
+
+            <!-- Sidebar -->
+            <nav id="sidebar" class="sidebar">
+                <!-- <button>Cerrar &times;</button> -->
+                <div class="logo" onclick="window.location='/'"><img src="./Logo.JPG" alt="Logo Rooster Music"></div>
+                <hr>
+                <div class="links"><i class="fas fa-tachometer-alt"></i><a href="">Tablero general</a></div>
+                <hr>
+                <div>Secciones</div>
+                <div class="links"><i class="fas fa-guitar"></i><a href="">Productos</a></div>
+                <div class="links"><i class="fas fa-users"></i><a href="">Usuarios</a></div>
+                <div class="links"><i class="fas fa-puzzle-piece"></i><a href="">Categorías</a></div>
+                <div class="links"><i class="fas fa-search"></i><a href="">Buscador?</a></div>
+            </nav>
+            <!-- /Sidebar -->
+
+            <!-- Contenido -->
+            <main>
+
+                <!-- Header -->
+                <header>
+                    <div class="boton-hamburguesa" onclick="sidebar_open()"><i class="fa fa-bars"></i></div>
+
+                    <div class="dashboard-texto"><h3>Dashboard RoosterMusic</h3></div>
+                </header>
+                <!-- /Header -->
+
+                <!-- Secciones -->
+                <div class="contenedor-secciones-tablero-general">
+
+                    <!-- Seccion 1 -->
+                    <section class="seccion1-tablero-general">
+                        <h3 class="texto-tablero-general">Tablero General</h3>
+                    </section>
+                    <!-- /Seccion 1 -->
+
+                    <!-- Seccion 2 -->
+                    <section class="seccion2-tablero-general">
+                        <h3>Metricas</h3>
+                        <hr>
+                        <div class="container-metricas">
+                            <article class="metrica">
+                                <div class="metrica-imagen"><i class="fas fa-guitar"></i></div>
+                                <div class="metrica-descripcion">
+                                    <h3 class="texto-titulo-metrica">Productos</h3>
+                                    <h4 class="texto-descripcion-metrica">15</h4>
+                                </div>
+                            </article>
+                            <article class="metrica">
+                                <div class="metrica-imagen"><i class="fas fa-users"></i></div>
+                                <div class="metrica-descripcion">
+                                    <h3 class="texto-titulo-metrica">Usuarios</h3>
+                                    <h4 class="texto-descripcion-metrica">200</h4>
+                                </div>
+                            </article>
+                            <article class="metrica">
+                                <div class="metrica-imagen"><i class="fas fa-puzzle-piece"></i></div>
+                                <div class="metrica-descripcion">
+                                    <h3 class="texto-titulo-metrica">Categorías</h3>
+                                    <h4 class="texto-descripcion-metrica">20</h4>
+                                </div>
+                            </article>
+                            <article class="metrica">
+                                <div class="metrica-imagen"><i class="fas fa-percentage"></i></div>
+                                <div class="metrica-descripcion">
+                                    <h3 class="texto-titulo-metrica">Campañas</h3>
+                                    <h4 class="texto-descripcion-metrica">2</h4>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <!-- /Seccion 2 -->
+
+                    <!-- Seccion 3 -->
+                    <section>
+                        <h3>Ultimos creados</h3>
+                        <hr>
+                        <div class="container-modificaciones">
+                            <article class="modificacion">
+                                <div class="modificacion-imagen"><img src="./audio1.jpg" alt="audio"></div>
+                                <hr>
+                                <div class="modificacion-descripcion">
+                                    <h3 class="texto-titulo-modificacion">Winco</h3>
+                                    <h4 class="texto-descripcion-modificacion">Reproductor de Vinilos Winco</h4>
+                                    <h4 class="texto-descripcion-modificacion">U$S 100.00</h4>
+                                </div>
+                            </article>
+                            <article class="modificacion">
+                                <div class="modificacion-imagen"><img src="./avatar.jpg" alt="Guitarra"></div>
+                                <hr>
+                                <div class="modificacion-descripcion">
+                                    <h3 class="texto-titulo-modificacion">Franco Ruben</h3>
+                                    <h4 class="texto-descripcion-modificacion">Argentina</h4>
+                                    <h4 class="texto-descripcion-modificacion">Nacimiento: 09/10/1995</h4>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <!-- /Seccion 3 -->
+
+                    <!-- Seccion 4 -->
+                    <section>
+                        <h3>Categorías disponibles</h3>
+                        <hr>
+                        <div class="container-boton-categorias">
+                            <div class="boton-categoria"><button>Guitarras</button></div>
+                            <div class="boton-categoria"><button>Bajos</button></div>
+                            <div class="boton-categoria"><button>Baterías</button></div>
+                            <div class="boton-categoria"><button>Ukelele</button></div>
+                            <div class="boton-categoria"><button>Viento</button></div>
+                            <div class="boton-categoria"><button>Audio</button></div>
+                            <div class="boton-categoria"><button>Grabación</button></div>
+                            <div class="boton-categoria"><button>Teclados</button></div>
+                        </div>
+                    </section>
+                    <!-- /Seccion 4 -->
+
+                </div>
+                <!-- /Secciones -->
+
+                <!-- Footer -->
+                <footer>
+                    <p class="copyright">© 2021 Grupo 12 - Todos los derechos reservados</p>
+                </footer>
+                <!-- /Footer -->
+
+            </main>
+            <!-- /Contenido -->
+
+        </div>
+        <!-- /Contenedor total -->
+
+
+    <script>
+        function sidebar_open() {
+            document.getElementById("sidebar").style.display = "block";
+            document.getElementById("sidebar").style.position = "fixed";
+            //document.getElementById("sidebar").style.width = "90%";
+        }
+
+        function sidebar_close() {
+            document.getElementById("sidebar").style.display = "none";
+        }
+
+    </script>
+
+    </body>
+
+</html>
