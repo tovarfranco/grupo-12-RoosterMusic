@@ -132,6 +132,8 @@ footer {
     color: white;
     padding: 2px;
     text-align: center; /*Este centra todo*/
+    position: sticky;   /*Para tener el footer siempre abajo*/
+    top: 100%;          /*Para tener el footer siempre abajo*/
 }
 
 .copyright {
@@ -145,7 +147,8 @@ footer {
 
 main {
     width: 100%;
-    margin: auto;  
+    margin: auto;
+    min-height: 100vh;      /*Para pegar el footer siempre abajo*/
 }
 
 .contenedor-secciones-tablero-general {
@@ -390,14 +393,24 @@ tr:nth-child(even) {
 	/*Label the data
     You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
 	*/
-    td:nth-of-type(1):before { content: "ID"; }
-    td:nth-of-type(2):before { content: "Nombre"; }
-    td:nth-of-type(3):before { content: "Precio"; }
-    td:nth-of-type(4):before { content: "Imagen"; }
-    td:nth-of-type(5):before { content: "Marca"; }
-    td:nth-of-type(6):before { content: "Modelo"; }
-    td:nth-of-type(7):before { content: "Origen"; }
-    td:nth-of-type(8):before { content: "Categoria"; }
-    td:nth-of-type(9):before { content: "Campaña"; }
-    td:nth-of-type(10):before { content: "Disponibilidad"; }
-	}
+    .td-product:nth-of-type(1):before { content: "ID"; }
+    .td-product:nth-of-type(2):before { content: "Nombre"; }
+    .td-product:nth-of-type(3):before { content: "Precio"; }
+    .td-product:nth-of-type(4):before { content: "Imagen"; }
+    .td-product:nth-of-type(5):before { content: "Marca"; }
+    .td-product:nth-of-type(6):before { content: "Modelo"; }
+    .td-product:nth-of-type(7):before { content: "Origen"; }
+    .td-product:nth-of-type(8):before { content: "Categoria"; }
+    .td-product:nth-of-type(9):before { content: "Campaña"; }
+    .td-product:nth-of-type(10):before { content: "Disponibilidad"; }
+
+    .td-user:nth-of-type(1):before { content: "ID"; }
+    .td-user:nth-of-type(2):before { content: "Nombre"; }
+    .td-user:nth-of-type(3):before { content: "Apellido"; }
+    .td-user:nth-of-type(4):before { content: "Documento"; }
+    .td-user:nth-of-type(5):before { content: "Pais"; }
+    .td-user:nth-of-type(6):before { content: "Domicilio"; }
+    .td-user:nth-of-type(7):before { content: "Nacimiento"; }
+    .td-user:nth-of-type(8):before { content: "Email"; }
+    .td-user:nth-of-type(9):before { content: "Imagen"; }
+}
