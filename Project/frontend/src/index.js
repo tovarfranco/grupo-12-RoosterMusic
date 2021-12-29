@@ -1,14 +1,17 @@
-import React from 'react';                          // Se importa React.
-import ReactDOM from 'react-dom';                   // Se importa el DOM.
-import './index.css';                               // Se importa un css. OJO con los css, afectan a toda la página.
-import App from './App';                            // IMPORTANTE, este es un COMPONENTE llamado App.
-import reportWebVitals from './reportWebVitals';
+import React from 'react';                                   // Se importa React.
+import ReactDOM from 'react-dom';                            // Se importa el DOM.
+import App from './components/App';                          // IMPORTANTE, este es un COMPONENTE llamado App.
+import './assets/css/normalize.css';                         // Se importa un css. OJO con los css, afectan a toda la página.
+import './assets/css/index.css';                             // Se importa un css. OJO con los css, afectan a toda la página.
 
-ReactDOM.render(                                    // Se renderiza el COMPONENTE App en el div id=root. Ver que el COMPONENTE se lo utiliza como una etiqueta HTML.
-  <React.StrictMode>
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom'             // Siempre en el index.js debemos importar este módulo que me permitirá usar rutas en React.
+
+ReactDOM.render(                                             // Se renderiza el COMPONENTE App en el div id=root. Ver que el COMPONENTE se lo utiliza como una etiqueta HTML.  // Debemos englobar a la App en este componente para poder usar rutas internamente.
+  <BrowserRouter>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')                   // El id=root.
+  </BrowserRouter>,
+  document.getElementById('root')                            // El id=root.
 );
 
 // If you want to start measuring performance in your app, pass a function

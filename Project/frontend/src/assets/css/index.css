@@ -33,7 +33,7 @@ img {width: 100%;}  /*Para que ocupen el 100% de su contenedor*/
 
 /* Contenido general -------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-.contenedor-tablero-general {
+.contenedor-tablero {
     display: flex;
 }
 
@@ -43,8 +43,6 @@ img {width: 100%;}  /*Para que ocupen el 100% de su contenedor*/
     background-color: black;
     color: white;
     padding: 20px;   /*Para que los elementos internos no esten pegados al borde*/
-    /* display: none; */
-    
 }
 
 .sidebar a {
@@ -63,15 +61,6 @@ img {width: 100%;}  /*Para que ocupen el 100% de su contenedor*/
     width: 20%;
     margin-right: 5px;
 }
-
-
-/* .sidebar-close {
-    display: none;
-}
-
-.sidebar-open {
-    display: block;
-} */
 
 .logo {
     width: 100px;    /*Está ok para mobile*/
@@ -151,18 +140,18 @@ main {
     min-height: 100vh;      /*Para pegar el footer siempre abajo*/
 }
 
-.contenedor-secciones-tablero-general {
+.contenedor-secciones-tablero {
     padding: 3% 7%;    /*Espaciado para el contenido interno-secciones*/
 }
 
 @media (min-width: 768px){
-    .contenedor-secciones-tablero-general {
+    .contenedor-secciones-tablero {
         padding: 2% 5%;    /*Espaciado para el contenido interno-secciones*/
     }
 }
 
 @media (min-width: 1200px){
-    .contenedor-secciones-tablero-general {
+    .contenedor-secciones-tablero {
         padding: 1% 3%;    /*Espaciado para el contenido interno-secciones*/
     }
 }
@@ -171,7 +160,7 @@ main section {
     margin: 2% 0;   /*De base uso esto, luego en las medias queries los voy cambiando*/
 }
 
-.texto-tablero-general {
+.texto-titulo {
     text-align: center;
 }
 

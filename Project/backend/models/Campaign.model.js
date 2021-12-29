@@ -1,5 +1,4 @@
 // =========== Require's ==============================
-const fs = require('fs');                                                        // Para la lectura y escritura de archivos.
 const path = require('path');                                                    // Manejo de rutas.
 
 const db = require('../database/models');										 // Elemento de sequelize que tiene todos los modelos.
@@ -17,6 +16,12 @@ const Campaign = {
 	/*** Búsqueda de categoría por PK ***/
 	findByPk: async function (id) {
 		return await db.Campaign.findByPk(id);
+	},
+
+	joinAllProduct: async function () {
+		return await db.Campaign.findAll({
+			include: [{ association: "products" }]
+		});
 	}
 }
 

@@ -12,20 +12,20 @@
         <!--Hoja de estilos importada: ICONOS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
         <!--Reset de CSS-->
-        <link rel="stylesheet" href="./normalize.css">
+        <link rel="stylesheet" href="./assets/css/normalize.css">
         <!--Mi hoja de estilos-->
-        <link rel="stylesheet" href="./myIndex.css">
+        <link rel="stylesheet" href="./assets/css/index.css">
     </head>
 
     <body>
 
         <!-- Contenedor total -->
-        <div class="contenedor-tablero-general">
+        <div class="contenedor-tablero">
 
             <!-- Sidebar -->
             <nav id="sidebar" class="sidebar">
                 <!-- <button>Cerrar &times;</button> -->
-                <div class="logo" onclick="window.location='/'"><img src="./Logo.JPG" alt="Logo Rooster Music"></div>
+                <div class="logo" onclick="window.location='/'"><img src="./assets/images/Logo.JPG" alt="Logo Rooster Music"></div>
                 <hr>
                 <div class="links"><i class="fas fa-tachometer-alt"></i><a href="">Tablero general</a></div>
                 <hr>
@@ -43,60 +43,23 @@
 
                 <!-- Header -->
                 <header>
-                    <div class="boton-hamburguesa" onclick="sidebar_open()"><i class="fa fa-bars"></i></div>
+                    <div class="boton-hamburguesa"><i class="fas fa-times" id="toggle-icon"></i></div>
 
                     <div class="dashboard-texto"><h3>Dashboard RoosterMusic</h3></div>
                 </header>
                 <!-- /Header -->
 
                 <!-- Secciones -->
-                <div class="contenedor-secciones-tablero-general">
+                <div class="contenedor-secciones-tablero">
 
                     <!-- Seccion 1 -->
-                    <section class="seccion1-tablero-general">
-                        <h3 class="texto-tablero-general">Sección categorías</h3>
+                    <section>
+                        <h3 class="texto-titulo">Sección categorías</h3>
                     </section>
                     <!-- /Seccion 1 -->
 
-                    <!-- Seccion 2 -->
-                    <!-- <section class="seccion2-tablero-general">
-                        <h3>Metricas</h3>
-                        <hr>
-                        <div class="container-metricas">
-                            <article class="metrica">
-                                <div class="metrica-imagen"><i class="fas fa-guitar"></i></div>
-                                <div class="metrica-descripcion">
-                                    <h3 class="texto-titulo-metrica">Productos</h3>
-                                    <h4 class="texto-descripcion-metrica">15</h4>
-                                </div>
-                            </article>
-                            <article class="metrica">
-                                <div class="metrica-imagen"><i class="fas fa-users"></i></div>
-                                <div class="metrica-descripcion">
-                                    <h3 class="texto-titulo-metrica">Usuarios</h3>
-                                    <h4 class="texto-descripcion-metrica">200</h4>
-                                </div>
-                            </article>
-                            <article class="metrica">
-                                <div class="metrica-imagen"><i class="fas fa-puzzle-piece"></i></div>
-                                <div class="metrica-descripcion">
-                                    <h3 class="texto-titulo-metrica">Categorías</h3>
-                                    <h4 class="texto-descripcion-metrica">20</h4>
-                                </div>
-                            </article>
-                            <article class="metrica">
-                                <div class="metrica-imagen"><i class="fas fa-percentage"></i></div>
-                                <div class="metrica-descripcion">
-                                    <h3 class="texto-titulo-metrica">Campañas</h3>
-                                    <h4 class="texto-descripcion-metrica">2</h4>
-                                </div>
-                            </article>
-                        </div>
-                    </section> -->
-                    <!-- /Seccion 2 -->
-
                     <!-- Seccion 3 -->
-                    <section class="seccion3-tablero-general">
+                    <section>
                         <h3>Productos por categorías</h3>
                         <hr>
                         <div class="container-metricas">
@@ -167,17 +130,24 @@
         </div>
         <!-- /Contenedor total -->
 
-    <script>
-        function sidebar_open() {
-            document.getElementById("sidebar").style.display = "block";
-            document.getElementById("sidebar").style.position = "fixed";
-            //document.getElementById("sidebar").style.width = "90%";
-        }
-
-        function sidebar_close() {
-            document.getElementById("sidebar").style.display = "none";
-        }
-    </script>
+        <script>
+            const botonHamburguesa = document.querySelector('.boton-hamburguesa');
+            const toggleIcon = document.querySelector('#toggle-icon');
+            const sidebar = document.querySelector('#sidebar');
+    
+            botonHamburguesa.addEventListener('click', function (e) {
+                // Change the icon. Could have used only toogle instruction but does not work in viceversa.
+                classToChange = toggleIcon.classList.item(1);
+                toggleIcon.classList.remove(classToChange);
+                if (classToChange == 'fa-times')  {
+                    toggleIcon.classList.add('fa-bars');
+                    sidebar.style.display = "none";
+                } else {
+                    toggleIcon.classList.add('fa-times');
+                    sidebar.style.display = "block";
+                }
+            });
+        </script>
 
     </body>
 
