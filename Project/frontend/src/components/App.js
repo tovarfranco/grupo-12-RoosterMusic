@@ -8,7 +8,7 @@ function App() {                                                // Como dijimos 
   return (                                                      // Debe retornar un solo bloque de código HTML. Esto es JSX: los class ahora son className, deben CERRARSE todas las etiquetas, se debe importar las imágenes para usarlas. VER QUE LOS COMPONENTES importados se usan como si fueran etiquetas HTML.
     <React.Fragment>
       {/* <!-- Contenedor total --> */}
-      <div class="contenedor-tablero">
+      <div className="contenedor-tablero">
 
         <Sidebar />
 

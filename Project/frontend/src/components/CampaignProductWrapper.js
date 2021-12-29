@@ -7,17 +7,17 @@ function CampaignProductWrapper() {
             <section>
                 <h3>Productos por campañas</h3>
                 <hr />
-                    <div class="container-metricas">
-                        <article class="metrica">
-                            <div class="metrica-descripcion">
-                                <h3 class="texto-titulo-metrica">Mas visitados</h3>
-                                <h4 class="texto-descripcion-metrica">15</h4>
+                    <div className="container-metricas">
+                        <article className="metrica">
+                            <div className="metrica-descripcion">
+                                <h3 className="texto-titulo-metrica">Mas visitados</h3>
+                                <h4 className="texto-descripcion-metrica">15</h4>
                             </div>
                         </article>
-                        <article class="metrica">
-                            <div class="metrica-descripcion">
-                                <h3 class="texto-titulo-metrica">Ofertas</h3>
-                                <h4 class="texto-descripcion-metrica">200</h4>
+                        <article className="metrica">
+                            <div className="metrica-descripcion">
+                                <h3 className="texto-titulo-metrica">Ofertas</h3>
+                                <h4 className="texto-descripcion-metrica">200</h4>
                             </div>
                         </article>
                     </div>

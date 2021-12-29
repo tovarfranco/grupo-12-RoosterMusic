@@ -7,17 +7,17 @@ function ProductAvailabilityWrapper() {
             <section>
                 <h3>Productos por disponibilidad</h3>
                 <hr />
-                <div class="container-metricas">
-                    <article class="metrica">
-                        <div class="metrica-descripcion">
-                            <h3 class="texto-titulo-metrica">En STOCK</h3>
-                            <h4 class="texto-descripcion-metrica">15</h4>
+                <div className="container-metricas">
+                    <article className="metrica">
+                        <div className="metrica-descripcion">
+                            <h3 className="texto-titulo-metrica">En STOCK</h3>
+                            <h4 className="texto-descripcion-metrica">15</h4>
                         </div>
                     </article>
-                    <article class="metrica">
-                        <div class="metrica-descripcion">
-                            <h3 class="texto-titulo-metrica">Sin STOCK</h3>
-                            <h4 class="texto-descripcion-metrica">200</h4>
+                    <article className="metrica">
+                        <div className="metrica-descripcion">
+                            <h3 className="texto-titulo-metrica">Sin STOCK</h3>
+                            <h4 className="texto-descripcion-metrica">200</h4>
                         </div>
                     </article>
                 </div>

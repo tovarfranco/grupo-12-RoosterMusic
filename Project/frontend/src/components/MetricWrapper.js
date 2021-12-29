@@ -53,29 +53,12 @@ function MetricWrapper() {
         return () => console.log('%cSe desmontó el componente - WillUnmount', 'color: red');     // RETORNA UNA FUNCION SIEMPRE.
     }, []);                                                                                      // SUPER IMPORTANTE este array vacío
 
-
     /* Creo mi data para renderizar correctamente */
     let metricList = [
-        {
-            icon: "fa-guitar",
-            name: "Producto",
-            total: products
-        },
-        {
-            icon: "fa-users",
-            name: "Usuarios",
-            total: users
-        },
-        {
-            icon: "fa-puzzle-piece",
-            name: "Categorias",
-            total: categories
-        },
-        {
-            icon: "fa-percentage",
-            name: "Campañas",
-            total: campaigns
-        }
+        { icon: "fa-guitar", name: "Producto", total: products },
+        { icon: "fa-users", name: "Usuarios", total: users },
+        { icon: "fa-puzzle-piece", name: "Categorias", total: categories },
+        { icon: "fa-percentage", name: "Campañas", total: campaigns }
     ];
 
     /* Renderizo */
