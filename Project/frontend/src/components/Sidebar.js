@@ -8,7 +8,7 @@ function Sidebar() {                                          // Usamos Link par
             {/* <!-- Sidebar --> */}
             <nav id="sidebar" className="sidebar">
 
-                <div className="logo" onclick="window.location='/'"><img src={logo} alt="Logo Rooster Music" /></div>
+                <div className="logo"><img src={logo} alt="Logo Rooster Music" /></div>
                 <hr />
                 <div className="links"><i className="fas fa-tachometer-alt"></i><Link to="/">Tablero general</Link></div>
                 <hr />
@@ -17,7 +17,7 @@ function Sidebar() {                                          // Usamos Link par
                 <div className="links"><i className="fas fa-users"></i><Link to="/users">Usuarios</Link></div>
                 <div className="links"><i className="fas fa-puzzle-piece"></i><Link to="/categories">Categorías</Link></div>
                 <div className="links"><i className="fas fa-percentage"></i><Link to="/campaigns">Campañas</Link></div>
-                <div className="links"><i className="fas fa-search"></i><Link to="/search">Buscador</Link></div>
+                {/* <div className="links"><i className="fas fa-search"></i><Link to="/search">Buscador</Link></div> */}
 
             </nav>
             {/* <!-- /Sidebar --> */}

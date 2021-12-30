@@ -247,40 +247,94 @@ main section {
     transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
 }
 
-.texto-titulo-modificacion {
-    text-align: center;
-
-}    
-.texto-descripcion-modificacion {
-    text-align: center;
-    font-weight: lighter;
-    font-size: 1.1rem;
+.modificacion-opciones ul {
+    list-style: none;       /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
 }
 
-.modificacion-imagen i {
-    font-size: 2rem;
+.modificacion-opciones li {
+    margin: 5px 0;          /*Poco de separación entre los elementos*/
 }
 
-@media (min-width: 768px){
+.modificacion-opciones a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: #3966F5;
+    font-size: 1rem;
+}
+
+.modificacion-imagen img {
+    width: 70px; height: 70px;
+    object-fit: cover;      /*Sin esta propiedad queda estirada la imagen*/
+    border-radius: 50%;     /*Para que sea redonda*/
+}
+
+@media (min-width: 800px){
     .container-modificaciones {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: flex-start;
+        align-items: stretch;
+    }
+
+    .grupo-modificaciones {
+        width: 45%;
+        margin: 0%;
+        padding: 2%;
     }
 
     .modificacion {
-        width: 40%;
-        margin: 2%;
-        padding: 2%;
+        max-width: none;          /*Sino me limita el artículo*/
+        padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+        margin: 3% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    }
+
+    .modificacion {             /*Tendrá la imagen | articulo-info*/
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .modificacion-imagen {
+        margin-right: 3%;   /*Para darle un poco de separación, conviene siempre darle al elemento superior, porque el otro va a caer si no entra*/
+    }
+
+    .modificacion-info {
+        flex-grow: 1;       /*Para que pueda ocupar el espacio disponible*/
+    }
+
+    .modificacion-descripcion {     /*Tendrá la texto-articulo | texto-precio*/
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .modificacion-descripcion h3 {
+        margin-top: 5px;      /*Tienen mucho margen y no queda tan centrado con la imagen*/
+        font-size: 1rem;
+    }
+
+    .modificacion-opciones ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .modificacion-opciones li {
+        margin-right: 3%;
     }
 }
 
 @media (min-width: 1200px){
     .modificacion {
-        width: 20%;
-        margin: 1.5%;
-        padding: 1%;
+        padding: 2%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    }
+
+    .modificacion-descripcion h3 {
+        font-size: 1.2rem;
     }
 }
 
@@ -291,7 +345,7 @@ main section {
 }
 
 .boton-categoria button {
-    width: 200px;               /*Fijo tamaño para que todos sean iguales*/
+    width: 70%;               /*Fijo tamaño para que todos sean iguales*/
     background-color: #52535e;
     color: white;
     border: solid 1px black;
@@ -311,13 +365,21 @@ main section {
     }
 
     .boton-categoria {
-        width: 40%;
+        width: 35%;
+    }
+
+    .boton-categoria button {
+        width: 90%;
     }
 }
 
 @media (min-width: 1200px){
     .boton-categoria {
         width: 23%;
+    }
+
+    .boton-categoria button {
+        width: 80%;
     }
 }
 

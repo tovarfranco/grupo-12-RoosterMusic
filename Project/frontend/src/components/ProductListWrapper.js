@@ -22,7 +22,7 @@ function ProductListWrapper() {
     /* DidUpdate pero con Hook. */
     useEffect(() => {                                                                            // En este caso es importante PASARLE el array con dependencias, es decir a la variable que daremos seguimiento por si cambia de estado.
         console.log('%cSe actualizó el componente - DidUpdate', 'color: blue');
-    }, [products]);                                                // SUPER IMPORTANTE, daremos seguimiento al estado de esta variable.
+    }, [products]);                                                                              // SUPER IMPORTANTE, daremos seguimiento al estado de esta variable.
 
     /* WillUnmount pero con Hook. */
     useEffect(() => {                                                                            // En este caso es importante PASARLE el array con dependencias, es decir a la variable que daremos seguimiento por si cambia de estado.
@@ -33,32 +33,32 @@ function ProductListWrapper() {
     return (
         <React.Fragment>
             {/* <!-- Seccion 2 --> */}
-                    <section>
-                        <h3>Listado de productos</h3>
-                        <hr />
-                        <div className="container-tabla">
-                            <table role="table">
-                                <thead>
-                                    <tr role="row">
-                                        <th role="columnheader">ID</th>
-                                        <th role="columnheader">Imagen</th>
-                                        <th role="columnheader">Nombre</th>
-                                        <th role="columnheader">Precio</th>
-                                        <th role="columnheader">Marca</th>
-                                        <th role="columnheader">Origen</th>
-                                        <th role="columnheader">Categoria</th>
-                                        <th role="columnheader">Campaña</th>
-                                        <th role="columnheader">Disponibilidad</th>
-                                        <th role="columnheader">URL</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {products.map((item, i) => <ProductList key={i} {...item} />)}
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                    {/* <!-- /Seccion 2 --> */}
+            <section>
+                <h3>Listado de productos</h3>
+                <hr />
+                <div className="container-tabla">
+                    <table role="table">
+                        <thead>
+                            <tr role="row">
+                                <th role="columnheader">ID</th>
+                                <th role="columnheader">Imagen</th>
+                                <th role="columnheader">Nombre</th>
+                                <th role="columnheader">Precio</th>
+                                <th role="columnheader">Marca</th>
+                                <th role="columnheader">Origen</th>
+                                <th role="columnheader">Categoria</th>
+                                <th role="columnheader">Campaña</th>
+                                <th role="columnheader">Disponibilidad</th>
+                                <th role="columnheader">URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {products.map((item, i) => <ProductList key={i} {...item} />)}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            {/* <!-- /Seccion 2 --> */}
         </React.Fragment>
     )
 }

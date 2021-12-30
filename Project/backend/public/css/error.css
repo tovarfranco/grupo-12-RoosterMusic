@@ -46,6 +46,6 @@
 /* Dark Mode ---------------------------------------------------*/
 
 body.body-dark .mensaje{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
-    background-color: rgba(248, 246, 246, 0.6);
+    background-color: rgba(248, 246, 246, 0.8);
     color: black;
 }
