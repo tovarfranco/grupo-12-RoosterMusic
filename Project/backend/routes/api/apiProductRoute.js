@@ -10,6 +10,9 @@ const apiProductController = require('../../controllers/api/apiProductController
 /*** Todos los productos *******/
 router.get('/', apiProductController.index);                                                // ACA se pone la ruta que sacamos de app.js. Este será el encargado de enviar la petición al controlador correspondiente para que genere la respuesta. Debemos usar el objeto router + método HTTP + callback (quien genera la respuesta). Usamos también SUBRUTAS del la funcionalidad.
 
+/*** Búsqueda de productos *****/
+router.get('/search', apiProductController.search);
+
 /*** Detalle de un producto ****/
 router.get('/:id', apiProductController.detail);
 

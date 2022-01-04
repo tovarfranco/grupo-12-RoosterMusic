@@ -1,5 +1,5 @@
 // =========== Require's ==============================
-const path = require('path');                                                          // Manejo de rutas.
+const path = require('path');                                                                                                 // Manejo de rutas.
 
 // =========== Modelo =================================
 const Product = require('../../models/Product.model.js');
@@ -24,8 +24,8 @@ const apiProductController = {
         let countByCategory = await Product.countByProduct();
 
         let countResult = []
-        countByCategory.forEach(result => { 
-            countResult.push({categoryName: result.dataValues.category.name, productCount: result.dataValues.productCount});        // Agrego un objeto formado por los campos que necesito
+        countByCategory.forEach(result => {
+            countResult.push({ categoryName: result.dataValues.category.name, productCount: result.dataValues.productCount });  // Agrego un objeto formado por los campos que necesito
         })
 
         /* Genero respuesta */
@@ -43,15 +43,41 @@ const apiProductController = {
     },
 
     /*** Detalle de un producto ***/
-    detail: async (req, res) => {                                                      // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
-        let productFound = await Product.joinPkCategoryCampaign(req.params.id);                      // findByPk devuelve un objeto directamente, no un array.       
+    detail: async (req, res) => {                                                                                             // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
+        let productFound = await Product.joinPkCategoryCampaign(req.params.id);                                               // findByPk devuelve un objeto directamente, no un array.       
 
         /* Modifico la información de Sequelize */
         productFound.dataValues.url = `/api/products/${productFound.id_product}`;
 
         res.json(productFound);
-    }
+    },
+
+    search: async (req, res) => {
+        let productList = await Product.findByField('name', 'like', "%" + req.query.keyword + "%");
+
+        if (productList.length > 0) {
+            /* Modifico la información de Sequelize */
+            console.log("Entro acá")
+            productList.forEach(product => {
+                product.dataValues.url = `api/products/${product.id_product}`;
+            });
+        } else {
+            productList = [];
+        }
+
+        /* Genero respuesta */
+        let response = {
+            meta: {
+                status: 200,
+                total: productList.length,
+                url: '/api/search'
+            },
+            data: productList
+        };
+
+        res.json(response);
+    },
 }
 
 // =========== Exporto Controlador ===========================
-module.exports = apiProductController                                                  // Siempre exportarlo porque lo necesitaremos usar en el ROUTES para que sepa a qué controlador enviar la petición.
+module.exports = apiProductController                                                                                         // Siempre exportarlo porque lo necesitaremos usar en el ROUTES para que sepa a qué controlador enviar la petición.

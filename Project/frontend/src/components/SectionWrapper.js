@@ -12,6 +12,7 @@ import UserListWrapper from './UserListWrapper';
 import UserCountryWrapper from './UsersCountryWrapper';
 import CategoryProductWrapper from './CategoryProductWrapper';
 import CampaignProductWrapper from './CampaignProductWrapper';
+import Search from './Search';
 
 function SectionWrapper() {                                        // Usamos Link para redireccionar a la ruta que queramos. Básicamente cambia la ruta en el navegador. Ahora con un Switch + Route podemos elegir qué renderizar leyendo esta ruta del navegador.
     return (
@@ -62,6 +63,12 @@ function SectionWrapper() {                                        // Usamos Lin
                             <Titulo titulo={"Seccion Campañas"} />
                             <CampaignProductWrapper />
                             <CampaignWrapper />
+                        </>
+                    } />
+                    <Route path="/search" element={
+                        <>
+                            <Titulo titulo={"Buscador de Productos"} />
+                            <Search />
                         </>
                     } />
                     <Route path="*" element={<Titulo titulo={"Página no encontrada"} />} />

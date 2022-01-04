@@ -383,7 +383,7 @@ main section {
     }
 }
 
-/* Section: PRODUCTS----------------------------------------------------------------------*/
+/* Section: PRODUCTOS----------------------------------------------------------------------*/
 
 table {
     font-family: arial, sans-serif;
@@ -473,4 +473,126 @@ tr:nth-child(even) {
     .td-user:nth-of-type(6):before { content: "Domicilio"; }
     .td-user:nth-of-type(7):before { content: "Email"; }
     .td-user:nth-of-type(8):before { content: "Imagen"; }
+}
+
+/* Section: BUSQUEDA----------------------------------------------------------------------*/
+
+.label-buscar {
+    display: block;
+    margin-bottom: 15px;
+    text-align: left;
+    color: grey;
+    font-weight: bold;
+}
+
+.control {                 /*Son los inputs*/
+    border: 1px grey solid;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+}
+
+.boton-buscar {       /*Características comunes de los bototnes*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    width: 115px;          /*Para que tengan el mismo tamaño*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-buscar:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+.articulo {
+    background-color: white;
+    color: black;
+    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    box-shadow: 0px 0px 10px rgb(100,100,100);
+    transition: all .3s;      /*Animación*/
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+    cursor: default;
+}
+
+.articulo-imagen {
+    cursor: pointer;
+}
+
+.articulo:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+}
+
+.texto-titulo-articulo {
+    text-align: center;
+
+}    
+.texto-descripcion-articulo {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.1rem;
+}
+
+.a-sitio {   /*Container de los botones*/
+    display: block;
+    margin: auto;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    width: 65%;              /*Para que tengan el mismo tamaño*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+
+}
+
+.a-sitio:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+@media (min-width: 768px){
+    .container-articulos {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .articulo {
+        width: 40%;
+        margin: 2%;
+        padding: 2%;
+    }
+
+    .a-sitio {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1200px){
+    .articulo {
+        width: 28%;
+        margin: 1.5%;
+        padding: 1%;
+    }
+
+    .a-sitio {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1500px){             /*Solo para que el botón de agregar al carrito se vea bien*/
+    .a-sitio {
+        width: 50%;
+    }
 }
