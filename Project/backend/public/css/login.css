@@ -1,0 +1,232 @@
+/* Generales  ==========================================================================================================================*/
+
+@import url('./partials/_general.css');
+
+/* Header ==============================================================================================================================*/
+
+@import url('./partials/_header.css');
+
+/* Footer ==============================================================================================================================*/
+
+@import url('./partials/_footer.css');
+
+/* Margin Main ==============================================================================================================================*/
+
+header {
+    position: static;   /*Para resoluciones pequeñas lo dejo static. Para grandes fixed*/
+}
+
+main {
+    margin-top: 0px;    /*285px: ok. Lo corremos por el header fixed, así como en sus media queries*/
+}
+
+@media (min-width: 768px){
+    header {
+        position: fixed;
+    }
+
+    main {
+        margin-top: 210px;
+    }
+}
+
+@media (min-width: 1200px){
+    main {
+        margin-top: 250px;
+    }
+}
+
+/* Main ================================================================================================================================*/
+
+main {
+    width: 80%;           /*Para algun espaciado y centrarlo en el body*/
+    margin-left: auto;    /*No quiero pisar el margin por el header fixed*/
+    margin-right: auto;
+}
+
+main section {
+    margin: 5% 0;   /*De base uso esto, luego en las medias queries los voy cambiando*/
+}
+
+/* Section: REGISTRO----------------------------------------------------------------------*/
+
+.texto-iniciar-sesion {
+    text-align: center;
+}
+
+/* FORMULARIO-----------------------------------*/
+
+.formulario {
+    background-color: white;
+    color: black;
+    padding: 4%;              /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    padding-top: 1%;          /*Quito el padding superior*, queda mal*/
+    margin: 5% auto;          /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    max-width: 500px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+    text-align: center        /*Centro sus elementos*/
+}
+
+.boton-google, .boton-facebook {
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    width: 100%;          /*Para que tengan el mismo tamaño*/
+    margin: 3% 0;
+}
+
+.boton-google i, .boton-facebook i{
+    margin-right: 3%;
+}
+
+.boton-google {
+    background-color: rgb(240, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+.boton-facebook {
+    background-color: #3966F5;
+    color: white;
+    cursor: pointer;
+}
+
+.elemento{
+    margin: 5% 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 1%;
+    text-align: left;
+    color: grey;
+    font-weight: bold;
+}
+
+.control {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 5px;
+    width: 100%;           /*Para que el input abarque todo el ancho*/
+    padding: 10px 10px;
+}
+
+.psw {                     /*Solo para juntar el password con el ojo*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.control-psw {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    width: 85%;                /*Para que el input NO abarque todo el ancho- deja espacio para el ojo*/
+    padding: 10px 10px;
+    margin: 0px;
+}
+
+.ojo-icono {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 0px 5px 5px 0px; 
+    width: 15%;              /*Ancho del ojo compartido con el input*/
+    padding: 10px 10px;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.control-error {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: solid 1px red;
+    border-radius: 5px;
+    width: 100%;           /*Para que el input abarque todo el ancho*/
+    padding: 10px 10px;
+}
+
+.control-error-psw {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: solid 1px red;
+    border-radius: 5px 0px 0px 5px;
+    width: 85%;           /*Para que el input abarque todo el ancho*/
+    padding: 10px 10px;
+}
+
+.input-error {             /*Mensaje de error de express-validator*/
+    display: block;
+    margin-top: 1%;
+    text-align: left;
+    color: red;
+}
+
+.mantener {
+    text-align: left;      /*Así el checkbox queda a la izquierda*/
+    margin: 5% 0;
+}
+
+.mantener input {
+    margin-right: 8px;     /*Para separar el checkbox*/
+}
+
+.boton-registrarse-formulario, .boton-iniciar-sesion-formulario {       /*Características comunes de los bototnes*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    width: 115px;          /*Para que tengan el mismo tamaño*/
+}
+
+.boton-registrarse-formulario {   /*Característica particular del botón*/
+    background-color: #04be74;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-iniciar-sesion-formulario { /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-registrarse-formulario:hover, .boton-iniciar-sesion-formulario:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+@media (min-width: 900px){
+
+    .formulario {
+        max-width: 700px;
+    }
+
+    .inputs-1, .inputs-2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .inputs-1 div{          /*Los botones*/
+        margin: 2% 0;       /*Le saco un poco de margen a los inputs*/
+        width: 49%;         /*Para que todos sean iguales*/
+    }
+
+    .elemento{
+        margin: 2% 0;       /*Le saco un poco de margen a los inputs*/
+        width: 49%;         /*Para que todos sean iguales*/
+    }
+
+    .mantener {
+        margin: 2% 0;      /*Le saco un poco de margen al mantener sesión iniciada*/
+    }
+}
+
+@media (min-width: 1200px){
+    .iniciar-sesion {
+        max-width: 1200px;
+        margin: 4% auto;
+    }
+}

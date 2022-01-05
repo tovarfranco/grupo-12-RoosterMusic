@@ -1,0 +1,51 @@
+/* Generales  ==========================================================================================================================*/
+
+@import url('./partials/_general.css');
+
+/* Mensaje =============================================================================================================================*/
+
+.container {
+    width: 80%;                 /*Para que no se pegue al borde en resoluciones pequeñas*/
+    margin: auto;
+    height: 100vh;              /*Importante así ocupa toda la pantalla*/
+    text-align: center;         /*Para que todos los elementos internos esten centrados*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensaje {
+    background-color: white;
+    display: inline-block;
+    padding: 5%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    border-radius: 2%;
+}
+
+.icono {
+    color: grey;
+    font-size: 6rem;
+}
+
+.boton-inicio {
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    width: 115px;     /*Para tamaño fijo*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-inicio:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+/* Dark Mode ---------------------------------------------------*/
+
+body.body-dark .mensaje{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
+    background-color: rgba(248, 246, 246, 0.8);
+    color: black;
+}

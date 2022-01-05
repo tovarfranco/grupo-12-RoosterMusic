@@ -1,0 +1,14 @@
+<article class="articulo">
+    <div class="articulo-imagen" onclick="window.location='/products/detail/<%= product.id_product %>'"><img src="/images/products/<%= product.image %>" alt=<%= product.name %>></div>
+    <hr>
+    <div class="articulo-descripcion">
+        <h3 class="texto-titulo-articulo"><%= product.brand %></h3>
+        <h4 class="texto-descripcion-articulo"><%= product.name %></h4>
+        <h3 class="texto-precio-articulo">U$S <%= product.price %></h3>
+        <form action="/productCart/create" method="POST" id="form-agregar-al-carrito-card">
+            <input type="hidden" name="id_status" value="1"/>
+            <input type="hidden" name="id_product" value="<%= product.id_product %>"/>          <!--IMPORTANTE: Este input estaba en el botón de abajo. Puedo pasar valores (name: value) del form al back mediante buttons tambien, pero debido a la animación de JS no los tomaba, porque bypassea los valores-->
+            <button class="boton-agregar-carrito-card" type="submit">Agregar al carrito</button>
+        </form>
+    </div>
+</article>

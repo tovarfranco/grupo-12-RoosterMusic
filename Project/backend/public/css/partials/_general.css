@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;      /*Necesario, indica que se respetará el tamaño que definimos, hasta el borde menos el margin*/
+    /*border: solid 1px black;   /*Lo activo/desactivo para ver los bordes de los elementos*/
+    /*padding: 5px;              /*Lo activo/desactivo para ver los bordes de los elementos*/
+    /*margin: 5px;               /*Lo activo/desactivo para ver los bordes de los elementos*/
+}
+
+/*Opción background 1*/
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url("/images/background-white3.jpg") no-repeat center fixed;
+    background-size: cover;
+    /* background-color: #F3F7FF; fondo inicial de desarrollo*/
+    transition: .0s ease all;        /*Para el dark mode*/
+}
+
+/*Opción background 2*/
+.body-dark {
+    font-family: 'Roboto', sans-serif;
+    background: url("/images/background-dark3.jpg") repeat center fixed;
+    background-size: cover;
+    color: white;
+}
+
+h2 {font-size: 1.50rem;}
+
+h3 {font-size: 1.25rem;}
+
+h4 {font-size: 1rem}
+
+p {font-size: 1rem;}
+
+img {width: 100%;}  /*Para que ocupen el 100% de su contenedor*/

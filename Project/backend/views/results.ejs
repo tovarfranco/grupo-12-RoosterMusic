@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/products.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+
+            <section class="todos-productos">
+                <h2>Resultado de la búsqueda: <%= keyword %></h2>
+                <hr>
+            <% if (productList.length != 0) { %>
+                <div class="container-articulos">
+                <% productList.forEach(product => { %>
+                    <!--productCard-->
+                    <%- include('./partials/_productCard', {product}) %>
+                    <!--/productCard-->
+                <% }); %>
+                </div>
+            <% } else { %>
+                <div class="container">             <!--Cartel de SIN RESULTADOS-->
+                    <div class="mensaje">
+                        <div><i class="fas fa-search icono"></i></div>
+                        <h2>Sin resultados</h2>
+                        <h3>No hay productos que coincidan con la búsqueda</h3>
+                        <p>Intentalo nuevamente o buscá por categorías</p>
+                        <button class="boton-inicio" type="button" onclick="window.location='/'">Inicio</button>
+                    </div>
+                </div>
+            <% }; %>
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/js/cartEffectCard.js"></script>
+    </body>
+</html>

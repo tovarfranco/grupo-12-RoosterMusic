@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/productCart.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+
+            <section class="carrito">
+                
+                <div class="carrito-titulo">
+                    <h2 class="texto-carrito-titulo">Carrito</h2><i class="fas fa-shopping-cart carrito-icono"></i>
+                </div>
+                <hr>
+            <% if (orderList.length != 0) { %>
+                <div class="container-articulos" >
+                <% orderList.forEach(order => { %>
+                    <!--productCartCard-->
+                    <%- include('./partials/_productCartCard', {order}) %>
+                    <!--/productCartCard-->
+                <% }); %>
+                </div>
+
+                <div class="envio">
+                    <div class="detalle-envio">
+                        <h4 class="texto-domicilio">Enviar a <%= locals.userLogged.address %></h4>
+                        <h4 class="costo-envio">$ 300</h4>
+                    </div>
+                    <div class="detalle-total">
+                        <h3 class="texto-total">Total con envío</h3>
+                        <h3 class="costo-total">$ <%= (total + 300).toFixed(2) %> </h3>
+                    </div>
+                    <form action="/productCart/edit/ALL?_method=PUT" method="POST">
+                        <input type="hidden" name="id_status" value="2"/>
+                        <button class="boton-comprar" type="submit">Comprar</button>
+                    </form>
+                </div>
+            <% } else { %>
+                <div class="container">             <!--Cartel de SIN RESULTADOS-->
+                    <div class="mensaje">
+                        <div><i class="fas fa-shopping-cart icono"></i></div>
+                        <h2>Su carrito está vacío</h2>
+                        <h3>No hay productos que mostrar</h3>
+                        <p>En el detalle del producto puede presionar "Agregar al carrito"</p>
+                        <button class="boton-inicio" type="button" onclick="window.location='/products'">Productos</button>
+                    </div>
+                </div>
+            <% }; %>
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/js/cartEffect.js"></script>
+        <script src="/js/cartEffectCard.js"></script>
+        <!-- SweetAlert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/alertProductCart.js"></script>
+    </body>
+</html>

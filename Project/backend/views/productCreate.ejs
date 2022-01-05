@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/crud.css">
+        <script src="/js/productCreateForm.js"></script>
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+
+            <section class="crud">
+                
+                <h2 class="texto-crud">CREACION DE PRODUCTOS</h2>
+                <hr>
+                <form action="/products/create" method="POST" class="formulario" enctype="multipart/form-data" autocomplete="off"> <!--enctype para subir imagenes. SI O SI usar Multer sino no viaja la info-->
+                    <h3 class="texto-formulario">Cree su producto</h3>
+                    <div class="container-inputs">
+                        <div class="inputs-1">
+                            <div class="elemento">
+                                <label>Nombre</label>
+                                <input type="text" name="nombre" id="nombre-control" class="control" placeholder="Nombre">
+                                <span id="nombre-msg" class="input-no-error"></span>
+                            </div>
+                            <div class="elemento">
+                                <label>Descripción</label>
+                                <input type="text" name="descripcion" id="descripcion-control" class="control" placeholder="Descripción">
+                                <span id="descripcion-msg" class="input-no-error"></span>
+                            </div>
+                            <div class="elemento">
+                                <label>Precio</label>
+                                <input type="number" name="precio" id="precio-control" class="control" placeholder="0.00 (punto o coma)" step="0.01">
+                                <span id="precio-msg" class="input-no-error"></span>
+                            </div>
+                        </div>
+                        <div class="inputs-2">
+                            <div class="elemento">
+                                <label>Marca</label>
+                                <input type="text" name="marca" id="marca-control" class="control" placeholder="Marca">
+                                <span id="marca-msg" class="input-no-error"></span>
+                            </div>
+                            <div class="elemento">
+                                <label>Modelo</label>
+                                <input type="text" name="modelo" id="modelo-control" class="control" placeholder="Modelo">
+                                <span id="modelo-msg" class="input-no-error"></span>
+                            </div>
+                            <div class="elemento">
+                                <label>Categoría</label>
+                                <select name="categoria" id="categoria-control" class="control">
+                                    <option value="" disabled selected hidden>Seleccione la categoría</option>
+                                <% categoryList.forEach(category => { %>
+                                    <option value="<%= category.id_category %>"><%= category.name %></option>
+                                <% }); %>
+                                </select>
+                                <span id="categoria-msg" class="input-no-error"></span>
+                            </div>
+                        </div>
+                        <div class="inputs-3">
+                            <div class="elemento">
+                                <label>Color</label>
+                                <input type="text" name="color" id="color-control" class="control" placeholder="Color">
+                                <span id="color-msg" class="input-no-error"></span>
+                            </div>
+                            <div class="elemento">
+                                <label>Material</label>
+                                <input type="text" name="material" id="material-control" class="control" placeholder="Material">
+                                <span id="material-msg" class="input-no-error"></span>
+                            </div>
+                            <div class="elemento">
+                                <label>Origen</label>
+                                <input type="text" name="origen" id="origen-control" class="control" placeholder="Origen">
+                                <span id="origen-msg" class="input-no-error"></span>
+                            </div>
+                        </div>
+                        <div class="inputs-4">
+                            <div class="elemento">
+                                <label>Año</label>
+                                <input type="number" name="anio" id="anio-control" class="control" placeholder="Año">
+                                <span id="anio-msg" class="input-no-error"></span>
+                            </div>
+                            <div class="elemento">
+                                <label>Disponibilidad</label>
+                                <select name="disponibilidad" id="disponibilidad-control" class="control">
+                                    <option value="" disabled selected hidden>Disponibilidad</option>
+                                    <option value="En Stock">En STOCK</option>
+                                    <option value="Sin Stock">Sin STOCK</option>
+                                </select>
+                                <span id="disponibilidad-msg" class="input-no-error"></span>
+                            </div>
+                            <div class="elemento">
+                                <label>Imagen</label>
+                                <input type="file" name="img" class="control" accept=".jpg, .png">
+                            </div>
+                        </div>
+                        <div class="inputs-5">
+                            <div class="elemento">
+                                <label>Campaña</label>
+                                <select name="campania" id="campania-control" class="control">
+                                    <option value="" disabled selected hidden>Campaña</option>
+                                <% campaignList.forEach(campaign => { %>
+                                    <option value="<%= campaign.id_campaign %>"><%= campaign.name %></option>
+                                <% }); %>
+                                </select>
+                                <span id="campania-msg" class="input-no-error"></span>
+                            </div>
+                        </div>
+                    <span class="input-no-error" id="errores-msg"></span>
+                    <div><button class="boton-crear" type="submit">Crear</button></div>
+                </form>
+
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+        
+    </body>
+</html>

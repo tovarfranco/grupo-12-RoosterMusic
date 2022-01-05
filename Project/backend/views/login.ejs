@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/login.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+
+            <section class="iniciar-sesion">
+                
+                <h2 class="texto-iniciar-sesion">INICIAR SESION</h2>
+                <hr>
+                <form action="/users/login" method="POST" class="formulario">
+                    <!-- Deshabilitado hasta que funcione una integración con Google y Facebook -->
+                    <!-- <h3 class="texto-formulario">Ingreso rápido</h3>
+                    <div class="inputs-1">
+                        <div><button class="boton-google" type="button"><i class="fab fa-google"></i>Ingresá con Google</button></div>
+                        <div><button class="boton-facebook" type="button"><i class="fab fa-facebook-f"></i>Ingresá con Facebook</button></div>
+                    </div> -->
+                    <h3 class="texto-formulario">Ingreso manual</h3>
+                    <div class="inputs-2">
+                        <div class="elemento">
+                            <label>E-mail</label>
+                            <input type="email" name="email" class="control <%= locals.errors && errors.email ? 'control-error' : null %>" placeholder="E-mail" value="<%= locals.oldData ? oldData.email : null %>">
+                            <% if (locals.errors && errors.email) { %>
+                                <span class="input-error"><%= errors.email.msg %> *</span>
+                            <% } %>
+                        </div>
+                        <div class="elemento">
+                            <label>Contraseña</label>
+                            <div class="psw">
+                                <input type="password" name="password" class="control-psw <%= locals.errors && errors.password ? 'control-error-psw' : null %>" placeholder="Contraseña" id="id_password">
+                                <i class="ojo-icono far fa-eye-slash" id="togglePassword"></i>
+                            </div>
+                            <% if (locals.errors && errors.password) { %>
+                                <span class="input-error"><%= errors.password.msg %> *</span>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="mantener">
+                        <label><input type="checkbox" name="mantener">Mantener sesión iniciada</label>
+                    </div>
+                    <div><button class="boton-iniciar-sesion-formulario" type="submit">Iniciar sesión</button></div>
+                    <h3 class="texto-tenes-cuenta">¿No tenes cuenta?</h3>
+                    <div><button class="boton-registrarse-formulario" type="button" onclick="window.location='/users/create'">Registrarse</button></div>
+                </form>
+
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+        
+    </body>
+
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#id_password');
+
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // Change the eye slash icon. Could have used only toogle instructionbut does not work in viceversa.
+            classToChange = this.classList.item(2);
+            this.classList.remove(classToChange);
+            if (classToChange == 'fa-eye-slash')  {
+                this.classList.add('fa-eye');
+            } else {
+                this.classList.add('fa-eye-slash');
+            }
+        });
+    </script>
+</html>

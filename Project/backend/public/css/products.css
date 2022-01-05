@@ -1,0 +1,199 @@
+/* Generales  ==========================================================================================================================*/
+
+@import url('./partials/_general.css');
+
+/* Header ==============================================================================================================================*/
+
+@import url('./partials/_header.css');
+
+/* Footer ==============================================================================================================================*/
+
+@import url('./partials/_footer.css');
+
+/* Margin Main ==============================================================================================================================*/
+
+header {
+    position: static;   /*Para resoluciones pequeñas lo dejo static. Para grandes fixed*/
+}
+
+main {
+    margin-top: 0px;    /*285px: ok. Lo corremos por el header fixed, así como en sus media queries*/
+}
+
+@media (min-width: 768px){
+    header {
+        position: fixed;
+    }
+
+    main {
+        margin-top: 210px;
+    }
+}
+
+@media (min-width: 1200px){
+    main {
+        margin-top: 250px;
+    }
+}
+
+/* Main ================================================================================================================================*/
+
+main {
+    width: 80%;           /*Para algun espaciado y centrarlo en el body*/
+    margin-left: auto;    /*No quiero pisar el margin por el header fixed*/
+    margin-right: auto;
+}
+
+main section {
+    margin: 5% 0;         /*De base uso esto, luego en las medias queries los voy cambiando*/
+}
+
+/* Section: TODOS LOS PRODUCTOS----------------------------------------------------------------------*/
+
+.articulo {
+    background-color: white;
+    color: black;
+    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    box-shadow: 0px 0px 10px rgb(100,100,100);
+    transition: all .3s;      /*Animación*/
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+    cursor: default;
+}
+
+.articulo-imagen {
+    cursor: pointer;
+}
+
+.articulo:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+}
+
+.texto-titulo-articulo {
+    text-align: center;
+
+}    
+.texto-descripcion-articulo {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.1rem;
+}
+
+#form-agregar-al-carrito-card {   /*Container de los botones*/
+    text-align: center;
+}
+
+#form-agregar-al-carrito-card button {    /*Características comunes de los botones - Solo el de agregar al carrito*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 2% 5px;
+    width: 65%;              /*Para que tengan el mismo tamaño*/
+}
+
+.boton-agregar-carrito-card {     /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-agregar-carrito-card:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+@media (min-width: 768px){
+    .container-articulos {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .articulo {
+        width: 40%;
+        margin: 2%;
+        padding: 2%;
+    }
+
+    #form-agregar-al-carrito-card button {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1200px){
+    .todos-productos {
+        max-width: 1400px;
+        margin: 4% auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .articulo {
+        width: 28%;
+        margin: 1.5%;
+        padding: 1%;
+    }
+
+    #form-agregar-al-carrito-card button {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1500px){             /*Solo para que el botón de agregar al carrito se vea bien*/
+    #form-agregar-al-carrito-card button {
+        width: 50%;
+    }
+}
+
+/* Si no hay productos que mostrar -------------------------------------------------------------------*/
+
+.container {
+    margin: 3% auto;
+    text-align: center;         /*Para que todos los elementos internos esten centrados*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensaje {
+    display: inline-block;
+    padding: 5%;                /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+}
+
+.icono {
+    color: grey;
+    font-size: 6rem;
+}
+
+.boton-inicio {
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    width: 115px;     /*Para tamaño fijo*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-inicio:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+/* Dark Mode ---------------------------------------------------*/
+
+body.body-dark .articulo{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
+    background-color: rgba(248, 246, 246, 0.8);
+    box-shadow: 0px 0px 10px rgb(56, 56, 56);
+    font-weight: bold;
+}
+
+body.body-dark .texto-descripcion-articulo {
+    font-weight: bold;
+}
+
+body.body-dark .icono {
+    color: rgba(248, 246, 246, 0.8);
+}

@@ -1,0 +1,284 @@
+/* Generales  ==========================================================================================================================*/
+
+@import url('./partials/_general.css');
+
+/* Header ==============================================================================================================================*/
+
+@import url('./partials/_header.css');
+
+/* Footer ==============================================================================================================================*/
+
+@import url('./partials/_footer.css');
+
+/* Banner ==============================================================================================================================*/
+
+header {
+    position: static;   /*Para resoluciones pequeñas lo dejo static. Para grandes fixed*/
+}
+
+main {
+    margin-top: 0px;    /*256px: ok. Lo corremos por el header fixed, así como en sus media queries*/
+}
+
+@media (min-width: 768px){
+    header {
+        position: fixed;
+    }
+
+    .banner-promocion {
+        margin-top: 182.94px;
+    }
+}
+
+@media (min-width: 1200px){
+    .banner-promocion {
+        margin-top: 214.58px;
+    }
+}
+
+/* Main ================================================================================================================================*/
+
+main {
+    width: 80%;     /*Para algun espaciado y centrarlo en el body*/
+    margin: auto;   /*Como tengo el banner arriba acá puedo poner el margin auto, en las otras páginas no estará el banner y esto debe ser margin-left-right auto, y el margin-top lo defino arriba*/
+}
+
+main section {
+    margin: 5% 0;   /*De base uso esto, luego en las medias queries los voy cambiando*/
+}
+
+/* Section: QUE ESTAS BUSCANDO----------------------------------------------------------------------*/
+
+.texto-que-estas-buscando {
+    text-align: center;
+}
+
+.boton-categoria {
+    text-align: center; /*Alineo el botón dentro del div*/
+}
+
+.boton-categoria button {
+    width: 200px;               /*Fijo tamaño para que todos sean iguales*/
+    background-color: white;
+    color: black;
+    border: solid 1px black;
+    border-radius: 7px;
+    padding: 8px;
+    font-size: 1.25rem;
+    margin: 5px 0;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-categoria button:hover {
+    background-color: black;
+    color: white;
+}
+
+@media (min-width: 768px){
+    .container-boton-categorias {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .boton-categoria {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px){
+    .que-estas-buscando {
+        max-width: 1400px;
+        margin: 4% auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .boton-categoria {
+        width: 22%;
+    }
+}
+
+/* Section: MAS VISITADOS----------------------------------------------------------------------*/
+
+.articulo {
+    background-color: white;
+    color: black;
+    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    box-shadow: 0px 0px 10px rgb(100,100,100);
+    transition: all .3s;      /*Animación*/
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+    cursor: default;
+}
+
+.articulo-imagen {
+    cursor: pointer;
+}
+
+.articulo:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+}
+
+.texto-titulo-articulo {
+    text-align: center;
+
+}    
+.texto-descripcion-articulo {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.1rem;
+}
+
+#form-agregar-al-carrito-card {   /*Container de los botones*/
+    text-align: center;
+}
+
+#form-agregar-al-carrito-card button {    /*Características comunes de los botones - Solo el de agregar al carrito*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 2% 5px;
+    width: 65%;              /*Para que tengan el mismo tamaño*/
+}
+
+.boton-agregar-carrito-card {     /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-agregar-carrito-card:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+@media (min-width: 768px){
+    .container-articulos {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .articulo {
+        width: 40%;
+        margin: 2%;
+        padding: 2%;
+    }
+
+    #form-agregar-al-carrito-card button {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1200px){
+    .mas-visitados, .ofertas-destacadas {
+        max-width: 1400px;
+        margin: 4% auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .articulo {
+        width: 28%;
+        margin: 1.5%;
+        padding: 1%;
+    }
+
+    #form-agregar-al-carrito-card button {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1500px){             /*Solo para que el botón de agregar al carrito se vea bien*/
+    #form-agregar-al-carrito-card button {
+        width: 50%;
+    }
+}
+
+/* Section: MARCAS----------------------------------------------------------------------*/
+
+.texto-marcas {
+    text-align: center;
+}
+
+@media (min-width: 1200px){
+    .marcas {
+        max-width: 1400px;
+        margin: 4% auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+}
+
+/* Section: COMPRA SEGURA----------------------------------------------------------------*/
+
+.texto-compra-segura {
+    text-align: center;
+}
+
+.container-info {
+    text-align: center; /*Este centra todo*/
+    margin: 4% auto;
+}
+
+.info-icono {
+    font-size: 2.5rem;
+    color: #758BD1;
+}
+
+.info-icono:hover {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {transform: translate3d(-1px, 0, 0);}
+    20%, 80% {transform: translate3d(2px, 0, 0);}
+    30%, 50%, 70% {transform: translate3d(-2px, 0, 0);}
+    40%, 60% {transform: translate3d(2px, 0, 0);}
+}
+
+@media (min-width: 768px){
+    .container-info {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    .info {
+        width: 20%;
+    }
+}
+
+@media (min-width: 1200px){
+    .compra-segura {
+        max-width: 1400px;
+        margin: 4% auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .info-icono {
+        font-size: 3.5rem;
+    }
+}
+
+/* Dark Mode ---------------------------------------------------*/
+
+body.body-dark .articulo{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
+    background-color: rgba(248, 246, 246, 0.8);
+    box-shadow: 0px 0px 10px rgb(56, 56, 56);
+    font-weight: bold;
+}
+
+body.body-dark .texto-descripcion-articulo {
+    font-weight: bold;
+}
+
+body.body-dark .boton-categoria button {
+    background-color: rgba(248, 246, 246, 0.8);
+}
+
+body.body-dark .info-icono {
+    color: rgba(248, 246, 246, 0.8);
+}

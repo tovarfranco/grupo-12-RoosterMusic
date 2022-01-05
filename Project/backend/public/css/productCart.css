@@ -1,0 +1,267 @@
+/* Generales  ==========================================================================================================================*/
+
+@import url('./partials/_general.css');
+
+/* Header ==============================================================================================================================*/
+
+@import url('./partials/_header.css');
+
+/* Footer ==============================================================================================================================*/
+
+@import url('./partials/_footer.css');
+
+/* Margin Main ==============================================================================================================================*/
+
+header {
+    position: static;   /*Para resoluciones pequeñas lo dejo static. Para grandes fixed*/
+}
+
+main {
+    margin-top: 0px;    /*285px: ok. Lo corremos por el header fixed, así como en sus media queries*/
+}
+
+@media (min-width: 768px){
+    header {
+        position: fixed;
+    }
+
+    main {
+        margin-top: 210px;
+    }
+}
+
+@media (min-width: 1200px){
+    main {
+        margin-top: 250px;
+    }
+}
+
+/* Main ================================================================================================================================*/
+
+main {
+    width: 80%;           /*Para algun espaciado y centrarlo en el body*/
+    margin-left: auto;    /*No quiero pisar el margin por el header fixed*/
+    margin-right: auto;
+}
+
+main section {
+    margin: 5% 0;   /*De base uso esto, luego en las medias queries los voy cambiando*/
+}
+
+/* Section: CARRITO----------------------------------------------------------------------*/
+
+/* TITULO-CARRITO-----------------------------------*/
+
+.carrito-titulo {
+display: flex;
+justify-content: flex-start;
+align-items: baseline;
+}
+
+.carrito-icono {
+    font-size: 1.5rem;
+    margin-left: 2%;
+}
+
+.carrito-icono {
+    animation: mover 8s infinite;
+    transform: translate3d(0, 0, 0);
+}
+
+@keyframes mover {
+    0% {transform: translate3d(0px, 0, 0); opacity: 100%;}
+    25% {transform: translate3d(100px, 0, 0); opacity: 0%;} /*Genero un "delay" así cotrolo el tiempo entre iteraciones, hago que no pase nada*/
+    100% {transform: translate3d(100px, 0, 0); opacity: 0%;}
+
+}
+
+.carrito hr, .texto-carrito-titulo {
+    margin-top: 0;          /*Para que se vean bien, por el flex cambió un poco lo margenes*/
+}
+
+/* ARTICULOS-----------------------------------*/
+
+.articulo {
+    background-color: white;
+    color: black;
+    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    transition: all .2s;      /*Animación*/
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+}
+
+.articulo:hover {
+    transform: scale(1.05); /*Aumentamos un poco su tamaño*/
+}
+
+.articulo-opciones ul {
+    list-style: none;       /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.articulo-opciones li {
+    margin: 5px 0;          /*Poco de separación entre los elementos*/
+}
+
+.articulo-opciones a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: #3966F5;
+    font-size: 1rem;
+}
+
+.articulo-imagen img {
+    width: 70px; height: 70px;
+    object-fit: cover;      /*Sin esta propiedad queda estirada la imagen*/
+    border-radius: 50%;     /*Para que sea redonda*/
+    cursor: pointer;
+}
+
+@media (min-width: 768px){
+
+    .articulo {
+        max-width: none;          /*Sino me limita el artículo*/
+        padding: 2%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+        margin: 3% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    }
+
+    .articulo-imagen img {
+        width: 70px; height: 70px;  /*La achicamos un poco*/
+    }
+
+    .articulo {             /*Tendrá la imagen | articulo-info*/
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .articulo-imagen {
+        margin-right: 3%;   /*Para darle un poco de separación, conviene siempre darle al elemento superior, porque el otro va a caer si no entra*/
+    }
+
+    .articulo-info {
+        flex-grow: 1;       /*Para que pueda ocupar el espacio disponible*/
+    }
+
+    .articulo-precio {     /*Tendrá la texto-articulo | texto-precio*/
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .articulo-precio h3 {
+        margin-top: 0;      /*Tienen mucho margen y no queda tan centrado con la imagen*/
+    }
+
+    .articulo-opciones ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .articulo-opciones li {
+        margin-right: 3%;
+    }
+}
+
+/* ENVIOS-----------------------------------*/
+
+.envio {
+    text-align: right;
+    background-color: white;
+    color: black;
+    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    padding-top: 1%;
+    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    /*max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+}
+
+.boton-comprar {     /*Características comunes de los bototnes*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    /* margin: 2% 5px; */
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-comprar:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+@media (min-width: 768px){
+
+    .detalle-envio, .detalle-total {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .costo-envio, .costo-total {
+        width: 15%
+    }
+}
+
+@media (min-width: 1200px){
+    .carrito {
+        max-width: 1400px;
+        margin: 4% auto;
+    }
+}
+
+/* Si no hay ordenes que mostrar -------------------------------------------------------------------*/
+
+.container {
+    margin: 3% auto;
+    text-align: center;         /*Para que todos los elementos internos esten centrados*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensaje {
+    display: inline-block;
+    padding: 5%;                /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+}
+
+.icono {
+    color: grey;
+    font-size: 6rem;
+}
+
+.boton-inicio {
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    width: 115px;     /*Para tamaño fijo*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-inicio:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+/* Dark Mode ---------------------------------------------------*/
+
+body.body-dark .articulo{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
+    background-color: rgba(248, 246, 246, 0.8);
+    box-shadow: 0px 0px 10px rgb(56, 56, 56);
+    font-weight: bold;
+}
+
+body.body-dark .icono {
+    color: rgba(248, 246, 246, 0.8);
+}

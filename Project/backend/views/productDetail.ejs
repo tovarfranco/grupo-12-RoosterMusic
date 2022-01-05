@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/productDetail.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+            
+            <section class="detalle-producto">
+                <h2 class="texto-detalle-producto">Detalle del producto</h2>
+                <hr>
+                <div class="container-detalles">
+                    <div class="foto-principal"><img src="/images/products/<%= product.image %>" alt="Foto del producto"></div>
+                    <article class="tarjeta">
+                        <h4 class="tarjeta-marca"><%= product.brand %></h4>
+                        <h3 class="tarjeta-titulo"><%= product.name %></h3>
+                        <h4 class="tarjeta-stock"><%= product.availability %></h4>
+                        <h2 class="tarjeta-precio">U$S <%= product.price %></h2>
+                        <ul class="tarjeta-links">
+                            <li><a href="">Ver medios de pago</a></li>
+                            <li><a href="">Envíos</a></li>
+                            <li><a href="">Devoluciones</a></li>
+                        </ul>
+                        <div class="tarjeta-botones">
+                            <form action="/productCart/create" method="POST" id="form-comprar">
+                                <input type="hidden" name="id_status" value="2"/>
+                                <input type="hidden" name="id_product" value="<%= product.id_product %>"/>
+                                <button class="boton-comprar" type="submit">Comprar</button>
+                            </form>
+                            <form action="/productCart/create" method="POST" id="form-agregar-al-carrito">
+                                <input type="hidden" name="id_status" value="1"/>
+                                <input type="hidden" name="id_product" value="<%= product.id_product %>"/>          <!--IMPORTANTE: Este input estaba en el botón de abajo. Puedo pasar valores (name: value) del form al back mediante buttons tambien, pero debido a la animación de JS no los tomaba, porque bypassea los valores-->
+                                <button class="boton-agregar-carrito" type="submit">Agregar al carrito</button>
+                            </form>
+                                <button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id_product %>'">Modificar</button>
+                            <form action="/products/delete/<%= product.id_product %>?_method=DELETE" method="POST" id="form-eliminar">
+                                <button class="boton-eliminar" type="submit">Eliminar</button>
+                            </form>
+                        </div>
+                    </article>
+                    <article class="descripcion">
+                        <h4>Descripción</h4>
+                        <hr>
+                        <h3 class="descripcion-titulo"><%= product.name %></h3>
+                        <p class="descripcion-descripcion"><%= product.description %></p>
+                    </article>
+                    <article class="ficha">
+                        <h4>Ficha técnica</h4>
+                        <hr>
+                        <ul>
+                            <li><h4>Marca:</h4><p><%= product.brand %></p></li>
+                            <li><h4>Modelo:</h4><p><%= product.model %></p></li>
+                            <li><h4>Color:</h4><p><%= product.color %></p></li>
+                            <li><h4>Material:</h4><p><%= product.material %></p></li>
+                            <li><h4>Origen:</h4><p><%= product.origin %></p></li>
+                            <li><h4>Año:</h4><p><%= product.year %></p></li>
+                            <li><h4>Categoría:</h4><p><%= product.category.name %></p></li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="productos-similares">
+                <h2 class="texto-productos-similares">Productos similares</h2>
+                <hr>
+                <div class="container-articulos">
+                <% productList.forEach(product => { %>
+                    <!--productCard-->
+                    <%- include('./partials/_productCard', {product}) %>
+                    <!--/productCard-->
+                <% }); %>
+                </div>
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/js/cartEffect.js"></script>
+        <script src="/js/cartEffectCard.js"></script>
+        <!-- SweetAlert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/alertProductDetail.js"></script>
+    </body>
+</html>

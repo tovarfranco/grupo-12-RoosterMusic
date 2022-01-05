@@ -1,0 +1,340 @@
+/* Generales  ==========================================================================================================================*/
+
+@import url('./partials/_general.css');
+
+/* Header ==============================================================================================================================*/
+
+@import url('./partials/_header.css');
+
+/* Footer ==============================================================================================================================*/
+
+@import url('./partials/_footer.css');
+
+/* Margin Main ==============================================================================================================================*/
+
+header {
+    position: static;   /*Para resoluciones pequeñas lo dejo static. Para grandes fixed*/
+}
+
+main {
+    margin-top: 0px;    /*285px: ok. Lo corremos por el header fixed, así como en sus media queries*/
+}
+
+@media (min-width: 768px){
+    header {
+        position: fixed;
+    }
+
+    main {
+        margin-top: 210px;
+    }
+}
+
+@media (min-width: 1200px){
+    main {
+        margin-top: 250px;
+    }
+}
+
+/* Main ================================================================================================================================*/
+
+main {
+    width: 80%;           /*Para algun espaciado y centrarlo en el body*/
+    margin-left: auto;    /*No quiero pisar el margin por el header fixed*/
+    margin-right: auto;
+}
+
+main section {
+    margin: 5% 0;         /*De base uso esto, luego en las medias queries los voy cambiando*/
+}
+
+/* Section: DETALLE DEL PRODUCTO----------------------------------------------------------------------*/
+/* GENERALES--------------------------------------*/
+
+.foto-principal {
+    margin: 5% auto;
+    transition: all .2s;    /*Animación */
+    max-width: 400px;       /*Le doy un tamaño máximo para mobile. En resoluciones mas grandes hay que usar max-width: none para desabilitarlo*/
+                            /*Ver que no tiene padding la imagen, me ayudará a que esté a la misma altura en otras resolucioenes*/
+}
+
+.foto-principal img {
+    border-radius: 2%;
+    box-shadow : 0px 0px 10px rgb(100,100,100)
+}
+
+.tarjeta, .descripcion, .ficha {
+    background-color: white;
+    color: black;
+    padding: 7%;              /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    padding-top: 1%;          /*Quito el padding superior*, queda mal*/
+    margin: 5% auto;          /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    transition: all .2s;      /*Animación*/
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+}
+
+.foto-principal:hover, .tarjeta:hover, .descripcion:hover, .ficha:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+}
+
+/* TARJETA-----------------------------------------*/
+.tarjeta-stock{
+    text-align: right;
+}
+
+.tarjeta ul {
+    list-style: none;       /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.tarjeta li {
+    margin: 5px 0;          /*Poco de separación entre los elementos*/
+}
+
+.tarjeta a {
+    text-decoration: none;  /*Elimino su color y estilo*/
+    color: #3966F5;
+    font-size: 1rem;
+}
+
+.tarjeta-botones {           /*Container de los botones*/
+    text-align: center;
+    margin-top: 5%;
+}
+
+.tarjeta-botones button {    /*Características comunes de los botones*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 2% 5px;
+    width: 90%;              /*Para que tengan el mismo tamaño*/
+}
+
+.boton-comprar {             /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-agregar-carrito {     /*Característica particular del botón*/
+    background-color: #04be74;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-modificar {             /*Característica particular del botón*/
+    background-color: #FABD46;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-eliminar {             /*Característica particular del botón*/
+    background-color: #F05143;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-comprar:hover, .boton-agregar-carrito:hover, .boton-modificar:hover, .boton-eliminar:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+/* DESCRIPCION--------------------------------------*/
+
+/* FICHA--------------------------------------------*/
+
+.ficha ul {
+    list-style: none;       /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    margin: 0;
+    padding: 0;
+}
+
+.ficha li {
+    margin: 5px 0;          /*Poco de separación entre los elementos*/
+}
+
+.ficha li h4, .ficha li p  {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* MEDIA QUERIES - Section: DETALLE DEL PRODUCTO----*/
+
+@media (min-width: 768px){
+    .container-detalles {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .foto-principal {           /*Está aparte porque no quiero padding, sino me queda a diferente altura*/
+        max-width: none;
+        width: 60%;
+        margin: 2%;
+    }
+
+    .descripcion {
+        max-width: none;
+        width: 60%;
+        margin: 2%;
+        padding: 3%;
+        padding-top: 1%;    /*Quito el padding superior*, queda mal*/
+    }
+
+    .tarjeta, .ficha {
+        max-width: none;
+        width: 30%;
+        margin: 2%;
+        padding: 3%;
+        padding-top: 1%;    /*Quito el padding superior*, queda mal*/
+    }
+}
+
+@media (min-width: 1200px){
+    .detalle-producto {
+        max-width: 1400px;
+        margin: 4% auto;     /*Para alinear este elemento ya que tienen un nuevo width*/
+    }
+
+    .foto-principal {        /*Está aparte porque no quiero padding, sino me queda a diferente altura*/
+        margin: 1.5%;
+    }
+
+    .descripcion {
+        margin: 1.5%;
+        padding: 2%;
+        padding-top: 1%;    /*Quito el padding superior*, queda mal*/
+    }
+
+    .tarjeta, .ficha {
+        margin: 1.5%;
+        padding: 2%;
+        padding-top: 1%;    /*Quito el padding superior*, queda mal*/
+    }
+
+}
+
+/* Section: PRODUCTOS SIMILARES----------------------------------------------------------------------*/
+
+.articulo {
+    background-color: white;
+    color: black;
+    padding: 4%;
+    margin: 5% auto;
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    transition: all .2s;      /*Animación */
+    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las mdias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+    cursor: default;
+}
+
+.articulo-imagen {
+    cursor: pointer;
+}
+
+.articulo:hover {
+    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+}
+
+.texto-titulo-articulo {
+    text-align: center;
+
+}    
+.texto-descripcion-articulo {
+    text-align: center;
+    font-weight: lighter;
+}
+
+#form-agregar-al-carrito-card {   /*Container de los botones*/
+    text-align: center;
+}
+
+#form-agregar-al-carrito-card button {    /*Características comunes de los botones - Solo el de agregar al carrito*/
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 2% 5px;
+    width: 65%;                   /*Para que tengan el mismo tamaño*/
+}
+
+.boton-agregar-carrito-card {     /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-agregar-carrito-card:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+@media (min-width: 768px){
+    .container-articulos {
+        display: flex;
+        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .articulo {
+        width: 40%;
+        margin: 2%;
+        padding: 2%;
+    }
+
+    #form-agregar-al-carrito-card button {
+        width: 70%;
+    }
+}
+
+@media (min-width: 1200px){
+    .productos-similares {
+        max-width: 1400px;
+        margin: 4% auto;     /*Para alinear estos elementos ya que tienen un nuevo width*/
+    }
+
+    .articulo {
+        width: 20%;
+        margin: 1.5%;
+        padding: 1%;
+    }
+
+    #form-agregar-al-carrito-card button {
+        width: 90%;
+    }
+}
+
+@media (min-width: 1500px){             /*Solo para que el botón de agregar al carrito se vea bien*/
+    #form-agregar-al-carrito-card button {
+        width: 70%;
+    }
+}
+
+/* Dark Mode ---------------------------------------------------*/
+
+body.body-dark .tarjeta, body.body-dark .descripcion, body.body-dark .ficha {
+    background-color: rgba(248, 246, 246, 0.8);
+}
+
+body.body-dark .articulo{    /* Puede resultar raro pero significa: cuando el body tenga la clase dark entonces su artículo tendrá ...*/
+    background-color: rgba(248, 246, 246, 0.8);
+    box-shadow: 0px 0px 10px rgb(56, 56, 56);
+    font-weight: bold;
+}
+
+body.body-dark .texto-descripcion-articulo {
+    font-weight: bold;
+}
+
+body.body-dark .info-icono {
+    color: rgba(248, 246, 246, 0.8);
+}

@@ -1,0 +1,25 @@
+<article class="articulo">
+    <div class="articulo-imagen" onclick="window.location='/products/detail/<%= order.product.id_product %>'"><img src="/images/products/<%= order.product.image %>" alt=<%= order.product.name %>></div>
+    <div class="articulo-info">
+        <div class="articulo-precio">
+            <h3 class="texto-articulo"><%= order.product.name %></h3>
+            <h3 class="texto-precio">U$S <%= order.product.price %></h3>
+        </div>
+        <div class="articulo-opciones">
+            <ul>
+                <li>
+                    <form id="form-delete-<%= order.id_order %>" action="/productCart/delete/<%= order.id_order %>?_method=DELETE" method="POST">
+                        <a class="cart-eliminar" href="#">Eliminar</a>
+                    </form>
+                </li>
+                <li><a href="/products">Seguir comprando</a></li>
+                <li>
+                    <form id="form-update-<%= order.id_order %>" action="/productCart/edit/<%= order.id_order %>?_method=PUT" method="POST">
+                        <input type="hidden" name="id_status" value="2"/>
+                        <a class="cart-comprar" href="#">Comprar</a>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</article>
