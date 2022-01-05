@@ -97,16 +97,16 @@ const productController = {
 		await Product.delete(req.params.id);
 
 		res.redirect('/products');
-	},
+	}
 
-    test: async function (req, res) {
-        try {
-            const result = await Product.test(1);
-            res.send(result);
-        } catch (error) {
-            res.status(500).json({ data: null, error: error, success: false });
-        }
-    }
+    // test: async function (req, res) {
+    //     try {
+    //         const result = await Product.test(1);
+    //         res.send(result);
+    //     } catch (error) {
+    //         res.status(500).json({ data: null, error: error, success: false });
+    //     }
+    // }
 }
 
 // =========== Exporto Controlador ===========================

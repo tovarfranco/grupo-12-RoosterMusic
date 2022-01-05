@@ -36,14 +36,14 @@ router.get('/create', authMiddleware, productController.create);
 router.post('/create', upload.single('img'), productController.store);         // Acá va el name del input file.
 
 /*** Modifico un producto ******/
-router.get('/edit/:id', productController.edit);
+router.get('/edit/:id', authMiddleware, productController.edit);
 router.put('/edit/:id', upload.single('img'), productController.update);       // Acá va el name del input file.
 
 /*** Elimino un producto *******/
-router.delete('/delete/:id', productController.delete);
+router.delete('/delete/:id', authMiddleware, productController.delete);
 
 /*** Testing ****/
-router.get('/test/all', productController.test);                               // Para testing.
+//router.get('/test/all', productController.test);                               // Para testing.
 
 // =========== Exporto Router =========================
 module.exports = router;                                                       // Siempre exportarlo porque lo necesitaremos usar en el ENTRY POINT para que sepa a qué archivo enviar sus rutas.

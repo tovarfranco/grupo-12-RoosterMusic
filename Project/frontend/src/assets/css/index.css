@@ -552,12 +552,20 @@ tr:nth-child(even) {
     color: white;
     transition: all 0.4s;
     cursor: pointer;
+    text-decoration: none;
 
 }
 
 .a-sitio:hover {
     background-color: black;
     box-shadow:0px 0px 0px 2px white inset;
+}
+
+.no-match {
+    padding: 4%;
+    background-color: rgb(243, 189, 189);
+    font-size: 1.25rem;
+    border-radius: 5px;
 }
 
 @media (min-width: 768px){
@@ -577,6 +585,10 @@ tr:nth-child(even) {
     .a-sitio {
         width: 70%;
     }
+
+    .no-match {
+        padding: 2%;
+    }
 }
 
 @media (min-width: 1200px){
@@ -588,6 +600,10 @@ tr:nth-child(even) {
 
     .a-sitio {
         width: 60%;
+    }
+
+    .no-match {
+        padding: 1%;
     }
 }
 

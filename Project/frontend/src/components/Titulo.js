@@ -5,7 +5,7 @@ function Titulo(props) {
         <React.Fragment>
             {/* <!-- Seccion 1 --> */}
             <section>
-                <h3 className="texto-titulo">{props.titulo}</h3>
+                <h2 className="texto-titulo">{props.titulo}</h2>
             </section>
             {/* <!-- /Seccion 1 --> */}
         </React.Fragment>

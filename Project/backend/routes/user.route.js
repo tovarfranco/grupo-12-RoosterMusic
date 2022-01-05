@@ -30,7 +30,7 @@ router.get('/create', guestMiddleware, userController.create);
 router.post('/create', upload.single('img'), createUsersValidations, userController.store);     // Acá va el name del input file para Multer. Acá se pone el array de validaciones de express-validator.
 
 /*** Modifico un usuario ******/
-router.get('/edit/:id', userController.edit);
+router.get('/edit/:id', authMiddleware, userController.edit);
 router.put('/edit/:id', upload.single('img'), userController.update);          // Acá va el name del input file.
 
 /*** Elimino un usuario *******/
@@ -40,7 +40,7 @@ router.delete('/delete/:id', userController.delete);
 router.get('/logout', userController.logout);
 
 /*** Testing ****/
-router.get('/test/all', userController.test);                                  // Para testing.
+//router.get('/test/all', userController.test);                                  // Para testing.
 
 // =========== Exporto Router =========================
 module.exports = router;                                                       // Siempre exportarlo porque lo necesitaremos usar en el ENTRY POINT para que sepa a qué archivo enviar sus rutas.
