@@ -92,7 +92,17 @@ const Order = {
 			include: [{ association: "product" },],
 			order: [['id_product', 'ASC'],]
 		});
+	},
+
+	joinBoughts: async function (id_user, id_status) {
+		return await db.Order.findAll({
+			where: { id_user: id_user, id_status: id_status },
+			include: [{ association: "product" },],
+			order: [['last_modified', 'DESC'],]
+		});
 	}
+
+
 }
 
 // =========== Exporto Modelo =========================

@@ -6,6 +6,7 @@ const bcryptjs = require('bcryptjs');                                           
 
 // =========== Modelo =================================
 const User = require('../models/User.model.js');
+const Order = require('../models/Order.model.js');
 
 // =========== Controlador ============================
 const userController = {
@@ -142,7 +143,14 @@ const userController = {
         } catch (error) {
             res.status(500).json({ data: null, error: error, success: false });
         }
-    }
+    },
+
+    /*** Todas las compras ***/
+    boughts: async (req, res) => {
+        let orderList = await Order.joinBoughts(req.session.userLogged.id_user, '2');  // Traigo todas las ordenes del usuario (podría usar findByField pero este ya funciona).
+
+        res.render('productBought', {orderList: orderList});
+    },
 }
 
 // =========== Exporto Controlador ===========================

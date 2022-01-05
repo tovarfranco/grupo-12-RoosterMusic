@@ -37,12 +37,12 @@ module.exports = function (sequelize, DataTypes) {
         model: 'status',
         key: 'id_status'
       }
-    }/*,
+    },
     last_modified: {                                        // No es necesario ya que la BBDD lo genera, además vemos que tiene una función que no la importamos acá.
       type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
-    }*/
+      //allowNull: false
+      //defaultValue: Sequelize.Sequelize.literal('CURRENT_TIMESTAMP')
+    }
   };
 
   let config = {                                              // 3° parámetro: configuración especial.
