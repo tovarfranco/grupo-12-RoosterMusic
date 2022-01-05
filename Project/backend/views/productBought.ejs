@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/productCart.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+
+            <section class="carrito">
+                
+                <div class="carrito-titulo">
+                    <h2 class="texto-carrito-titulo">Mis compras</h2><i class="fas fa-shopping-cart carrito-icono"></i>
+                </div>
+                <hr>
+            <% if (orderList.length != 0) { %>
+                <div class="container-articulos" >
+                <% orderList.forEach(order => { %>
+                    <!--productCartCard-->
+                    <%- include('./partials/_productBoughtCard', {order}) %>
+                    <!--/productCartCard-->
+                <% }); %>
+                </div>
+            <% } else { %>
+                <div class="container">             <!--Cartel de SIN RESULTADOS-->
+                    <div class="mensaje">
+                        <div><i class="fas fa-shopping-cart icono"></i></div>
+                        <h2>No realizó compras</h2>
+                        <h3>No hay productos que mostrar</h3>
+                        <p>En el detalle del producto puede presionar "Agregar al carrito"</p>
+                        <button class="boton-inicio" type="button" onclick="window.location='/products'">Productos</button>
+                    </div>
+                </div>
+            <% }; %>
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/js/cartEffect.js"></script>
+        <script src="/js/cartEffectCard.js"></script>
+        <!-- SweetAlert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+</html>

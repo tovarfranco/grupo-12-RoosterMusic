@@ -25,7 +25,9 @@
         <ul>
             <li><a href="/">Inicio</a></li>
             <li><a href="/products">Productos</a></li>
+        <% if (locals.isLogged && locals.userLogged.email == 'admin@hotmail.com') { %>
             <li><a href="/products/create">Vender</a></li>
+        <% } %>
             <!-- <li><a href="">Nosotros</a></li> --> <!-- Cuando esté la página se activa  -->
             <li><a href="https://api.whatsapp.com/send/?phone=5491111111111&text&app_absent=0" target="_blank">Contacto</a></li>
             <!-- <li><a href="/#info">Pago</a></li> --> <!-- Cuando esté la página se activa  -->

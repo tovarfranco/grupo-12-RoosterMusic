@@ -79,6 +79,29 @@ align-items: baseline;
     margin-top: 0;          /*Para que se vean bien, por el flex cambió un poco lo margenes*/
 }
 
+.logo-about {
+    width: 160px;    /*Está ok para mobile*/
+    margin: 0 auto;
+}
+
+.logo-about img {
+    object-fit: cover;      /*Sin esta propiedad queda estirada la imagen*/
+    border-radius: 10px;     /*Para que sea redonda*/
+    cursor: pointer;
+}
+
+@media (min-width: 768px){
+    .logo-about {
+        width: 200px;       /*Lo agrandamos un poquito*/
+    }
+}
+
+@media (min-width: 1200px){
+    .logo-about {
+        width: 350px;       /*Lo agrandamos un poquito*/
+    }
+}
+
 /* ARTICULOS-----------------------------------*/
 
 .articulo {
@@ -108,8 +131,9 @@ align-items: baseline;
 
 .articulo-opciones a {
     text-decoration: none;  /*Elimino su color y estilo*/
-    color: #3966F5;
+    color: black;
     font-size: 1rem;
+    cursor: default;
 }
 
 .articulo-imagen img {
@@ -140,6 +164,7 @@ align-items: baseline;
 
     .articulo-imagen {
         margin-right: 3%;   /*Para darle un poco de separación, conviene siempre darle al elemento superior, porque el otro va a caer si no entra*/
+        margin-bottom: 2%;
     }
 
     .articulo-info {
@@ -166,6 +191,12 @@ align-items: baseline;
 
     .articulo-opciones li {
         margin-right: 3%;
+    }
+}
+
+@media (min-width: 1200px){
+    .articulo-imagen {
+        margin-bottom: 0%;
     }
 }
 
@@ -231,6 +262,16 @@ align-items: baseline;
 .mensaje {
     display: inline-block;
     padding: 5%;                /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+}
+
+.mensaje p {
+    font-size: 1.2rem;
+}
+
+@media (min-width: 1200px){
+    .mensaje {
+        padding: 1%;                /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    }
 }
 
 .icono {

@@ -39,6 +39,9 @@ router.delete('/delete/:id', userController.delete);
 /*** Cerrar sesión ***/
 router.get('/logout', userController.logout);
 
+/*** Compras de un usuario ****/
+router.get('/boughts', authMiddleware, userController.boughts);
+
 /*** Testing ****/
 //router.get('/test/all', userController.test);                                  // Para testing.
 

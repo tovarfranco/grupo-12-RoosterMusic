@@ -26,13 +26,13 @@ main {
     }
 
     .banner-promocion {
-        margin-top: 182.94px;
+        margin-top: 135.96px;
     }
 }
 
 @media (min-width: 1200px){
     .banner-promocion {
-        margin-top: 214.58px;
+        margin-top: 170.96px;
     }
 }
 

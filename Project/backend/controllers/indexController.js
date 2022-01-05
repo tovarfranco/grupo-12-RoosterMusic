@@ -30,6 +30,14 @@ const indexController = {
 		let productList = await Product.findByField('id_category', 'eq', req.params.id);
 		res.render('results', {keyword: category.name,
 							   productList: productList});
+	},
+
+	about: (req, res) => {
+		res.render('aboutUs');
+	},
+
+	terms: (req, res) => {
+		res.render('terms');
 	}
 }
 
