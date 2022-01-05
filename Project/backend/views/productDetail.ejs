@@ -26,9 +26,9 @@
                         <h4 class="tarjeta-stock"><%= product.availability %></h4>
                         <h2 class="tarjeta-precio">U$S <%= product.price %></h2>
                         <ul class="tarjeta-links">
-                            <li><a href="">Ver medios de pago</a></li>
-                            <li><a href="">Envíos</a></li>
-                            <li><a href="">Devoluciones</a></li>
+                            <li><a href="/terms/#medios-de-pago">Ver medios de pago</a></li>
+                            <li><a href="/terms/#envios">Envíos</a></li>
+                            <li><a href="/terms/#devoluciones">Devoluciones</a></li>
                         </ul>
                         <div class="tarjeta-botones">
                             <form action="/productCart/create" method="POST" id="form-comprar">
@@ -41,10 +41,12 @@
                                 <input type="hidden" name="id_product" value="<%= product.id_product %>"/>          <!--IMPORTANTE: Este input estaba en el botón de abajo. Puedo pasar valores (name: value) del form al back mediante buttons tambien, pero debido a la animación de JS no los tomaba, porque bypassea los valores-->
                                 <button class="boton-agregar-carrito" type="submit">Agregar al carrito</button>
                             </form>
-                                <button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id_product %>'">Modificar</button>
+                        <% if (locals.isLogged && locals.userLogged.email == 'admin@hotmail.com') { %>
+                            <button class="boton-modificar" type="button" onclick="window.location='/products/edit/<%= product.id_product %>'">Modificar</button>
                             <form action="/products/delete/<%= product.id_product %>?_method=DELETE" method="POST" id="form-eliminar">
                                 <button class="boton-eliminar" type="submit">Eliminar</button>
                             </form>
+                        <% } %>
                         </div>
                     </article>
                     <article class="descripcion">

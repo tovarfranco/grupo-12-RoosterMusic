@@ -169,7 +169,7 @@ header {
 
 @media (min-width: 768px){
     .logo {
-        width: 200px;       /*Lo agrandamos un poquito*/
+        width: 115px;       /*Lo agrandamos un poquito*/
     }
 
     .header-fila-1 {
@@ -203,7 +203,7 @@ header {
 
 @media (min-width: 1200px){
     .logo {
-        width: 250px;       /*Lo agrandamos un poquito*/
+        width: 170px;       /*Lo agrandamos un poquito*/
     }
 
     .sesion img {           

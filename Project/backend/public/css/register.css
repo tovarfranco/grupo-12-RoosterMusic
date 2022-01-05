@@ -26,13 +26,13 @@ main {
     }
 
     main {
-        margin-top: 210px;
+        margin-top: 165px;
     }
 }
 
 @media (min-width: 1200px){
     main {
-        margin-top: 250px;
+        margin-top: 220px;
     }
 }
 
@@ -156,7 +156,8 @@ label {
 .boton-registrarse-formulario, 
 .boton-iniciar-sesion-formulario, 
 .boton-cerrar-sesion-formulario, 
-.boton-modificar-formulario, 
+.boton-modificar-formulario,
+.boton-mis-compras, 
 .boton-eliminar-formulario {       /*Características comunes de los botones*/
     border: none;
     border-radius: 15px;
@@ -193,6 +194,13 @@ label {
     cursor: pointer;
 }
 
+.boton-mis-compras {   /*Característica particular del botón*/
+    background-color: #9849f3;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
 .boton-eliminar-formulario {   /*Característica particular del botón*/
     background-color: #F05143;
     color: white;
@@ -204,6 +212,7 @@ label {
 .boton-iniciar-sesion-formulario:hover,
 .boton-cerrar-sesion-formulario:hover,
 .boton-modificar-formulario:hover,
+.boton-mis-compras:hover,
 .boton-eliminar-formulario:hover {
     background-color: black;
     box-shadow:0px 0px 0px 2px white inset;
@@ -235,6 +244,7 @@ label {
     .boton-iniciar-sesion-formulario, 
     .boton-cerrar-sesion-formulario, 
     .boton-modificar-formulario, 
+    .boton-mis-compras,
     .boton-eliminar-formulario {       /*Características comunes de los botones*/
         margin: 1% 0px;                /*Cambia en resoluciones mayores para que se vea bien*/
     }
@@ -250,6 +260,7 @@ label {
     .boton-iniciar-sesion-formulario, 
     .boton-cerrar-sesion-formulario, 
     .boton-modificar-formulario, 
+    .boton-mis-compras,
     .boton-eliminar-formulario {       /*Características comunes de los botones*/
         margin: 0.5% 0px;              /*Para que se vea bien*/
     }

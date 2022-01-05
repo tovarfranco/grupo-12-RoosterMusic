@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/aboutUs.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <main>
+
+            <section class="carrito">
+                
+                <div class="carrito-titulo">
+                    <h2 class="texto-carrito-titulo">Sobre Nosotros</h2>
+                </div>
+                <hr>
+
+                <div class="container">             <!--Informacion-->
+                    <div class="mensaje">
+                        <div class="logo-about" onclick="window.location='/'"><img src="/images/Logo.JPG" alt="Logo Rooster Music"></div>
+                        <h1>Rooster Music</h1>
+                        <h3>Tienda de artículos musicales</h3>
+                        <p>Somos una empresa digital de Argentina alojada en Estados Unidos y enfocada en cambiar la experiencia a la hora de buscar nuevos equipos de música para comprar.</p>
+                        <p>Nuestro objetivo es brindar a nuestros clientes los mejores productos musicales y los métodos de pago más cómodos y confiables de la industria.</p>
+                        <p>Puedes navegar dentro de nuestra aplicación gratuita y encontrar el equipo que estabas buscando. Tenemos mucha variedad en cuanto a calidad y precio.</p>
+                        <p>Cada semana, tenemos muchas promociones y artículos recomendados para ti. Una vez dentro, nunca mirarás atrás. Esperamos que disfrutes de esta experiencia.</p>
+                    </div>
+                </div>
+
+                <div class="container-articulos" >
+
+                    <article class="articulo">
+                        <div class="articulo-imagen" ><img src="/images/alan.jpg" alt="foto"></div>
+                        <div class="articulo-info">
+                            <div class="articulo-precio">
+                                <h3 class="texto-articulo">Alan Tovar</h3>
+                                <h3 class="texto-precio">Quilmes</h3>
+                            </div>
+                            <div class="articulo-opciones">
+                                <ul>
+                                    <li>
+                                        <p>Mi nombre es Alan Tovar y tengo 28 años. Vivo en Quilmes, Buenos Aires, Argentina.</p>
+                                        <p>Tengo más de 4 años en la industria de TI y actualmente trabajo como desarrollador back-end en Hexacta Software Factory.</p>
+                                        <p>Estudio Ingeniero Electrónico. Toco la batería desde hace unos 10 años y también me apasiona el bajo.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="articulo">
+                        <div class="articulo-imagen" ><img src="/images/franco.jpg" alt="foto"></div>
+                        <div class="articulo-info">
+                            <div class="articulo-precio">
+                                <h3 class="texto-articulo">Franco Tovar</h3>
+                                <h3 class="texto-precio">Quilmes</h3>
+                            </div>
+                            <div class="articulo-opciones">
+                                <ul>
+                                    <li>
+                                        <p>Soy Franco Tovar y tengo 25 años. Soy de Entre Ríos, Argentina pero ahora vivo en Quilmes, Buenos Aires, Argentina.</p>
+                                        <p>Trabajo como ingeniero de datos en Hexacta Software Factory y estudio ingeniero electrónico.</p>
+                                        <p>Me encanta tocar la guitarra, el piano y también cantar.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="articulo">
+                        <div class="articulo-imagen" ><img src="/images/nazareno.jpg" alt="foto"></div>
+                        <div class="articulo-info">
+                            <div class="articulo-precio">
+                                <h3 class="texto-articulo">Nazareno Aguero</h3>
+                                <h3 class="texto-precio">Mar del Plata</h3>
+                            </div>
+                            <div class="articulo-opciones">
+                                <ul>
+                                    <li>
+                                        <p>Soy Cristan Nazareno Agüero y tengo 18 años. Estoy estudiando Full Stack Development.</p>
+                                        <p>Me encanta programar, jugar al fútbol y los videojuegos.</p>
+                                        <p>Vivo en Mar del Plata, Buenos Aires, Argentina.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+    </body>
+</html>
