@@ -40,12 +40,6 @@ We select Black Music and Mercado Libre due to their paid methods and user exper
 
 https://rooster-music.atlassian.net/jira/software/projects/RM/boards/1/backlog
 
-
-# Deploy process
-
-<img src="images/diagram.png" >
-
-
 # Rooster Music Library
 
 This library contains all the common code used by the Rooster Music team.
@@ -105,6 +99,12 @@ You should branch from **dev**, and your branch name should follow this rule **<
 
 9. After you finish your feature you must submit a merge request pointing to **dev** branch:
    > Note: You will specify the reviewers that will approve this merge.
+
+
+
+# Deploy process
+
+<img src="images/diagram.png" >
 
 
 ## License
