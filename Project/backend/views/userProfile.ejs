@@ -69,7 +69,7 @@
                     <form action="/users/delete/<%= user.id_user %>?_method=DELETE" method="POST" id="form-baja">
                         <div><button class="boton-eliminar-formulario" type="submit">Darse de baja</button></div>
                     </form>
-                    <div><button class="boton-modificar-formulario" type="button" onclick="window.location='/users/boughts'">Mis compras</button></div>
+                    <div><button class="boton-mis-compras" type="button" onclick="window.location='/users/boughts'">Mis compras</button></div>
                 <% if (locals.userLogged.email == 'admin@hotmail.com') { %>
                     <div><button class="boton-registrarse-formulario" type="button" onclick="window.open('http://localhost:3001/', '_blank')">Dashboard</button></div>
                 <% } %>
