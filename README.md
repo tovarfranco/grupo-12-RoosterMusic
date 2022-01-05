@@ -43,7 +43,7 @@ https://rooster-music.atlassian.net/jira/software/projects/RM/boards/1/backlog
 
 # Deploy process
 
-<img src="images/diagram.png" width="400">
+<img src="images/diagram.png" >
 
 
 # Rooster Music Library
