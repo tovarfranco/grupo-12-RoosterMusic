@@ -32,11 +32,7 @@ $('#form-comprar').submit(function (e) {
         cancelButtonText: 'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire(
-                'Gracias por la compra!',
-                'Su compra fue registrada',
-                'success'
-            ).then(() => this.submit())         // Solo animación, no recibe confirmación del back, debería usarse API en el back y mediante AJAX (o FETCH) enviar/recibir la confirmación.
+            this.submit();                              // Con this apuntamos a este mismo formulario.
         }
     })
 });
