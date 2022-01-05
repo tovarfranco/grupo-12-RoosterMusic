@@ -101,5 +101,11 @@ You should branch from **dev**, and your branch name should follow this rule **<
    > Note: You will specify the reviewers that will approve this merge.
 
 
+
+# Deploy in AWS
+
+<img src="images/diagram.png" >
+
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
