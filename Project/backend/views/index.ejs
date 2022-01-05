@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--headPart-->
+        <%- include('./partials/_headPart') %>
+        <!--/headPart-->
+        <!--Mi hoja de estilos-->
+        <link rel="stylesheet" href="/css/index.css">
+    </head>
+    <body>
+
+        <!--header-->
+        <%- include('./partials/_header') %>
+        <!--/header-->
+
+        <div class="banner-promocion"><img src="images/banner.jpg" alt="Banner promoción"></div>
+
+        <main>
+
+            <section class="que-estas-buscando">
+                <h2 class="texto-que-estas-buscando">¿QUE ESTAS BUSCANDO?</h2>
+                <hr>
+                <div class="container-boton-categorias">
+                <% categoryList.forEach(category => { %>
+                    <div class="boton-categoria"><button onclick="window.location='/category/<%= category.id_category %>'"><%= category.name %></button></div>
+                <% }); %>
+                </div>
+            </section>
+
+            <section class="mas-visitados">
+                <h2>Mas visitados</h2>
+                <hr>
+                <div class="container-articulos">
+                <% productList1.forEach(product => { %>
+                    <!--productCard-->
+                    <%- include('./partials/_productCard', {product}) %>
+                    <!--/productCard-->
+                <% }); %>
+                </div>
+            </section>
+
+            <section class="ofertas-destacadas" id="ofertas-destacadas">
+                <h2>Ofertas destacadas</h2>
+                <hr>
+                <div class="container-articulos">
+                <% productList2.forEach(product => { %>
+                    <!--productCard-->
+                    <%- include('./partials/_productCard', {product}) %>
+                    <!--/productCard-->
+                <% }); %>
+                </div>
+            </section>
+
+            <section class="marcas">
+                <h2 class="texto-marcas">CONFIAN EN NOSOTROS</h2>
+                <hr>
+                <div class="banner-marcas"><img src="images/banner_brands.jpg" alt="Marcas"></div>
+            </section>
+
+            <section class="compra-segura">
+                <h2 class="texto-compra-segura">COMPRA SEGURA</h2>
+                <hr>
+                <div class="container-info">
+                    <article class="info" id="info">
+                        <i class="fas fa-credit-card info-icono"></i>
+                        <h3 class="texto-titulo-info">Pagá como quieras</h3>
+                        <p class="texto-descripcion-info">Aceptamos varias formas de pago. Podes pagar en varias cuotas sin interes con tarjeta de crédito.</p>
+                    </article>
+                    <article class="info">
+                        <i class="fas fa-archive info-icono"></i>
+                        <h3 class="texto-titulo-info">Envíos a todo el país</h3>
+                        <p class="texto-descripcion-info">Realizamos envíos a todo el país, con entrega segura.</p>
+                    </article>
+                    <article class="info">
+                        <i class="fas fa-shield-alt info-icono"></i>
+                        <h3 class="texto-titulo-info">Compra protegida</h3>
+                        <p class="texto-descripcion-info">En caso de inconvenientes con el pago se reintegra el dinero abonado.</p>
+                    </article>
+                </div>
+            </section>
+
+        </main>
+
+        <!--footer-->
+        <%- include('./partials/_footer') %>
+        <!--/footer-->
+
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/js/cartEffectCard.js"></script>
+    </body>
+</html>

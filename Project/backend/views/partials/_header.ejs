@@ -1,0 +1,43 @@
+<header>
+
+    <div class="header-fila-1">
+        <div class="logo" onclick="window.location='/'"><img src="/images/Logo.JPG" alt="Logo Rooster Music"></div>
+        <form action="/search" method="GET" class="buscar">
+            <input class="buscar-input" type="search" name="keyword" placeholder="Buscar"><button type="submit" class="buscar-boton"><i class="fas fa-search buscar-icono"></i></button>
+        </form>
+        <div class="sesion">
+        <% if (!locals.isLogged) { %>
+            <button class="boton-iniciar-sesion" type="button" onclick="window.location='/users/login'">Iniciar sesión</button>
+            <button class="boton-registrarse" type="button" onclick="window.location='/users/create'">Registrarse</button>
+        <% } else { %>
+            <img src="/images/users/<%= locals.userLogged.img %>" alt=<%= locals.userLogged.name %>>
+            <button class="boton-usuario" type="button" onclick="window.location='/users/profile'">Hola <%= locals.userLogged.name %>!</button>
+            <button class="boton-carrito" type="button" onclick="window.location='/productCart'"><i id="icono-carrito" class="fas fa-shopping-cart"></i><strong class="count"><%= locals.count %></strong></button>
+        <% } %>
+        </div>
+    </div>
+
+    <input type="checkbox" id="checkbox-boton-hamburguesa">   <!--Importante usar ID. Su label usa el for solamente con ID-->
+    <label for="checkbox-boton-hamburguesa" class="boton-hamburguesa open"><i class="fas fa-bars"></i></label>
+    <label for="checkbox-boton-hamburguesa" class="boton-hamburguesa close"><i class="fas fa-times"></i></label>
+
+    <nav class="header-fila-2">
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/products">Productos</a></li>
+            <li><a href="/products/create">Vender</a></li>
+            <!-- <li><a href="">Nosotros</a></li> --> <!-- Cuando esté la página se activa  -->
+            <li><a href="https://api.whatsapp.com/send/?phone=5491111111111&text&app_absent=0" target="_blank">Contacto</a></li>
+            <!-- <li><a href="/#info">Pago</a></li> --> <!-- Cuando esté la página se activa  -->
+            <li><a href="/#info">Información</a></li>
+            <li><a href="/#ofertas-destacadas">Ofertas</a></li>
+            <li>
+                <button class="switch" id="switch">
+					<span><i class="fas fa-sun"></i></span>
+					<span><i class="fas fa-moon"></i></span>
+				</button>
+            </li>
+        </ul>
+    </nav>
+
+</header>
