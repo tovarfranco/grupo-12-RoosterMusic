@@ -102,7 +102,7 @@ You should branch from **dev**, and your branch name should follow this rule **<
 
 
 
-# Deploy process
+# Deploy in AWS
 
 <img src="images/diagram.png" >
 
