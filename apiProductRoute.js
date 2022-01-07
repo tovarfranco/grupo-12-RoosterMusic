@@ -21,7 +21,7 @@ const apiProductController = require('../../controllers/api/apiProductController
  *  get:
  *      summary: All products
  *      tags: [Products]
- *      description: Endpoint to request all products
+ *      description: Use to request all products
  *      responses: 
  *          '200':
  *              description: A successfull response
@@ -30,41 +30,24 @@ const apiProductController = require('../../controllers/api/apiProductController
 router.get('/', apiProductController.index);                                                // ACA se pone la ruta que sacamos de app.js. Este será el encargado de enviar la petición al controlador correspondiente para que genere la respuesta. Debemos usar el objeto router + método HTTP + callback (quien genera la respuesta). Usamos también SUBRUTAS del la funcionalidad.
 
 
-/**
- * @swagger
- * /api/products/search:
- *  get:
- *      summary: Details for a product
- *      tags: [Products]
- *      description: Endpoint for gather information about a given product
- *      parameters:
- *       - in: query
- *         name: keyword
- *         schema:
- *           type: string
- *         required: true
- *         description: keyword to look for
- *      responses: 
- *          '200':
- *              description: A successfull response
- */
 /*** Búsqueda de productos *****/
 router.get('/search', apiProductController.search);
+
 
 /**
  * @swagger
  * /api/products/{id}:
  *  get:
- *      summary: Details for a product
+ *      summary: All products
  *      tags: [Products]
- *      description: Endpoint for gather information about a given product
+ *      description: Use to request all products
  *      parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: int
- *         required: true
- *         description: id of the product
+ *         required: false
+ *         description: description of parameter
  *      responses: 
  *          '200':
  *              description: A successfull response

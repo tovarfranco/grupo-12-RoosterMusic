@@ -7,9 +7,46 @@ const path = require("path");                                                   
 const apiUserController = require('../../controllers/api/apiUserController.js');      // ACA requerimos el controlador que tiene los callbacks que generarán las respuestas.
 
 // =========== Router =================================
+
+/**
+* @swagger
+* tags:
+*   name: Users
+*   description: The Users managing API
+*/
+
+/**
+ * @swagger
+ * /api/users:
+ *  get:
+ *      summary: All users
+ *      tags: [Users]
+ *      description: Endpoint to request all users
+ *      responses: 
+ *          '200':
+ *              description: A successfull response
+ */
 /*** Todos los usuarios *******/
 router.get('/', apiUserController.index);                                             // ACA se pone la ruta que sacamos de app.js. Este será el encargado de enviar la petición al controlador correspondiente para que genere la respuesta. Debemos usar el objeto router + método HTTP + callback (quien genera la respuesta). Usamos también SUBRUTAS del la funcionalidad.
 
+/**
+ * @swagger
+ * /api/users/{id}:
+ *  get:
+ *      summary: Details for a user
+ *      tags: [Users]
+ *      description: Endpoint for gather information about a given user
+ *      parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: int
+ *         required: true
+ *         description: id of the user
+ *      responses: 
+ *          '200':
+ *              description: A successfull response
+ */
 /*** Detalle de un usuario ****/
 router.get('/:id', apiUserController.detail);
 

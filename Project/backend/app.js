@@ -5,6 +5,12 @@ const path = require('path');                                                // 
 // =========== Express =================================
 const app = express();                                                       // Debemos guardar la ejecución de la función en un variable llamada app generalmente.
 
+// =========== Swagger Docs ===================================
+const swaggerDocs = require('./docs/swagger.js')
+const swaggerUi = require('swagger-ui-express')
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+
 // =========== Middlewares =============================
 app.use(express.static(path.resolve(__dirname, './public')));                // Indicamos a Express que esta carpeta será pública.
 
