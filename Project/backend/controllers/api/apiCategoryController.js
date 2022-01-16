@@ -15,7 +15,7 @@ const apiProductController = {
 
         /* Modifico la información de Sequelize */
         categoryList.forEach(category => {
-            category.dataValues.url = `api/categories/${category.id_category}`;
+            category.dataValues.url = `${req.protocol}://${req.get('host')}${req.originalUrl}/${category.id_category}`;
         });
 
         /* Genero respuesta */
@@ -23,7 +23,7 @@ const apiProductController = {
             meta: {
                 status: 200,
                 total: categoryList.length,
-                url: '/api/categories'
+                url: `${req.protocol}://${req.get('host')}${req.originalUrl}`
             },
             data: categoryList
         };
@@ -35,8 +35,12 @@ const apiProductController = {
     detail: async (req, res) => {                                                      // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
         let categoryFound = await Category.findByPk(req.params.id);                    // findByPk devuelve un objeto directamente, no un array.       
 
-        /* Modifico la información de Sequelize */
-        categoryFound.dataValues.url = `/api/categories/${categoryFound.id_category}`;
+        if (categoryFound) {                                                           // Si no es nulo... (Sequelize devuelve nulo si no lo encuentra).
+            /* Modifico la información de Sequelize */
+            categoryFound.dataValues.url = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+        } else {
+            categoryFound = [];
+        };
 
         res.json(categoryFound);
     }

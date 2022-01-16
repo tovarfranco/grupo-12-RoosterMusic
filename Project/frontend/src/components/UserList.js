@@ -12,8 +12,7 @@ function UserList(props) {
                 <td className="td-user" role="cell">{props.country}</td>
                 <td className="td-user" role="cell">{props.address}</td>
                 <td className="td-user" role="cell">{props.email}</td>
-                {/* <td className="td-user" role="cell">{props.img}</td> */}
-                <td className="td-user" role="cell"><img src={`http://localhost:3000/images/users/${props.img}`} alt="usuario"/></td>
+                <td className="td-user" role="cell"><img src={props.img} alt="usuario"/></td>
             </tr>
         </React.Fragment>
     )

@@ -82,14 +82,13 @@ const Product = {
 	delete: async function (id) {
 		try {
 			await db.Product.destroy({
-			where: { id_product: id }
-		});
-		return;
+				where: { id_product: id }
+			});
+			return;
 		} catch (error) {
-			console.log('Error al actualizar producto en la base de datos ' + error.message);
+			console.log('Error al borrar producto en la base de datos: ' + error.message);
 			return;
 		}
-
 	},
 
 	join: async function (id) {

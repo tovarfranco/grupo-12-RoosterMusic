@@ -58,13 +58,6 @@ function SectionWrapper() {                                        // Usamos Lin
                             <CampaignWrapper />
                         </>
                     } />
-                    <Route path="/campaigns" element={
-                        <>
-                            <Titulo titulo={"Seccion Campañas"} />
-                            <CampaignProductWrapper />
-                            <CampaignWrapper />
-                        </>
-                    } />
                     <Route path="/search" element={
                         <>
                             <Titulo titulo={"Buscador de Productos"} />

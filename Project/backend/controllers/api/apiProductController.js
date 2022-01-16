@@ -17,7 +17,9 @@ const apiProductController = {
 
         /* Modifico la información de Sequelize */
         productList.forEach(product => {
-            product.dataValues.url = `api/products/${product.id_product}`;
+            product.dataValues.image = `${req.protocol}://${req.get('host')}/images/products/${product.image}`;
+            product.dataValues.url = `${req.protocol}://${req.get('host')}${req.originalUrl}/${product.id_product}`;
+            product.dataValues.url_site = `${req.protocol}://${req.get('host')}/products/detail/${product.id_product}`;
         });
 
         /* Información sumarizada */
@@ -25,7 +27,7 @@ const apiProductController = {
 
         let countResult = []
         countByCategory.forEach(result => {
-            countResult.push({ categoryName: result.dataValues.category.name, productCount: result.dataValues.productCount });  // Agrego un objeto formado por los campos que necesito
+            countResult.push({ categoryName: result.dataValues.category.name, productCount: result.dataValues.productCount });  // Agrego un objeto formado por los campos que necesito.
         })
 
         /* Genero respuesta */
@@ -34,7 +36,7 @@ const apiProductController = {
                 status: 200,
                 total: productList.length,
                 countByCategory: countResult,
-                url: '/api/products'
+                url: `${req.protocol}://${req.get('host')}${req.originalUrl}`
             },
             data: productList
         };
@@ -46,8 +48,13 @@ const apiProductController = {
     detail: async (req, res) => {                                                                                             // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
         let productFound = await Product.joinPkCategoryCampaign(req.params.id);                                               // findByPk devuelve un objeto directamente, no un array.       
 
-        /* Modifico la información de Sequelize */
-        productFound.dataValues.url = `/api/products/${productFound.id_product}`;
+        if (productFound) {                                                                                                   // Si no es nulo... (Sequelize devuelve nulo si no lo encuentra).
+            /* Modifico la información de Sequelize */
+            productFound.dataValues.url = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+            productFound.dataValues.image = `${req.protocol}://${req.get('host')}/images/products/${productFound.image}`;
+        } else {
+            productFound = [];
+        };
 
         res.json(productFound);
     },
@@ -57,26 +64,27 @@ const apiProductController = {
 
         if (productList.length > 0) {
             /* Modifico la información de Sequelize */
-            console.log("Entro acá")
             productList.forEach(product => {
-                product.dataValues.url = `api/products/${product.id_product}`;
+                product.dataValues.image = `${req.protocol}://${req.get('host')}/images/products/${product.image}`;
+                product.dataValues.url = `${req.protocol}://${req.get('host')}${req.baseUrl}/${product.id_product}`;          // Ver que no uso req.originalUrl ya que me trae toda la url (incluye query string, en este caso no me sirve).
+                product.dataValues.url_site = `${req.protocol}://${req.get('host')}/products/detail/${product.id_product}`;
             });
         } else {
             productList = [];
-        }
+        };
 
         /* Genero respuesta */
         let response = {
             meta: {
                 status: 200,
                 total: productList.length,
-                url: '/api/search'
+                url: `${req.protocol}://${req.get('host')}${req.originalUrl}`
             },
             data: productList
         };
 
         res.json(response);
-    },
+    }
 }
 
 // =========== Exporto Controlador ===========================
