@@ -44,6 +44,7 @@ const apiUserRoute = require('./routes/api/apiUserRoute.js');
 const apiProductRoute = require('./routes/api/apiProductRoute.js');
 const apiCategoryRoute = require('./routes/api/apiCategoryRoute.js');
 const apiCampaignRoute = require('./routes/api/apiCampaignRoute.js');
+const apiOrderRoute = require('./routes/api/apiOrderRoute.js');
 
 
 app.use('/', indexRoute);                                                    // ACA indicamos la BASE/RAIZ de esa funcionalidad + su archivo ruta (objeto).
@@ -55,6 +56,7 @@ app.use('/api/users', apiUserRoute);
 app.use('/api/products', apiProductRoute);
 app.use('/api/categories', apiCategoryRoute);
 app.use('/api/campaigns', apiCampaignRoute);
+app.use('/api/Orders', apiOrderRoute);
 
 app.use((req, res) => {
 	res.status(404).render('error');                                         // Para mostrar página 404.

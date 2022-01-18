@@ -55,7 +55,7 @@ function MetricWrapper() {
 
     /* Creo mi data para renderizar correctamente */
     let metricList = [
-        { icon: "fa-guitar", name: "Producto", total: products },
+        { icon: "fa-guitar", name: "Productos", total: products },
         { icon: "fa-users", name: "Usuarios", total: users },
         { icon: "fa-puzzle-piece", name: "Categorias", total: categories },
         { icon: "fa-percentage", name: "Campañas", total: campaigns }
@@ -67,7 +67,7 @@ function MetricWrapper() {
             {/* <!-- Seccion --> */}
             <section>
 
-                <h3>Metricas</h3>
+                <h3>Métricas</h3>
                 <hr />
                 <div className="container-metricas">
                     {metricList.map((item, i) => <Metric key={i} {...item} />)}

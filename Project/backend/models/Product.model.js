@@ -103,20 +103,20 @@ const Product = {
 		});
 	},
 
-	joinAllCategoryCampaign: async function () {
+	joinAllCategoryCampaignOrder: async function () {
 		return await db.Product.findAll({
-			include: [{ association: "category" }, { association: "campaign" }]
+			include: [{ association: "category" }, { association: "campaign" }, { association: "orders" }]
 		});
 	},
 
 	// Está medio raro pero funciona, toma los atributos que quiere.
 	countByProduct: async function () {
 		return await db.Product.findAll({
-		//attributes: ['id_product', 'category.id_category'],		// De esta forma toma solo estos campos.
-		group: ['category.id_category'],
-		attributes: ['category.id_category', [sequelize.fn('COUNT', 'id_product'), 'productCount']],
-		include: [{ association: "category" }]
-	  });
+			//attributes: ['id_product', 'category.id_category'],		// De esta forma toma solo estos campos.
+			group: ['category.id_category'],
+			attributes: ['category.id_category', [sequelize.fn('COUNT', 'id_product'), 'productCount']],
+			include: [{ association: "category" }]
+		});
 	}
 }
 

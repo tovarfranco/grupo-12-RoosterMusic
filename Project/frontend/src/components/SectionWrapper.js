@@ -11,8 +11,10 @@ import ProductAvailabilityWrapper from './ProductAvailabilityWrapper';
 import UserListWrapper from './UserListWrapper';
 import UserCountryWrapper from './UsersCountryWrapper';
 import CategoryProductWrapper from './CategoryProductWrapper';
+import CategoryProductChartWrapper from './CategoryProductChartWrapper';
 import CampaignProductWrapper from './CampaignProductWrapper';
 import Search from './Search';
+import OrderChartWrapper from './OrderChartWrapper';
 
 function SectionWrapper() {                                        // Usamos Link para redireccionar a la ruta que queramos. Básicamente cambia la ruta en el navegador. Ahora con un Switch + Route podemos elegir qué renderizar leyendo esta ruta del navegador.
     return (
@@ -25,6 +27,7 @@ function SectionWrapper() {                                        // Usamos Lin
                         <>
                             <Titulo titulo={"Tablero General"} />
                             <MetricWrapper />
+                            <OrderChartWrapper />
                             <LastModifiedWrapper />
                             <CategoryWrapper />
                             <CampaignWrapper />
@@ -48,6 +51,7 @@ function SectionWrapper() {                                        // Usamos Lin
                         <>
                             <Titulo titulo={"Seccion Categorias"} />
                             <CategoryProductWrapper />
+                            <CategoryProductChartWrapper />
                             <CategoryWrapper />
                         </>
                     } />

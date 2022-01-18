@@ -13,7 +13,7 @@ const apiProductController = {
     index: async (req, res) => {
 
         /* Información de productos */
-        let productList = await Product.joinAllCategoryCampaign();
+        let productList = await Product.joinAllCategoryCampaignOrder();
 
         /* Modifico la información de Sequelize */
         productList.forEach(product => {
