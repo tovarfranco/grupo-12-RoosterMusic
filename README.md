@@ -1,8 +1,8 @@
 # Rooster Music 
 
-<img src="images/Logo.JPG" width="400">
+<p align="center"><img src="images/Logo.JPG" width="400"></p>
 
-## About us
+## About us 📖
 
 We are a digital company from Argentina hosted in US and focused on changing the experience when looking for new music equipments to buy.
 <br>Our objetive is to provide our clients with the best musical products and the most comfortable and trusted paid methods of the industry.
@@ -11,21 +11,21 @@ We are a digital company from Argentina hosted in US and focused on changing the
 Once you are in, you will never look back.
 We hope you enjoy this experience.
 
-## The team
+## The team 🧑‍💻
 
-<p> <img src="images/Alan.jpeg" width="100" align = "left"> </p>
+<p><img src="images/Alan.jpeg" width="100" align="left"></p>
 <p>My name is Alan Tovar and I am 28 years old. I live in Quilmes, Buenos Aires, Argentina. I have more than 4 years in IT industry and nowdays I work as a back-end developer in Hexacta Software Factory. I study Electronic Engineer. I have played the drums for about 10 years and also passionate for the bass.</p> 
 <br>
 
-<p> <img src="images/Franco.jpeg" width="100" align = "left"> </p>
-<p>I am Franco Tovar and I am 25 years old. I am from Entre Rios, Argentina but nowdays I live in Quilmes, Buenos Aires, Argentina. I work as a Data Engineer in Hexacta Software Factory and study Electronic Engineer. I love playing the guitar, the piano and also singing. </p> 
+<p><img src="images/Franco.jpeg" width="100" align="left"></p>
+<p>I am Franco Tovar and I am 25 years old. I am from Entre Rios, Argentina but nowdays I live in Quilmes, Buenos Aires, Argentina. I work as a Data Engineer in Hexacta Software Factory and study Electronic Engineer. I love playing the guitar, the piano and also singing.</p> 
 <br>
 
-<p> <img src="images/Nazareno.jpeg" width="100" align = "left"> </p>
-<p>I am Cristan Nazareno Agüero and I am 18 years old. I am studying Full Stack Development. I love programming, playing football and video games. I live in Mar del Plata, Buenos Aires, Argentina. </p> 
+<p><img src="images/Nazareno.jpeg" width="100" align="left"></p>
+<p>I am Cristan Nazareno Agüero and I am 18 years old. I am studying Full Stack Development. I love programming, playing football and video games. I live in Mar del Plata, Buenos Aires, Argentina.</p> 
 <br>
 
-## References
+## References 🔗
 
 - https://www.greymusic.com.ar/
 - https://www.baires.rocks/
@@ -33,12 +33,28 @@ We hope you enjoy this experience.
 - https://www.blackmusic.com.ar/
 - https://www.mercadolibre.com.ar/
 
-We choose Gray Music and Baires Rocks webpages because of their implementation of formats and styles. These two pages have a high reputation in the industry of Music, so we found interesting to take a look at them.
+We choose Grey Music and Baires Rocks webpages because of their implementation of formats and styles. These two pages have a high reputation in the industry of Music, so we found interesting to take a look at them.
 We select Black Music and Mercado Libre due to their paid methods and user experience when looking for differents products. We believe we can adapt our page and offer a similar experience.
 
-## Jira Board
+## Jira Board 📋
 
 https://rooster-music.atlassian.net/jira/software/projects/RM/boards/1/backlog
+
+## Installation 🔧
+
+The project is divided in two parts: 
+* frontend: where we have the dashboard, React project running local in port 3001.
+* backend: where we have the main website, using NodeJS - Express, running local in port 3000.
+
+See the corresponding folders and follow the instruction there to set up the project.  
+However, it is highly recommended to download this entire repository to have all the functionalities developed.
+
+## Production 🔗
+
+* Website: https://roostermusic.net/ (backend project)
+* Dashboard: https://dashboard.roostermusic.net/ (frontend project, read frontend README.md for more information)
+
+*Note: these are the current websites. The domain could change or expire. Hosted in AWS.*
 
 # Rooster Music Library
 
@@ -100,12 +116,9 @@ You should branch from **dev**, and your branch name should follow this rule **<
 9. After you finish your feature you must submit a merge request pointing to **dev** branch:
    > Note: You will specify the reviewers that will approve this merge.
 
-
-
 # Deploy in AWS
 
-<img src="images/diagram.png" >
-
+<img src="images/diagram.png">
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

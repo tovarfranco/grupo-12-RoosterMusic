@@ -1,3 +1,47 @@
+# Grupo 12
+## DigitalHouse - Fullstack
+
+This readme describes the usage of this project and all the requirements to run it.
+
+#  React App
+
+Here you will find the steps to run this React project.
+
+### Installation 🔧
+
+Follow this steps:
+
+1. Download the backend project beforehand as it contains the necessary APIs (read backend README.md for more information) 
+2. Download or clone this project (entire repository) to your local disk.
+3. Move to this folder (Project/frontend).
+4. Open the command prompt (cmd, bash or VSC). For development you can open the folder in VSC with cmd or bash using: ```code .``` 
+5. Install the dependencies running this command:
+    ```npm install```
+
+### Run 🎮
+7. To start the aplication run: ```npm start``` (will ask you to use another port as backend project is using port 3000)
+8. Go to the webrowser and enjoy (uses port **3001**):
+    - http://localhost:3001/ (index page)
+9. You can use the {user: admin@hotmail.com, password: admin123} to use the website as a valid user.
+10. To stop the execution, use: ```Ctrl + C```
+
+*Note: frontend project uses port 3001 as 3000 is used by this backend project.*
+
+### Production 🔗
+
+* Website: https://roostermusic.net/ (backend project, read backend README.md for more information)
+* Dashboard: https://dashboard.roostermusic.net/ (frontend project)
+
+*Note: these are the current websites. The domain could change or expire. Hosted in AWS.*
+
+## Author ✒️
+
+* **Rooster Music** - *Creator* - [rooster-music-git](https://github.com/tovarfranco/grupo-12-RoosterMusic)
+
+---
+
+### ***React README.md (generated automatically when app is created):***
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
