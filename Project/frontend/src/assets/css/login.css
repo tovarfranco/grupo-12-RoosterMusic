@@ -1,0 +1,149 @@
+/* FORMULARIO-----------------------------------*/
+
+.container-login {
+    min-height: 100vh;              /*Importante así ocupa toda la pantalla*/
+    width: 100vw;
+    /* background-color: #000000; */
+    background: url("../images/background-dark2.jpg") no-repeat center fixed;
+    background-size: cover;
+    padding: 5%;
+}
+
+.logo-about {
+    width: 300px;    /*Está ok para mobile*/
+    margin: 4% auto;
+    opacity: 0.9;
+}
+
+.logo-about img {
+    object-fit: cover;      /*Sin esta propiedad queda estirada la imagen*/
+    border-radius: 10px;     /*Para que sea redonda*/
+    cursor: default;
+}
+
+@media (min-width: 768px){
+    .logo-about {
+        width: 300px;       /*Lo agrandamos un poquito*/
+    }
+}
+
+@media (min-width: 1200px){
+    .logo-about {
+        width: 400px;       /*Lo agrandamos un poquito*/
+    }
+}
+
+.formulario {
+    /* background-color: white; */
+    color: rgb(255, 255, 255);
+    padding: 4%;              /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    padding-top: 1%;          /*Quito el padding superior*, queda mal*/
+    margin: 5% auto;          /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    max-width: 500px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+    text-align: center;        /*Centro sus elementos*/
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+}
+
+.elemento {
+    margin: 5% 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 1%;
+    text-align: left;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.control-login {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 5px;
+    width: 100%;           /*Para que el input abarque todo el ancho*/
+    padding: 10px 10px;
+}
+
+.psw {                     /*Solo para juntar el password con el ojo*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.control-psw {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    width: 82%;                /*Para que el input NO abarque todo el ancho- deja espacio para el ojo*/
+    padding: 10px 10px;
+    margin: 0px;
+}
+
+.ojo-icono {                 /*Son los inputs*/
+    background-color: #ebebeb;
+    color: grey;
+    border: none;
+    border-radius: 0px 5px 5px 0px; 
+    width: 18%;              /*Ancho del ojo compartido con el input*/
+    padding: 10px 10px;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.mantener {
+    text-align: left;      /*Así el checkbox queda a la izquierda*/
+    margin: 5% 0;
+}
+
+.mantener input {
+    margin-right: 8px;     /*Para separar el checkbox*/
+}
+
+.boton-iniciar-sesion-formulario {
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    width: 115px;          /*Para que tengan el mismo tamaño*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-iniciar-sesion-formulario:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+@media (min-width: 900px){
+
+    .formulario {
+        max-width: 700px;
+    }
+
+    .inputs-2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .elemento{
+        margin: 2% 0;       /*Le saco un poco de margen a los inputs*/
+        width: 49%;         /*Para que todos sean iguales*/
+    }
+
+    .mantener {
+        margin: 2% 0;      /*Le saco un poco de margen al mantener sesión iniciada*/
+    }
+}
+
+@media (min-width: 1200px){
+
+    .formulario {
+        padding: 2%;
+    }
+}

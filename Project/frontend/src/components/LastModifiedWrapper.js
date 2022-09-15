@@ -55,11 +55,11 @@ function LastModifiedWrapper() {
                 <div className="container-modificaciones">
 
                     <div className="grupo-modificaciones">
-                        {productList.map((item, i) => <LastModifiedProduct key={i} {...item} description={`U$S ${item.price}`} folder={"products"} />)}
+                        {productList.map((item, i) => <LastModifiedProduct key={i} {...item} description={`U$S ${item.price}`} />)}
                     </div>
 
                     <div className="grupo-modificaciones">
-                        {userList.map((item, i) => <LastModifiedUser key={i} {...item} description={item.country} folder={"users"} />)}
+                        {userList.map((item, i) => <LastModifiedUser key={i} {...item} description={item.country} />)}
                     </div>
 
                 </div>

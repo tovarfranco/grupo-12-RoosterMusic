@@ -100,9 +100,15 @@ const Order = {
 			include: [{ association: "product" },],
 			order: [['last_modified', 'DESC'],]
 		});
+	},
+
+	joinAllProductUser: async function (id_status) {
+		return await db.Order.findAll({
+			where: { id_status: id_status },
+			include: [{ association: "product", include: [{association: "category"}] }, { association: "user" }],	// Importante ejemplo de nested INCLUDE (traigo campos tercer tabla).
+			order: [['last_modified', 'ASC'],]
+		});
 	}
-
-
 }
 
 // =========== Exporto Modelo =========================
