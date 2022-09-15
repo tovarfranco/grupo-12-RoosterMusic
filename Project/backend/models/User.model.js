@@ -4,7 +4,7 @@ const path = require('path');                                                   
 
 const db = require('../database/models');										 // Elemento de sequelize que tiene todos los modelos.
 const Op = db.Sequelize.Op;														 // Para poder usar operadores.
-const sequelize = require('sequelize')										     // Para algunos operadores especiales.
+const sequelize = require('sequelize')										     // Igual se encuentra en db.Sequelize (el index lo exporta en db.Sequelize).							     // Para algunos operadores especiales.
 
 // =========== Modelo =================================
 const User = {
