@@ -12,7 +12,7 @@ function Search(props) {
     useEffect(() => {                                                                                        // Recibe un callback y un array de dependencias. El "DidMount" recibe SIEMPRE un array vacío, indicando que no mira ninguna dependencia/variable de seguimiento.
         console.log('%cSe montó el componente - DidMount', 'color: green');
         fetch('/api/products/search?keyword=bajo')                                                           // Obtención de datos.
-            .then(response => response.json())
+            .then(response => response.json())                                                               // Convierte la respuesta plana json a objeto verdadero.
             .then(data => {
                 setProducts(data.data)
             })
@@ -39,7 +39,7 @@ function Search(props) {
         setNombre(busqueda.current.value);														             // IMPORTANTE! este valor cambiará en la próxima renderización. NO DENTRO DE ESTA FUNCION. Igualmente no lo usamospara nada.
 
         fetch(`/api/products/search?keyword=${busqueda.current.value}`)		                                 // Debe usar este valor actual. Nombre no sirve porque en la próxima renderización cambiará su valor.
-            .then(response => response.json())
+            .then(response => response.json())                                                               // Convierte la respuesta plana json a objeto verdadero.
             .then(data => {
                 data.data.length > 0 ? setProducts(data.data) : setProducts([]);
             })
@@ -70,13 +70,13 @@ function Search(props) {
                                 products.length > 0 && nombre !== '' && products.map((product, i) => {
                                     return (
                                         <article className="articulo" key={i}>
-                                            <div className="articulo-imagen"><img src={`http://localhost:3000/images/products/${product.image}`} alt="producto" /></div>
+                                            <div className="articulo-imagen"><img src={product.image} alt="producto" /></div>
                                             <hr />
                                             <div className="articulo-descripcion">
                                                 <h3 className="texto-titulo-articulo">{product.brand}</h3>
                                                 <h4 className="texto-descripcion-articulo">{product.name}</h4>
                                                 <h3 className="texto-precio-articulo">U$S {product.price}</h3>
-                                                <a className="a-sitio" href={`http://localhost:3000/products/detail/${product.id_product}`} target="_blank" rel="noreferrer">Ir al sitio</a>
+                                                <a className="a-sitio" href={product.url_site} target="_blank" rel="noreferrer">Ir al sitio</a>
                                             </div>
                                         </article>
                                     )

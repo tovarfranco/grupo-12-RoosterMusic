@@ -15,8 +15,8 @@
 ### More of:
 - Communication among the team.
 - Estimate the right time for each new feature.
-- Be up to date with the creation of DB structures/schemas.
-- Continue learning SQL for advanced queries.
+- Be up to date with React front-end frameworks.
+- Continue learning React and advanced features.
 
 ### Less of:
 - ...

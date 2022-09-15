@@ -28,7 +28,7 @@ h4 {font-size: 1rem}
 
 p {font-size: 1rem;}
 
-img {width: 100%;}  /*Para que ocupen el 100% de su contenedor*/
+img {width: 100%;}                      /*Para que ocupen el 100% de su contenedor*/
 
 td a {
     text-decoration: none;
@@ -52,7 +52,7 @@ td img {
 .sidebar {
     background-color: black;
     color: white;
-    padding: 20px;   /*Para que los elementos internos no esten pegados al borde*/
+    padding: 20px;                      /*Para que los elementos internos no esten pegados al borde*/
 }
 
 .sidebar a {
@@ -73,19 +73,19 @@ td img {
 }
 
 .logo {
-    width: 100px;    /*Está ok para mobile*/
+    width: 100px;                       /*Está ok para mobile*/
     margin: 0 auto;
 }
 
 @media (min-width: 768px){
     .logo {
-        width: 150px;       /*Lo agrandamos un poquito*/
+        width: 150px;                   /*Lo agrandamos un poquito*/
     }
 }
 
 @media (min-width: 1200px){
     .logo {
-        width: 200px;       /*Lo agrandamos un poquito*/
+        width: 200px;                   /*Lo agrandamos un poquito*/
     }
 }
 
@@ -94,11 +94,11 @@ td img {
 header {
     background-color: #3966F5;
     color: white;
-    padding: 5px;   /*Para que los elementos internos no esten pegados al borde*/
-    width: 100%;     /*Con fixed pierde su tamaño */
-    /*position: fixed; /*Recordar que sale del flujo normal del HTML y queda flotando pero la siguiente caja ocupa su lugar, así que hay que arreglarlo. Vamos a modificar el margin-top de .banner-promocion*/
-    /*top: 0;          /*fixed usa el viewport para su posición, debemos indicarle que quede arriba*/
-    /*z-index: 10;     /*Es necesario, sino otros elementos posicionados pasarán por arriba de este*/
+    padding: 5px;                       /*Para que los elementos internos no esten pegados al borde*/
+    width: 100%;                        /*Con fixed pierde su tamaño */
+    /*position: fixed;                  /*Recordar que sale del flujo normal del HTML y queda flotando pero la siguiente caja ocupa su lugar, así que hay que arreglarlo. Vamos a modificar el margin-top de .banner-promocion*/
+    /*top: 0;                           /*fixed usa el viewport para su posición, debemos indicarle que quede arriba*/
+    /*z-index: 10;                      /*Es necesario, sino otros elementos posicionados pasarán por arriba de este*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -110,12 +110,12 @@ header {
     background-color: #3966F5;
     border: solid 1px white;
     color: white;
-    display: block;     /*Hará que el fondo del botón (azul) ocupe todo el ancho, así que le ponemos un width. SUPER importante poner block porque me permite configurarle estas opciones.*/
-    max-width: 40px;    /*Para que el fondo del botón no sea gigante. */
+    display: block;                     /*Hará que el fondo del botón (azul) ocupe todo el ancho, así que le ponemos un width. SUPER importante poner block porque me permite configurarle estas opciones.*/
+    max-width: 40px;                    /*Para que el fondo del botón no sea gigante. */
     padding: 9px 9px;
     border-radius: 8px;
-    text-align: center; /*Centra el ícono */
-    font-size: 15px;    /*Tamaño del icono*/
+    text-align: center;                 /*Centra el ícono */
+    font-size: 15px;                    /*Tamaño del icono*/
     margin: auto 1%;
 }
 
@@ -124,15 +124,52 @@ header {
     text-align: right;
 }
 
+.sesion {                               /*Container de los botones*/
+    margin: auto 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sesion button {                        /*Características comunes de los botones*/
+    border: solid white 1px;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 0 15px;
+    width: 115px;                       /*Para que tengan el mismo tamaño*/
+    display: none;
+}
+
+.sesion img {           
+    display: block;                     /*Para no mostrar la imagen de usuario (si se logueó) en resoluciones bajas*/
+    width: 45px; 
+    height: 45px; 
+    object-fit: cover; 
+    border-radius: 50%;
+}
+
+.boton-usuario {                        /*Característica particular del botón*/
+    background-color: #3966F5;
+    color: white;
+    cursor: default;
+}
+
+@media (min-width: 768px){
+    .sesion button {
+        display: block;
+    }
+}
+
 /* Footer -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 footer {
     background-color: #3966F5;
     color: white;
     padding: 2px;
-    text-align: center; /*Este centra todo*/
-    position: sticky;   /*Para tener el footer siempre abajo*/
-    top: 100%;          /*Para tener el footer siempre abajo*/
+    text-align: center;                 /*Este centra todo*/
+    position: sticky;                   /*Para tener el footer siempre abajo*/
+    top: 100%;                          /*Para tener el footer siempre abajo*/
 }
 
 .copyright {
@@ -147,27 +184,27 @@ footer {
 main {
     width: 100%;
     margin: auto;
-    min-height: 100vh;      /*Para pegar el footer siempre abajo*/
+    min-height: 100vh;                  /*Para pegar el footer siempre abajo*/
 }
 
 .contenedor-secciones-tablero {
-    padding: 3% 7%;    /*Espaciado para el contenido interno-secciones*/
+    padding: 3% 7%;                     /*Espaciado para el contenido interno-secciones*/
 }
 
 @media (min-width: 768px){
     .contenedor-secciones-tablero {
-        padding: 2% 5%;    /*Espaciado para el contenido interno-secciones*/
+        padding: 2% 5%;                 /*Espaciado para el contenido interno-secciones*/
     }
 }
 
 @media (min-width: 1200px){
     .contenedor-secciones-tablero {
-        padding: 1% 3%;    /*Espaciado para el contenido interno-secciones*/
+        padding: 1% 3%;                 /*Espaciado para el contenido interno-secciones*/
     }
 }
 
 main section {
-    margin: 2% 0;   /*De base uso esto, luego en las medias queries los voy cambiando*/
+    margin: 2% 0;                       /*De base uso esto, luego en las medias queries los voy cambiando*/
 }
 
 .texto-titulo {
@@ -179,17 +216,17 @@ main section {
 .metrica {
     background-color: white;
     color: black;
-    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
-    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    padding: 4%;                        /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;                    /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
     box-shadow: 0px 0px 10px rgb(100,100,100);
-    transition: all .3s;      /*Animación*/
-    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    transition: all .3s;                /*Animación*/
+    max-width: 400px;                   /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
     cursor: default;
 }
 
 .metrica:hover {
-    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+    transform: scale(1.05);             /*Aumentamos un poco su tamaño*/
 }
 
 .texto-titulo-metrica {
@@ -209,7 +246,7 @@ main section {
 @media (min-width: 768px){
     .container-metricas {
         display: flex;
-        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        flex-wrap: wrap;                /*Respeta el tamaño y pasa a otra fila si no entra*/
         justify-content: center;
         align-items: flex-start;
     }
@@ -234,39 +271,39 @@ main section {
 .modificacion {
     background-color: white;
     color: black;
-    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
-    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    padding: 4%;                        /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;                    /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
     box-shadow: 0px 0px 10px rgb(100,100,100);
-    transition: all .3s;      /*Animación*/
-    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    transition: all .3s;                /*Animación*/
+    max-width: 400px;                   /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
     cursor: default;
 }
 
 .modificacion:hover {
-    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+    transform: scale(1.05);             /*Aumentamos un poco su tamaño*/
 }
 
 .modificacion-opciones ul {
-    list-style: none;       /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
+    list-style: none;                   /*Elimino punto de los items, así como los márgenes y padding así no hay sangría.*/
     margin: 0;
     padding: 0;
 }
 
 .modificacion-opciones li {
-    margin: 5px 0;          /*Poco de separación entre los elementos*/
+    margin: 5px 0;                      /*Poco de separación entre los elementos*/
 }
 
 .modificacion-opciones a {
-    text-decoration: none;  /*Elimino su color y estilo*/
+    text-decoration: none;              /*Elimino su color y estilo*/
     color: #3966F5;
     font-size: 1rem;
 }
 
 .modificacion-imagen img {
     width: 70px; height: 70px;
-    object-fit: cover;      /*Sin esta propiedad queda estirada la imagen*/
-    border-radius: 50%;     /*Para que sea redonda*/
+    object-fit: cover;                  /*Sin esta propiedad queda estirada la imagen*/
+    border-radius: 50%;                 /*Para que sea redonda*/
 }
 
 @media (min-width: 800px){
@@ -284,12 +321,12 @@ main section {
     }
 
     .modificacion {
-        max-width: none;          /*Sino me limita el artículo*/
-        padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
-        margin: 3% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+        max-width: none;                /*Sino me limita el artículo*/
+        padding: 4%;                    /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+        margin: 3% auto;                /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
     }
 
-    .modificacion {             /*Tendrá la imagen | articulo-info*/
+    .modificacion {                     /*Tendrá la imagen | articulo-info*/
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -297,14 +334,14 @@ main section {
     }
 
     .modificacion-imagen {
-        margin-right: 3%;   /*Para darle un poco de separación, conviene siempre darle al elemento superior, porque el otro va a caer si no entra*/
+        margin-right: 3%;               /*Para darle un poco de separación, conviene siempre darle al elemento superior, porque el otro va a caer si no entra*/
     }
 
     .modificacion-info {
-        flex-grow: 1;       /*Para que pueda ocupar el espacio disponible*/
+        flex-grow: 1;                   /*Para que pueda ocupar el espacio disponible*/
     }
 
-    .modificacion-descripcion {     /*Tendrá la texto-articulo | texto-precio*/
+    .modificacion-descripcion {         /*Tendrá la texto-articulo | texto-precio*/
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -312,7 +349,7 @@ main section {
     }
 
     .modificacion-descripcion h3 {
-        margin-top: 5px;      /*Tienen mucho margen y no queda tan centrado con la imagen*/
+        margin-top: 5px;                /*Tienen mucho margen y no queda tan centrado con la imagen*/
         font-size: 1rem;
     }
 
@@ -330,7 +367,7 @@ main section {
 
 @media (min-width: 1200px){
     .modificacion {
-        padding: 2%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+        padding: 2%;                    /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
     }
 
     .modificacion-descripcion h3 {
@@ -341,11 +378,11 @@ main section {
 /* Section: CATEGORIAS----------------------------------------------------------------------*/
 
 .boton-categoria {
-    text-align: center; /*Alineo el botón dentro del div*/
+    text-align: center;                 /*Alineo el botón dentro del div*/
 }
 
 .boton-categoria button {
-    width: 70%;               /*Fijo tamaño para que todos sean iguales*/
+    width: 70%;                         /*Fijo tamaño para que todos sean iguales*/
     background-color: #52535e;
     color: white;
     border: solid 1px black;
@@ -359,7 +396,7 @@ main section {
 @media (min-width: 768px){
     .container-boton-categorias {
         display: flex;
-        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        flex-wrap: wrap;                /*Respeta el tamaño y pasa a otra fila si no entra*/
         justify-content: center;
         align-items: center;
     }
@@ -388,9 +425,9 @@ main section {
 table {
     font-family: arial, sans-serif;
     font-size: 0.8rem;
-    border-collapse: collapse;        /*Saca la separación entre elementos (como celdas de excel separadas), así los junta*/
-    width: 90%;                       /*Separación con el borde*/
-    margin: auto;                     /*Así lo centro*/
+    border-collapse: collapse;          /*Saca la separación entre elementos (como celdas de excel separadas), así los junta*/
+    width: 90%;                         /*Separación con el borde*/
+    margin: auto;                       /*Así lo centro*/
 }
 
 @media (min-width: 1200px){
@@ -409,8 +446,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-
-@media (max-width: 1000px){         /*OJO max-width*/
+@media (max-width: 1000px){             /*OJO max-width*/
 
 	/* Force table to not be like tables anymore */
 	table, thead, tbody, th, td, tr {
@@ -435,7 +471,7 @@ tr:nth-child(even) {
 	td {
 	    /* Behave  like a "row" */
 	    /* border: none; */
-		border: 1px solid #dddddd;  /*Separador de renglones*/
+		border: 1px solid #dddddd;            /*Separador de renglones*/
 		position: relative;
 		padding-left: 50%;
 	}
@@ -485,7 +521,7 @@ tr:nth-child(even) {
     font-weight: bold;
 }
 
-.control {                 /*Son los inputs*/
+.control {                              /*Son los inputs*/
     border: 1px grey solid;
     border-radius: 5px;
     width: 100%;
@@ -494,11 +530,11 @@ tr:nth-child(even) {
     margin-bottom: 15px;
 }
 
-.boton-buscar {       /*Características comunes de los bototnes*/
+.boton-buscar {                         /*Características comunes de los bototnes*/
     border: none;
     border-radius: 15px;
     padding: 8px;
-    width: 115px;          /*Para que tengan el mismo tamaño*/
+    width: 115px;                       /*Para que tengan el mismo tamaño*/
     background-color: #3966F5;
     color: white;
     transition: all 0.4s;
@@ -513,11 +549,11 @@ tr:nth-child(even) {
 .articulo {
     background-color: white;
     color: black;
-    padding: 4%;              /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
-    margin: 5% auto;          /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    padding: 4%;                        /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
+    margin: 5% auto;                    /*Así se ve bien, cambiarlo si es necesario en resoluciones mas grandes*/
     box-shadow: 0px 0px 10px rgb(100,100,100);
-    transition: all .3s;      /*Animación*/
-    max-width: 400px;         /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    transition: all .3s;                /*Animación*/
+    max-width: 400px;                   /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
     border-radius: 2%;
     cursor: default;
 }
@@ -527,7 +563,7 @@ tr:nth-child(even) {
 }
 
 .articulo:hover {
-    transform: scale(1.05);   /*Aumentamos un poco su tamaño*/
+    transform: scale(1.05);             /*Aumentamos un poco su tamaño*/
 }
 
 .texto-titulo-articulo {
@@ -540,14 +576,14 @@ tr:nth-child(even) {
     font-size: 1.1rem;
 }
 
-.a-sitio {   /*Container de los botones*/
+.a-sitio {                              /*Container de los botones*/
     display: block;
     margin: auto;
     text-align: center;
     border: none;
     border-radius: 15px;
     padding: 8px;
-    width: 65%;              /*Para que tengan el mismo tamaño*/
+    width: 65%;                         /*Para que tengan el mismo tamaño*/
     background-color: #3966F5;
     color: white;
     transition: all 0.4s;
@@ -571,7 +607,7 @@ tr:nth-child(even) {
 @media (min-width: 768px){
     .container-articulos {
         display: flex;
-        flex-wrap: wrap;        /*Respeta el tamaño y pasa a otra fila si no entra*/
+        flex-wrap: wrap;                /*Respeta el tamaño y pasa a otra fila si no entra*/
         justify-content: flex-start;
         align-items: center;
     }
@@ -611,4 +647,160 @@ tr:nth-child(even) {
     .a-sitio {
         width: 50%;
     }
+}
+
+/* LOGIN -------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* FORMULARIO-----------------------------------*/
+
+.container-login {
+    min-height: 100vh;                  /*Importante así ocupa toda la pantalla*/
+    width: 100vw;
+                                        /* background-color: #000000; */
+    background: url("../images/background-dark2.jpg") no-repeat center fixed;
+    background-size: cover;
+    padding: 5%;
+}
+
+.logo-about {
+    width: 300px;                       /*Está ok para mobile*/
+    margin: 4% auto;
+    opacity: 0.9;
+}
+
+.logo-about img {
+    object-fit: cover;                  /*Sin esta propiedad queda estirada la imagen*/
+    border-radius: 10px;                /*Para que sea redonda*/
+    cursor: default;
+}
+
+@media (min-width: 768px){
+    .logo-about {
+        width: 300px;                   /*Lo agrandamos un poquito*/
+    }
+}
+
+@media (min-width: 1200px){
+    .logo-about {
+        width: 400px;                   /*Lo agrandamos un poquito*/
+    }
+}
+
+.formulario {
+                                        /* background-color: white; */
+    color: rgb(255, 255, 255);
+    padding: 4%;                        /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    padding-top: 1%;                    /*Quito el padding superior*, queda mal*/
+    margin: 5% auto;                    /*Así se ve bien, cambiar lo si es necesario en resoluciones mas grandes*/
+    box-shadow : 0px 0px 10px rgb(100,100,100);
+    max-width: 500px;                   /*Le doy un tamaño máximo para mobile. Como en resoluciones mas grandes no me afecta lo dejo sinó en las medias queries habrías que usar max-width: none para desabilitarlo*/
+    border-radius: 2%;
+    text-align: center;                 /*Centro sus elementos*/
+    background-color: rgba(0,0,0, 0.4);
+}
+
+.elemento {
+    margin: 5% 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 1%;
+    text-align: left;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.control-login {                        /*Son los inputs*/
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 5px;
+    width: 100%;                        /*Para que el input abarque todo el ancho*/
+    padding: 10px 10px;
+}
+
+.psw {                                  /*Solo para juntar el password con el ojo*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.control-psw {                          /*Son los inputs*/
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    width: 82%;                         /*Para que el input NO abarque todo el ancho- deja espacio para el ojo*/
+    padding: 10px 10px;
+    margin: 0px;
+}
+
+.ojo-icono {                            /*Son los inputs*/
+    background-color: #ebebeb;
+    color: grey;
+    border: none;
+    border-radius: 0px 5px 5px 0px; 
+    width: 18%;                         /*Ancho del ojo compartido con el input*/
+    padding: 10px 10px;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.mantener {
+    text-align: left;                   /*Así el checkbox queda a la izquierda*/
+    margin: 5% 0;
+}
+
+.mantener input {
+    margin-right: 8px;                  /*Para separar el checkbox*/
+}
+
+.boton-iniciar-sesion-formulario {
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    width: 115px;                       /*Para que tengan el mismo tamaño*/
+    background-color: #3966F5;
+    color: white;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.boton-iniciar-sesion-formulario:hover {
+    background-color: black;
+    box-shadow:0px 0px 0px 2px white inset;
+}
+
+@media (min-width: 900px){
+
+    .formulario {
+        max-width: 700px;
+    }
+
+    .inputs-2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .elemento{
+        margin: 2% 0;                   /*Le saco un poco de margen a los inputs*/
+        width: 49%;                     /*Para que todos sean iguales*/
+    }
+
+    .mantener {
+        margin: 2% 0;                   /*Le saco un poco de margen al mantener sesión iniciada*/
+    }
+}
+
+@media (min-width: 1200px){
+
+    .formulario {
+        padding: 2%;
+    }
+}
+
+.cerrar-sesion {
+    cursor: pointer;
 }

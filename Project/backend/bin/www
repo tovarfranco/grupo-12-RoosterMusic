@@ -1,6 +1,19 @@
-// Este archivo es el que se ejecuta para correr el servidor (start).
+// Este archivo es el que se ejecuta para correr el servidor (npm start o npm run start, son lo mismo).
 
-const app = require("../app");                                                 // Define que este es el ENTRY POINT.
-const port = process.env.PORT || 3000;                                         // Define el puerto que usará.
+const app = require("../app");                                                      // Define que este es el ENTRY POINT.
+const port = process.env.PORT || 3000;                                              // Define el puerto que usará. Vemos que usará una VARIABLE DE ENTORNO definida por/en el servidor donde se hostee y si no existe usará el 3000. Cuando se hostea la aplicación en otro servicio (como Heroku, Nodejitsu y AWS), ese host puede configurar process.env.PORT de forma independiente.
 
-app.listen(port, () => console.log('Servidor corriendo en el puerto 3000'));   // Levantamos el servidor que estará escuchando peticiones en el puerto 3000.
+app.listen(port, () => console.log('Servidor corriendo en el puerto: ' +  port));   // Levantamos el servidor que estará escuchando peticiones en el puerto asignado.
+
+
+// Autenticación BBDD
+const db = require('../database/models');
+async function testConnection() {
+	try {
+		await db.sequelize.authenticate();
+		console.log('Conexión a la BBDD exitosa');
+	} catch (error) {
+		console.error('Error de conexión a la BBDD: ', error);
+	}
+}
+testConnection();

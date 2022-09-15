@@ -5,7 +5,7 @@ function LastModifiedUser(props) {
         <React.Fragment>
             {/* <!-- Último modificado --> */}
             <article className="modificacion">
-                <div className="modificacion-imagen"><img src={`http://localhost:3000/images/${props.folder}/${props.img}`} alt="usuario" /></div>
+                <div className="modificacion-imagen"><img src={props.img} alt="usuario" /></div>
                 <div className="modificacion-info">
                     <div className="modificacion-descripcion">
                         <h3>{props.name}</h3>
@@ -13,7 +13,7 @@ function LastModifiedUser(props) {
                     </div>
                     <div className="modificacion-opciones">
                         <ul>
-                            <li><a href={`http://localhost:3000/images/${props.folder}/${props.img}`} target="_blank" rel="noreferrer">Ver foto</a></li>
+                            <li><a href={props.img} target="_blank" rel="noreferrer">Ver foto</a></li>
                         </ul>
                     </div>
                 </div>

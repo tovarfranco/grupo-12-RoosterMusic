@@ -82,14 +82,13 @@ const Product = {
 	delete: async function (id) {
 		try {
 			await db.Product.destroy({
-			where: { id_product: id }
-		});
-		return;
+				where: { id_product: id }
+			});
+			return;
 		} catch (error) {
-			console.log('Error al actualizar producto en la base de datos ' + error.message);
+			console.log('Error al borrar producto en la base de datos: ' + error.message);
 			return;
 		}
-
 	},
 
 	join: async function (id) {
@@ -104,20 +103,20 @@ const Product = {
 		});
 	},
 
-	joinAllCategoryCampaign: async function () {
+	joinAllCategoryCampaignOrder: async function () {
 		return await db.Product.findAll({
-			include: [{ association: "category" }, { association: "campaign" }]
+			include: [{ association: "category" }, { association: "campaign" }, { association: "orders" }]
 		});
 	},
 
 	// Está medio raro pero funciona, toma los atributos que quiere.
 	countByProduct: async function () {
 		return await db.Product.findAll({
-		//attributes: ['id_product', 'category.id_category'],		// De esta forma toma solo estos campos.
-		group: ['category.id_category'],
-		attributes: ['category.id_category', [sequelize.fn('COUNT', 'id_product'), 'productCount']],
-		include: [{ association: "category" }]
-	  });
+			//attributes: ['id_product', 'category.id_category'],		// De esta forma toma solo estos campos.
+			group: ['category.id_category'],
+			attributes: ['category.id_category', [sequelize.fn('COUNT', 'id_product'), 'productCount']],
+			include: [{ association: "category" }]
+		});
 	}
 }
 

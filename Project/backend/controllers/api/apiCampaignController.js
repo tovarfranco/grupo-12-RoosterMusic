@@ -7,15 +7,15 @@ const Campaign = require('../../models/Campaign.model.js');
 // =========== Controlador ============================
 const apiCampaignController = {
 
-    /*** Todas las categorias ***/
+    /*** Todas las campañas ***/
     index: async (req, res) => {
 
-        /* Información de categorias */
+        /* Información de campañas */
         let campaignList = await Campaign.joinAllProduct();
 
         /* Modifico la información de Sequelize */
         campaignList.forEach(campaign => {
-            campaign.dataValues.url = `api/campaigns/${campaign.id_campaign}`;
+            campaign.dataValues.url = `${req.protocol}://${req.get('host')}${req.originalUrl}/${campaign.id_campaign}`;
         });
 
         /* Genero respuesta */
@@ -23,7 +23,7 @@ const apiCampaignController = {
             meta: {
                 status: 200,
                 total: campaignList.length,
-                url: '/api/campaigns'
+                url: `${req.protocol}://${req.get('host')}${req.originalUrl}`
             },
             data: campaignList
         };
@@ -31,12 +31,16 @@ const apiCampaignController = {
         res.json(response);
     },
 
-    /*** Detalle de una categoria ***/
+    /*** Detalle de una campaña ***/
     detail: async (req, res) => {                                                       // ACA se pone el callback que sacamos de ROUTES. Este será el encargado de generar la respuesta.
         let campaignFound = await Campaign.findByPk(req.params.id);                     // findByPk devuelve un objeto directamente, no un array.       
 
-        /* Modifico la información de Sequelize */
-        campaignFound.dataValues.url = `/api/campaigns/${campaignFound.id_campaign}`;
+        if (campaignFound) {                                                            // Si no es nulo... (Sequelize devuelve nulo si no lo encuentra).
+            /* Modifico la información de Sequelize */
+            campaignFound.dataValues.url = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+        } else {
+            campaignFound = [];
+        };
 
         res.json(campaignFound);
     }

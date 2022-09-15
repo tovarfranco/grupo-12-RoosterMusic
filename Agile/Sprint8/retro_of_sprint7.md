@@ -15,8 +15,8 @@
 ### More of:
 - Communication among the team.
 - Estimate the right time for each new feature.
-- Be up to date with the creation of DB structures/schemas.
-- Continue learning SQL for advanced queries.
+- Be up to date with JS front-end frameworks.
+- Continue learning validation of inputs and animations with JS or other framework.
 
 ### Less of:
 - ...
